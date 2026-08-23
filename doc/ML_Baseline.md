@@ -24,4 +24,4 @@ To accurately assess generalization, we will run two distinct experiments.
 *   **Metrics:** Precision, Recall, and F1-Score[cite: 6].
 
 ## 4. Success Criteria for ML Retention
-The ML component will only be preserved if its F1-Score in **Experiment 2** demonstrates a measurable performance increase over the deterministic precision of the C++ rule-based engine[cite: 6].
+The ML component will only be preserved if evaluation demonstrates complementary or improved detection capability relative to the deterministic baseline. Precision, Recall, and F1-Score will be compared using equivalent metrics. ML may also be retained if hybrid fusion produces a measurable improvement in precision, recall, F1-Score, or useful vulnerability coverage on held-out or cross-dataset evaluation[cite: 6].

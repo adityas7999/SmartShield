@@ -4,7 +4,7 @@
 **Scope:** `tx.origin` authorization misuse (TXO-001) and basic reentrancy (REN-001)  
 **Purpose:** Define the minimum parser-independent information SmartShield must preserve after reading Solidity source. This document defines requirements, not C++ classes or a parser implementation.
 
-## 1. Why SmartShield needs an IR
+## 1. Why SmartShield needs an IR 
 
 Solidity source code is written for people. SmartShield needs a structured model that lets later modules answer security questions without repeatedly reading source text.
 

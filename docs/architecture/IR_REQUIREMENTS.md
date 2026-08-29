@@ -1,10 +1,10 @@
-# SmartShield — IR Requirements (v1)
+# SmartShield — IR Requirements (v1.1)
 
-**Status:** Sprint 0 design proposal  
+**Status:** Sprint 0 revised design proposal  
 **Scope:** `tx.origin` authorization misuse (TXO-001) and basic reentrancy (REN-001)  
 **Purpose:** Define the minimum parser-independent information SmartShield must preserve after reading Solidity source. This document defines requirements, not C++ classes or a parser implementation.
 
-## 1. Why SmartShield needs an IR 
+## 1. Why SmartShield needs an IR
 
 Solidity source code is written for people. SmartShield needs a structured model that lets later modules answer security questions without repeatedly reading source text.
 
@@ -99,11 +99,19 @@ Required information:
 
 - statement kind: condition/guard, assignment, expression statement, return, branch, loop, emit, revert, or other supported kind;
 - order within its enclosing body;
+- parent block/body and nested child blocks, where applicable;
 - enclosed expression(s), call(s), and state access(es);
 - parent function or modifier;
 - source location.
 
-The statement order is preliminary program order. The CFG module will later add path and branch information; plain source order alone is not enough for every security conclusion.
+For control structures, the IR must preserve enough structure to build the CFG without guessing:
+
+- an `if` statement identifies its predicate, `then` body, and optional `else` body;
+- a `require` or `assert` identifies its predicate and its Solidity failure behaviour: failure reverts the current path;
+- a loop is either represented with its initializer, condition, body, update, `break`, and `continue` relationships, or explicitly marked unsupported for precise CFG construction;
+- multiple security-relevant calls or expressions in one statement retain their evaluation order when the parser provides it; otherwise the order is marked unresolved.
+
+Statement order is preliminary program order. The CFG module will later add path and branch information; plain source order alone is not enough for every security conclusion.
 
 ### 3.5 Expression
 
@@ -178,9 +186,30 @@ Required information:
 - source location;
 - resolution status: resolved internal, potentially external, unknown, or unsupported.
 
-For v1, direct external interactions and low-level calls must be marked as potentially reentrant unless a supported analysis proves otherwise. The call graph should connect only resolvable internal calls; it must not pretend to fully resolve external targets.
+For v1, the IR must preserve the **call classification** separately from a detector's risk conclusion:
 
-### 3.8 ModifierApplication
+- low-level `.call` and unresolved external/interface calls are primary candidates for basic reentrancy analysis;
+- `transfer` and `send` remain explicit external value-transfer call types, but the basic REN-001 rule must not automatically report them as reentrancy solely because of their presence;
+- `delegatecall` remains unsupported/dynamic unless separately modelled.
+
+The call graph should connect only resolvable internal calls; it must not pretend to fully resolve external targets.
+
+### 3.8 Modifier
+
+Represents a locally declared Solidity modifier and its executable body.
+
+Required information:
+
+- modifier name/identity and parameters;
+- ordered modifier body statements;
+- continuation placeholder (`_`) location(s), where available;
+- parent contract;
+- source location;
+- resolution status.
+
+The continuation placeholder is needed because a modifier can execute code before the function body, then continue into the function body, and optionally execute code afterwards.
+
+### 3.9 ModifierApplication
 
 Represents a modifier attached to a function.
 
@@ -188,13 +217,13 @@ Required information:
 
 - modifier identity and arguments;
 - attached function;
-- modifier body, if locally declared and available;
+- link to the locally declared `Modifier` body when available;
 - source location;
 - resolution/expansion status.
 
 Modifiers matter because an authorization check or reentrancy guard can be written outside the function body.
 
-### 3.9 SourceLocation
+### 3.10 SourceLocation
 
 Represents where an entity originated in Solidity source.
 
@@ -213,7 +242,8 @@ The IR must make the following relationships navigable:
 
 ```text
 Contract → Function → ordered Statement → Expression / Call / StateAccess
-Function → ModifierApplication → Modifier
+Statement → nested child block(s), where applicable
+Function → ModifierApplication → Modifier → ordered modifier statements + `_` continuation location(s)
 StateAccess → StateVariable + optional storage key/index
 Call → target expression + optional internal callee
 Expression → child expressions and referenced variable, where available
@@ -228,11 +258,13 @@ Each entity should have a stable internal identifier so later CFG, call-graph, d
 | Identify `tx.origin` | `Expression` kind for built-in value and resolved built-in identity |
 | Understand `tx.origin == owner` | Binary expression operator and left/right operands |
 | Know whether it is a guard | `Statement` kind plus function/modifier context |
+| Determine what a guard controls | Predicate plus `then`/`else` or success/failure body relationships |
 | Identify protected state or sensitive effect | `StateAccess`, `Call`, and source locations |
 | Identify an external interaction | `Call` classification, target, arguments, value sent, resolution status |
 | Identify state read/write | `StateAccess` action, state variable, and mapping key/index |
 | Compare storage references | Expression structure for paths such as `balances[msg.sender]` |
 | Preserve preliminary ordering | Ordered statements within function or modifier body |
+| Preserve safe expression/call order | Evaluation order for multiple security-relevant operations, or explicit unresolved status |
 | Support later path reasoning | Stable statement/expression identifiers for CFG nodes and edges |
 | Support internal call reasoning | Function identity and resolved internal-call reference |
 | Report actionable findings | `SourceLocation`, contract context, and function context |
@@ -246,7 +278,8 @@ The IR must record, rather than conceal, cases that v1 cannot resolve. Relevant 
 - unsupported `delegatecall` or proxy behavior;
 - unresolved inheritance, library, or modifier behavior;
 - storage relation/key equivalence not determined;
-- parser information unavailable.
+- parser information unavailable;
+- branch, loop, modifier-continuation, or subexpression-order information unavailable.
 
 A detector must use these records to lower confidence or include an analysis limitation. It must not treat unresolved code as safe.
 
@@ -256,18 +289,21 @@ The first implementation should support:
 
 - direct `tx.origin` use in `require`, `assert`, `if`, and locally declared modifiers;
 - direct same-function reentrancy patterns where a potentially external call occurs before a write to the same state variable or supported mapping entry;
+- branch-aware reachability for supported `require`, `assert`, and `if` structures;
 - source locations for the condition, call, and state access;
 - classification of unsupported cross-function, proxy, `delegatecall`, and unresolved dynamic-call cases.
 
 It may later expand to internal helper calls, cross-function reentrancy, richer modifier handling, and more precise data-flow analysis.
 
-## 8. Open decisions for graph and implementation work
+## 8. Resolved graph feedback and remaining implementation decisions
+
+The graph design has resolved the required IR structure for branches, guard failure, modifier continuation, and call classification. The following decisions remain implementation-specific:
 
 1. Which Solidity parser/AST source will produce the initial IR?
-2. What exact CFG node and edge model will represent branches, loops, returns, and modifier execution?
-3. How will locally declared modifiers be expanded or linked to function CFGs?
+2. What exact CFG node and edge model will represent the now-required branch, loop, return, and modifier information?
+3. How will the CFG compose linked modifier flow with a function body at the `_` continuation?
 4. What equivalence rule will v1 use for mapping keys such as `balances[msg.sender]`?
-5. Which call forms are considered potentially reentrant in the first detector?
+5. Which low-level and unresolved external call forms will REN-001 treat as potential reentrancy candidates?
 6. What source-location information is reliably provided by the chosen parser?
 
 ## 9. Review requirements
@@ -277,4 +313,3 @@ This proposal requires review by:
 - Ayush, to confirm detector evidence needs are preserved;
 - Parit, to confirm the IR exposes enough information for CFG and call-graph design;
 - the implementation owner, to verify that the selected parser can provide these fields.
-

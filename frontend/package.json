@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "test": "vitest run"
+    "test": "vitest run",
+    "test:e2e": "SMARTSHIELD_LIVE_API=1 vitest run src/App.live.test.jsx"
   },
   "dependencies": {
     "@vitejs/plugin-react": "6.1.1",

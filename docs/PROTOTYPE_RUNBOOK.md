@@ -96,6 +96,9 @@ ctest --test-dir build/core --output-on-failure
 # React result, safe-state, and error-state tests.
 npm test --prefix frontend
 
+# Optional live UI-to-API integration check (run while the API is active).
+npm run test:e2e --prefix frontend
+
 # Production frontend build.
 npm run build --prefix frontend
 ```

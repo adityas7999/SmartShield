@@ -1,0 +1,9 @@
+{
+  "name": "smartshield-solc-toolchain",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Pinned Solidity compiler for SmartShield v0.1",
+  "dependencies": {
+    "solc": "0.8.20"
+  }
+}

@@ -28,3 +28,10 @@ Evidence & Severity
 Remediation Recommendation
       ↓
 Security Report
+```
+
+## Working v0.1 prototype
+
+The repository now includes an executable TXO-001 vertical slice: a React workbench calls a FastAPI endpoint, FastAPI obtains an official Solidity AST, and the C++20 analyzer reports evidence-backed potential findings.
+
+See [`docs/PROTOTYPE_RUNBOOK.md`](docs/PROTOTYPE_RUNBOOK.md) for setup, run, test, and limitation details.

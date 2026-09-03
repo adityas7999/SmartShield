@@ -78,7 +78,11 @@ function CodeEditor({ source, onChange, fileName, highlightLine }) {
         <span>{lineCount} lines</span>
       </div>
       <div className="editor-body">
-        <pre className="line-gutter" aria-hidden="true">{Array.from({ length: lineCount }, (_, index) => index + 1).join('\n')}</pre>
+        <div className="line-gutter" aria-hidden="true">
+          <pre style={{ transform: `translateY(-${scrollTop}px)` }}>
+            {Array.from({ length: lineCount }, (_, index) => index + 1).join('\n')}
+          </pre>
+        </div>
         {highlightTop !== null && highlightTop > -24 && (
           <div className="source-line-highlight" style={{ top: `${highlightTop}px` }} aria-hidden="true" />
         )}

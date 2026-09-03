@@ -186,7 +186,7 @@ std::string function_display_name(const json& function) {
 }
 
 void collect_guard_facts(const json& node,
-                         const json& function_body,
+                         const json& enclosing_block,
                          const std::string& contract_name,
                          const std::string& function_name,
                          const std::string& source,
@@ -219,7 +219,7 @@ void collect_guard_facts(const json& node,
       condition = &(*arguments)[0];
       statement_type = expression->value("name", "guard");
       const auto guard_range = parse_source_range(node);
-      sensitive_effect = find_sensitive_effect(function_body, guard_range.offset + guard_range.length);
+      sensitive_effect = find_sensitive_effect(enclosing_block, guard_range.offset + guard_range.length);
     }
   }
 
@@ -237,8 +237,9 @@ void collect_guard_facts(const json& node,
     return;
   }
 
+  const json& child_scope = node_type == "Block" ? node : enclosing_block;
   visit_children(node, [&](const json& child) {
-    collect_guard_facts(child, function_body, contract_name, function_name, source,
+    collect_guard_facts(child, child_scope, contract_name, function_name, source,
                         file_name, facts);
   });
 }

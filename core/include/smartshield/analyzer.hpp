@@ -6,16 +6,9 @@
 #include <vector>
 
 #include <nlohmann/json.hpp>
+#include "smartshield/ir.hpp"
 
 namespace smartshield {
-
-struct SourceLocation {
-  std::string file;
-  int line{1};
-  int column{1};
-  std::size_t offset{0};
-  std::size_t length{0};
-};
 
 struct GuardFact {
   std::string statement_type;

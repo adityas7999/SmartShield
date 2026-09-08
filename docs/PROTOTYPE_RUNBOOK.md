@@ -121,10 +121,30 @@ export SMARTSHIELD_ANALYZER_BIN=/absolute/path/to/smartshield-analyzer
 
 - Only `TXO-001` is implemented.
 - Only direct `require`, `assert`, and `if` authorization comparisons containing `tx.origin` are inspected.
-- Higher confidence currently requires a directly guarded same-function `transfer`, `send`, low-level call, `delegatecall`, or self-destruct effect.
+- Higher confidence uses a syntactic same-function `transfer`, `send`, low-level `call{value: ...}`, or `selfdestruct` effect. Straight-line scanning stops at a branch, nested block, exit, or unsupported statement; it is not a reachability proof. `delegatecall` is preserved in the IR but does not by itself raise TXO-001 confidence.
 - Modifiers, internal-call propagation, inheritance resolution, proxies, complete CFG/Call Graph construction, and formal exploitability proofs are deferred.
 - No finding means only that this detector did not match; it does not mean the contract is secure.
 - Reentrancy, ML, automated remediation, persistence, authentication, wallet integration, and blockchain deployment are not part of this prototype.
+
+## Reusable IR handoff
+
+The analyzer now builds a parser-independent C++ IR before running TXO-001.
+See [IR implementation and handoff](architecture/IR_IMPLEMENTATION.md) for the
+public types, supported syntax, explicit gaps, and instructions for Parit.
+
+Install the pinned compiler before configuring CMake so the real-AST IR tests
+are registered:
+
+```bash
+npm ci --prefix backend/solc
+cmake -S core -B build/core
+cmake --build build/core
+ctest --test-dir build/core --output-on-failure
+```
+
+CTest includes `smartshield-core-tests` and `smartshield-ir-fixtures`. If Node or
+the compiler package is missing, CMake warns that fixture tests are unavailable;
+install them and reconfigure before treating verification as complete.
 
 ## Error contract
 

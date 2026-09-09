@@ -1,9 +1,13 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-/// @custom-vulnerability reentrancy
-/// @custom-expected benign
-/// @custom-location balance decrement precedes external call
+// @custom-id REN-SAF-01
+// @custom-vulnerability reentrancy
+// @custom-expected benign
+// @custom-location line 17
+// @custom-reasoning State variable balances[msg.sender] is decremented before the external call, strictly satisfying the Checks-Effects-Interactions pattern.
+// @custom-reference Solidity Patterns / Checks-Effects-Interactions
+// @custom-reviewer Aayush
 contract ChecksEffectsVault {
     mapping(address => uint256) public balances;
 

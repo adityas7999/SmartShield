@@ -8,7 +8,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "test": "vitest run",
-    "test:e2e": "SMARTSHIELD_LIVE_API=1 vitest run src/App.live.test.jsx"
+    "test:e2e": "cross-env SMARTSHIELD_LIVE_API=1 vitest run src/App.live.test.jsx"
   },
   "dependencies": {
     "@vitejs/plugin-react": "6.1.1",
@@ -20,6 +20,7 @@
   "devDependencies": {
     "@testing-library/jest-dom": "7.0.1",
     "@testing-library/react": "16.3.3",
+    "cross-env": "10.0.0",
     "jsdom": "30.0.1",
     "vitest": "5.0.0"
   }

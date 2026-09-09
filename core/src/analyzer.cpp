@@ -1,268 +1,89 @@
 #include "smartshield/analyzer.hpp"
-
-#include <algorithm>
-#include <sstream>
-#include <stdexcept>
-#include <string_view>
+#include "smartshield/ir_builder.hpp"
 
 namespace smartshield {
 namespace {
-
 using json = nlohmann::json;
 
-struct SourceRange {
-  std::size_t offset{0};
-  std::size_t length{0};
-};
-
-SourceRange parse_source_range(const json& node) {
-  if (!node.contains("src") || !node["src"].is_string()) {
-    return {};
-  }
-
-  const std::string src = node["src"].get<std::string>();
-  const auto first = src.find(':');
-  const auto second = first == std::string::npos ? std::string::npos : src.find(':', first + 1);
-  if (first == std::string::npos || second == std::string::npos) {
-    return {};
-  }
-
-  try {
-    return {
-        static_cast<std::size_t>(std::stoull(src.substr(0, first))),
-        static_cast<std::size_t>(std::stoull(src.substr(first + 1, second - first - 1))),
-    };
-  } catch (const std::exception&) {
-    return {};
-  }
+const Expression* find_expression(const Expression& e, IrId id) {
+  if (e.id == id) return &e;
+  for (const auto& child : e.children)
+    if (const auto* found = find_expression(child, id)) return found;
+  return nullptr;
 }
 
-SourceLocation location_for(const json& node,
-                            const std::string& source,
-                            const std::string& file_name) {
-  const auto range = parse_source_range(node);
-  const auto safe_offset = std::min(range.offset, source.size());
-  const auto last_newline = source.rfind('\n', safe_offset == 0 ? 0 : safe_offset - 1);
-
-  SourceLocation location;
-  location.file = file_name;
-  location.offset = safe_offset;
-  location.length = std::min(range.length, source.size() - safe_offset);
-  location.line = static_cast<int>(std::count(source.begin(), source.begin() + safe_offset, '\n')) + 1;
-  location.column = last_newline == std::string::npos
-                        ? static_cast<int>(safe_offset) + 1
-                        : static_cast<int>(safe_offset - last_newline);
-  return location;
+const Expression* find_origin(const Expression& e) {
+  if (e.kind == ExpressionKind::builtin && e.name == "tx.origin") return &e;
+  for (const auto& child : e.children)
+    if (const auto* found = find_origin(child)) return found;
+  return nullptr;
 }
 
-std::string source_text(const json& node, const std::string& source) {
-  const auto range = parse_source_range(node);
-  if (range.offset >= source.size()) {
-    return {};
-  }
-  return source.substr(range.offset, std::min(range.length, source.size() - range.offset));
+bool authorization_comparison(const Expression& e) {
+  if (e.kind == ExpressionKind::binary && (e.op == "==" || e.op == "!=") && find_origin(e))
+    return true;
+  for (const auto& child : e.children)
+    if (authorization_comparison(child)) return true;
+  return false;
 }
 
-bool is_ast_node(const json& value) {
-  return value.is_object() && value.contains("nodeType") && value["nodeType"].is_string();
+bool flow_boundary(const Statement& s) {
+  return s.kind == StatementKind::return_statement ||
+         s.kind == StatementKind::revert_statement ||
+         s.kind == StatementKind::unsupported ||
+         s.kind == StatementKind::branch || s.kind == StatementKind::block;
 }
 
-template <typename Visitor>
-void visit_children(const json& node, Visitor&& visitor) {
-  if (!node.is_object()) {
-    return;
-  }
-  for (auto it = node.begin(); it != node.end(); ++it) {
-    const auto& value = it.value();
-    if (is_ast_node(value)) {
-      visitor(value);
-    } else if (value.is_array()) {
-      for (const auto& child : value) {
-        if (is_ast_node(child)) {
-          visitor(child);
-        }
-      }
-    }
-  }
-}
-
-bool is_tx_origin(const json& node) {
-  if (node.value("nodeType", "") != "MemberAccess" || node.value("memberName", "") != "origin") {
-    return false;
-  }
-  const auto expression = node.find("expression");
-  return expression != node.end() && expression->is_object() &&
-         expression->value("nodeType", "") == "Identifier" &&
-         expression->value("name", "") == "tx";
-}
-
-const json* find_tx_origin(const json& node) {
-  if (is_tx_origin(node)) {
-    return &node;
-  }
-
-  const json* match = nullptr;
-  visit_children(node, [&](const json& child) {
-    if (match == nullptr) {
-      match = find_tx_origin(child);
-    }
-  });
-  return match;
-}
-
-bool is_authorization_comparison(const json& condition) {
-  bool found = false;
-  if (condition.value("nodeType", "") == "BinaryOperation") {
-    const auto op = condition.value("operator", "");
-    if ((op == "==" || op == "!=") && find_tx_origin(condition) != nullptr) {
-      return true;
-    }
-  }
-  visit_children(condition, [&](const json& child) {
-    if (!found) {
-      found = is_authorization_comparison(child);
-    }
-  });
-  return found;
-}
-
-std::optional<std::string> sensitive_call_kind(const json& node) {
-  if (node.value("nodeType", "") != "FunctionCall") {
-    return std::nullopt;
-  }
-
-  const auto expression_it = node.find("expression");
-  if (expression_it == node.end() || !expression_it->is_object()) {
-    return std::nullopt;
-  }
-
-  const json* expression = &(*expression_it);
-  if (expression->value("nodeType", "") == "FunctionCallOptions") {
-    const auto nested = expression->find("expression");
-    if (nested != expression->end() && nested->is_object()) {
-      expression = &(*nested);
-    }
-  }
-
-  if (expression->value("nodeType", "") == "MemberAccess") {
-    const auto member = expression->value("memberName", "");
-    if (member == "transfer" || member == "send" || member == "call" ||
-        member == "delegatecall") {
-      return member;
-    }
-  }
-
-  const auto name = expression->value("name", "");
-  if (name == "selfdestruct" || name == "suicide") {
-    return name;
+std::optional<std::string> sensitive_effect(const Statement& s) {
+  for (const auto& call : s.calls) {
+    if (call.kind == CallKind::transfer || call.kind == CallKind::send)
+      return call.name;
+    if (call.kind == CallKind::low_level && call.value) return ".call{value: ...}";
+    if (call.kind == CallKind::builtin && call.name == "selfdestruct") return call.name;
   }
   return std::nullopt;
 }
 
-std::optional<std::string> find_sensitive_effect(const json& node,
-                                                 std::size_t after_offset = 0) {
-  const auto range = parse_source_range(node);
-  if (range.offset >= after_offset) {
-    if (const auto call = sensitive_call_kind(node); call.has_value()) {
-      return call;
-    }
+// Only inspect a straight-line suffix. Branches, exits and unknown flow stop the scan.
+// This is a structural confidence heuristic, not a CFG or a reachability proof.
+std::optional<std::string> following_effect(const std::vector<Statement>& statements,
+                                           std::size_t first) {
+  for (std::size_t i = first; i < statements.size(); ++i) {
+    if (flow_boundary(statements[i])) break;
+    if (auto effect = sensitive_effect(statements[i])) return effect;
   }
-
-  std::optional<std::string> match;
-  visit_children(node, [&](const json& child) {
-    if (!match.has_value()) {
-      match = find_sensitive_effect(child, after_offset);
-    }
-  });
-  return match;
+  return std::nullopt;
 }
 
-std::string function_display_name(const json& function) {
-  const auto name = function.value("name", "");
-  if (!name.empty()) {
-    return name;
-  }
-  return function.value("kind", "function");
-}
-
-void collect_guard_facts(const json& node,
-                         const json& enclosing_block,
-                         const std::string& contract_name,
-                         const std::string& function_name,
-                         const std::string& source,
-                         const std::string& file_name,
-                         std::vector<GuardFact>& facts) {
-  const auto node_type = node.value("nodeType", "");
-  const json* condition = nullptr;
-  std::string statement_type;
-  std::optional<std::string> sensitive_effect;
-
-  if (node_type == "IfStatement") {
-    const auto it = node.find("condition");
-    if (it != node.end() && it->is_object()) {
-      condition = &(*it);
-      statement_type = "if";
-      const auto true_body = node.find("trueBody");
-      if (true_body != node.end() && true_body->is_object()) {
-        sensitive_effect = find_sensitive_effect(*true_body);
+void collect_guards(const Statement& s, const Contract& contract, const Function& function,
+                    std::optional<std::string> following, std::vector<GuardFact>& facts) {
+  if (s.predicate != no_id) {
+    const Expression* condition = nullptr;
+    for (const auto& expression : s.expressions)
+      if (const auto* found = find_expression(expression, s.predicate)) condition = found;
+    if (condition && authorization_comparison(*condition)) {
+      auto effect = following;
+      std::string kind = s.kind == StatementKind::assert_guard ? "assert" : "require";
+      if (s.kind == StatementKind::branch) {
+        kind = "if";
+        effect = std::nullopt;
+        if (!s.then_body.empty()) {
+          const auto& body = s.then_body.front();
+          effect = body.kind == StatementKind::block
+                       ? following_effect(body.statements, 0) : sensitive_effect(body);
+        }
       }
-    }
-  } else if (node_type == "FunctionCall") {
-    const auto expression = node.find("expression");
-    const auto arguments = node.find("arguments");
-    if (expression != node.end() && expression->is_object() &&
-        expression->value("nodeType", "") == "Identifier" &&
-        (expression->value("name", "") == "require" ||
-         expression->value("name", "") == "assert") &&
-        arguments != node.end() && arguments->is_array() && !arguments->empty() &&
-        (*arguments)[0].is_object()) {
-      condition = &(*arguments)[0];
-      statement_type = expression->value("name", "guard");
-      const auto guard_range = parse_source_range(node);
-      sensitive_effect = find_sensitive_effect(enclosing_block, guard_range.offset + guard_range.length);
+      facts.push_back({kind, condition->text, contract.name, function.name,
+                       find_origin(*condition)->location, effect});
     }
   }
-
-  if (condition != nullptr && find_tx_origin(*condition) != nullptr &&
-      is_authorization_comparison(*condition)) {
-    const auto* origin = find_tx_origin(*condition);
-    facts.push_back({
-        statement_type,
-        source_text(*condition, source),
-        contract_name,
-        function_name,
-        location_for(*origin, source, file_name),
-        sensitive_effect,
-    });
-    return;
-  }
-
-  const json& child_scope = node_type == "Block" ? node : enclosing_block;
-  visit_children(node, [&](const json& child) {
-    collect_guard_facts(child, child_scope, contract_name, function_name, source,
-                        file_name, facts);
-  });
-}
-
-void collect_function_facts(const json& node,
-                            const std::string& contract_name,
-                            const std::string& source,
-                            const std::string& file_name,
-                            std::vector<GuardFact>& facts,
-                            int& function_count) {
-  if (node.value("nodeType", "") == "FunctionDefinition") {
-    ++function_count;
-    const auto body = node.find("body");
-    if (body != node.end() && body->is_object()) {
-      collect_guard_facts(*body, *body, contract_name, function_display_name(node), source,
-                          file_name, facts);
-    }
-    return;
-  }
-
-  visit_children(node, [&](const json& child) {
-    collect_function_facts(child, contract_name, source, file_name, facts, function_count);
-  });
+  for (std::size_t i = 0; i < s.statements.size(); ++i)
+    collect_guards(s.statements[i], contract, function,
+                   following_effect(s.statements, i + 1), facts);
+  for (const auto& child : s.then_body)
+    collect_guards(child, contract, function, std::nullopt, facts);
+  for (const auto& child : s.else_body)
+    collect_guards(child, contract, function, std::nullopt, facts);
 }
 
 json location_json(const SourceLocation& location) {
@@ -270,6 +91,7 @@ json location_json(const SourceLocation& location) {
       {"file", location.file},
       {"line", location.line},
       {"column", location.column},
+      {"available", location.available},
   };
 }
 
@@ -279,10 +101,12 @@ json finding_json(const GuardFact& fact) {
       "Authorization condition contains tx.origin",
       fact.statement_type + " condition directly compares tx.origin",
   };
-  std::vector<std::string> limitations;
+  std::vector<std::string> limitations{
+      "Potential vulnerability only. Call classification and guard/effect association are syntactic; "
+      "reachability, condition truth values, and exploitability are not proven."};
 
   if (high_confidence) {
-    evidence.push_back("Guard controls a value transfer via " + *fact.sensitive_effect);
+    evidence.push_back("A syntactically guarded value-transfer call appears via " + *fact.sensitive_effect);
   } else {
     limitations.push_back(
         "No directly guarded sensitive effect was resolved in the same function; "
@@ -299,7 +123,7 @@ json finding_json(const GuardFact& fact) {
       {"function", fact.function_name},
       {"explanation",
        high_confidence
-           ? "tx.origin is used in an authorization guard that controls a sensitive value transfer."
+           ? "tx.origin is used in an authorization-like guard associated with a potential value transfer."
            : "tx.origin is used in an authorization-like guard; no directly guarded sensitive effect was resolved."},
       {"evidence", evidence},
       {"limitations", limitations},
@@ -320,34 +144,14 @@ json finding_json(const GuardFact& fact) {
 nlohmann::json Analyzer::analyze(const nlohmann::json& compiler_output,
                                  const std::string& source,
                                  const std::string& file_name) const {
-  const auto sources = compiler_output.find("sources");
-  if (sources == compiler_output.end() || !sources->is_object() || sources->empty()) {
-    throw std::runtime_error("Compiler output does not contain a sources object");
-  }
-
-  auto source_entry = sources->find(file_name);
-  if (source_entry == sources->end()) {
-    source_entry = sources->begin();
-  }
-  if (!source_entry->is_object() || !source_entry->contains("ast")) {
-    throw std::runtime_error("Compiler output does not contain a source AST");
-  }
-
-  const auto& ast = (*source_entry)["ast"];
+  const auto program = build_ir(compiler_output, source, file_name);
   std::vector<GuardFact> facts;
-  int contract_count = 0;
-  int function_count = 0;
-
-  const auto nodes = ast.find("nodes");
-  if (nodes != ast.end() && nodes->is_array()) {
-    for (const auto& node : *nodes) {
-      if (node.value("nodeType", "") != "ContractDefinition") {
-        continue;
-      }
-      ++contract_count;
-      collect_function_facts(node, node.value("name", "<anonymous>"), source, file_name,
-                             facts, function_count);
-    }
+  const auto contract_count = program.contracts.size();
+  std::size_t function_count = 0;
+  for (const auto& contract : program.contracts) {
+    function_count += contract.functions.size();
+    for (const auto& function : contract.functions)
+      if (function.body) collect_guards(*function.body, contract, function, std::nullopt, facts);
   }
 
   json findings = json::array();
@@ -357,8 +161,11 @@ nlohmann::json Analyzer::analyze(const nlohmann::json& compiler_output,
 
   std::vector<std::string> analysis_limitations{
       "v0.1 analyzes direct require, assert, and if guards within one function.",
+      "The solc parsing-only AST is not type-checked; declaration links are lexical and member-call kinds are syntactic.",
       "Modifiers, internal-call propagation, proxies, and full CFG/call-graph analysis are deferred.",
   };
+  for (const auto& limitation : program.limitations)
+    analysis_limitations.push_back(limitation.message);
   if (findings.empty()) {
     analysis_limitations.push_back(
         "No TXO-001 finding does not prove that the contract is secure.");

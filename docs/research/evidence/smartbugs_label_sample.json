@@ -1,0 +1,78 @@
+[
+  {
+    "name": "FibonacciBalance.sol",
+    "path": "dataset/access_control/FibonacciBalance.sol",
+    "pragma": "0.4.22",
+    "source": "https://github.com/sigp/solidity-security-blog",
+    "vulnerabilities": [
+      {
+        "lines": [
+          31
+        ],
+        "category": "access_control"
+      },
+      {
+        "lines": [
+          38
+        ],
+        "category": "access_control"
+      }
+    ]
+  },
+  {
+    "name": "arbitrary_location_write_simple.sol",
+    "path": "dataset/access_control/arbitrary_location_write_simple.sol",
+    "pragma": "0.4.25",
+    "source": "https://smartcontractsecurity.github.io/SWC-registry/docs/SWC-124#arbitrary-location-write-simplesol",
+    "vulnerabilities": [
+      {
+        "lines": [
+          27
+        ],
+        "category": "access_control"
+      }
+    ]
+  },
+  {
+    "name": "incorrect_constructor_name1.sol",
+    "path": "dataset/access_control/incorrect_constructor_name1.sol",
+    "pragma": "0.4.24",
+    "source": "https://github.com/trailofbits/not-so-smart-contracts/blob/master/wrong_constructor_name/incorrect_constructor.sol",
+    "vulnerabilities": [
+      {
+        "lines": [
+          20
+        ],
+        "category": "access_control"
+      }
+    ]
+  },
+  {
+    "name": "incorrect_constructor_name2.sol",
+    "path": "dataset/access_control/incorrect_constructor_name2.sol",
+    "pragma": "0.4.24",
+    "source": "https://smartcontractsecurity.github.io/SWC-registry/docs/SWC-118#incorrect-constructor-name1sol",
+    "vulnerabilities": [
+      {
+        "lines": [
+          18
+        ],
+        "category": "access_control"
+      }
+    ]
+  },
+  {
+    "name": "incorrect_constructor_name3.sol",
+    "path": "dataset/access_control/incorrect_constructor_name3.sol",
+    "pragma": "0.4.24",
+    "source": "https://smartcontractsecurity.github.io/SWC-registry/docs/SWC-118#incorrect-constructor-name2sol",
+    "vulnerabilities": [
+      {
+        "lines": [
+          17
+        ],
+        "category": "access_control"
+      }
+    ]
+  }
+]

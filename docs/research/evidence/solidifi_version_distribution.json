@@ -1,0 +1,9 @@
+{
+  "0.5.x_explicit": 41,
+  "0.4.x_to_0.6.x_range_compiled_under_0.5": 9,
+  "total_0.5.x": 50,
+  "<=0.4.x_exclusive": 0,
+  "0.6.x-0.7.x": 0,
+  ">=0.8.0": 0,
+  "total_contracts": 50
+}

@@ -1,0 +1,9 @@
+bug_type,injected_bug_count,affected_contracts,verification_source
+Overflow-Underflow,1333,50,BugLog_1.csv to BugLog_50.csv
+Re-entrancy,1343,50,BugLog_1.csv to BugLog_50.csv
+TOD,1336,50,BugLog_1.csv to BugLog_50.csv
+Timestamp-Dependency,1381,50,BugLog_1.csv to BugLog_50.csv
+Unchecked-Send,1266,50,BugLog_1.csv to BugLog_50.csv
+Unhandled-Exceptions,1374,50,BugLog_1.csv to BugLog_50.csv
+tx.origin,1296,50,BugLog_1.csv to BugLog_50.csv
+TOTAL,9329,50,"Sum of all 350 BugLog files (9,369 cited in ISSTA 2020)"

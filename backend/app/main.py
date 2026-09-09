@@ -16,6 +16,7 @@ from pydantic import BaseModel, Field, field_validator
 REPOSITORY_ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_ANALYZER = REPOSITORY_ROOT / "build" / "core" / "smartshield-analyzer"
 LOCAL_SOLCJS = REPOSITORY_ROOT / "backend" / "solc" / "node_modules" / ".bin" / "solcjs"
+LOCAL_SOLC_SCRIPT = REPOSITORY_ROOT / "backend" / "solc" / "node_modules" / "solc" / "solc.js"
 ALLOWED_FIXTURES = {
     "vulnerable": REPOSITORY_ROOT / "tests" / "contracts" / "vulnerable" / "TxOriginWallet.sol",
     "safe": REPOSITORY_ROOT / "tests" / "contracts" / "benign" / "MsgSenderWallet.sol",
@@ -65,12 +66,18 @@ def _error(status_code: int, code: str, message: str, **extra: Any) -> HTTPExcep
     return HTTPException(status_code=status_code, detail={"code": code, "message": message, **extra})
 
 
-def _resolve_solc() -> str:
+def _resolve_solc() -> list[str]:
     configured = os.getenv("SMARTSHIELD_SOLC_BIN")
-    candidates = [configured, shutil.which("solc"), str(LOCAL_SOLCJS) if LOCAL_SOLCJS.exists() else None]
+    candidates = [configured, shutil.which("solc")]
     for candidate in candidates:
         if candidate and Path(candidate).is_file() and os.access(candidate, os.X_OK):
-            return candidate
+            return [candidate]
+    if LOCAL_SOLC_SCRIPT.is_file():
+        node = shutil.which("node")
+        if node:
+            return [node, str(LOCAL_SOLC_SCRIPT)]
+    if LOCAL_SOLCJS.is_file() and os.access(LOCAL_SOLCJS, os.X_OK):
+        return [str(LOCAL_SOLCJS)]
     raise _error(
         503,
         "solc_unavailable",
@@ -122,7 +129,7 @@ def _compile_source(source: str, file_name: str) -> dict[str, Any]:
     }
     try:
         completed = subprocess.run(
-            [_resolve_solc(), "--standard-json"],
+            [*_resolve_solc(), "--standard-json"],
             input=json.dumps(standard_input),
             text=True,
             capture_output=True,

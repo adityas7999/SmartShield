@@ -1,13 +1,13 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-// @custom-id REN-VAR-01
-// @custom-vulnerability reentrancy
-// @custom-expected vulnerable
-// @custom-location line 28
-// @custom-reasoning withdrawAll() triggers an external call to msg.sender before zeroing user balance. The recipient can reenter via transferTo(), which reads the unzeroed balance to double-spend.
-// @custom-reference SWC-107 / Cross-Function Reentrancy
-// @custom-reviewer Aayush
+/// @custom-id REN-VAR-01
+/// @custom-vulnerability reentrancy
+/// @custom-expected vulnerable
+/// @custom-location line 28
+/// @custom-reasoning withdrawAll() triggers an external call to msg.sender before zeroing user balance. The recipient can reenter via transferTo(), which reads the unzeroed balance to double-spend.
+/// @custom-reference SWC-107 / Cross-Function Reentrancy
+/// @custom-reviewer Aayush
 contract ReentrantMultiFunction {
     mapping(address => uint256) public userBalances;
 
@@ -31,3 +31,4 @@ contract ReentrantMultiFunction {
         userBalances[recipient] += amount;
     }
 }
+

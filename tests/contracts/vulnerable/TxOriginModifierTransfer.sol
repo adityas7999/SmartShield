@@ -1,13 +1,13 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-// @custom-id TXO-VAR-01
-// @custom-vulnerability tx-origin-authorization
-// @custom-expected vulnerable
-// @custom-location line 23
-// @custom-reasoning Authorization logic is encapsulated in onlyOriginOwner modifier comparing tx.origin to owner. Guard controls sensitive state mutations (transferOwnership) and balance drainage.
-// @custom-reference SWC-115 / ConsenSys Best Practices
-// @custom-reviewer Aditya
+/// @custom-id TXO-VAR-01
+/// @custom-vulnerability tx-origin-authorization
+/// @custom-expected vulnerable
+/// @custom-location line 23
+/// @custom-reasoning Authorization logic is encapsulated in onlyOriginOwner modifier comparing tx.origin to owner. Guard controls sensitive state mutations (transferOwnership) and balance drainage.
+/// @custom-reference SWC-115 / ConsenSys Best Practices
+/// @custom-reviewer Aditya
 contract TxOriginModifierTransfer {
     address public owner;
 
@@ -34,3 +34,4 @@ contract TxOriginModifierTransfer {
 
     receive() external payable {}
 }
+

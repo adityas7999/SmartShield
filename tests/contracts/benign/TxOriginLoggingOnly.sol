@@ -1,13 +1,13 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-// @custom-id TXO-NEG-01
-// @custom-vulnerability tx-origin-authorization
-// @custom-expected benign
-// @custom-location line 26
-// @custom-reasoning tx.origin is utilized for audit logging and anti-bot verification (tx.origin == msg.sender), but actual privilege authorization is strictly gated by msg.sender == owner.
-// @custom-reference ConsenSys Best Practices
-// @custom-reviewer Aditya
+/// @custom-id TXO-NEG-01
+/// @custom-vulnerability tx-origin-authorization
+/// @custom-expected benign
+/// @custom-location line 26
+/// @custom-reasoning tx.origin is utilized for audit logging and anti-bot verification (tx.origin == msg.sender), but actual privilege authorization is strictly gated by msg.sender == owner.
+/// @custom-reference ConsenSys Best Practices
+/// @custom-reviewer Aditya
 contract TxOriginLoggingOnly {
     address public owner;
 
@@ -27,3 +27,4 @@ contract TxOriginLoggingOnly {
 
     receive() external payable {}
 }
+

@@ -36,29 +36,53 @@ const Expression* find_expression(const Statement& statement, IrId id) {
   return nullptr;
 }
 
-std::string key_text(const Statement& statement, IrId id, bool& resolved) {
-  const auto* key = find_expression(statement, id);
-  if (!key || !key->location.available || key->text.empty()) {
-    resolved = false;
-    return {};
+enum class StorageRelation { same, different, unresolved };
+
+StorageRelation expression_relation(const Expression* before, const Expression* after) {
+  if (!before || !after) return StorageRelation::unresolved;
+  if (before->kind == ExpressionKind::call || before->kind == ExpressionKind::call_options ||
+      before->kind == ExpressionKind::unknown || after->kind == ExpressionKind::call ||
+      after->kind == ExpressionKind::call_options || after->kind == ExpressionKind::unknown ||
+      before->resolution == Resolution::unresolved || after->resolution == Resolution::unresolved)
+    return StorageRelation::unresolved;
+  if (before->kind != after->kind) return StorageRelation::different;
+  switch (before->kind) {
+    case ExpressionKind::literal:
+      return before->name == after->name ? StorageRelation::same : StorageRelation::different;
+    case ExpressionKind::builtin:
+      return before->name == after->name ? StorageRelation::same : StorageRelation::different;
+    case ExpressionKind::identifier:
+      if (before->variable == no_id || after->variable == no_id)
+        return StorageRelation::unresolved;
+      return before->variable == after->variable ? StorageRelation::same : StorageRelation::different;
+    default:
+      break;
   }
-  return key->text;
+  if (before->name != after->name || before->op != after->op ||
+      before->children.size() != after->children.size())
+    return StorageRelation::different;
+  StorageRelation result = StorageRelation::same;
+  for (std::size_t index = 0; index < before->children.size(); ++index) {
+    const auto child = expression_relation(&before->children[index], &after->children[index]);
+    if (child == StorageRelation::different) return child;
+    if (child == StorageRelation::unresolved) result = child;
+  }
+  return result;
 }
 
-bool same_storage(const StateAccess& before, const StateAccess& after,
-                  const Statement& before_statement,
-                  const Statement& after_statement, bool& resolved) {
-  if (before.variable != after.variable || before.keys.size() != after.keys.size()) return false;
+StorageRelation storage_relation(const StateAccess& before, const StateAccess& after,
+                                 const Statement& before_statement,
+                                 const Statement& after_statement) {
+  if (before.variable != after.variable || before.keys.size() != after.keys.size())
+    return StorageRelation::different;
+  StorageRelation result = StorageRelation::same;
   for (std::size_t index = 0; index < before.keys.size(); ++index) {
-    const auto before_key = key_text(before_statement, before.keys[index], resolved);
-    const auto after_key = key_text(after_statement, after.keys[index], resolved);
-    if (!resolved) return false;
-    if (before_key != after_key) {
-      resolved = false;
-      return false;
-    }
+    const auto relation = expression_relation(find_expression(before_statement, before.keys[index]),
+                                              find_expression(after_statement, after.keys[index]));
+    if (relation == StorageRelation::different) return relation;
+    if (relation == StorageRelation::unresolved) result = relation;
   }
-  return true;
+  return result;
 }
 
 bool external_interaction(const Call& call) {
@@ -75,22 +99,32 @@ bool external_interaction(const Call& call) {
   }
 }
 
-void flatten(const Statement& statement, std::vector<const Statement*>& result,
-             bool& unsupported_control_flow) {
-  if (statement.kind == StatementKind::block) {
-    for (const auto& child : statement.statements) flatten(child, result, unsupported_control_flow);
+void direct_sequences(const Statement& body, std::vector<std::vector<const Statement*>>& sequences,
+                      std::vector<std::string>& limitations) {
+  if (body.kind != StatementKind::block) {
+    limitations.push_back("Function body is not a directly ordered block; REN-001 was not evaluated.");
     return;
   }
-  if (statement.kind == StatementKind::branch) {
-    unsupported_control_flow = true;
-    return;
+  std::vector<const Statement*> current;
+  for (const auto& child : body.statements) {
+    const bool boundary = child.kind == StatementKind::branch || child.kind == StatementKind::block ||
+                          child.kind == StatementKind::return_statement ||
+                          child.kind == StatementKind::revert_statement ||
+                          child.kind == StatementKind::unsupported;
+    if (boundary) {
+      if (!current.empty()) sequences.push_back(std::move(current));
+      current.clear();
+      limitations.push_back("Control-flow boundaries are unresolved; REN-001 does not claim a path across this statement.");
+      continue;
+    }
+    current.push_back(&child);
   }
-  result.push_back(&statement);
+  if (!current.empty()) sequences.push_back(std::move(current));
 }
 
 json finding(const Contract& contract, const Function& function,
              const StateAccess& before, const Call& call, const StateAccess& after,
-             bool unresolved_key, bool has_modifier) {
+             bool unresolved_key, bool has_modifier, bool unknown_order, bool unknown_call) {
   std::vector<std::string> limitations{
       "Potential vulnerability only; exploitability is not proven.",
       "CFG facts are unavailable in this branch, so this direct result uses only a straight-line IR body.",
@@ -100,33 +134,38 @@ json finding(const Contract& contract, const Function& function,
   if (has_modifier)
     limitations.push_back("Function modifiers are unresolved; an effective reentrancy guard was not proven.");
 
-  json evidence = json::array({
-      {{"kind", "state-read"},
-       {"description", "A state location is read or checked before the external interaction."},
-       {"location", location_json(before.location)}},
-      {{"kind", "external-interaction"},
-       {"description", "Control may leave the contract through an external interaction."},
-       {"location", location_json(call.location)}},
-      {{"kind", "state-write"},
-       {"description", "The same state location is written after the external interaction."},
-       {"location", location_json(after.location)}},
+  const std::vector<std::string> evidence{
+      "State location is read before the external interaction.",
+      "Control may leave the contract through an external interaction.",
+      "The same state location is written after the external interaction.",
+  };
+  json evidence_details = json::array({
+      {{"kind", "state-read"}, {"description", evidence[0]}, {"location", location_json(before.location)}},
+      {{"kind", "external-interaction"}, {"description", evidence[1]}, {"location", location_json(call.location)}},
+      {{"kind", "state-write"}, {"description", evidence[2]}, {"location", location_json(after.location)}},
   });
   if (unresolved_key) {
-    evidence.push_back({{"kind", "limitation"},
-                        {"description", "Storage-key equivalence is unresolved; confidence is reduced."},
-                        {"location", location_json(after.location)}});
+    limitations.push_back("Storage-key equivalence is unresolved; confidence is reduced.");
+    evidence_details.push_back({{"kind", "limitation"},
+                                {"description", "Storage-key equivalence is unresolved; confidence is reduced."},
+                                {"location", location_json(after.location)}});
   }
+  if (unknown_order)
+    limitations.push_back("The external-call statement contains additional effects whose internal order is unresolved.");
+  if (unknown_call)
+    limitations.push_back("The external interaction is syntactically classified but its call target is unresolved.");
 
   return {
       {"detectorId", "REN-001"},
       {"vulnerabilityType", "reentrancy"},
       {"severity", "high"},
-      {"confidence", unresolved_key || has_modifier ? "medium" : "high"},
+      {"confidence", unresolved_key || has_modifier || unknown_order || unknown_call ? "medium" : "high"},
       {"location", location_json(call.location)},
       {"contract", contract.name},
       {"function", function.name},
-      {"explanation", "Potential reentrancy: a reachable direct state check precedes an external interaction and a matching state write follows it."},
+      {"explanation", "Potential reentrancy: the supported straight-line IR sequence contains a state read before an external interaction and a matching state write after it."},
       {"evidence", evidence},
+      {"evidenceDetails", evidence_details},
       {"limitations", limitations},
   };
 }
@@ -134,49 +173,55 @@ json finding(const Contract& contract, const Function& function,
 }  // namespace
 
 nlohmann::json ReentrancyDetector::detect(const Program& program) const {
+  return analyze(program).findings;
+}
+
+ReentrancyAnalysis ReentrancyDetector::analyze(const Program& program) const {
   json findings = json::array();
+  std::vector<std::string> limitations;
   for (const auto& contract : program.contracts) {
     for (const auto& function : contract.functions) {
       if (!function.body) continue;
-      std::vector<const Statement*> statements;
-      bool unsupported_control_flow = false;
-      flatten(*function.body, statements, unsupported_control_flow);
-      for (std::size_t call_index = 0; call_index < statements.size(); ++call_index) {
+      std::vector<std::vector<const Statement*>> sequences;
+      direct_sequences(*function.body, sequences, limitations);
+      if (!function.modifiers.empty())
+        limitations.push_back("Function modifiers are unresolved; REN-001 does not claim that a guard is absent.");
+      for (const auto& statements : sequences) {
+       for (std::size_t call_index = 0; call_index < statements.size(); ++call_index) {
         const auto& call_statement = *statements[call_index];
-        if (!call_statement.evaluation_order_known) continue;
         for (const auto& call : call_statement.calls) {
           if (!external_interaction(call)) continue;
+          bool candidate_found = false;
           for (std::size_t before_index = 0; before_index < call_index; ++before_index) {
             for (const auto& before : statements[before_index]->state_accesses) {
               if (before.action != AccessKind::read) continue;
               for (std::size_t after_index = call_index + 1; after_index < statements.size(); ++after_index) {
                 for (const auto& after : statements[after_index]->state_accesses) {
                   if (after.action != AccessKind::write) continue;
-                  bool keys_resolved = true;
-                  if (same_storage(before, after, *statements[before_index],
-                                   *statements[after_index], keys_resolved)) {
+                  const auto relation = storage_relation(before, after, *statements[before_index],
+                                                         *statements[after_index]);
+                  if (relation == StorageRelation::same || relation == StorageRelation::unresolved) {
                     findings.push_back(finding(contract, function, before, call, after,
-                                               !keys_resolved, !function.modifiers.empty()));
-                    goto next_function;
-                  }
-                  if (!keys_resolved && before.variable == after.variable) {
-                    findings.push_back(finding(contract, function, before, call, after,
-                                               true, !function.modifiers.empty()));
-                    goto next_function;
+                                               relation == StorageRelation::unresolved,
+                                               !function.modifiers.empty(),
+                                               !call_statement.evaluation_order_known,
+                                               call.kind == CallKind::unknown));
+                    candidate_found = true;
+                    break;
                   }
                 }
+                if (candidate_found) break;
               }
+              if (candidate_found) break;
             }
+            if (candidate_found) break;
           }
         }
+       }
       }
-      if (unsupported_control_flow) {
-        continue;
-      }
-    next_function:;
     }
   }
-  return findings;
+  return {findings, limitations};
 }
 
 }  // namespace smartshield

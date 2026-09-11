@@ -155,8 +155,9 @@ nlohmann::json Analyzer::analyze(const nlohmann::json& compiler_output,
       if (function.body) collect_guards(*function.body, contract, function, std::nullopt, facts);
   }
 
+  const auto reentrancy = ReentrancyDetector().analyze(program);
   json findings = json::array();
-  for (const auto& finding : ReentrancyDetector().detect(program)) findings.push_back(finding);
+  for (const auto& finding : reentrancy.findings) findings.push_back(finding);
   for (const auto& fact : facts) {
     findings.push_back(finding_json(fact));
   }
@@ -168,9 +169,11 @@ nlohmann::json Analyzer::analyze(const nlohmann::json& compiler_output,
   };
   for (const auto& limitation : program.limitations)
     analysis_limitations.push_back(limitation.message);
+  analysis_limitations.insert(analysis_limitations.end(), reentrancy.limitations.begin(),
+                              reentrancy.limitations.end());
   if (findings.empty()) {
     analysis_limitations.push_back(
-        "No TXO-001 finding does not prove that the contract is secure.");
+        "No implemented detector reported a finding; this does not prove that the contract is secure.");
   }
 
   return {
@@ -183,7 +186,7 @@ nlohmann::json Analyzer::analyze(const nlohmann::json& compiler_output,
            {{"id", "parsed"}, {"label", "Parsed by solc"}, {"status", "completed"}},
            {{"id", "ir"}, {"label", "IR facts extracted"}, {"status", "completed"}},
            {{"id", "rule"}, {"label", "TXO-001 checked"}, {"status", "completed"}},
-           {{"id", "reentrancy-rule"}, {"label", "REN-001 checked"}, {"status", "completed"}},
+           {{"id", "reentrancy-rule"}, {"label", "REN-001 prototype checked"}, {"status", "completed"}},
            {{"id", "result"},
             {"label", findings.empty() ? "No finding reported" : "Finding reported"},
             {"status", "completed"}},
@@ -193,6 +196,8 @@ nlohmann::json Analyzer::analyze(const nlohmann::json& compiler_output,
            {"contractsInspected", contract_count},
            {"functionsInspected", function_count},
            {"authorizationGuards", static_cast<int>(facts.size())},
+             {"txOriginFindings", static_cast<int>(facts.size())},
+             {"reentrancyFindings", static_cast<int>(reentrancy.findings.size())},
        }},
   };
 }

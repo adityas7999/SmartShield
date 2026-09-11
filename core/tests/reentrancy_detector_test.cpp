@@ -33,11 +33,13 @@ SourceLocation location(int line) {
 Expression key(smartshield::IrId id, const std::string& text) {
   Expression expression;
   expression.id = id;
-  expression.kind = ExpressionKind::identifier;
+  expression.kind = text == "dynamicKey" ? ExpressionKind::call : ExpressionKind::identifier;
   expression.name = text;
   expression.text = text;
   expression.location = location(1);
-  expression.resolution = Resolution::resolved;
+  expression.resolution = expression.kind == ExpressionKind::call
+                              ? Resolution::unresolved : Resolution::resolved;
+  expression.variable = text == "msg.sender" ? 42 : text == "recipient" ? 43 : 0;
   return expression;
 }
 
@@ -60,7 +62,8 @@ Statement state_statement(smartshield::IrId statement_id, smartshield::IrId expr
   return statement;
 }
 
-Statement call_statement(smartshield::IrId statement_id, int line) {
+Statement call_statement(smartshield::IrId statement_id, int line,
+                         CallKind kind = CallKind::low_level) {
   Statement statement;
   statement.id = statement_id;
   statement.kind = StatementKind::expression;
@@ -69,7 +72,7 @@ Statement call_statement(smartshield::IrId statement_id, int line) {
   call.id = statement_id + 100;
   call.statement = statement_id;
   call.function = 1;
-  call.kind = CallKind::low_level;
+  call.kind = kind;
   call.resolution = Resolution::syntax_only;
   call.location = location(line);
   call.name = "call";
@@ -77,11 +80,11 @@ Statement call_statement(smartshield::IrId statement_id, int line) {
   return statement;
 }
 
-Program program_with(const Statement& first, const Statement& call, const Statement& last) {
+Program program_with_statements(const std::vector<Statement>& statements) {
   Statement body;
   body.id = 10;
   body.kind = StatementKind::block;
-  body.statements = {first, call, last};
+  body.statements = statements;
 
   Function function;
   function.id = 1;
@@ -96,6 +99,10 @@ Program program_with(const Statement& first, const Statement& call, const Statem
   Program program;
   program.contracts.push_back(contract);
   return program;
+}
+
+Program program_with(const Statement& first, const Statement& call, const Statement& last) {
+  return program_with_statements({first, call, last});
 }
 
 }  // namespace
@@ -122,12 +129,42 @@ int main() {
     expect(smartshield::ReentrancyDetector().detect(unrelated_program).empty(),
            "a different state variable must not produce REN-001");
 
-    const auto unresolved = state_statement(13, 113, 114, AccessKind::write, "encodedKey", 12);
+    const auto unresolved = state_statement(13, 113, 114, AccessKind::write, "dynamicKey", 12);
     const auto unresolved_findings = smartshield::ReentrancyDetector().detect(
         program_with(read, call, unresolved));
     expect(unresolved_findings.size() == 1, "unresolved key relation should remain a potential finding");
     expect(unresolved_findings[0]["confidence"] == "medium",
            "unresolved key relation must lower confidence");
+
+    auto unknown_findings = smartshield::ReentrancyDetector().detect(
+      program_with(read, call_statement(12, 11, CallKind::unknown), write));
+    expect(unknown_findings.size() == 1 && unknown_findings[0]["confidence"] == "medium",
+         "unknown calls must not produce high-confidence findings");
+    expect(!unknown_findings[0]["limitations"].empty(),
+         "unknown calls must retain a limitation");
+
+    auto modified_program = program_with(read, call, write);
+    modified_program.contracts.front().functions.front().modifiers.push_back({
+      99, "guard", {}, location(2), Resolution::unresolved});
+    const auto modified_findings = smartshield::ReentrancyDetector().detect(modified_program);
+    expect(modified_findings[0]["confidence"] == "medium",
+         "modifiers must prevent a high-confidence guard claim");
+
+    Statement branch;
+    branch.id = 20;
+    branch.kind = StatementKind::branch;
+    const auto branch_analysis = smartshield::ReentrancyDetector().analyze(
+      program_with_statements({read, branch, call, write}));
+    expect(branch_analysis.findings.empty(), "control-flow boundaries must not create a path finding");
+    expect(!branch_analysis.limitations.empty(),
+         "control-flow boundaries must retain a pre-CFG limitation");
+
+    const auto two_findings = smartshield::ReentrancyDetector().detect(
+      program_with_statements({read, call, write,
+                   state_statement(14, 115, 116, AccessKind::read, "msg.sender", 14),
+                   call_statement(15, 15),
+                   state_statement(16, 117, 118, AccessKind::write, "msg.sender", 16)}));
+    expect(two_findings.size() == 2, "independent direct candidates must both be retained");
 
     std::cout << "SmartShield REN-001 tests passed\n";
     return 0;

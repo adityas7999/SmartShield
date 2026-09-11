@@ -1,17 +1,19 @@
 # SmartShield API Integration
 
 **API version:** v0.1  
-**Implemented detector:** `TXO-001` — potential `tx.origin` authorization misuse
+**Implemented detectors:** `TXO-001` — potential `tx.origin` authorization misuse; `REN-001` — IR-order reentrancy prototype
 
 This document explains how the React frontend, FastAPI service, Solidity
 compiler, and C++ analyzer work together. For complete installation and build
 instructions, also see [`docs/PROTOTYPE_RUNBOOK.md`](docs/PROTOTYPE_RUNBOOK.md).
 
-REN-001 uses the shared `DetectionResult` shape and preserves evidence for the
-pre-call state check, external interaction, and later matching state write.
-Unresolved storage keys, calls, and guards remain explicit limitations and
-lower confidence; they are never converted into a claim of safety. Fixture
-expectations are documented in
+REN-001 is an IR-order prototype. It preserves string evidence for the pre-call
+state check, external interaction, and later matching state write, with
+structured `evidenceDetails` alongside it. Unresolved storage keys, calls, and
+guards remain explicit limitations and lower confidence; they are never
+converted into a claim of safety. CFG reachability, branch paths, guard
+dominance, and modifier execution remain pending. Fixture expectations are
+documented in
 [`docs/REN_001_EXPECTED_RESULTS.md`](../REN_001_EXPECTED_RESULTS.md).
 
 ## 1. Integration flow
@@ -26,8 +28,8 @@ FastAPI
 solc standard JSON output
     contains the parsed Solidity AST
         ↓
-C++ SmartShield analyzer
-    builds reusable IR facts and runs TXO-001
+  C++ SmartShield analyzer
+  builds reusable IR facts and runs TXO-001 plus REN-001 prototype
         ↓
 FastAPI returns finding JSON
         ↓
@@ -163,14 +165,14 @@ Successful finding response:
 }
 ```
 
-When no direct TXO-001 pattern is found, the request still completes:
+When no implemented detector reports a pattern, the request still completes:
 
 ```json
 {
   "status": "completed",
   "findings": [],
   "analysisLimitations": [
-    "No TXO-001 finding does not prove that the contract is secure."
+    "No implemented detector reported a finding; this does not prove that the contract is secure."
   ]
 }
 ```

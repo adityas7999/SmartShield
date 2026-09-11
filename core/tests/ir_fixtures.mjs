@@ -30,16 +30,28 @@ function inspect(source) {
 const expression = (ir, id) => ir.expressions.find(e => e.id === id);
 const accessText = (ir, access) => expression(ir, access.expression).text;
 
-for (const [path, count] of [
-  ['vulnerable/TxOriginWallet.sol', 1], ['benign/MsgSenderWallet.sol', 0],
-  ['vulnerable/ReentrantVault.sol', 0], ['benign/ChecksEffectsVault.sol', 0],
+for (const [path, expectedTxo, expectedRen] of [
+  ['vulnerable/TxOriginWallet.sol', 1, 0], ['benign/MsgSenderWallet.sol', 0, 0],
+  ['vulnerable/ReentrantVault.sol', 0, 1], ['benign/ChecksEffectsVault.sol', 0, 0],
+  ['benign/UnrelatedStateVault.sol', 0, 0], ['vulnerable/DynamicKeyVault.sol', 0, 1],
 ]) {
   const source = readFileSync(new URL('../../tests/contracts/' + path, import.meta.url), 'utf8');
   const ir = inspect(source);
-  assert.equal(ir.analysis.findings.length, count, path);
-  if (count) {
-    assert.equal(ir.analysis.findings[0].confidence, 'high');
-    assert.equal(ir.analysis.findings[0].location.line, 16);
+  const byDetector = id => ir.analysis.findings.filter(finding => finding.detectorId === id);
+  assert.equal(byDetector('TXO-001').length, expectedTxo, path);
+  assert.equal(byDetector('REN-001').length, expectedRen, path);
+  if (expectedTxo) {
+    assert.equal(byDetector('TXO-001')[0].confidence, 'high');
+    assert.equal(byDetector('TXO-001')[0].location.line, 16);
+  }
+  for (const finding of byDetector('REN-001')) {
+    assert.match(finding.explanation, /Potential/);
+    assert(finding.severity && finding.confidence, path);
+    assert(finding.contract && finding.function, path);
+    assert(finding.location.available, path);
+    assert(finding.evidence.length > 0 && finding.evidence.every(item => typeof item === 'string'), path);
+    assert(finding.evidenceDetails.length > 0, path);
+    assert(finding.evidenceDetails.every(item => item.location && item.location.available), path);
   }
   if (path.includes('Vault')) {
     assert(ir.calls.some(call => call.name === 'call' && call.value !== 0), path);

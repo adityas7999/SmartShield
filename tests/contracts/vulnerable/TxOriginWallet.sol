@@ -1,10 +1,13 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-/// @custom-vulnerability tx-origin-authorization
-/// @custom-expected vulnerable
-/// @custom-location require(tx.origin == owner)
-/// @custom-reference Solidity security considerations: tx.origin should not be used for authorization
+// @custom-id TXO-DIR-01
+// @custom-vulnerability tx-origin-authorization
+// @custom-expected vulnerable
+// @custom-location line 17
+// @custom-reasoning Direct require(tx.origin == owner) authorization guard controlling ether transfer. Attacker contracts can trick owner into calling them to drain wallet.
+// @custom-reference SWC-115 / Solidity Documentation
+// @custom-reviewer Aditya
 contract TxOriginWallet {
     address public owner;
 

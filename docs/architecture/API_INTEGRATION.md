@@ -7,6 +7,13 @@ This document explains how the React frontend, FastAPI service, Solidity
 compiler, and C++ analyzer work together. For complete installation and build
 instructions, also see [`docs/PROTOTYPE_RUNBOOK.md`](docs/PROTOTYPE_RUNBOOK.md).
 
+REN-001 uses the shared `DetectionResult` shape and preserves evidence for the
+pre-call state check, external interaction, and later matching state write.
+Unresolved storage keys, calls, and guards remain explicit limitations and
+lower confidence; they are never converted into a claim of safety. Fixture
+expectations are documented in
+[`docs/REN_001_EXPECTED_RESULTS.md`](../REN_001_EXPECTED_RESULTS.md).
+
 ## 1. Integration flow
 
 ```text

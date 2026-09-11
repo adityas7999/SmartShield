@@ -23,7 +23,9 @@ Each Solidity fixture includes `@custom-*` metadata in its source:
 - Solidity version from the pragma
 - reference when applicable
 
-The four initial fixtures are deliberately small and should be manually reviewed before becoming ground truth.
+The fixture corpus includes the original positive and checks-effects cases plus an unrelated-state negative case and a dynamic-key unresolved case. All fixtures are deliberately small and should be manually reviewed before becoming ground truth.
+
+The REN-001 expectations and required evidence are documented in [docs/REN_001_EXPECTED_RESULTS.md](../docs/REN_001_EXPECTED_RESULTS.md).
 
 ## Planned checks
 

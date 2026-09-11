@@ -1,4 +1,5 @@
 #include "smartshield/analyzer.hpp"
+#include "smartshield/reentrancy_detector.hpp"
 #include "smartshield/ir_builder.hpp"
 
 namespace smartshield {
@@ -155,6 +156,7 @@ nlohmann::json Analyzer::analyze(const nlohmann::json& compiler_output,
   }
 
   json findings = json::array();
+  for (const auto& finding : ReentrancyDetector().detect(program)) findings.push_back(finding);
   for (const auto& fact : facts) {
     findings.push_back(finding_json(fact));
   }
@@ -181,6 +183,7 @@ nlohmann::json Analyzer::analyze(const nlohmann::json& compiler_output,
            {{"id", "parsed"}, {"label", "Parsed by solc"}, {"status", "completed"}},
            {{"id", "ir"}, {"label", "IR facts extracted"}, {"status", "completed"}},
            {{"id", "rule"}, {"label", "TXO-001 checked"}, {"status", "completed"}},
+           {{"id", "reentrancy-rule"}, {"label", "REN-001 checked"}, {"status", "completed"}},
            {{"id", "result"},
             {"label", findings.empty() ? "No finding reported" : "Finding reported"},
             {"status", "completed"}},

@@ -65,3 +65,38 @@ Run the plan's tests, stage only intentionally changed source/docs/workflow file
 commit, and push to this same branch. Do not force-push, commit build outputs or
 dependencies, or merge main automatically. If main has advanced, merge it into
 this branch, resolve conflicts, and repeat the affected checks before review.
+
+## Executed CI evidence
+
+[Run 34862250542](https://github.com/adityas7999/SmartShield/actions/runs/34862250542)
+tested correction commit `08c77999a8a7f08fda125732ea68fc3db818e11f` on Ubuntu
+24.04 with Node 22.23.2, Python 3.12.14 and solc
+`0.8.20+commit.a1b79de6.Emscripten.clang`.
+
+| Executed command | Actual result |
+| --- | --- |
+| `node --test scripts/corpus-manifest.test.mjs` | 13 tests passed |
+| `node scripts/validate-corpus.mjs --output build/corpus-validation.json` | 10 fixtures, 37 evidence locations, 0 failures |
+| `cmake -S core -B build/core -DCMAKE_BUILD_TYPE=Debug` and `cmake --build build/core --parallel 2` | Passed |
+| `ctest --test-dir build/core --output-on-failure` | Both suites passed |
+| `python -m pytest backend/tests -q` | 4 passed, 2 deprecation warnings |
+| `node scripts/validate-corpus.mjs --analyzer "$SMARTSHIELD_ANALYZER_BIN" --output build/corpus-observations.json` | All 10 compiled and analyzed; supported TXO assertions passed |
+| `npm test --prefix frontend` | 3 passed, 1 expected live-test skip |
+| `npm run build --prefix frontend` | Passed |
+| `node scripts/run-live-e2e.mjs` | 1 passed; real vulnerable and safe API requests returned HTTP 200 |
+
+Raw reports and logs:
+[run artifact](https://github.com/adityas7999/SmartShield/actions/runs/34862250542/artifacts/10355331274).
+
+That first run's overall status was **failure** solely at the whitespace step:
+the shallow checkout made Git treat the current commit as a root commit and
+report pre-existing whitespace throughout unrelated base documents. The follow-up
+workflow fetches history and checks the main-to-branch diff plus the latest commit.
+All functional steps above really passed; this does not imply the initial workflow
+was green. Inspect the final branch run for the corrected whitespace gate.
+
+The compiler toolchain's npm install reported two existing dependency audit
+advisories (one low, one high). Dependency upgrades are outside this corpus
+correction and were not applied automatically. Windows commands are documented,
+but this CI run verifies Linux only. Independent label review and final
+detector-quality evaluation remain pending.

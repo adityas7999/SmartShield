@@ -1,9 +1,9 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-/// @custom-vulnerability reentrancy
-/// @custom-expected vulnerable
-/// @custom-location external call before balances decrement
+// Fixture: REN-DIR-01
+// Purpose: Call before balance update; a potential ordering finding.
+
 contract ReentrantVault {
     mapping(address => uint256) public balances;
 

@@ -1,9 +1,9 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-/// @custom-vulnerability reentrancy
-/// @custom-expected benign
-/// @custom-location balance decrement precedes external call
+// Fixture: REN-SAF-01
+// Purpose: Balance update before call.
+
 contract ChecksEffectsVault {
     mapping(address => uint256) public balances;
 

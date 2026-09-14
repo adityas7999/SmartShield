@@ -1,9 +1,9 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-/// @custom-vulnerability tx-origin-authorization
-/// @custom-expected benign
-/// @custom-location require(msg.sender == owner)
+// Fixture: TXO-SAF-01
+// Purpose: Immediate-caller authorization.
+
 contract MsgSenderWallet {
     address public owner;
 

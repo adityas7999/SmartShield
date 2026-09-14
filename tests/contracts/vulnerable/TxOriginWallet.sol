@@ -1,10 +1,10 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-/// @custom-vulnerability tx-origin-authorization
-/// @custom-expected vulnerable
-/// @custom-location require(tx.origin == owner)
-/// @custom-reference Solidity security considerations: tx.origin should not be used for authorization
+// Fixture: TXO-DIR-01
+// Purpose: Direct origin-based authorization.
+
+
 contract TxOriginWallet {
     address public owner;
 

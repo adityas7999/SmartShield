@@ -1,0 +1,68 @@
+name: Evaluation corpus
+on:
+  push:
+    branches: [research/evaluation-corpus-v1, main]
+  pull_request:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  corpus-and-regressions:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    defaults:
+      run:
+        shell: bash
+    env:
+      PYTHONPATH: backend
+      SMARTSHIELD_ANALYZER_BIN: ${{ github.workspace }}/build/core/smartshield-analyzer
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install pinned dependencies
+        run: |
+          npm ci --prefix backend/solc
+          npm ci --prefix frontend
+          python -m pip install -r backend/requirements.txt
+      - name: Validate metadata and compile all fixtures
+        run: |
+          mkdir -p build
+          node --test scripts/corpus-manifest.test.mjs | tee build/corpus-metadata.log
+          node scripts/validate-corpus.mjs --output build/corpus-validation.json | tee build/corpus-compile.log
+      - name: Build and run core tests
+        run: |
+          cmake -S core -B build/core -DCMAKE_BUILD_TYPE=Debug
+          cmake --build build/core --parallel 2
+          ctest --test-dir build/core --output-on-failure | tee build/core-tests.log
+      - name: Backend regressions
+        run: python -m pytest backend/tests -q | tee build/backend-tests.log
+      - name: Record current analyzer observations
+        run: node scripts/validate-corpus.mjs --analyzer "$SMARTSHIELD_ANALYZER_BIN" --output build/corpus-observations.json | tee build/corpus-observations.log
+      - name: Frontend tests and production build
+        run: |
+          npm test --prefix frontend | tee build/frontend-tests.log
+          npm run build --prefix frontend | tee build/frontend-build.log
+      - name: Live frontend to API to analyzer test
+        run: node scripts/run-live-e2e.mjs | tee build/live-e2e.log
+      - name: Check whitespace
+        run: |
+          git diff --check origin/main...HEAD
+          git show --format= --check HEAD
+      - name: Preserve actual results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: evaluation-corpus-${{ github.sha }}
+          path: |
+            build/*.json
+            build/*.log
+            build/core/Testing/Temporary/LastTest.log
+          if-no-files-found: warn

@@ -1,13 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-/// @custom-id REN-NEG-01
-/// @custom-vulnerability reentrancy
-/// @custom-expected benign
-/// @custom-location line 33
-/// @custom-reasoning Although state mutation follows the external call, the function is protected by an explicit mutex lock (nonReentrant modifier) preventing reentrant callbacks.
-/// @custom-reference OpenZeppelin ReentrancyGuard
-/// @custom-reviewer Aayush
+// Fixture: REN-NEG-01
+// Purpose: See expected-results.json for scope and reasoning.
 contract GuardedReentrantVault {
     mapping(address => uint256) public balances;
     uint256 private _status;
@@ -37,4 +32,3 @@ contract GuardedReentrantVault {
         balances[msg.sender] -= amount;
     }
 }
-

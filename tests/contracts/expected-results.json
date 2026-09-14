@@ -1,8 +1,9 @@
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "SmartShield Evaluation Corpus Expected Results Manifest",
-  "version": "1.0.0",
-  "target_solidity_version": "^0.8.20",
+  "schema_version": "1.0.0",
+  "title": "SmartShield potential-pattern evaluation corpus",
+  "compiler_version": "0.8.20",
+  "baseline_commit": "edd7456d8563bbe31bd675ebc65e2a8513ae8aac",
+  "label_unit": "fixture_detector_pair",
   "fixtures": [
     {
       "id": "TXO-DIR-01",
@@ -11,12 +12,43 @@
       "detector_id": "TXO-001",
       "fixture_type": "direct_vulnerable",
       "expected_outcome": "finding",
-      "expected_line": 17,
-      "manual_reasoning": "Direct require(tx.origin == owner) authorization guard controlling ether transfer. If an owner interacts with a malicious contract, the attacker contract can invoke withdraw() and drain funds because tx.origin remains the legitimate owner.",
-      "reference": "SWC-115 / Solidity Security Considerations",
+      "expected_locations": [
+        {
+          "line": 16,
+          "source": "require(tx.origin == owner, \"not owner\");"
+        }
+      ],
+      "evidence_locations": [
+        {
+          "line": 16,
+          "source": "require(tx.origin == owner, \"not owner\");"
+        },
+        {
+          "line": 17,
+          "source": "recipient.transfer(amount);"
+        }
+      ],
+      "underlying_pattern": "potential_finding",
+      "baseline_support": {
+        "status": "supported",
+        "reason": "Direct guard in a function body."
+      },
+      "manual_reasoning": "The origin-based require controls a value transfer. An intermediary called by the owner can pass the identity check. This is an authorization-pattern fixture; the wallet has no ordinary payable funding entry point and no exploit execution is claimed.",
+      "references": [
+        {
+          "title": "SmartShield detector specification (potential findings)",
+          "url": "https://github.com/adityas7999/SmartShield/blob/edd7456d8563bbe31bd675ebc65e2a8513ae8aac/docs/specifications/DETECTOR_SPEC.md"
+        },
+        {
+          "title": "Solidity 0.8.20: Security considerations",
+          "url": "https://docs.soliditylang.org/en/v0.8.20/security-considerations.html#tx-origin"
+        }
+      ],
       "license": "MIT",
-      "reviewer": "Aditya",
-      "review_status": "verified"
+      "provenance": "Repository-authored synthetic fixture; external references explain concepts, not imported datasets. Existing SPDX MIT declaration retained; no third-party authorship or license clearance is certified.",
+      "review_status": "pending",
+      "reviewer": null,
+      "review_evidence": null
     },
     {
       "id": "TXO-SAF-01",
@@ -24,13 +56,39 @@
       "solidity_version": "^0.8.20",
       "detector_id": "TXO-001",
       "fixture_type": "similar_safe",
-      "expected_outcome": "no finding",
-      "expected_line": 16,
-      "manual_reasoning": "Authorization predicate strictly compares msg.sender == owner. When an intermediary contract calls withdraw(), msg.sender evaluates to the calling contract rather than the owner, correctly reverting unauthorized access.",
-      "reference": "SWC-115 Remediation Pattern",
+      "expected_outcome": "no_finding",
+      "expected_locations": [],
+      "evidence_locations": [
+        {
+          "line": 15,
+          "source": "require(msg.sender == owner, \"not owner\");"
+        },
+        {
+          "line": 16,
+          "source": "recipient.transfer(amount);"
+        }
+      ],
+      "underlying_pattern": "negative_control",
+      "baseline_support": {
+        "status": "supported",
+        "reason": "Direct msg.sender guard."
+      },
+      "manual_reasoning": "Only the immediate caller can satisfy msg.sender == owner. An intermediary does not inherit the owner's authority. No TXO-001 pattern is expected; this is not a whole-contract security certification.",
+      "references": [
+        {
+          "title": "SmartShield detector specification (potential findings)",
+          "url": "https://github.com/adityas7999/SmartShield/blob/edd7456d8563bbe31bd675ebc65e2a8513ae8aac/docs/specifications/DETECTOR_SPEC.md"
+        },
+        {
+          "title": "Solidity 0.8.20: Security considerations",
+          "url": "https://docs.soliditylang.org/en/v0.8.20/security-considerations.html#tx-origin"
+        }
+      ],
       "license": "MIT",
-      "reviewer": "Aditya",
-      "review_status": "verified"
+      "provenance": "Repository-authored synthetic fixture; external references explain concepts, not imported datasets. Existing SPDX MIT declaration retained; no third-party authorship or license clearance is certified.",
+      "review_status": "pending",
+      "reviewer": null,
+      "review_evidence": null
     },
     {
       "id": "TXO-VAR-01",
@@ -39,12 +97,47 @@
       "detector_id": "TXO-001",
       "fixture_type": "varied_vulnerable",
       "expected_outcome": "finding",
-      "expected_line": 23,
-      "manual_reasoning": "Authorization is decoupled from function bodies into an onlyOriginOwner modifier comparing tx.origin == owner. The modifier guards state mutation (transferOwnership) and ether drainage (emergencyWithdraw). Demonstrates modifier-based origin misuse.",
-      "reference": "ConsenSys Smart Contract Best Practices (Origin in Modifiers)",
+      "expected_locations": [
+        {
+          "line": 16,
+          "source": "require(tx.origin == owner, \"Caller not tx.origin owner\");"
+        }
+      ],
+      "evidence_locations": [
+        {
+          "line": 16,
+          "source": "require(tx.origin == owner, \"Caller not tx.origin owner\");"
+        },
+        {
+          "line": 23,
+          "source": "owner = newOwner;"
+        },
+        {
+          "line": 27,
+          "source": "recipient.transfer(address(this).balance);"
+        }
+      ],
+      "underlying_pattern": "potential_finding",
+      "baseline_support": {
+        "status": "unsupported",
+        "reason": "Current IR does not expand modifier bodies."
+      },
+      "manual_reasoning": "The modifier authorizes ownership changes and withdrawal using tx.origin. Ground truth remains finding even though the current IR does not expand modifier bodies. The primary location is the shared guard, with both effects listed as evidence; duplicate findings per use are not required.",
+      "references": [
+        {
+          "title": "SmartShield detector specification (potential findings)",
+          "url": "https://github.com/adityas7999/SmartShield/blob/edd7456d8563bbe31bd675ebc65e2a8513ae8aac/docs/specifications/DETECTOR_SPEC.md"
+        },
+        {
+          "title": "Solidity 0.8.20: Security considerations",
+          "url": "https://docs.soliditylang.org/en/v0.8.20/security-considerations.html#tx-origin"
+        }
+      ],
       "license": "MIT",
-      "reviewer": "Aditya",
-      "review_status": "verified"
+      "provenance": "Repository-authored synthetic fixture; external references explain concepts, not imported datasets. Existing SPDX MIT declaration retained; no third-party authorship or license clearance is certified.",
+      "review_status": "pending",
+      "reviewer": null,
+      "review_evidence": null
     },
     {
       "id": "TXO-NEG-01",
@@ -52,13 +145,43 @@
       "solidity_version": "^0.8.20",
       "detector_id": "TXO-001",
       "fixture_type": "negative_keyword",
-      "expected_outcome": "no finding",
-      "expected_line": 26,
-      "manual_reasoning": "Contains the tx.origin keyword for event logging (ActionLogged) and anti-bot verification (require(tx.origin == msg.sender)), but critical authorization is strictly guarded by require(msg.sender == owner). Demonstrates that keyword presence alone must not trigger a false positive.",
-      "reference": "EIP / Anti-Bot Transaction Logging Patterns",
+      "expected_outcome": "no_finding",
+      "expected_locations": [],
+      "evidence_locations": [
+        {
+          "line": 16,
+          "source": "require(msg.sender == owner, \"Unauthorized: msg.sender is not owner\");"
+        },
+        {
+          "line": 18,
+          "source": "emit ActionLogged(tx.origin, msg.sender, amount);"
+        },
+        {
+          "line": 19,
+          "source": "recipient.transfer(amount);"
+        }
+      ],
+      "underlying_pattern": "negative_control",
+      "baseline_support": {
+        "status": "supported",
+        "reason": "Event-only tx.origin use."
+      },
+      "manual_reasoning": "tx.origin appears only in emitted event data. The privileged transfer is guarded by msg.sender == owner. The former tx.origin == msg.sender restriction was removed to isolate telemetry from authorization logic.",
+      "references": [
+        {
+          "title": "SmartShield detector specification (potential findings)",
+          "url": "https://github.com/adityas7999/SmartShield/blob/edd7456d8563bbe31bd675ebc65e2a8513ae8aac/docs/specifications/DETECTOR_SPEC.md"
+        },
+        {
+          "title": "Solidity 0.8.20: Security considerations",
+          "url": "https://docs.soliditylang.org/en/v0.8.20/security-considerations.html#tx-origin"
+        }
+      ],
       "license": "MIT",
-      "reviewer": "Aditya",
-      "review_status": "verified"
+      "provenance": "Repository-authored synthetic fixture; external references explain concepts, not imported datasets. Existing SPDX MIT declaration retained; no third-party authorship or license clearance is certified.",
+      "review_status": "pending",
+      "reviewer": null,
+      "review_evidence": null
     },
     {
       "id": "TXO-UNS-01",
@@ -67,12 +190,42 @@
       "detector_id": "TXO-001",
       "fixture_type": "unsupported_edge_case",
       "expected_outcome": "unsupported",
-      "expected_line": 33,
-      "manual_reasoning": "Vulnerable authorization check tx.origin == owner is delegated through an internal library call (OriginAuthLib.isOriginOwner). Because Sprint 1 intra-contract CFG and Call Graph do not resolve inter-library delegatecall state, this is tracked explicitly as an analysis limitation rather than a false negative.",
-      "reference": "SmartShield Detector Specification Section 12 (Analysis Limitations)",
+      "expected_locations": [],
+      "evidence_locations": [
+        {
+          "line": 8,
+          "source": "return tx.origin == owner;"
+        },
+        {
+          "line": 21,
+          "source": "require(owner.isOriginOwner(), \"Origin check failed via library\");"
+        },
+        {
+          "line": 22,
+          "source": "recipient.transfer(amount);"
+        }
+      ],
+      "underlying_pattern": "potential_finding",
+      "baseline_support": {
+        "status": "unsupported",
+        "reason": "Internal library return-to-guard resolution is absent."
+      },
+      "manual_reasoning": "OriginAuthLib.isOriginOwner is an internal library helper used by a require guard. It contains origin-based authorization, but connecting the helper return to the protected effect requires call resolution outside the declared baseline. Internal library calls are compiled into the caller; this example is not external delegatecall dispatch.",
+      "references": [
+        {
+          "title": "SmartShield detector specification (potential findings)",
+          "url": "https://github.com/adityas7999/SmartShield/blob/edd7456d8563bbe31bd675ebc65e2a8513ae8aac/docs/specifications/DETECTOR_SPEC.md"
+        },
+        {
+          "title": "Solidity 0.8.20: Libraries",
+          "url": "https://docs.soliditylang.org/en/v0.8.20/contracts.html#libraries"
+        }
+      ],
       "license": "MIT",
-      "reviewer": "Aditya",
-      "review_status": "verified"
+      "provenance": "Repository-authored synthetic fixture; external references explain concepts, not imported datasets. Existing SPDX MIT declaration retained; no third-party authorship or license clearance is certified.",
+      "review_status": "pending",
+      "reviewer": null,
+      "review_evidence": null
     },
     {
       "id": "REN-DIR-01",
@@ -81,12 +234,47 @@
       "detector_id": "REN-001",
       "fixture_type": "direct_vulnerable",
       "expected_outcome": "finding",
-      "expected_line": 17,
-      "manual_reasoning": "Classic single-function reentrancy. The low-level external call payable(msg.sender).call{value: amount}(\"\") is executed before balances[msg.sender] is decremented. A malicious recipient fallback can reenter withdraw() and drain the vault before the state mutation executes.",
-      "reference": "SWC-107 (The DAO pattern)",
+      "expected_locations": [
+        {
+          "line": 16,
+          "source": "(bool sent, ) = payable(msg.sender).call{value: amount}(\"\");"
+        }
+      ],
+      "evidence_locations": [
+        {
+          "line": 15,
+          "source": "require(balances[msg.sender] >= amount, \"insufficient\");"
+        },
+        {
+          "line": 16,
+          "source": "(bool sent, ) = payable(msg.sender).call{value: amount}(\"\");"
+        },
+        {
+          "line": 18,
+          "source": "balances[msg.sender] -= amount;"
+        }
+      ],
+      "underlying_pattern": "potential_finding",
+      "baseline_support": {
+        "status": "not_implemented",
+        "reason": "REN-001 is not implemented on the base commit."
+      },
+      "manual_reasoning": "The same balance is checked before an external call and decremented after it. This is a positive potential-ordering-pattern label, not a proven drain: Solidity 0.8.20 checked subtraction can revert an over-withdrawal when recursive calls unwind. Do not count this label as confirmed exploitability.",
+      "references": [
+        {
+          "title": "SmartShield detector specification (potential findings)",
+          "url": "https://github.com/adityas7999/SmartShield/blob/edd7456d8563bbe31bd675ebc65e2a8513ae8aac/docs/specifications/DETECTOR_SPEC.md"
+        },
+        {
+          "title": "Solidity 0.8.20: Security considerations",
+          "url": "https://docs.soliditylang.org/en/v0.8.20/security-considerations.html#reentrancy"
+        }
+      ],
       "license": "MIT",
-      "reviewer": "Aayush",
-      "review_status": "verified"
+      "provenance": "Repository-authored synthetic fixture; external references explain concepts, not imported datasets. Existing SPDX MIT declaration retained; no third-party authorship or license clearance is certified.",
+      "review_status": "pending",
+      "reviewer": null,
+      "review_evidence": null
     },
     {
       "id": "REN-SAF-01",
@@ -94,13 +282,43 @@
       "solidity_version": "^0.8.20",
       "detector_id": "REN-001",
       "fixture_type": "similar_safe",
-      "expected_outcome": "no finding",
-      "expected_line": 17,
-      "manual_reasoning": "Complies strictly with the Checks-Effects-Interactions pattern. The user balance balances[msg.sender] -= amount is decremented prior to the low-level value transfer, preventing reentrant double-spend attacks.",
-      "reference": "Solidity Documentation (Checks-Effects-Interactions Pattern)",
+      "expected_outcome": "no_finding",
+      "expected_locations": [],
+      "evidence_locations": [
+        {
+          "line": 15,
+          "source": "require(balances[msg.sender] >= amount, \"insufficient\");"
+        },
+        {
+          "line": 16,
+          "source": "balances[msg.sender] -= amount;"
+        },
+        {
+          "line": 17,
+          "source": "(bool sent, ) = payable(msg.sender).call{value: amount}(\"\");"
+        }
+      ],
+      "underlying_pattern": "negative_control",
+      "baseline_support": {
+        "status": "not_implemented",
+        "reason": "REN-001 is not implemented on the base commit."
+      },
+      "manual_reasoning": "The checked balance is decremented before transferring control. A callback observes the reduced balance; it need not revert if funds remain, but it cannot reuse the pre-withdrawal balance through this ordering.",
+      "references": [
+        {
+          "title": "SmartShield detector specification (potential findings)",
+          "url": "https://github.com/adityas7999/SmartShield/blob/edd7456d8563bbe31bd675ebc65e2a8513ae8aac/docs/specifications/DETECTOR_SPEC.md"
+        },
+        {
+          "title": "Solidity 0.8.20: Security considerations",
+          "url": "https://docs.soliditylang.org/en/v0.8.20/security-considerations.html#reentrancy"
+        }
+      ],
       "license": "MIT",
-      "reviewer": "Aayush",
-      "review_status": "verified"
+      "provenance": "Repository-authored synthetic fixture; external references explain concepts, not imported datasets. Existing SPDX MIT declaration retained; no third-party authorship or license clearance is certified.",
+      "review_status": "pending",
+      "reviewer": null,
+      "review_evidence": null
     },
     {
       "id": "REN-VAR-01",
@@ -109,12 +327,59 @@
       "detector_id": "REN-001",
       "fixture_type": "varied_vulnerable",
       "expected_outcome": "finding",
-      "expected_line": 28,
-      "manual_reasoning": "Cross-function reentrancy vulnerability. withdrawAll() executes an external call before setting userBalances[msg.sender] = 0. The recipient reenters via transferTo(recipient, amount), which reads the unzeroed balance to double-spend funds to an accomplice account.",
-      "reference": "SWC-107 / Cross-Function Reentrancy",
+      "expected_locations": [
+        {
+          "line": 17,
+          "source": "(bool success, ) = payable(msg.sender).call{value: balance}(\"\");"
+        }
+      ],
+      "evidence_locations": [
+        {
+          "line": 14,
+          "source": "uint256 balance = userBalances[msg.sender];"
+        },
+        {
+          "line": 17,
+          "source": "(bool success, ) = payable(msg.sender).call{value: balance}(\"\");"
+        },
+        {
+          "line": 20,
+          "source": "userBalances[msg.sender] = 0;"
+        },
+        {
+          "line": 24,
+          "source": "require(userBalances[msg.sender] >= amount, \"Insufficient balance\");"
+        },
+        {
+          "line": 25,
+          "source": "userBalances[msg.sender] -= amount;"
+        },
+        {
+          "line": 26,
+          "source": "userBalances[recipient] += amount;"
+        }
+      ],
+      "underlying_pattern": "potential_finding",
+      "baseline_support": {
+        "status": "not_implemented",
+        "reason": "REN-001 and cross-function reasoning are pending."
+      },
+      "manual_reasoning": "withdrawAll reads userBalances, transfers control, then sets the balance to zero. A callback can spend the stale balance through transferTo into another account. Unlike decrement-on-unwind, the final zero assignment does not subtract the amount again. This is a source-reasoned candidate, not a measured exploit.",
+      "references": [
+        {
+          "title": "SmartShield detector specification (potential findings)",
+          "url": "https://github.com/adityas7999/SmartShield/blob/edd7456d8563bbe31bd675ebc65e2a8513ae8aac/docs/specifications/DETECTOR_SPEC.md"
+        },
+        {
+          "title": "Solidity 0.8.20: Security considerations",
+          "url": "https://docs.soliditylang.org/en/v0.8.20/security-considerations.html#reentrancy"
+        }
+      ],
       "license": "MIT",
-      "reviewer": "Aayush",
-      "review_status": "verified"
+      "provenance": "Repository-authored synthetic fixture; external references explain concepts, not imported datasets. Existing SPDX MIT declaration retained; no third-party authorship or license clearance is certified.",
+      "review_status": "pending",
+      "reviewer": null,
+      "review_evidence": null
     },
     {
       "id": "REN-NEG-01",
@@ -122,13 +387,59 @@
       "solidity_version": "^0.8.20",
       "detector_id": "REN-001",
       "fixture_type": "negative_keyword",
-      "expected_outcome": "no finding",
-      "expected_line": 33,
-      "manual_reasoning": "Even though state mutation balances[msg.sender] -= amount occurs after the low-level call, the function is protected by an explicit nonReentrant mutex lock. Reentrant callbacks revert during the modifier check.",
-      "reference": "OpenZeppelin Contracts ReentrancyGuard",
+      "expected_outcome": "no_finding",
+      "expected_locations": [],
+      "evidence_locations": [
+        {
+          "line": 18,
+          "source": "require(_status != _ENTERED, \"ReentrancyGuard: reentrant call\");"
+        },
+        {
+          "line": 19,
+          "source": "_status = _ENTERED;"
+        },
+        {
+          "line": 21,
+          "source": "_status = _NOT_ENTERED;"
+        },
+        {
+          "line": 28,
+          "source": "function withdraw(uint256 amount) external nonReentrant {"
+        },
+        {
+          "line": 30,
+          "source": "(bool sent, ) = payable(msg.sender).call{value: amount}(\"\");"
+        },
+        {
+          "line": 32,
+          "source": "balances[msg.sender] -= amount;"
+        }
+      ],
+      "underlying_pattern": "negative_control",
+      "baseline_support": {
+        "status": "not_implemented",
+        "reason": "REN-001 and mutex recognition are pending."
+      },
+      "manual_reasoning": "The explicit mutex is checked and set before the withdrawal body and reset afterward. Reentrant withdraw is blocked even though its balance write follows the call. Deposit only credits the value actually received. An analyzer that cannot expand the modifier must preserve uncertainty instead of claiming guard verification.",
+      "references": [
+        {
+          "title": "SmartShield detector specification (potential findings)",
+          "url": "https://github.com/adityas7999/SmartShield/blob/edd7456d8563bbe31bd675ebc65e2a8513ae8aac/docs/specifications/DETECTOR_SPEC.md"
+        },
+        {
+          "title": "Solidity 0.8.20: Security considerations",
+          "url": "https://docs.soliditylang.org/en/v0.8.20/security-considerations.html#reentrancy"
+        },
+        {
+          "title": "OpenZeppelin Contracts 4.x: ReentrancyGuard (conceptual reference)",
+          "url": "https://docs.openzeppelin.com/contracts/4.x/api/security#ReentrancyGuard"
+        }
+      ],
       "license": "MIT",
-      "reviewer": "Aayush",
-      "review_status": "verified"
+      "provenance": "Repository-authored synthetic fixture; external references explain concepts, not imported datasets. Existing SPDX MIT declaration retained; no third-party authorship or license clearance is certified.",
+      "review_status": "pending",
+      "reviewer": null,
+      "review_evidence": null
     },
     {
       "id": "REN-UNS-01",
@@ -137,13 +448,54 @@
       "detector_id": "REN-001",
       "fixture_type": "unsupported_edge_case",
       "expected_outcome": "unsupported",
-      "expected_line": 34,
-      "manual_reasoning": "Read-only reentrancy where removeLiquidity sends an external callback while totalShares and reserves are temporarily inconsistent. getPricePerShare() is a view function with no post-call state write, making single-contract intra-procedural CFG unable to detect it without cross-contract oracle modeling.",
-      "reference": "Curve LP / Sentiment Read-Only Reentrancy Exploits (2023)",
+      "expected_locations": [],
+      "evidence_locations": [
+        {
+          "line": 26,
+          "source": "require(shareAmount > 0 && shares[msg.sender] >= shareAmount, \"Invalid shares\");"
+        },
+        {
+          "line": 28,
+          "source": "shares[msg.sender] -= shareAmount;"
+        },
+        {
+          "line": 29,
+          "source": "totalShares -= shareAmount;"
+        },
+        {
+          "line": 30,
+          "source": "(bool sent, ) = msg.sender.call{value: payout}(\"\");"
+        },
+        {
+          "line": 32,
+          "source": "totalReserves -= payout;"
+        },
+        {
+          "line": 37,
+          "source": "return (totalReserves * 1e18) / totalShares;"
+        }
+      ],
+      "underlying_pattern": "potential_finding",
+      "baseline_support": {
+        "status": "unsupported",
+        "reason": "Cross-contract read-only invariant analysis is outside scope."
+      },
+      "manual_reasoning": "Per-user shares authorize redemption and both mutating entry points are locked. During a partial redemption, totalShares has decreased while totalReserves has not, so an unguarded view call can observe an inflated price. A downstream consumer is absent; cross-contract profit is not demonstrated. This is an unsupported read-only invariant boundary.",
+      "references": [
+        {
+          "title": "SmartShield detector specification (potential findings)",
+          "url": "https://github.com/adityas7999/SmartShield/blob/edd7456d8563bbe31bd675ebc65e2a8513ae8aac/docs/specifications/DETECTOR_SPEC.md"
+        },
+        {
+          "title": "Solidity 0.8.20: Security considerations",
+          "url": "https://docs.soliditylang.org/en/v0.8.20/security-considerations.html#reentrancy"
+        }
+      ],
       "license": "MIT",
-      "reviewer": "Aayush",
-      "review_status": "verified"
+      "provenance": "Repository-authored synthetic fixture; external references explain concepts, not imported datasets. Existing SPDX MIT declaration retained; no third-party authorship or license clearance is certified.",
+      "review_status": "pending",
+      "reviewer": null,
+      "review_evidence": null
     }
   ]
 }
-

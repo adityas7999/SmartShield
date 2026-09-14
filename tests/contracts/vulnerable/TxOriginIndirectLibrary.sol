@@ -1,13 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-/// @custom-id TXO-UNS-01
-/// @custom-vulnerability tx-origin-authorization
-/// @custom-expected unsupported
-/// @custom-location line 33
-/// @custom-reasoning Authorization is delegated to an internal library method checking tx.origin. The Sprint 1 Call Graph and intra-contract CFG do not follow external library delegation, marking this as an expected analysis limitation.
-/// @custom-reference SmartShield Detector Specification Section 12 Limitations
-/// @custom-reviewer Aditya
+// Fixture: TXO-UNS-01
+// Purpose: See expected-results.json for scope and reasoning.
 library OriginAuthLib {
     function isOriginOwner(address owner) internal view returns (bool) {
         return tx.origin == owner;
@@ -29,4 +24,3 @@ contract TxOriginIndirectLibrary {
 
     receive() external payable {}
 }
-

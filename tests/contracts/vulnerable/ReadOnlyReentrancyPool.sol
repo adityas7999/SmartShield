@@ -1,31 +1,34 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-/// @custom-id REN-UNS-01
-/// @custom-vulnerability reentrancy
-/// @custom-expected unsupported
-/// @custom-location line 34
-/// @custom-reasoning Read-only reentrancy where removeLiquidity sends an external callback while totalShares and reserves are temporarily inconsistent. getPricePerShare() is a view function with no post-call state write, making single-contract intra-procedural CFG unable to detect it without cross-contract oracle modeling.
-/// @custom-reference Curve LP / Sentiment Read-Only Reentrancy exploits (2023)
-/// @custom-reviewer Aayush
+// Fixture: REN-UNS-01
+// Purpose: A callback can observe inconsistent reserve/share pricing.
 contract ReadOnlyReentrancyPool {
+    mapping(address => uint256) public shares;
     uint256 public totalShares;
     uint256 public totalReserves;
+    bool private entered;
 
-    function addLiquidity() external payable {
+    modifier nonReentrant() {
+        require(!entered, "reentrant mutation");
+        entered = true;
+        _;
+        entered = false;
+    }
+
+    function addLiquidity() external payable nonReentrant {
+        shares[msg.sender] += msg.value;
         totalShares += msg.value;
         totalReserves += msg.value;
     }
 
-    function removeLiquidity(uint256 shareAmount) external {
-        require(totalShares >= shareAmount, "Excessive shares");
-
+    function removeLiquidity(uint256 shareAmount) external nonReentrant {
+        require(shareAmount > 0 && shares[msg.sender] >= shareAmount, "Invalid shares");
         uint256 payout = (shareAmount * totalReserves) / totalShares;
+        shares[msg.sender] -= shareAmount;
         totalShares -= shareAmount;
-
         (bool sent, ) = msg.sender.call{value: payout}("");
         require(sent, "Payout failed");
-
         totalReserves -= payout;
     }
 
@@ -34,4 +37,3 @@ contract ReadOnlyReentrancyPool {
         return (totalReserves * 1e18) / totalShares;
     }
 }
-

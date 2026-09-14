@@ -1,13 +1,9 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-// @custom-id REN-DIR-01
-// @custom-vulnerability reentrancy
-// @custom-expected vulnerable
-// @custom-location line 17
-// @custom-reasoning Low-level external call occurs before balances[msg.sender] is updated. Recipient contract fallback can re-invoke withdraw() repeatedly before state decrement.
-// @custom-reference SWC-107 (The DAO pattern)
-// @custom-reviewer Aayush
+// Fixture: REN-DIR-01
+// Purpose: Call before balance update; a potential ordering finding.
+
 contract ReentrantVault {
     mapping(address => uint256) public balances;
 

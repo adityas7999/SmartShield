@@ -63,10 +63,20 @@ int main() {
     const auto effects = build_cfg(function({effects_statement}));
     expect(effects.ordered_effects(5, 8).status == QueryStatus::unknown, "same-statement effect order is unknown");
 
+    expect(effects.complete, "subexpression uncertainty must not hide statement flow");
+    const auto before_after = build_cfg(function({statement(3), effects_statement}));
+    expect(before_after.ordered(only(before_after, 3), only(before_after, 4)).is_yes(), "earlier statement precedes uncertain effects");
+    expect(before_after.ordered(only(before_after, 4), only(before_after, 3)).status == QueryStatus::no, "uncertain effects cannot reverse statement order");
+    expect(before_after.ordered({only(before_after, 4), only(before_after, 3), 999}).status == QueryStatus::invalid, "validate entire sequence before answering");
+
     const auto graph = build_cfg(function({branch(20, {statement(21, StatementKind::return_statement)}, {statement(22)}), statement(23)}));
     expect(graph.branch_reachable(only(graph, 20), CfgEdgeKind::true_branch, graph.normal_exit).is_yes(), "true return reaches normal exit");
     expect(graph.ordered(only(graph, 20), only(graph, 23)).is_yes(), "non-terminating branch reaches join");
     expect(graph.ordered(only(graph, 21), only(graph, 23)).status == QueryStatus::no, "return has no fall-through");
+
+    expect(graph.branch_reachable(only(graph, 20), CfgEdgeKind::normal, graph.normal_exit).status == QueryStatus::invalid, "invalid branch selector");
+    const auto dead_branch = build_cfg(function({statement(24, StatementKind::return_statement), branch(25, {statement(26)})}));
+    expect(dead_branch.branch_reachable(only(dead_branch, 25), CfgEdgeKind::true_branch, only(dead_branch, 26)).status == QueryStatus::no, "unreachable branch cannot reach its body from entry");
 
     const auto both_terminate = build_cfg(function({branch(30, {statement(31, StatementKind::return_statement)}, {statement(32, StatementKind::revert_statement)}), statement(33)}));
     expect(both_terminate.reachable(only(both_terminate, 33)).status == QueryStatus::no, "both terminating branches leave join unreachable");

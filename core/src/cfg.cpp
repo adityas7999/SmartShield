@@ -67,7 +67,7 @@ class Builder {
       node.uncertainty = "Unsupported statement flow is not connected as known fall-through";
       graph_.complete = false;
     }
-    if (!node.complete) graph_.complete = false;
+    // Unknown subexpression order does not obscure statement-level edges.
     graph_.nodes.push_back(std::move(node));
     const auto id = graph_.nodes.back().id;
     graph_.statement_nodes[statement.id].push_back(id);
@@ -100,9 +100,10 @@ class Builder {
   }
 
   Flow build_sequence(const std::vector<Statement>& statements, GraphNodeId continuation) {
-    if (statements.empty()) return {continuation, true};
-    Flow rest = build_sequence(std::vector<Statement>(statements.begin() + 1, statements.end()), continuation);
-    return build_statement(statements.front(), rest.entry, rest.normal);
+    Flow rest{continuation, true};
+    for (auto it = statements.rbegin(); it != statements.rend(); ++it)
+      rest = build_statement(*it, rest.entry, rest.normal);
+    return rest;
   }
 
   Flow build_statement(const Statement& statement, GraphNodeId continuation, bool continuation_possible = true) {
@@ -191,7 +192,8 @@ QueryResult CfgGraph::ordered(GraphNodeId first, GraphNodeId second) const {
 }
 QueryResult CfgGraph::ordered(const std::vector<GraphNodeId>& sequence) const {
   if (sequence.empty()) return invalid("Ordered sequence cannot be empty");
-  if (!node(sequence.front())) return invalid("Unknown graph node ID");
+  for (const auto id : sequence)
+    if (!node(id) || node(id)->function != function) return invalid("Unknown or foreign graph node ID");
   if (!reachable(sequence.front()).is_yes()) return reachable(sequence.front());
   for (std::size_t i = 1; i < sequence.size(); ++i) {
     const auto result = ordered(sequence[i - 1], sequence[i]);
@@ -218,6 +220,11 @@ QueryResult CfgGraph::branch_reachable(GraphNodeId branch, CfgEdgeKind kind, Gra
   const auto* source = node(branch); const auto* destination = node(target);
   if (!source || !destination) return invalid("Unknown graph node ID");
   if (source->function != function || destination->function != function) return invalid("Nodes belong to another function");
+  if (kind != CfgEdgeKind::true_branch && kind != CfgEdgeKind::false_branch)
+    return invalid("Select a true or false branch edge");
+  if (source->predicate == no_id) return invalid("Source has no branch predicate");
+  const auto source_reachable = reachable(branch);
+  if (!source_reachable.is_yes()) return source_reachable;
   std::unordered_set<GraphNodeId> reached;
   for (const auto& edge : edges) {
     if (edge.from == branch && edge.kind == kind && edge.known) {

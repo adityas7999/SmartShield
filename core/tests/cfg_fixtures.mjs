@@ -1,22 +1,26 @@
 import assert from 'node:assert/strict';
 import { spawnSync } from 'node:child_process';
+import { readFileSync } from 'node:fs';
 import { createRequire } from 'node:module';
 
 const require = createRequire(import.meta.url);
 const solc = require('../../backend/solc/node_modules/solc');
 const executable = process.argv[2];
+assert.match(solc.version(), /^0\.8\.20\+/, 'Use pinned solc 0.8.20');
 assert(executable, 'Pass the smartshield-cfg-fixture-tests executable path');
 
 function compile(source, fileName = 'Test.sol') {
-  return JSON.parse(solc.compile(JSON.stringify({
+  const output = JSON.parse(solc.compile(JSON.stringify({
     language: 'Solidity', sources: { [fileName]: { content: source } },
     settings: { stopAfter: 'parsing', outputSelection: { '*': { '': ['ast'] } } },
   })));
+  assert.deepEqual((output.errors ?? []).filter(error => error.severity === 'error'), [], 'Fixture must parse');
+  return output;
 }
 function inspect(source, scenario, functionName, extra = {}) {
   const result = spawnSync(executable, [], {
     input: JSON.stringify({ source, fileName: 'Test.sol', compilerOutput: compile(source), scenario, function: functionName, ...extra }),
-    encoding: 'utf8',
+    encoding: 'utf8', timeout: 30000,
   });
   assert.equal(result.status, 0, result.stderr);
   return JSON.parse(result.stdout);
@@ -33,4 +37,17 @@ for (const [source, scenario, functionName, extra, name] of cases) {
   assert(output.nodes > 0, `${name}: no graph nodes`);
   assert(output.available, `${name}: graph unavailable`);
 }
-console.log(`CFG real-solc fixture tests passed: ${cases.length} cases`);
+const corpus = [
+  ['vulnerable/TxOriginWallet.sol', 'guard', 'withdraw', {}],
+  ['benign/MsgSenderWallet.sol', 'guard', 'withdraw', {}],
+  ['vulnerable/ReentrantVault.sol', 'effects', 'withdraw', {}],
+  ['benign/ChecksEffectsVault.sol', 'checks_effects', 'withdraw', {}],
+  ['vulnerable/TxOriginModifierTransfer.sol', '', 'emergencyWithdraw', { expectModifierUncertainty: true }],
+  ['benign/GuardedReentrantVault.sol', 'effects', 'withdraw', { expectModifierUncertainty: true }],
+];
+for (const [path, scenario, functionName, extra] of corpus) {
+  const source = readFileSync(new URL(`../../tests/contracts/${path}`, import.meta.url), 'utf8');
+  const output = inspect(source, scenario, functionName, extra);
+  assert(output.available, `${path}: graph unavailable`);
+}
+console.log(`CFG real-solc fixture tests passed: ${cases.length} inline and ${corpus.length} repository fixtures`);

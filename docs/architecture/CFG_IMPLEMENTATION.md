@@ -67,3 +67,24 @@ exception behavior remain outside CFG v1.
 `core/tests/cfg_fixtures.mjs` invokes `build_ir` from pinned solc 0.8.20 and
 checks guard flow plus check-call-write and checks-effects relationships. CMake
 registers both tests when Node and the pinned compiler package are available.
+
+## Correction: statement flow and effect uncertainty
+
+`CfgGraph::complete` describes represented control flow. Unknown evaluation
+order within a statement marks its `CfgNode::complete` false but does not
+make the whole graph incomplete. Consequently a write statement before a call
+statement has order `yes`, and the reverse has order `no`, even when the call
+contains a nested `payable(...)` conversion. Same-statement effect ordering
+remains `unknown` when the IR cannot resolve it.
+
+Queries describe paths within the represented function body. Modifiers are
+unexpanded: positive body paths do not prove that a modifier permits execution.
+Likewise effects mapped to a node are syntactic occurrences; a structural path
+through their statements does not prove that short-circuit operands execute.
+Consumers must retain IR limitations and establish conditional effect execution
+separately before assigning detector confidence.
+
+Branch queries require a reachable predicate node and a true/false selector.
+Sequence queries validate every ID before reporting a path result.
+The fixture suite reads six checked-in contracts, including both wallet variants,
+the vulnerable and checks-effects vaults, and modifier-bearing examples.

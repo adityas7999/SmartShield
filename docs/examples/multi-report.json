@@ -1,0 +1,315 @@
+{
+  "schemaVersion": "1.0.0",
+  "reportVersion": "1.0.0",
+  "status": "completed",
+  "source": {
+    "fileName": "Multi.sol",
+    "byteLength": 319,
+    "sha256": "fba5c8c16ee2b2d6cbe4a5d42f486af2e03dc740a243388127fb6d329f1009f1"
+  },
+  "compilerVersion": "0.8.20+commit.a1b79de6",
+  "compilerErrors": [],
+  "ruleResults": [
+    {
+      "ruleId": "TXO-001",
+      "status": "completed",
+      "reasons": []
+    },
+    {
+      "ruleId": "REN-001",
+      "status": "completed",
+      "reasons": []
+    },
+    {
+      "ruleId": "ACC-001",
+      "status": "completed",
+      "reasons": []
+    },
+    {
+      "ruleId": "UEC-001",
+      "status": "completed",
+      "reasons": []
+    }
+  ],
+  "findings": [
+    {
+      "id": "ACC-001:1:4:9",
+      "ruleId": "ACC-001",
+      "title": "Authority replacement without caller authorization",
+      "severity": "high",
+      "confidence": "high",
+      "contract": "Multi",
+      "function": "replace",
+      "primarySpan": {
+        "file": "Multi.sol",
+        "offset": 168,
+        "length": 5,
+        "line": 3,
+        "column": 112,
+        "endLine": 3,
+        "endColumn": 117,
+        "available": true
+      },
+      "evidence": [
+        {
+          "description": "Designated address authority declaration",
+          "span": {
+            "file": "Multi.sol",
+            "offset": 74,
+            "length": 20,
+            "line": 3,
+            "column": 18,
+            "endLine": 3,
+            "endColumn": 38,
+            "available": true
+          }
+        },
+        {
+          "description": "Reachable authority replacement",
+          "span": {
+            "file": "Multi.sol",
+            "offset": 168,
+            "length": 5,
+            "line": 3,
+            "column": 112,
+            "endLine": 3,
+            "endColumn": 117,
+            "available": true
+          }
+        },
+        {
+          "description": "Public/external entry point",
+          "span": {
+            "file": "Multi.sol",
+            "offset": 129,
+            "length": 49,
+            "line": 3,
+            "column": 73,
+            "endLine": 3,
+            "endColumn": 122,
+            "available": true
+          }
+        }
+      ],
+      "explanation": "A supported path from a public/external entry point replaces a designated authority without an effective immediate-caller restriction.",
+      "limitations": [
+        "Conclusion is bounded by the supported intraprocedural model; this is not a complete security audit."
+      ],
+      "remediation": "Restrict authority replacement to the current authorized caller, validate the new address, and consider a two-step proposal/acceptance procedure."
+    },
+    {
+      "id": "REN-001:1:12:35:3[msg.sender]",
+      "ruleId": "REN-001",
+      "title": "Checked storage updated after external interaction",
+      "severity": "high",
+      "confidence": "medium",
+      "contract": "Multi",
+      "function": "withdraw",
+      "primarySpan": {
+        "file": "Multi.sol",
+        "offset": 270,
+        "length": 19,
+        "line": 3,
+        "column": 214,
+        "endLine": 3,
+        "endColumn": 233,
+        "available": true
+      },
+      "evidence": [
+        {
+          "description": "Eligibility/balance check of storage 3[msg.sender]",
+          "span": {
+            "file": "Multi.sol",
+            "offset": 245,
+            "length": 22,
+            "line": 3,
+            "column": 189,
+            "endLine": 3,
+            "endColumn": 211,
+            "available": true
+          }
+        },
+        {
+          "description": "External interaction before the update",
+          "span": {
+            "file": "Multi.sol",
+            "offset": 270,
+            "length": 19,
+            "line": 3,
+            "column": 214,
+            "endLine": 3,
+            "endColumn": 233,
+            "available": true
+          }
+        },
+        {
+          "description": "Later write to the same storage location",
+          "span": {
+            "file": "Multi.sol",
+            "offset": 291,
+            "length": 20,
+            "line": 3,
+            "column": 235,
+            "endLine": 3,
+            "endColumn": 255,
+            "available": true
+          }
+        }
+      ],
+      "explanation": "A represented path checks this storage location, interacts externally, then updates the same location before any earlier effects update resolved the check.",
+      "limitations": [
+        "Abstract path establishes a structural window only; callback feasibility, gas, target behavior and exploitability are not proven."
+      ],
+      "remediation": "Apply checks-effects-interactions: update the identified storage location before the external call and handle failure. Consider a reviewed reentrancy guard across related entry points."
+    },
+    {
+      "id": "TXO-001:1:12:17",
+      "ruleId": "TXO-001",
+      "title": "Transaction origin used for authorization",
+      "severity": "high",
+      "confidence": "high",
+      "contract": "Multi",
+      "function": "withdraw",
+      "primarySpan": {
+        "file": "Multi.sol",
+        "offset": 218,
+        "length": 9,
+        "line": 3,
+        "column": 162,
+        "endLine": 3,
+        "endColumn": 171,
+        "available": true
+      },
+      "evidence": [
+        {
+          "description": "Origin identity used by guard",
+          "span": {
+            "file": "Multi.sol",
+            "offset": 218,
+            "length": 9,
+            "line": 3,
+            "column": 162,
+            "endLine": 3,
+            "endColumn": 171,
+            "available": true
+          }
+        },
+        {
+          "description": "Controlling authorization predicate",
+          "span": {
+            "file": "Multi.sol",
+            "offset": 218,
+            "length": 16,
+            "line": 3,
+            "column": 162,
+            "endLine": 3,
+            "endColumn": 178,
+            "available": true
+          }
+        },
+        {
+          "description": "Operation restricted by guard",
+          "span": {
+            "file": "Multi.sol",
+            "offset": 270,
+            "length": 19,
+            "line": 3,
+            "column": 214,
+            "endLine": 3,
+            "endColumn": 233,
+            "available": true
+          }
+        },
+        {
+          "description": "Operation restricted by guard",
+          "span": {
+            "file": "Multi.sol",
+            "offset": 291,
+            "length": 22,
+            "line": 3,
+            "column": 235,
+            "endLine": 3,
+            "endColumn": 257,
+            "available": true
+          }
+        }
+      ],
+      "explanation": "A tx.origin identity guard controls this state-changing or external operation; its opposite CFG edge cannot reach the operation.",
+      "limitations": [
+        "Conclusion is bounded by the supported intraprocedural model; this is not a complete security audit."
+      ],
+      "remediation": "Authenticate msg.sender against the intended trusted authority; test calls through intermediary contracts and define any delegation policy explicitly."
+    },
+    {
+      "id": "UEC-001:1:12:35",
+      "ruleId": "UEC-001",
+      "title": "Low-level call failure is not handled",
+      "severity": "medium",
+      "confidence": "high",
+      "contract": "Multi",
+      "function": "withdraw",
+      "primarySpan": {
+        "file": "Multi.sol",
+        "offset": 270,
+        "length": 19,
+        "line": 3,
+        "column": 214,
+        "endLine": 3,
+        "endColumn": 233,
+        "available": true
+      },
+      "evidence": [
+        {
+          "description": "Typed low-level external call",
+          "span": {
+            "file": "Multi.sol",
+            "offset": 270,
+            "length": 19,
+            "line": 3,
+            "column": 214,
+            "endLine": 3,
+            "endColumn": 233,
+            "available": true
+          }
+        },
+        {
+          "description": "Normal continuation with unhandled success result",
+          "span": {
+            "file": "Multi.sol",
+            "offset": 179,
+            "length": 137,
+            "line": 3,
+            "column": 123,
+            "endLine": 3,
+            "endColumn": 260,
+            "available": true
+          }
+        }
+      ],
+      "explanation": "A low-level call can reach normal continuation without checking or explicitly handling its failure result.",
+      "limitations": [
+        "Conclusion is bounded by the supported intraprocedural model; this is not a complete security audit."
+      ],
+      "remediation": "Bind the low-level success result and require/assert success, or implement an explicit failure branch before relying on the call's effects."
+    }
+  ],
+  "summary": {
+    "total": 4,
+    "byRule": {
+      "ACC-001": 1,
+      "REN-001": 1,
+      "TXO-001": 1,
+      "UEC-001": 1
+    },
+    "bySeverity": {
+      "high": 3,
+      "low": 0,
+      "medium": 1
+    }
+  },
+  "analysisLimitations": [
+    "Four bounded rules only. Zero findings is not a security guarantee.",
+    "Abstract path consistency is not full arithmetic satisfiability or exploitability proof.",
+    "Interprocedural effects, inheritance, loops, assembly, complex modifiers and storage aliases require unsupported coverage."
+  ]
+}

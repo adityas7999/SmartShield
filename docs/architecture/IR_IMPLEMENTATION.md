@@ -1,3 +1,6 @@
+> Historical baseline/design document. Current implemented behavior is specified in
+> `docs/specifications/FOUR_RULE_MVP.md` and `docs/DETECTION_RESULT.md`.
+
 # Reusable IR v1 — implementation and handoff
 
 This implements the first bounded, reusable subset of U-01. It does not claim

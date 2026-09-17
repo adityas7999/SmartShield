@@ -1,4 +1,4 @@
-name: Evaluation corpus
+name: SmartShield MVP acceptance
 on:
   push:
     branches: [research/evaluation-corpus-v1, main]
@@ -52,6 +52,11 @@ jobs:
           npm run build --prefix frontend | tee build/frontend-build.log
       - name: Live frontend to API to analyzer test
         run: node scripts/run-live-e2e.mjs | tee build/live-e2e.log
+      - name: Install browser and run desktop/mobile acceptance
+        run: |
+          cd frontend
+          npx playwright install --with-deps chromium
+          npm run test:browser | tee ../build/browser-tests.log
       - name: Check whitespace
         run: |
           git diff --check origin/main...HEAD
@@ -65,4 +70,6 @@ jobs:
             build/*.json
             build/*.log
             build/core/Testing/Temporary/LastTest.log
+            build/browser-results/
+            build/workspace-*.png
           if-no-files-found: warn

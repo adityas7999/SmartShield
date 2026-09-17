@@ -1,0 +1,372 @@
+{
+  "$defs": {
+    "Evidence": {
+      "additionalProperties": false,
+      "properties": {
+        "description": {
+          "title": "Description",
+          "type": "string"
+        },
+        "span": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Span"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "required": [
+        "description"
+      ],
+      "title": "Evidence",
+      "type": "object"
+    },
+    "Finding": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "ruleId": {
+          "enum": [
+            "TXO-001",
+            "REN-001",
+            "ACC-001",
+            "UEC-001"
+          ],
+          "title": "Ruleid",
+          "type": "string"
+        },
+        "title": {
+          "title": "Title",
+          "type": "string"
+        },
+        "severity": {
+          "enum": [
+            "high",
+            "medium",
+            "low"
+          ],
+          "title": "Severity",
+          "type": "string"
+        },
+        "confidence": {
+          "enum": [
+            "high",
+            "medium",
+            "low"
+          ],
+          "title": "Confidence",
+          "type": "string"
+        },
+        "contract": {
+          "title": "Contract",
+          "type": "string"
+        },
+        "function": {
+          "title": "Function",
+          "type": "string"
+        },
+        "primarySpan": {
+          "$ref": "#/$defs/Span"
+        },
+        "evidence": {
+          "items": {
+            "$ref": "#/$defs/Evidence"
+          },
+          "minItems": 1,
+          "title": "Evidence",
+          "type": "array"
+        },
+        "explanation": {
+          "title": "Explanation",
+          "type": "string"
+        },
+        "limitations": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Limitations",
+          "type": "array"
+        },
+        "remediation": {
+          "title": "Remediation",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "ruleId",
+        "title",
+        "severity",
+        "confidence",
+        "contract",
+        "function",
+        "primarySpan",
+        "evidence",
+        "explanation",
+        "limitations",
+        "remediation"
+      ],
+      "title": "Finding",
+      "type": "object"
+    },
+    "RuleResult": {
+      "additionalProperties": false,
+      "properties": {
+        "ruleId": {
+          "enum": [
+            "TXO-001",
+            "REN-001",
+            "ACC-001",
+            "UEC-001"
+          ],
+          "title": "Ruleid",
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "completed",
+            "unsupported",
+            "failed"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "reasons": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Reasons",
+          "type": "array"
+        }
+      },
+      "required": [
+        "ruleId",
+        "status",
+        "reasons"
+      ],
+      "title": "RuleResult",
+      "type": "object"
+    },
+    "Source": {
+      "additionalProperties": false,
+      "properties": {
+        "fileName": {
+          "title": "Filename",
+          "type": "string"
+        },
+        "byteLength": {
+          "minimum": 0,
+          "title": "Bytelength",
+          "type": "integer"
+        },
+        "sha256": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Sha256"
+        }
+      },
+      "required": [
+        "fileName",
+        "byteLength"
+      ],
+      "title": "Source",
+      "type": "object"
+    },
+    "Span": {
+      "additionalProperties": false,
+      "properties": {
+        "file": {
+          "title": "File",
+          "type": "string"
+        },
+        "offset": {
+          "minimum": 0,
+          "title": "Offset",
+          "type": "integer"
+        },
+        "length": {
+          "minimum": 0,
+          "title": "Length",
+          "type": "integer"
+        },
+        "line": {
+          "minimum": 1,
+          "title": "Line",
+          "type": "integer"
+        },
+        "column": {
+          "minimum": 1,
+          "title": "Column",
+          "type": "integer"
+        },
+        "endLine": {
+          "minimum": 1,
+          "title": "Endline",
+          "type": "integer"
+        },
+        "endColumn": {
+          "minimum": 1,
+          "title": "Endcolumn",
+          "type": "integer"
+        },
+        "available": {
+          "title": "Available",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "file",
+        "offset",
+        "length",
+        "line",
+        "column",
+        "endLine",
+        "endColumn",
+        "available"
+      ],
+      "title": "Span",
+      "type": "object"
+    },
+    "Summary": {
+      "additionalProperties": false,
+      "properties": {
+        "total": {
+          "title": "Total",
+          "type": "integer"
+        },
+        "byRule": {
+          "additionalProperties": {
+            "type": "integer"
+          },
+          "propertyNames": {
+            "enum": [
+              "TXO-001",
+              "REN-001",
+              "ACC-001",
+              "UEC-001"
+            ]
+          },
+          "title": "Byrule",
+          "type": "object"
+        },
+        "bySeverity": {
+          "additionalProperties": {
+            "type": "integer"
+          },
+          "propertyNames": {
+            "enum": [
+              "high",
+              "medium",
+              "low"
+            ]
+          },
+          "title": "Byseverity",
+          "type": "object"
+        }
+      },
+      "required": [
+        "total",
+        "byRule",
+        "bySeverity"
+      ],
+      "title": "Summary",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0.0",
+      "title": "Schemaversion",
+      "type": "string"
+    },
+    "reportVersion": {
+      "const": "1.0.0",
+      "title": "Reportversion",
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "completed",
+        "partial",
+        "compilation_error",
+        "analyzer_error"
+      ],
+      "title": "Status",
+      "type": "string"
+    },
+    "source": {
+      "$ref": "#/$defs/Source"
+    },
+    "compilerVersion": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Compilerversion"
+    },
+    "compilerErrors": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Compilererrors",
+      "type": "array"
+    },
+    "ruleResults": {
+      "items": {
+        "$ref": "#/$defs/RuleResult"
+      },
+      "title": "Ruleresults",
+      "type": "array"
+    },
+    "findings": {
+      "items": {
+        "$ref": "#/$defs/Finding"
+      },
+      "title": "Findings",
+      "type": "array"
+    },
+    "summary": {
+      "$ref": "#/$defs/Summary"
+    },
+    "analysisLimitations": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Analysislimitations",
+      "type": "array"
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "reportVersion",
+    "status",
+    "source",
+    "compilerErrors",
+    "ruleResults",
+    "findings",
+    "summary",
+    "analysisLimitations"
+  ],
+  "title": "Report",
+  "type": "object"
+}

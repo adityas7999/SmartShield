@@ -36,11 +36,8 @@ for (const [path, count] of [
 ]) {
   const source = readFileSync(new URL('../../tests/contracts/' + path, import.meta.url), 'utf8');
   const ir = inspect(source);
-  assert.equal(ir.analysis.findings.length, count, path);
-  if (count) {
-    assert.equal(ir.analysis.findings[0].confidence, 'high');
-    assert.equal(ir.analysis.findings[0].location.line, 16);
-  }
+  assert.equal(ir.analysis.status, 'partial');
+  assert(ir.analysis.ruleResults.every(r => r.status === 'unsupported'));
   if (path.includes('Vault')) {
     assert(ir.calls.some(call => call.name === 'call' && call.value !== 0), path);
     const updates = ir.accesses.filter(a => accessText(ir, a) === 'balances[msg.sender]');
@@ -78,10 +75,10 @@ assert.equal(alias.accesses.filter(a => a.action === 'write').length, 0);
 const guardSource = 'contract T { address owner; function f(address payable p) public { require(tx.origin==owner); BODY } }';
 for (const body of ['return; p.transfer(1);', 'if(false) { p.transfer(1); }', 'while(false) {} p.transfer(1);']) {
   const ir = inspect(guardSource.replace('BODY', body));
-  assert.equal(ir.analysis.findings[0].confidence, 'medium', body);
+  assert.equal(ir.analysis.status, 'partial', body);
 }
 const nested = inspect('contract T { address owner; function f(address payable p) public { if(tx.origin==owner) { require(tx.origin==owner); p.transfer(1); } } }');
-assert.equal(nested.analysis.findings.length, 2, 'nested guards must both survive');
+assert.equal(nested.analysis.status, 'partial', 'parsing-only input must not claim detector coverage');
 
 const unicode = inspect('// café\ncontract T { address owner; function f() public { require(tx.origin==owner); } }');
 const origin = unicode.expressions.find(e => e.name === 'tx.origin');

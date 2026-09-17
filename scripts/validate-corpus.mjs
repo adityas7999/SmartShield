@@ -67,8 +67,8 @@ for (const f of manifest.fixtures) {
     assert(full.sources?.[fileName]?.ast && Object.keys(full.contracts?.[fileName] ?? {}).length, 'Missing AST/contracts');
     row.compilation = 'passed';
     if (options['--analyzer']) {
-      // Match the existing API parsing-only AST, separately from full compilation above.
-      const compilerOutput = compile(source, fileName, true);
+      // Production uses the same typed AST as full fixture compilation.
+      const compilerOutput = full;
       assert(!(compilerOutput.errors ?? []).some(e => e.severity === 'error'), 'Parsing-only compilation failed');
       const start = performance.now();
       const result = spawnSync(options['--analyzer'], [], {
@@ -80,14 +80,14 @@ for (const f of manifest.fixtures) {
       assert.equal(result.status, 0, result.error?.message || result.stderr);
       const output = JSON.parse(result.stdout);
       row.observation.output = output;
-      assert(output.status === 'completed' && Array.isArray(output.findings), 'Invalid analyzer response');
+      assert(['completed', 'partial'].includes(output.status) && Array.isArray(output.findings), 'Invalid analyzer response');
       // A fixture list or an empty finding array is not evidence a detector ran.
       // Enforce only the three supported current TXO controls; preserve all other output raw.
       if (['TXO-DIR-01', 'TXO-SAF-01', 'TXO-NEG-01'].includes(f.id)) {
-        const findings = output.findings.filter(x => x.detectorId === 'TXO-001');
+        const findings = output.findings.filter(x => x.ruleId === 'TXO-001');
         assert.equal(findings.length, f.id === 'TXO-DIR-01' ? 1 : 0, f.id + ': TXO regression');
         if (f.id === 'TXO-DIR-01') {
-          assert.equal(findings[0].location.line, f.expected_locations[0].line);
+          assert.equal(findings[0].primarySpan.line, f.expected_locations[0].line);
           assert.equal(findings[0].confidence, 'high');
         }
       }

@@ -7,6 +7,7 @@ async function parseResponse(response) {
     const error = new Error(detail?.message ?? `Request failed with status ${response.status}`)
     error.code = detail?.code ?? 'request_failed'
     error.diagnostics = detail?.diagnostics ?? []
+    error.report = detail?.report ?? null
     throw error
   }
   return body

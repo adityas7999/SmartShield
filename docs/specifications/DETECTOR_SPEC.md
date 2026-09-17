@@ -1,3 +1,6 @@
+> Historical baseline/design document. Current implemented behavior is specified in
+> `docs/specifications/FOUR_RULE_MVP.md` and `docs/DETECTION_RESULT.md`.
+
 # SmartShield Detector Specification
 
 Status: Sprint 0 proposal

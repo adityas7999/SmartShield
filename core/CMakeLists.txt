@@ -41,6 +41,8 @@ if(BUILD_TESTING)
   target_link_libraries(smartshield-cfg-fixture-tests PRIVATE smartshield_analysis)
   find_program(NODE_EXECUTABLE node)
   if(NODE_EXECUTABLE AND EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/../backend/solc/node_modules/solc/index.js")
+    add_test(NAME smartshield-rule-acceptance
+      COMMAND "${NODE_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tests/acceptance.mjs" $<TARGET_FILE:smartshield-analyzer>)
     add_test(NAME smartshield-ir-fixtures
       COMMAND "${NODE_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tests/ir_fixtures.mjs" $<TARGET_FILE:smartshield-ir-tests>)
     add_test(NAME smartshield-cfg-fixtures

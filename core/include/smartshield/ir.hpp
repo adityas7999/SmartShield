@@ -14,7 +14,7 @@ constexpr IrId no_id = 0;
 struct SourceLocation {
   std::string file;
   int line{1};
-  int column{1}; // One-based UTF-8 byte column, matching solc byte offsets.
+  int column{1};  // One-based UTF-8 byte column, matching solc byte offsets.
   std::size_t offset{0};
   std::size_t length{0};
   bool available{false};
@@ -27,20 +27,37 @@ struct Limitation {
   std::string message;
 };
 
-enum class ExpressionKind { unknown, literal, identifier, builtin, member, index,
-                            binary, unary, assignment, call, call_options, tuple, type };
+enum class ExpressionKind {
+  unknown,
+  literal,
+  identifier,
+  builtin,
+  member,
+  index,
+  binary,
+  unary,
+  assignment,
+  call,
+  call_options,
+  tuple,
+  type
+};
 struct Expression {
   IrId id{no_id};
   ExpressionKind kind{ExpressionKind::unknown};
-  std::string name; // Identifier, member, builtin, or literal value.
+  std::string name;  // Identifier, member, builtin, or literal value.
   std::string op;
-  bool prefix{true}; // Unary ++/--: retain prefix versus postfix syntax.
-  std::string text; // Display only; never used to classify code.
+  bool prefix{true};  // Unary ++/--: retain prefix versus postfix syntax.
+  std::string text;   // Display only; never used to classify code.
   SourceLocation location;
   Resolution resolution{Resolution::unresolved};
   IrId variable{no_id};
-  std::vector<Expression> children; // Operand order, not execution order.
-  std::vector<std::string> names; // Named call arguments/options; tuple holes are unknown children.
+  std::vector<Expression> children;  // Operand order, not execution order.
+  std::string
+      type_identifier;  // Semantic solc type; empty for parsing-only AST.
+  bool conversion{false};
+  std::vector<std::string>
+      names;  // Named call arguments/options; tuple holes are unknown children.
 };
 
 enum class VariableKind { state, parameter, local, return_value };
@@ -53,8 +70,18 @@ struct Variable {
   SourceLocation location;
 };
 
-enum class CallKind { builtin, conversion, internal, external_member, low_level,
-                      transfer, send, delegatecall, staticcall, unknown };
+enum class CallKind {
+  builtin,
+  conversion,
+  internal,
+  external_member,
+  low_level,
+  transfer,
+  send,
+  delegatecall,
+  staticcall,
+  unknown
+};
 struct Call {
   IrId id{no_id};
   IrId expression{no_id};
@@ -73,16 +100,26 @@ enum class AccessKind { read, write };
 struct StateAccess {
   IrId id{no_id};
   IrId variable{no_id};
-  IrId expression{no_id}; // Full storage path expression, not just its base.
+  IrId expression{no_id};  // Full storage path expression, not just its base.
   IrId statement{no_id};
   IrId function{no_id};
   AccessKind action{AccessKind::read};
-  std::vector<IrId> keys; // Base to leaf: a[i][j] keeps i, then j.
+  std::vector<IrId> keys;  // Base to leaf: a[i][j] keeps i, then j.
   SourceLocation location;
 };
 
-enum class StatementKind { block, expression, declaration, require_guard, assert_guard,
-                           branch, return_statement, revert_statement, emit, unsupported };
+enum class StatementKind {
+  block,
+  expression,
+  declaration,
+  require_guard,
+  assert_guard,
+  branch,
+  return_statement,
+  revert_statement,
+  emit,
+  unsupported
+};
 struct Statement {
   IrId id{no_id};
   IrId parent{no_id};
@@ -91,11 +128,11 @@ struct Statement {
   SourceLocation location;
   std::vector<Expression> expressions;
   IrId predicate{no_id};
-  std::vector<Statement> statements; // Ordered block children.
-  std::vector<Statement> then_body; // Zero or one statement (usually a block).
+  std::vector<Statement> statements;  // Ordered block children.
+  std::vector<Statement> then_body;  // Zero or one statement (usually a block).
   std::vector<Statement> else_body;
   std::vector<Variable> declarations;
-  std::vector<Call> calls; // Directly owned; excludes child statements.
+  std::vector<Call> calls;  // Directly owned; excludes child statements.
   std::vector<StateAccess> state_accesses;
   bool evaluation_order_known{true};
   bool unchecked{false};
@@ -118,11 +155,13 @@ struct Function {
   SourceLocation location;
   std::vector<Variable> parameters;
   std::vector<Variable> returns;
-  std::vector<ModifierApplication> modifiers; // Preserved, never expanded into the body.
+  std::vector<ModifierApplication>
+      modifiers;  // Preserved, never expanded into the body.
   std::optional<Statement> body;
 };
 
 struct Contract {
+  bool inherited{false};
   IrId id{no_id};
   std::string name;
   std::string kind;
@@ -132,8 +171,9 @@ struct Contract {
 };
 
 struct Program {
+  bool typed{false};
   std::vector<Contract> contracts;
   std::vector<Limitation> limitations;
 };
 
-} // namespace smartshield
+}  // namespace smartshield

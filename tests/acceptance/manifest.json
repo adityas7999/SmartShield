@@ -1,0 +1,846 @@
+[
+  {
+    "file": "TXO_direct.sol",
+    "category": "direct",
+    "counts": {
+      "TXO-001": 1,
+      "REN-001": 0,
+      "ACC-001": 0,
+      "UEC-001": 0
+    },
+    "unsupported": []
+  },
+  {
+    "file": "TXO_varied.sol",
+    "category": "varied",
+    "counts": {
+      "TXO-001": 1,
+      "REN-001": 0,
+      "ACC-001": 0,
+      "UEC-001": 0
+    },
+    "unsupported": []
+  },
+  {
+    "file": "TXO_safe.sol",
+    "category": "safe",
+    "counts": {
+      "TXO-001": 0,
+      "REN-001": 0,
+      "ACC-001": 0,
+      "UEC-001": 0
+    },
+    "unsupported": []
+  },
+  {
+    "file": "TXO_negative.sol",
+    "category": "misleading",
+    "counts": {
+      "TXO-001": 0,
+      "REN-001": 0,
+      "ACC-001": 0,
+      "UEC-001": 0
+    },
+    "unsupported": []
+  },
+  {
+    "file": "TXO_uncertain.sol",
+    "category": "uncertain",
+    "counts": {
+      "TXO-001": 0,
+      "REN-001": 0,
+      "ACC-001": 0,
+      "UEC-001": 0
+    },
+    "unsupported": [
+      "TXO-001",
+      "REN-001",
+      "ACC-001",
+      "UEC-001"
+    ]
+  },
+  {
+    "file": "REN_direct.sol",
+    "category": "direct",
+    "counts": {
+      "TXO-001": 0,
+      "REN-001": 1,
+      "ACC-001": 0,
+      "UEC-001": 0
+    },
+    "unsupported": []
+  },
+  {
+    "file": "REN_varied.sol",
+    "category": "varied",
+    "counts": {
+      "TXO-001": 0,
+      "REN-001": 1,
+      "ACC-001": 0,
+      "UEC-001": 0
+    },
+    "unsupported": []
+  },
+  {
+    "file": "REN_safe.sol",
+    "category": "safe",
+    "counts": {
+      "TXO-001": 0,
+      "REN-001": 0,
+      "ACC-001": 0,
+      "UEC-001": 0
+    },
+    "unsupported": []
+  },
+  {
+    "file": "REN_negative.sol",
+    "category": "misleading",
+    "counts": {
+      "TXO-001": 0,
+      "REN-001": 0,
+      "ACC-001": 0,
+      "UEC-001": 0
+    },
+    "unsupported": []
+  },
+  {
+    "file": "REN_uncertain.sol",
+    "category": "uncertain",
+    "counts": {
+      "TXO-001": 0,
+      "REN-001": 0,
+      "ACC-001": 0,
+      "UEC-001": 0
+    },
+    "unsupported": [
+      "REN-001"
+    ]
+  },
+  {
+    "file": "ACC_direct.sol",
+    "category": "direct",
+    "counts": {
+      "TXO-001": 0,
+      "REN-001": 0,
+      "ACC-001": 1,
+      "UEC-001": 0
+    },
+    "unsupported": []
+  },
+  {
+    "file": "ACC_varied.sol",
+    "category": "varied",
+    "counts": {
+      "TXO-001": 0,
+      "REN-001": 0,
+      "ACC-001": 1,
+      "UEC-001": 0
+    },
+    "unsupported": []
+  },
+  {
+    "file": "ACC_safe.sol",
+    "category": "safe",
+    "counts": {
+      "TXO-001": 0,
+      "REN-001": 0,
+      "ACC-001": 0,
+      "UEC-001": 0
+    },
+    "unsupported": []
+  },
+  {
+    "file": "ACC_negative.sol",
+    "category": "misleading",
+    "counts": {
+      "TXO-001": 0,
+      "REN-001": 0,
+      "ACC-001": 0,
+      "UEC-001": 0
+    },
+    "unsupported": []
+  },
+  {
+    "file": "ACC_uncertain.sol",
+    "category": "uncertain",
+    "counts": {
+      "TXO-001": 0,
+      "REN-001": 0,
+      "ACC-001": 0,
+      "UEC-001": 0
+    },
+    "unsupported": [
+      "TXO-001",
+      "REN-001",
+      "ACC-001",
+      "UEC-001"
+    ]
+  },
+  {
+    "file": "UEC_direct.sol",
+    "category": "direct",
+    "counts": {
+      "TXO-001": 0,
+      "REN-001": 0,
+      "ACC-001": 0,
+      "UEC-001": 1
+    },
+    "unsupported": []
+  },
+  {
+    "file": "UEC_varied.sol",
+    "category": "varied",
+    "counts": {
+      "TXO-001": 0,
+      "REN-001": 0,
+      "ACC-001": 0,
+      "UEC-001": 1
+    },
+    "unsupported": []
+  },
+  {
+    "file": "UEC_safe.sol",
+    "category": "safe",
+    "counts": {
+      "TXO-001": 0,
+      "REN-001": 0,
+      "ACC-001": 0,
+      "UEC-001": 0
+    },
+    "unsupported": []
+  },
+  {
+    "file": "UEC_negative.sol",
+    "category": "misleading",
+    "counts": {
+      "TXO-001": 0,
+      "REN-001": 0,
+      "ACC-001": 0,
+      "UEC-001": 0
+    },
+    "unsupported": []
+  },
+  {
+    "file": "UEC_uncertain.sol",
+    "category": "uncertain",
+    "counts": {
+      "TXO-001": 0,
+      "REN-001": 0,
+      "ACC-001": 0,
+      "UEC-001": 0
+    },
+    "unsupported": [
+      "UEC-001"
+    ]
+  },
+  {
+    "file": "Multi.sol",
+    "category": "regression",
+    "counts": {
+      "TXO-001": 1,
+      "REN-001": 1,
+      "ACC-001": 1,
+      "UEC-001": 1
+    },
+    "unsupported": []
+  },
+  {
+    "file": "TwoOccurrences.sol",
+    "category": "regression",
+    "counts": {
+      "TXO-001": 0,
+      "REN-001": 0,
+      "ACC-001": 0,
+      "UEC-001": 2
+    },
+    "unsupported": []
+  },
+  {
+    "file": "SharedLine.sol",
+    "category": "regression",
+    "counts": {
+      "TXO-001": 1,
+      "REN-001": 0,
+      "ACC-001": 1,
+      "UEC-001": 0
+    },
+    "unsupported": []
+  },
+  {
+    "file": "ImpossiblePath.sol",
+    "category": "regression",
+    "counts": {
+      "TXO-001": 0,
+      "REN-001": 0,
+      "ACC-001": 0,
+      "UEC-001": 0
+    },
+    "unsupported": []
+  },
+  {
+    "file": "TerminatedPath.sol",
+    "category": "regression",
+    "counts": {
+      "TXO-001": 0,
+      "REN-001": 0,
+      "ACC-001": 0,
+      "UEC-001": 0
+    },
+    "unsupported": []
+  },
+  {
+    "file": "ConstantBranch.sol",
+    "category": "regression",
+    "counts": {
+      "TXO-001": 0,
+      "REN-001": 0,
+      "ACC-001": 0,
+      "UEC-001": 0
+    },
+    "unsupported": []
+  },
+  {
+    "file": "MixedCoverage.sol",
+    "category": "regression",
+    "counts": {
+      "TXO-001": 0,
+      "REN-001": 0,
+      "ACC-001": 1,
+      "UEC-001": 0
+    },
+    "unsupported": [
+      "UEC-001"
+    ]
+  },
+  {
+    "file": "GuardReconnect.sol",
+    "category": "regression",
+    "counts": {
+      "TXO-001": 0,
+      "REN-001": 0,
+      "ACC-001": 0,
+      "UEC-001": 0
+    },
+    "unsupported": []
+  },
+  {
+    "file": "GuardNoEffect.sol",
+    "category": "regression",
+    "counts": {
+      "TXO-001": 0,
+      "REN-001": 0,
+      "ACC-001": 0,
+      "UEC-001": 0
+    },
+    "unsupported": []
+  },
+  {
+    "file": "BranchAuth.sol",
+    "category": "regression",
+    "counts": {
+      "TXO-001": 0,
+      "REN-001": 0,
+      "ACC-001": 0,
+      "UEC-001": 0
+    },
+    "unsupported": []
+  },
+  {
+    "file": "AssertAuth.sol",
+    "category": "regression",
+    "counts": {
+      "TXO-001": 0,
+      "REN-001": 0,
+      "ACC-001": 0,
+      "UEC-001": 0
+    },
+    "unsupported": []
+  },
+  {
+    "file": "TwoWrites.sol",
+    "category": "regression",
+    "counts": {
+      "TXO-001": 0,
+      "REN-001": 0,
+      "ACC-001": 2,
+      "UEC-001": 0
+    },
+    "unsupported": []
+  },
+  {
+    "file": "FailureEvent.sol",
+    "category": "regression",
+    "counts": {
+      "TXO-001": 0,
+      "REN-001": 0,
+      "ACC-001": 0,
+      "UEC-001": 0
+    },
+    "unsupported": []
+  },
+  {
+    "file": "FailureReturn.sol",
+    "category": "regression",
+    "counts": {
+      "TXO-001": 0,
+      "REN-001": 0,
+      "ACC-001": 0,
+      "UEC-001": 0
+    },
+    "unsupported": []
+  },
+  {
+    "file": "EmptyHandling.sol",
+    "category": "regression",
+    "counts": {
+      "TXO-001": 0,
+      "REN-001": 0,
+      "ACC-001": 0,
+      "UEC-001": 1
+    },
+    "unsupported": []
+  },
+  {
+    "file": "OverwrittenResult.sol",
+    "category": "regression",
+    "counts": {
+      "TXO-001": 0,
+      "REN-001": 0,
+      "ACC-001": 0,
+      "UEC-001": 1
+    },
+    "unsupported": []
+  },
+  {
+    "file": "DelegateUnchecked.sol",
+    "category": "regression",
+    "counts": {
+      "TXO-001": 0,
+      "REN-001": 0,
+      "ACC-001": 0,
+      "UEC-001": 1
+    },
+    "unsupported": []
+  },
+  {
+    "file": "REN_modifier.sol",
+    "category": "regression",
+    "counts": {
+      "TXO-001": 0,
+      "REN-001": 0,
+      "ACC-001": 0,
+      "UEC-001": 0
+    },
+    "unsupported": [
+      "TXO-001",
+      "REN-001",
+      "ACC-001",
+      "UEC-001"
+    ]
+  },
+  {
+    "file": "InternalGuard.sol",
+    "category": "regression",
+    "counts": {
+      "TXO-001": 0,
+      "REN-001": 0,
+      "ACC-001": 0,
+      "UEC-001": 0
+    },
+    "unsupported": [
+      "TXO-001",
+      "REN-001",
+      "ACC-001",
+      "UEC-001"
+    ]
+  },
+  {
+    "file": "CompositeGuard.sol",
+    "category": "regression",
+    "counts": {
+      "TXO-001": 0,
+      "REN-001": 0,
+      "ACC-001": 0,
+      "UEC-001": 0
+    },
+    "unsupported": [
+      "TXO-001",
+      "REN-001",
+      "ACC-001",
+      "UEC-001"
+    ]
+  },
+  {
+    "file": "AllCompleted.sol",
+    "category": "regression",
+    "counts": {
+      "TXO-001": 0,
+      "REN-001": 0,
+      "ACC-001": 0,
+      "UEC-001": 0
+    },
+    "unsupported": []
+  },
+  {
+    "file": "FailureReconnect.sol",
+    "category": "regression",
+    "counts": {
+      "TXO-001": 0,
+      "REN-001": 0,
+      "ACC-001": 0,
+      "UEC-001": 1
+    },
+    "unsupported": []
+  },
+  {
+    "file": "NegatedAlias.sol",
+    "category": "regression",
+    "counts": {
+      "TXO-001": 0,
+      "REN-001": 0,
+      "ACC-001": 0,
+      "UEC-001": 0
+    },
+    "unsupported": []
+  },
+  {
+    "file": "TransformedResult.sol",
+    "category": "regression",
+    "counts": {
+      "TXO-001": 0,
+      "REN-001": 0,
+      "ACC-001": 0,
+      "UEC-001": 0
+    },
+    "unsupported": [
+      "UEC-001"
+    ]
+  },
+  {
+    "file": "HexKey.sol",
+    "category": "regression",
+    "counts": {
+      "TXO-001": 0,
+      "REN-001": 1,
+      "ACC-001": 0,
+      "UEC-001": 0
+    },
+    "unsupported": []
+  },
+  {
+    "file": "DenominatedKey.sol",
+    "category": "regression",
+    "counts": {
+      "TXO-001": 0,
+      "REN-001": 0,
+      "ACC-001": 0,
+      "UEC-001": 0
+    },
+    "unsupported": []
+  },
+  {
+    "file": "OriginAlias.sol",
+    "category": "regression",
+    "counts": {
+      "TXO-001": 0,
+      "REN-001": 0,
+      "ACC-001": 0,
+      "UEC-001": 0
+    },
+    "unsupported": [
+      "TXO-001"
+    ]
+  },
+  {
+    "file": "StorageAlias.sol",
+    "category": "regression",
+    "counts": {
+      "TXO-001": 0,
+      "REN-001": 0,
+      "ACC-001": 0,
+      "UEC-001": 0
+    },
+    "unsupported": [
+      "TXO-001",
+      "REN-001",
+      "ACC-001",
+      "UEC-001"
+    ]
+  },
+  {
+    "file": "TupleStorage.sol",
+    "category": "regression",
+    "counts": {
+      "TXO-001": 0,
+      "REN-001": 0,
+      "ACC-001": 0,
+      "UEC-001": 0
+    },
+    "unsupported": [
+      "TXO-001",
+      "REN-001",
+      "ACC-001",
+      "UEC-001"
+    ]
+  },
+  {
+    "file": "MutexUncertain.sol",
+    "category": "regression",
+    "counts": {
+      "TXO-001": 0,
+      "REN-001": 0,
+      "ACC-001": 0,
+      "UEC-001": 0
+    },
+    "unsupported": [
+      "TXO-001",
+      "REN-001",
+      "ACC-001",
+      "UEC-001"
+    ]
+  },
+  {
+    "file": "ChangedKey.sol",
+    "category": "regression",
+    "counts": {
+      "TXO-001": 0,
+      "REN-001": 0,
+      "ACC-001": 0,
+      "UEC-001": 0
+    },
+    "unsupported": [
+      "REN-001"
+    ]
+  },
+  {
+    "file": "TwoOriginGuards.sol",
+    "category": "regression",
+    "counts": {
+      "TXO-001": 2,
+      "REN-001": 0,
+      "ACC-001": 0,
+      "UEC-001": 0
+    },
+    "unsupported": []
+  },
+  {
+    "file": "OneGuardTwoEffects.sol",
+    "category": "regression",
+    "counts": {
+      "TXO-001": 1,
+      "REN-001": 0,
+      "ACC-001": 0,
+      "UEC-001": 0
+    },
+    "unsupported": []
+  },
+  {
+    "file": "ConstantFalseGuard.sol",
+    "category": "regression",
+    "counts": {
+      "TXO-001": 0,
+      "REN-001": 0,
+      "ACC-001": 0,
+      "UEC-001": 0
+    },
+    "unsupported": []
+  },
+  {
+    "file": "ContradictoryEquality.sol",
+    "category": "regression",
+    "counts": {
+      "TXO-001": 0,
+      "REN-001": 0,
+      "ACC-001": 0,
+      "UEC-001": 0
+    },
+    "unsupported": []
+  },
+  {
+    "file": "ConstantComparison.sol",
+    "category": "regression",
+    "counts": {
+      "TXO-001": 0,
+      "REN-001": 0,
+      "ACC-001": 0,
+      "UEC-001": 0
+    },
+    "unsupported": []
+  },
+  {
+    "file": "TrustedRepeatedWrites.sol",
+    "category": "regression",
+    "counts": {
+      "TXO-001": 0,
+      "REN-001": 0,
+      "ACC-001": 0,
+      "UEC-001": 0
+    },
+    "unsupported": []
+  },
+  {
+    "file": "UntrustedNewAuthority.sol",
+    "category": "regression",
+    "counts": {
+      "TXO-001": 0,
+      "REN-001": 0,
+      "ACC-001": 2,
+      "UEC-001": 0
+    },
+    "unsupported": []
+  },
+  {
+    "file": "RequireFailure.sol",
+    "category": "regression",
+    "counts": {
+      "TXO-001": 0,
+      "REN-001": 0,
+      "ACC-001": 0,
+      "UEC-001": 0
+    },
+    "unsupported": []
+  },
+  {
+    "file": "StaleSnapshot.sol",
+    "category": "regression",
+    "counts": {
+      "TXO-001": 0,
+      "REN-001": 0,
+      "ACC-001": 0,
+      "UEC-001": 0
+    },
+    "unsupported": [
+      "REN-001"
+    ]
+  },
+  {
+    "file": "ChangedStateCondition.sol",
+    "category": "regression",
+    "counts": {
+      "TXO-001": 0,
+      "REN-001": 0,
+      "ACC-001": 0,
+      "UEC-001": 0
+    },
+    "unsupported": []
+  },
+  {
+    "file": "TypedViewCall.sol",
+    "category": "regression",
+    "counts": {
+      "TXO-001": 0,
+      "REN-001": 0,
+      "ACC-001": 0,
+      "UEC-001": 0
+    },
+    "unsupported": []
+  },
+  {
+    "file": "InlineUnordered.sol",
+    "category": "regression",
+    "counts": {
+      "TXO-001": 0,
+      "REN-001": 0,
+      "ACC-001": 0,
+      "UEC-001": 0
+    },
+    "unsupported": [
+      "TXO-001",
+      "REN-001",
+      "ACC-001",
+      "UEC-001"
+    ]
+  },
+  {
+    "file": "ModifierShadow.sol",
+    "category": "regression",
+    "counts": {
+      "TXO-001": 0,
+      "REN-001": 0,
+      "ACC-001": 0,
+      "UEC-001": 0
+    },
+    "unsupported": []
+  },
+  {
+    "file": "LiteralAuthority.sol",
+    "category": "regression",
+    "counts": {
+      "TXO-001": 0,
+      "REN-001": 0,
+      "ACC-001": 0,
+      "UEC-001": 0
+    },
+    "unsupported": []
+  },
+  {
+    "file": "CallerAlias.sol",
+    "category": "regression",
+    "counts": {
+      "TXO-001": 0,
+      "REN-001": 0,
+      "ACC-001": 0,
+      "UEC-001": 0
+    },
+    "unsupported": []
+  },
+  {
+    "file": "AuthorityAlias.sol",
+    "category": "regression",
+    "counts": {
+      "TXO-001": 0,
+      "REN-001": 0,
+      "ACC-001": 0,
+      "UEC-001": 0
+    },
+    "unsupported": []
+  },
+  {
+    "file": "StateRestriction.sol",
+    "category": "regression",
+    "counts": {
+      "TXO-001": 0,
+      "REN-001": 0,
+      "ACC-001": 0,
+      "UEC-001": 0
+    },
+    "unsupported": [
+      "ACC-001"
+    ]
+  },
+  {
+    "file": "BooleanAuthAlias.sol",
+    "category": "regression",
+    "counts": {
+      "TXO-001": 0,
+      "REN-001": 0,
+      "ACC-001": 0,
+      "UEC-001": 0
+    },
+    "unsupported": [
+      "ACC-001"
+    ]
+  },
+  {
+    "file": "NegativeOriginIdentity.sol",
+    "category": "regression",
+    "counts": {
+      "TXO-001": 1,
+      "REN-001": 0,
+      "ACC-001": 0,
+      "UEC-001": 0
+    },
+    "unsupported": []
+  },
+  {
+    "file": "NegatedOriginIdentity.sol",
+    "category": "regression",
+    "counts": {
+      "TXO-001": 1,
+      "REN-001": 0,
+      "ACC-001": 0,
+      "UEC-001": 0
+    },
+    "unsupported": []
+  }
+]

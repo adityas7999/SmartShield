@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import hashlib
 import json
 import os
 import re
@@ -10,15 +11,18 @@ from typing import Any
 
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel, Field, field_validator
+from pydantic import BaseModel, Field, ValidationError, field_validator
+from .report import Report, RULES
 
 
 REPOSITORY_ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_ANALYZER = REPOSITORY_ROOT / "build" / "core" / "smartshield-analyzer"
 LOCAL_SOLCJS = REPOSITORY_ROOT / "backend" / "solc" / "node_modules" / ".bin" / "solcjs"
-LOCAL_SOLC_SCRIPT = REPOSITORY_ROOT / "backend" / "solc" / "node_modules" / "solc" / "solc.js"
+LOCAL_SOLC_SCRIPT = REPOSITORY_ROOT / "backend" / "solc" / "compile.cjs"
 ALLOWED_FIXTURES = {
     "vulnerable": REPOSITORY_ROOT / "tests" / "contracts" / "vulnerable" / "TxOriginWallet.sol",
+    "multi": REPOSITORY_ROOT / "tests" / "acceptance" / "Multi.sol",
+    "unsupported": REPOSITORY_ROOT / "tests" / "acceptance" / "TXO_uncertain.sol",
     "safe": REPOSITORY_ROOT / "tests" / "contracts" / "benign" / "MsgSenderWallet.sol",
 }
 
@@ -50,8 +54,8 @@ class FixtureResponse(BaseModel):
 
 app = FastAPI(
     title="SmartShield API",
-    version="0.1.0",
-    description="Solidity AST analysis API for the TXO-001 vertical slice.",
+    version="1.0.0",
+    description="Four bounded Solidity security rules with explicit coverage.",
 )
 app.add_middleware(
     CORSMiddleware,
@@ -119,17 +123,18 @@ def _compile_source(source: str, file_name: str) -> dict[str, Any]:
     standard_input = {
         "language": "Solidity",
         "sources": {file_name: {"content": source}},
-        # SmartShield needs syntax and AST facts, not bytecode. Stopping after parsing
-        # also keeps repository-only @custom-* fixture annotations from being treated
-        # as semantic compilation failures by solc.
         "settings": {
-            "stopAfter": "parsing",
             "outputSelection": {"*": {"": ["ast"]}},
         },
     }
     try:
+        command = _resolve_solc()
+        if str(LOCAL_SOLC_SCRIPT) not in command:  # wrapper checks its own exact pinned version
+            version = subprocess.run([*command, '--version'], text=True, capture_output=True, timeout=20, check=False)
+            if version.returncode or '0.8.20+commit.a1b79de6' not in version.stdout:
+                raise _error(503, 'compiler_version', 'SmartShield requires pinned solc 0.8.20+commit.a1b79de6.')
         completed = subprocess.run(
-            [*_resolve_solc(), "--standard-json"],
+            [*command, "--standard-json"],
             input=json.dumps(standard_input),
             text=True,
             capture_output=True,
@@ -192,29 +197,51 @@ def _run_analyzer(compiler_output: dict[str, Any], source: str, file_name: str) 
         )
 
     result = _decode_json_output(completed.stdout, "analyzer")
-    if result.get("status") != "completed" or not isinstance(result.get("findings"), list):
+    if result.get("status") not in {"completed", "partial"} or not isinstance(result.get("findings"), list):
         raise _error(502, "analyzer_invalid_output", "The C++ analyzer returned an invalid response contract.")
+    try:
+        Report.model_validate(result)
+    except (ValidationError, ValueError) as exc:
+        raise _error(502, "analyzer_invalid_output", "The analyzer report failed schema validation.") from exc
     return result
 
 
 @app.get("/api/health")
 def health() -> dict[str, str]:
-    return {"status": "ok", "version": "0.1.0"}
+    return {"status": "ok", "version": "1.0.0"}
 
 
 @app.get("/api/fixtures/{fixture_name}", response_model=FixtureResponse)
 def fixture(fixture_name: str) -> FixtureResponse:
     path = ALLOWED_FIXTURES.get(fixture_name)
     if path is None:
-        raise _error(404, "fixture_not_found", "Choose the vulnerable or safe fixture.")
+        raise _error(404, "fixture_not_found", "Choose vulnerable, safe, multi, or unsupported.")
     return FixtureResponse(
         fileName=path.name,
         source=path.read_text(encoding="utf-8"),
-        expected="potential finding" if fixture_name == "vulnerable" else "no TXO-001 finding",
+        expected="See the actual report for findings and coverage.",
     )
 
 
 @app.post("/api/analyze")
 def analyze(request: AnalyzeRequest) -> dict[str, Any]:
-    compiler_output = _compile_source(request.source, request.fileName)
-    return _run_analyzer(compiler_output, request.source, request.fileName)
+    identity = {"fileName": request.fileName, "byteLength": len(request.source.encode("utf-8")),
+                "sha256": hashlib.sha256(request.source.encode("utf-8")).hexdigest()}
+    try:
+        compiler_output = _compile_source(request.source, request.fileName)
+        result = _run_analyzer(compiler_output, request.source, request.fileName)
+        result['source'] = identity
+        result['compilerVersion'] = '0.8.20+commit.a1b79de6'
+        return Report.model_validate(result).model_dump()
+    except HTTPException as exc:
+        detail = exc.detail
+        compile_error = detail['code'] == 'parse_failed'
+        report = {"schemaVersion": "1.0.0", "reportVersion": "1.0.0",
+                  "status": "compilation_error" if compile_error else "analyzer_error",
+                  "source": identity, "compilerVersion": None,
+                  "compilerErrors": detail.get('diagnostics', []) if compile_error else [],
+                  "findings": [], "ruleResults": [{"ruleId": r, "status": "failed", "reasons": [detail['message']]} for r in RULES],
+                  "summary": {"total": 0, "byRule": {r: 0 for r in RULES}, "bySeverity": {s: 0 for s in ('high', 'medium', 'low')}},
+                  "analysisLimitations": ["Analysis did not complete; no security conclusion is available."]}
+        detail['report'] = Report.model_validate(report).model_dump()
+        raise

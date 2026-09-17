@@ -1,8 +1,8 @@
 # SmartShield — Parit: CFG v1 Implementation
 
-Owner: Parit  
-Branch: feature/cfg-v1  
-Start condition: The corrected research/evaluation-corpus-v1 PR is merged into main.  
+Owner: Parit
+Branch: feature/cfg-v1
+Start condition: The corrected research/evaluation-corpus-v1 PR is merged into main.
 Deliverable: A tested, reusable C++ control-flow graph module and its handoff documentation.
 
 ## 1. Your assignment
@@ -112,10 +112,10 @@ Do not work on Pathrabe or research/evaluation-corpus-v1.
 
 ## 5. Module boundary
 
-Input:  
+Input:
 A const reference to the existing IR Program or Function, with access to the Program's relevant limitations.
 
-Output:  
+Output:
 A graph per function body, graph-to-IR mappings, query results and limitations.
 
 Rules:
@@ -265,22 +265,22 @@ Choose concrete C++ names and document them in CFG_IMPLEMENTATION.md.
 
 Provide:
 
-1. Entry reachability:  
+1. Entry reachability:
    Can this node be reached from this function's entry?
 
-2. Ordered path:  
+2. Ordered path:
    Is there a structural path from entry through A and then B?
 
-3. Ordered sequence:  
+3. Ordered sequence:
    Is there a structural path from entry through A, B and C in that order?
 
-4. Branch-specific reachability:  
+4. Branch-specific reachability:
    Can an explicitly selected true/false edge reach a target?
 
-5. Dominance on supported flow:  
+5. Dominance on supported flow:
    Does every represented entry-to-B path pass through A?
 
-6. IR lookup:  
+6. IR lookup:
    Locate nodes associated with a statement, call or state access.
 
 Use explicit outcomes such as:

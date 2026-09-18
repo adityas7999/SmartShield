@@ -58,3 +58,15 @@ Experiment limitation, not a test failure: product-domain comparison has denomin
 zero. The historical C++ probe completes on only 1/6 held-out operations and abstains
 on 5/6; this is explicitly retained in results. No model is shipped, and no
 unsupported rule status is upgraded by an ML prediction.
+
+## Actual CI evidence
+
+[Implementation run 35338793222](https://github.com/adityas7999/SmartShield/actions/runs/35338793222)
+on `d276de6ffbf46c66cd2f58ae1ff514cfcfb0eeea` completed successfully. Job
+105579714475 passed every workflow step. Downloaded job logs confirm: 5/5 CTest
+suites; corpus 10/10 with 37 locations; 86 backend tests; 14 ML tests; normal
+Jupyter kernel execution and deterministic notebook reproduction; 5 component
+tests plus 2 separately run live tests; production build; 4 browser tests; and
+whitespace checks. No unresolved CI failures. The PR links the final head run for
+this documentation checkpoint as well; no code or experiment change follows this
+verified implementation commit.

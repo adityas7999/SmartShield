@@ -35,3 +35,27 @@ Latest completed milestone: `2e5dcdc` (inventory).
   succeeded. Both are offline experiment dependencies, not backend dependencies.
 - No model trained yet. No API/frontend/schema changes justified. Historical
   solc 0.4.25 pilot next; product eligibility already fails the integration gate.
+
+## Experiment and local verification milestone
+
+Latest completed milestone: `7f6e1b7` (audit and frozen split).
+- Implemented shared typed-AST features, fixed logistic baseline, explicit
+  exclusions, matched-rule evaluation, research inference, tests and executable notebook.
+- `PYTHONPATH=.tools/ml-python:. python3 -m ml.src.experiment` passed: training
+  11 operations (4 positive/7 negative); held-out 6 operations/4 families, confusion
+  matrix [[2,0],[0,4]]. Historical C++ completed 1/6 and unsupported 5/6; no
+  supported product cases. Gate FAILS; no trained artifact or API/UI/schema changes.
+- `PYTHONPATH=.tools/ml-python:. python3 -m pytest ml/tests -q`: 14 passed.
+- `PYTHONPATH=.tools/ml-python:. python3 -m ml.src.verify`: full notebook
+  reproduced audit, operation outputs, metrics, coefficients and gate.
+- Local C++ build/5 CTest suites, all 71 acceptance fixtures, 13 corpus checks,
+  10/10 corpus compilations, 86 backend tests, 5 frontend tests, production build,
+  2 real live tests and 4 desktop/mobile browser tests passed. Exact commands and
+  environment fixes are recorded in VERIFICATION.md.
+- Normal Jupyter kernel startup is blocked by this local runtime's interface
+  enumeration restriction; all plain-Python cells executed without sockets.
+  Added real-kernel notebook reproduction to CI.
+
+Next concrete action: publish milestone commits on the dedicated branch, open a
+PR against main, inspect its actual CI (including real-kernel notebook execution),
+fix any failures and record the final run. No CI result is claimed yet.

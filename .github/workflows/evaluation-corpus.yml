@@ -44,6 +44,13 @@ jobs:
           ctest --test-dir build/core --output-on-failure | tee build/core-tests.log
       - name: Backend regressions
         run: python -m pytest backend/tests -q | tee build/backend-tests.log
+      - name: Reproduce bounded ML experiment (no product model)
+        run: |
+          npm ci --prefix ml --ignore-scripts
+          python -m pip install -r ml/requirements.txt
+          python -m ml.src.fetch
+          python -m pytest ml/tests -q | tee build/ml-tests.log
+          python -m ml.src.verify --kernel | tee build/ml-notebook.log
       - name: Record current analyzer observations
         run: node scripts/validate-corpus.mjs --analyzer "$SMARTSHIELD_ANALYZER_BIN" --output build/corpus-observations.json | tee build/corpus-observations.log
       - name: Frontend tests and production build
@@ -72,4 +79,6 @@ jobs:
             build/core/Testing/Temporary/LastTest.log
             build/browser-results/
             build/workspace-*.png
+            ml/results/
+            ml/notebooks/experiment.ipynb
           if-no-files-found: warn

@@ -62,3 +62,11 @@ evidence, shared lines, export/print and actual compiler/analyzer failure recove
 
 Historical research labels describe a broader evaluation corpus; they are not measured
 accuracy, human approval, or evidence that all patterns in that corpus are supported.
+
+## First ML experiment
+
+The [reproducible logistic regression pilot](ml/README.md) audits two external
+datasets and evaluates a narrow call-result task. Its integration gate failed:
+the historical sample is small and no candidate compiles with the product's
+pinned compiler. No predictor or ML panel is shipped; the four-rule report remains
+authoritative.

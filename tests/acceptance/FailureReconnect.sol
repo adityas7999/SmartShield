@@ -1,3 +1,10 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
-contract T { uint x; function f(address to) external { (bool ok,)=to.call(""); if(!ok) {} x=1; } }
+contract T {
+    uint x;
+    function f(address to) external {
+        (bool ok, ) = to.call("");
+        if (!ok) {}
+        x = 1;
+    }
+}

@@ -91,9 +91,25 @@ def _resolve_solc() -> list[str]:
 
 def _resolve_analyzer() -> str:
     configured = os.getenv("SMARTSHIELD_ANALYZER_BIN")
-    candidate = Path(configured) if configured else DEFAULT_ANALYZER
-    if candidate.is_file() and os.access(candidate, os.X_OK):
-        return str(candidate)
+    if configured:
+        candidate = Path(configured)
+        if candidate.is_file() and os.access(candidate, os.X_OK):
+            return str(candidate)
+        raise _error(
+            503,
+            "analyzer_unavailable",
+            "The C++ analyzer is not built. Configure and build core/ before starting the API.",
+        )
+
+    default_candidates = [
+        DEFAULT_ANALYZER,
+        Path(str(DEFAULT_ANALYZER) + ".exe"),
+        Path(shutil.which("smartshield-analyzer") or ""),
+        Path(shutil.which("smartshield-analyzer.exe") or ""),
+    ]
+    for candidate in default_candidates:
+        if candidate and candidate.is_file() and os.access(candidate, os.X_OK):
+            return str(candidate)
     raise _error(
         503,
         "analyzer_unavailable",

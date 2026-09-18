@@ -43,6 +43,24 @@ def test_compiler_errors_not_empty_success(source):
     assert report.status == 'compilation_error' and report.compilerErrors
     assert all(r.status == 'failed' for r in report.ruleResults)
 
+def test_resolve_analyzer_accepts_windows_executable(monkeypatch, tmp_path):
+    exe = tmp_path / 'smartshield-analyzer.exe'
+    exe.write_text('not used', encoding='utf-8')
+    exe.chmod(0o755)
+    monkeypatch.delenv('SMARTSHIELD_ANALYZER_BIN', raising=False)
+    monkeypatch.setattr(main, 'DEFAULT_ANALYZER', tmp_path / 'smartshield-analyzer')
+
+    assert main._resolve_analyzer() == str(exe)
+
+
+def test_resolve_analyzer_strict_override(monkeypatch, tmp_path):
+    monkeypatch.setenv('SMARTSHIELD_ANALYZER_BIN', str(tmp_path / 'missing.exe'))
+    monkeypatch.setattr(main, 'DEFAULT_ANALYZER', tmp_path / 'smartshield-analyzer')
+
+    with pytest.raises(Exception):
+        main._resolve_analyzer()
+
+
 @pytest.mark.parametrize('kind', ['missing', 'failure', 'timeout', 'malformed', 'schema'])
 def test_analyzer_errors_are_distinct(monkeypatch, kind):
     if kind == 'missing':

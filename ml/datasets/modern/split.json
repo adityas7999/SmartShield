@@ -1,0 +1,406 @@
+{
+  "controlled:Handling.sol": {
+    "family": "controlled:Handling.sol",
+    "partition": "train"
+  },
+  "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol": {
+    "family": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "partition": "validation"
+  },
+  "ethernaut:contracts/src/attacks/HigherOrderAttack.sol": {
+    "family": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "partition": "validation"
+  },
+  "ethernaut:contracts/src/attacks/KingAttack.sol": {
+    "family": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "partition": "validation"
+  },
+  "ethernaut:contracts/src/levels/BetHouse.sol": {
+    "family": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "partition": "validation"
+  },
+  "ethernaut:contracts/src/levels/Cashback.sol": {
+    "family": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "partition": "validation"
+  },
+  "ethernaut:contracts/src/levels/Delegation.sol": {
+    "family": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "partition": "validation"
+  },
+  "ethernaut:contracts/src/levels/Denial.sol": {
+    "family": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "partition": "validation"
+  },
+  "ethernaut:contracts/src/levels/DenialFactory.sol": {
+    "family": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "partition": "validation"
+  },
+  "ethernaut:contracts/src/levels/KingFactory.sol": {
+    "family": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "partition": "validation"
+  },
+  "ethernaut:contracts/src/levels/Motorbike.sol": {
+    "family": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "partition": "validation"
+  },
+  "ethernaut:contracts/src/levels/NotOptimisticPortal.sol": {
+    "family": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "partition": "validation"
+  },
+  "ethernaut:contracts/src/levels/Preservation.sol": {
+    "family": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "partition": "validation"
+  },
+  "ethernaut:contracts/src/levels/PuzzleWallet.sol": {
+    "family": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "partition": "validation"
+  },
+  "ethernaut:contracts/src/levels/RecoveryFactory.sol": {
+    "family": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "partition": "validation"
+  },
+  "ethernaut:contracts/src/levels/Reentrance.sol": {
+    "family": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "partition": "validation"
+  },
+  "ethernaut:contracts/src/levels/Stake.sol": {
+    "family": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "partition": "validation"
+  },
+  "ethernaut:contracts/src/levels/Switch.sol": {
+    "family": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "partition": "validation"
+  },
+  "examples:call-dynamic.sol": {
+    "family": "examples:call-dynamic.sol",
+    "partition": "train"
+  },
+  "examples:reentry-attack.sol": {
+    "family": "examples:call-dynamic.sol",
+    "partition": "train"
+  },
+  "examples:send-eth.sol": {
+    "family": "examples:call-dynamic.sol",
+    "partition": "train"
+  },
+  "multicall:src/Multicall.sol": {
+    "family": "multicall:src/Multicall.sol",
+    "partition": "train"
+  },
+  "multicall:src/Multicall2.sol": {
+    "family": "multicall:src/Multicall.sol",
+    "partition": "train"
+  },
+  "multicall:src/Multicall3.sol": {
+    "family": "multicall:src/Multicall.sol",
+    "partition": "train"
+  },
+  "multicall:src/test/mocks/MockCallee.sol": {
+    "family": "multicall:src/Multicall.sol",
+    "partition": "train"
+  },
+  "openzeppelin:contracts/mocks/compound/CompTimelock.sol": {
+    "family": "openzeppelin:contracts/mocks/compound/CompTimelock.sol",
+    "partition": "train"
+  },
+  "openzeppelin:contracts/proxy/transparent/ProxyAdmin.sol": {
+    "family": "openzeppelin:contracts/proxy/transparent/ProxyAdmin.sol",
+    "partition": "train"
+  },
+  "openzeppelin:contracts/utils/Address.sol": {
+    "family": "openzeppelin:contracts/proxy/transparent/ProxyAdmin.sol",
+    "partition": "train"
+  },
+  "safe:contracts/base/FallbackManager.sol": {
+    "family": "safe:contracts/base/FallbackManager.sol",
+    "partition": "test"
+  },
+  "sbe:src/pages/abi-encode/AbiEncode.sol": {
+    "family": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "partition": "validation"
+  },
+  "sbe:src/pages/app/bi-directional-payment-channel/BiDirectionalPaymentChannel.sol": {
+    "family": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "partition": "validation"
+  },
+  "sbe:src/pages/app/deploy-any-contract/Proxy.sol": {
+    "family": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "partition": "validation"
+  },
+  "sbe:src/pages/app/multi-call/MultiCall.sol": {
+    "family": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "partition": "validation"
+  },
+  "sbe:src/pages/app/multi-delegatecall/MultiDelegatecall.sol": {
+    "family": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "partition": "validation"
+  },
+  "sbe:src/pages/app/multi-sig-wallet/MultiSigWallet.sol": {
+    "family": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "partition": "validation"
+  },
+  "sbe:src/pages/app/time-lock/TimeLock.sol": {
+    "family": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "partition": "validation"
+  },
+  "sbe:src/pages/app/uni-directional-payment-channel/UniDirectionalPaymentChannel.sol": {
+    "family": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "partition": "validation"
+  },
+  "sbe:src/pages/app/upgradeable-proxy/UpgradeableProxy.sol": {
+    "family": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "partition": "validation"
+  },
+  "sbe:src/pages/call/Call.sol": {
+    "family": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "partition": "validation"
+  },
+  "sbe:src/pages/defi/uniswap-v2-add-remove-liquidity/UniswapV2Liquidity.sol": {
+    "family": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "partition": "validation"
+  },
+  "sbe:src/pages/defi/uniswap-v2-add-remove-liquidity/UniswapV2LiquidityTest.sol": {
+    "family": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "partition": "validation"
+  },
+  "sbe:src/pages/delegatecall/Delegatecall.sol": {
+    "family": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "partition": "validation"
+  },
+  "sbe:src/pages/fallback/Fallback.sol": {
+    "family": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "partition": "validation"
+  },
+  "sbe:src/pages/fallback/FallbackInputOutput.sol": {
+    "family": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "partition": "validation"
+  },
+  "sbe:src/pages/hacks/block-timestamp-manipulation/BlockTimestamp.sol": {
+    "family": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "partition": "validation"
+  },
+  "sbe:src/pages/hacks/delegatecall/Delegatecall_1.sol": {
+    "family": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "partition": "validation"
+  },
+  "sbe:src/pages/hacks/delegatecall/Delegatecall_2.sol": {
+    "family": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "partition": "validation"
+  },
+  "sbe:src/pages/hacks/denial-of-service/DenialOfService.sol": {
+    "family": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "partition": "validation"
+  },
+  "sbe:src/pages/hacks/denial-of-service/PreventDenialOfService.sol": {
+    "family": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "partition": "validation"
+  },
+  "sbe:src/pages/hacks/deploy-different-contracts-same-address/TornadoHack.sol": {
+    "family": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "partition": "validation"
+  },
+  "sbe:src/pages/hacks/front-running/FrontRunning.sol": {
+    "family": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "partition": "validation"
+  },
+  "sbe:src/pages/hacks/front-running/PreventFrontRunning.sol": {
+    "family": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "partition": "validation"
+  },
+  "sbe:src/pages/hacks/honeypot/HoneyPot.sol": {
+    "family": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "partition": "validation"
+  },
+  "sbe:src/pages/hacks/overflow/Overflow.sol": {
+    "family": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "partition": "validation"
+  },
+  "sbe:src/pages/hacks/phishing-with-tx-origin/TxOrigin.sol": {
+    "family": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "partition": "validation"
+  },
+  "sbe:src/pages/hacks/randomness/Randomness.sol": {
+    "family": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "partition": "validation"
+  },
+  "sbe:src/pages/hacks/re-entrancy/ReEntrancy.sol": {
+    "family": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "partition": "validation"
+  },
+  "sbe:src/pages/hacks/self-destruct/ForceEther.sol": {
+    "family": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "partition": "validation"
+  },
+  "sbe:src/pages/hacks/self-destruct/PreventForceEther.sol": {
+    "family": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "partition": "validation"
+  },
+  "sbe:src/pages/hacks/signature-replay/PreventSigReplay.sol": {
+    "family": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "partition": "validation"
+  },
+  "sbe:src/pages/hacks/signature-replay/SigReplay.sol": {
+    "family": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "partition": "validation"
+  },
+  "sbe:src/pages/payable/Payable.sol": {
+    "family": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "partition": "validation"
+  },
+  "sbe:src/pages/sending-ether/SendingEther.sol": {
+    "family": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "partition": "validation"
+  },
+  "serial:01_integer_underflow/FixedEtherVault.sol": {
+    "family": "serial:01_integer_underflow/FixedEtherVault.sol",
+    "partition": "validation"
+  },
+  "serial:01_integer_underflow/InsecureEtherVault.sol": {
+    "family": "serial:01_integer_underflow/FixedEtherVault.sol",
+    "partition": "validation"
+  },
+  "serial:02_reentrancy/FixedEtherVault.sol": {
+    "family": "serial:01_integer_underflow/FixedEtherVault.sol",
+    "partition": "validation"
+  },
+  "serial:02_reentrancy/InsecureEtherVault.sol": {
+    "family": "serial:01_integer_underflow/FixedEtherVault.sol",
+    "partition": "validation"
+  },
+  "serial:04_cross_function_reentrancy/FixedEtherVault.sol": {
+    "family": "serial:01_integer_underflow/FixedEtherVault.sol",
+    "partition": "validation"
+  },
+  "serial:04_cross_function_reentrancy/InsecureEtherVault.sol": {
+    "family": "serial:01_integer_underflow/FixedEtherVault.sol",
+    "partition": "validation"
+  },
+  "serial:05_cross_contract_reentrancy/FixedMoonVault.sol": {
+    "family": "serial:01_integer_underflow/FixedEtherVault.sol",
+    "partition": "validation"
+  },
+  "serial:05_cross_contract_reentrancy/InsecureMoonVault.sol": {
+    "family": "serial:01_integer_underflow/FixedEtherVault.sol",
+    "partition": "validation"
+  },
+  "serial:06_integer_overflow/FixedMoonToken.sol": {
+    "family": "serial:01_integer_underflow/FixedEtherVault.sol",
+    "partition": "validation"
+  },
+  "serial:06_integer_overflow/InsecureMoonToken.sol": {
+    "family": "serial:01_integer_underflow/FixedEtherVault.sol",
+    "partition": "validation"
+  },
+  "serial:07_phishing_with_improper_authorization/FixedDonation.sol": {
+    "family": "serial:01_integer_underflow/FixedEtherVault.sol",
+    "partition": "validation"
+  },
+  "serial:07_phishing_with_improper_authorization/InsecureDonation.sol": {
+    "family": "serial:01_integer_underflow/FixedEtherVault.sol",
+    "partition": "validation"
+  },
+  "serial:08_unexpected_ether_with_forcibly_sending_ether/FixedMoonToken.sol": {
+    "family": "serial:01_integer_underflow/FixedEtherVault.sol",
+    "partition": "validation"
+  },
+  "serial:08_unexpected_ether_with_forcibly_sending_ether/InsecureMoonToken.sol": {
+    "family": "serial:01_integer_underflow/FixedEtherVault.sol",
+    "partition": "validation"
+  },
+  "serial:09_denial_of_service_with_revert/Attack.sol": {
+    "family": "serial:01_integer_underflow/FixedEtherVault.sol",
+    "partition": "validation"
+  },
+  "serial:09_denial_of_service_with_revert/FixedWinnerTakesItAll.sol": {
+    "family": "serial:01_integer_underflow/FixedEtherVault.sol",
+    "partition": "validation"
+  },
+  "serial:09_denial_of_service_with_revert/InsecureWinnerTakesItAll.sol": {
+    "family": "serial:01_integer_underflow/FixedEtherVault.sol",
+    "partition": "validation"
+  },
+  "serial:10_denial_of_service_with_gas_limit/FixedNaiveBank.sol": {
+    "family": "serial:01_integer_underflow/FixedEtherVault.sol",
+    "partition": "validation"
+  },
+  "serial:10_denial_of_service_with_gas_limit/InsecureNaiveBank.sol": {
+    "family": "serial:01_integer_underflow/FixedEtherVault.sol",
+    "partition": "validation"
+  },
+  "serial:11_denial_of_service_with_induction_variable_overflow/FixedSimpleAirdrop.sol": {
+    "family": "serial:01_integer_underflow/FixedEtherVault.sol",
+    "partition": "validation"
+  },
+  "serial:11_denial_of_service_with_induction_variable_overflow/VulnerableSimpleAirdrop.sol": {
+    "family": "serial:01_integer_underflow/FixedEtherVault.sol",
+    "partition": "validation"
+  },
+  "serial:12_amplification_attack__double_spending_01/Dependencies.sol": {
+    "family": "serial:01_integer_underflow/FixedEtherVault.sol",
+    "partition": "validation"
+  },
+  "serial:13_double_spending_02/FixedNaiveBank.sol": {
+    "family": "serial:01_integer_underflow/FixedEtherVault.sol",
+    "partition": "validation"
+  },
+  "serial:13_double_spending_02/InsecureNaiveBank.sol": {
+    "family": "serial:01_integer_underflow/FixedEtherVault.sol",
+    "partition": "validation"
+  },
+  "slither:tests/e2e/detectors/test_data/low-level-calls/0.4.25/low_level_calls.sol": {
+    "family": "slither:tests/e2e/detectors/test_data/low-level-calls/0.4.25/low_level_calls.sol",
+    "partition": "test"
+  },
+  "slither:tests/e2e/detectors/test_data/low-level-calls/0.5.16/low_level_calls.sol": {
+    "family": "slither:tests/e2e/detectors/test_data/low-level-calls/0.4.25/low_level_calls.sol",
+    "partition": "test"
+  },
+  "slither:tests/e2e/detectors/test_data/low-level-calls/0.6.11/low_level_calls.sol": {
+    "family": "slither:tests/e2e/detectors/test_data/low-level-calls/0.4.25/low_level_calls.sol",
+    "partition": "test"
+  },
+  "slither:tests/e2e/detectors/test_data/low-level-calls/0.7.6/low_level_calls.sol": {
+    "family": "slither:tests/e2e/detectors/test_data/low-level-calls/0.4.25/low_level_calls.sol",
+    "partition": "test"
+  },
+  "slither:tests/e2e/detectors/test_data/return-bomb/0.8.20/return_bomb.sol": {
+    "family": "slither:tests/e2e/detectors/test_data/low-level-calls/0.4.25/low_level_calls.sol",
+    "partition": "test"
+  },
+  "slither:tests/e2e/detectors/test_data/unchecked-lowlevel/0.4.25/unchecked_lowlevel.sol": {
+    "family": "slither:tests/e2e/detectors/test_data/low-level-calls/0.4.25/low_level_calls.sol",
+    "partition": "test"
+  },
+  "slither:tests/e2e/detectors/test_data/unchecked-lowlevel/0.5.16/unchecked_lowlevel.sol": {
+    "family": "slither:tests/e2e/detectors/test_data/low-level-calls/0.4.25/low_level_calls.sol",
+    "partition": "test"
+  },
+  "slither:tests/e2e/detectors/test_data/unchecked-lowlevel/0.6.11/unchecked_lowlevel.sol": {
+    "family": "slither:tests/e2e/detectors/test_data/low-level-calls/0.4.25/low_level_calls.sol",
+    "partition": "test"
+  },
+  "slither:tests/e2e/detectors/test_data/unchecked-lowlevel/0.7.6/unchecked_lowlevel.sol": {
+    "family": "slither:tests/e2e/detectors/test_data/low-level-calls/0.4.25/low_level_calls.sol",
+    "partition": "test"
+  },
+  "slither:tests/e2e/detectors/test_data/write-after-write/0.8.0/write-after-write.sol": {
+    "family": "slither:tests/e2e/detectors/test_data/low-level-calls/0.4.25/low_level_calls.sol",
+    "partition": "test"
+  },
+  "solmate:src/utils/CREATE3.sol": {
+    "family": "solmate:src/utils/CREATE3.sol",
+    "partition": "test"
+  },
+  "uniswap:contracts/base/Multicall.sol": {
+    "family": "uniswap:contracts/base/Multicall.sol",
+    "partition": "validation"
+  },
+  "uniswap:contracts/lens/UniswapInterfaceMulticall.sol": {
+    "family": "uniswap:contracts/base/Multicall.sol",
+    "partition": "validation"
+  },
+  "uniswap:contracts/libraries/TransferHelper.sol": {
+    "family": "uniswap:contracts/base/Multicall.sol",
+    "partition": "validation"
+  }
+}

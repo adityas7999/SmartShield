@@ -1,0 +1,62 @@
+[
+  {
+    "error": "false_positive",
+    "expected": "negative",
+    "explanation": "The prediction contradicts the reviewed handling shown in the rationale. These syntactic features do not prove result-handling semantics; no feature/threshold adjustment follows this test error.",
+    "family": "slither:tests/e2e/detectors/test_data/low-level-calls/0.4.25/low_level_calls.sol",
+    "features": {
+      "argument_count": 1,
+      "assigned_result": 1,
+      "condition_ancestor": 0,
+      "delegatecall": 0,
+      "function_statement_count": 2,
+      "guard_ancestor": 0,
+      "later_result_references": 1,
+      "standalone_expression": 0,
+      "staticcall": 0,
+      "unary_ancestor": 0,
+      "value_option": 1
+    },
+    "function": "good",
+    "model": "dummy",
+    "rationale": "require(ret) checks this operation's success.",
+    "score": 0.5,
+    "source_id": "slither:tests/e2e/detectors/test_data/unchecked-lowlevel/0.7.6/unchecked_lowlevel.sol",
+    "span": {
+      "endLine": 7,
+      "length": 29,
+      "line": 7,
+      "offset": 199
+    }
+  },
+  {
+    "error": "false_positive",
+    "expected": "negative",
+    "explanation": "The prediction contradicts the reviewed handling shown in the rationale. These syntactic features do not prove result-handling semantics; no feature/threshold adjustment follows this test error.",
+    "family": "slither:tests/e2e/detectors/test_data/low-level-calls/0.4.25/low_level_calls.sol",
+    "features": {
+      "argument_count": 1,
+      "assigned_result": 1,
+      "condition_ancestor": 0,
+      "delegatecall": 0,
+      "function_statement_count": 3,
+      "guard_ancestor": 0,
+      "later_result_references": 1,
+      "standalone_expression": 0,
+      "staticcall": 0,
+      "unary_ancestor": 0,
+      "value_option": 1
+    },
+    "function": "good2",
+    "model": "dummy",
+    "rationale": "if (!ret) reverts, terminating failure.",
+    "score": 0.5,
+    "source_id": "slither:tests/e2e/detectors/test_data/unchecked-lowlevel/0.7.6/unchecked_lowlevel.sol",
+    "span": {
+      "endLine": 12,
+      "length": 29,
+      "line": 12,
+      "offset": 340
+    }
+  }
+]

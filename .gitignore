@@ -88,3 +88,5 @@ dist/
 
 # Developer editor settings
 .vscode/
+
+pytest-of-root/

@@ -1,0 +1,1250 @@
+[
+  {
+    "source_id": "sbe:src/pages/abi-encode/AbiEncode.sol",
+    "sha256": "a90d3b32044f424fb8633cfde92a1b4e38d3309deae42e8cfd67526082d41ff4",
+    "operation": "call",
+    "span": {
+      "endLine": 14,
+      "length": 20,
+      "line": 14,
+      "offset": 308
+    },
+    "function": "test",
+    "label": "negative",
+    "pattern": "require",
+    "rationale": "The exact function requires this operation's bound success before its normal continuation; checked returndata is not an escaped success boolean.",
+    "reviewer": "Codex source review; no independent human approval"
+  },
+  {
+    "source_id": "sbe:src/pages/app/deploy-any-contract/Proxy.sol",
+    "sha256": "52171eff71d6303a20fa914df744eef8534aaead9016325230a7d49418314cca",
+    "operation": "call",
+    "span": {
+      "endLine": 24,
+      "length": 37,
+      "line": 24,
+      "offset": 709
+    },
+    "function": "execute",
+    "label": "negative",
+    "pattern": "require",
+    "rationale": "The exact function requires this operation's bound success before its normal continuation; checked returndata is not an escaped success boolean.",
+    "reviewer": "Codex source review; no independent human approval"
+  },
+  {
+    "source_id": "sbe:src/pages/app/multi-call/MultiCall.sol",
+    "sha256": "2465d82261d628d1ea9122ac11f92082fe3b3ca9047715866d215b1ded2ae6e5",
+    "operation": "staticcall",
+    "span": {
+      "endLine": 14,
+      "length": 30,
+      "line": 14,
+      "offset": 455
+    },
+    "function": "multiCall",
+    "label": "unsupported",
+    "pattern": "complex_flow",
+    "rationale": "Function has modifiers, loops or assembly; excluded from supervised labels under the bounded task.",
+    "reviewer": "Codex source review; no independent human approval"
+  },
+  {
+    "source_id": "sbe:src/pages/app/multi-delegatecall/MultiDelegatecall.sol",
+    "sha256": "5f26ab083174e24701774b3e12a184ee4762055a061e89b150fe12b41bf84468",
+    "operation": "delegatecall",
+    "span": {
+      "endLine": 13,
+      "length": 35,
+      "line": 13,
+      "offset": 370
+    },
+    "function": "multiDelegatecall",
+    "label": "unsupported",
+    "pattern": "complex_flow",
+    "rationale": "Function has modifiers, loops or assembly; excluded from supervised labels under the bounded task.",
+    "reviewer": "Codex source review; no independent human approval"
+  },
+  {
+    "source_id": "sbe:src/pages/app/multi-sig-wallet/MultiSigWallet.sol",
+    "sha256": "b4cdc8bb2a5333dd77e64e67726074bf7a6c482df34379bc8c74c4e2a0005895",
+    "operation": "call",
+    "span": {
+      "endLine": 123,
+      "length": 85,
+      "line": 121,
+      "offset": 3478
+    },
+    "function": "executeTransaction",
+    "label": "unsupported",
+    "pattern": "complex_flow",
+    "rationale": "Function has modifiers, loops or assembly; excluded from supervised labels under the bounded task.",
+    "reviewer": "Codex source review; no independent human approval"
+  },
+  {
+    "source_id": "sbe:src/pages/app/time-lock/TimeLock.sol",
+    "sha256": "e6f9075a7d68bb696aea552c437860e1b3247255e000300065ffa1fc687f29e7",
+    "operation": "call",
+    "span": {
+      "endLine": 127,
+      "length": 33,
+      "line": 127,
+      "offset": 3802
+    },
+    "function": "execute",
+    "label": "unsupported",
+    "pattern": "complex_flow",
+    "rationale": "Function has modifiers, loops or assembly; excluded from supervised labels under the bounded task.",
+    "reviewer": "Codex source review; no independent human approval"
+  },
+  {
+    "source_id": "sbe:src/pages/app/upgradeable-proxy/UpgradeableProxy.sol",
+    "sha256": "e6d0c381a5c7ebdde9993fe24a673f448baf2b20892be590f03ec9505d0fcfd6",
+    "operation": "delegatecall",
+    "span": {
+      "endLine": 35,
+      "length": 37,
+      "line": 35,
+      "offset": 561
+    },
+    "function": "_delegate",
+    "label": "unsupported",
+    "pattern": "non_runtime_entry",
+    "rationale": "Internal/private/constructor operation is outside the public/external runtime task; no interprocedural label is claimed.",
+    "reviewer": "Codex source review; no independent human approval"
+  },
+  {
+    "source_id": "sbe:src/pages/app/upgradeable-proxy/UpgradeableProxy.sol",
+    "sha256": "e6d0c381a5c7ebdde9993fe24a673f448baf2b20892be590f03ec9505d0fcfd6",
+    "operation": "staticcall",
+    "span": {
+      "endLine": 190,
+      "length": 49,
+      "line": 190,
+      "offset": 5342
+    },
+    "function": "getProxyAdmin",
+    "label": "negative",
+    "pattern": "require",
+    "rationale": "The exact function requires this operation's bound success before its normal continuation; checked returndata is not an escaped success boolean.",
+    "reviewer": "Codex source review; no independent human approval"
+  },
+  {
+    "source_id": "sbe:src/pages/app/upgradeable-proxy/UpgradeableProxy.sol",
+    "sha256": "e6d0c381a5c7ebdde9993fe24a673f448baf2b20892be590f03ec9505d0fcfd6",
+    "operation": "staticcall",
+    "span": {
+      "endLine": 198,
+      "length": 80,
+      "line": 196,
+      "offset": 5602
+    },
+    "function": "getProxyImplementation",
+    "label": "negative",
+    "pattern": "require",
+    "rationale": "The exact function requires this operation's bound success before its normal continuation; checked returndata is not an escaped success boolean.",
+    "reviewer": "Codex source review; no independent human approval"
+  },
+  {
+    "source_id": "sbe:src/pages/call/Call.sol",
+    "sha256": "0057e4c84684c9dbe16790fc0fbb0d5df0eea0265f82b8ff85e535e43fde2aa4",
+    "operation": "call",
+    "span": {
+      "endLine": 27,
+      "length": 126,
+      "line": 25,
+      "offset": 841
+    },
+    "function": "testCallFoo",
+    "label": "unknown",
+    "pattern": "unconditional_event",
+    "rationale": "Success is reported in an unconditional event; this is not an explicit failure branch. Reporting semantics remain outside the bounded label policy.",
+    "reviewer": "Codex source review; no independent human approval"
+  },
+  {
+    "source_id": "sbe:src/pages/call/Call.sol",
+    "sha256": "0057e4c84684c9dbe16790fc0fbb0d5df0eea0265f82b8ff85e535e43fde2aa4",
+    "operation": "call",
+    "span": {
+      "endLine": 36,
+      "length": 93,
+      "line": 34,
+      "offset": 1211
+    },
+    "function": "testCallDoesNotExist",
+    "label": "unknown",
+    "pattern": "unconditional_event",
+    "rationale": "Success is reported in an unconditional event; this is not an explicit failure branch. Reporting semantics remain outside the bounded label policy.",
+    "reviewer": "Codex source review; no independent human approval"
+  },
+  {
+    "source_id": "sbe:src/pages/defi/uniswap-v2-add-remove-liquidity/UniswapV2Liquidity.sol",
+    "sha256": "eee4d083ea86c3f816040a447cd737735029e27307f93514d9af53f0b0dfffc2",
+    "operation": "call",
+    "span": {
+      "endLine": 65,
+      "length": 107,
+      "line": 63,
+      "offset": 2082
+    },
+    "function": "safeTransferFrom",
+    "label": "unsupported",
+    "pattern": "non_runtime_entry",
+    "rationale": "Internal/private/constructor operation is outside the public/external runtime task; no interprocedural label is claimed.",
+    "reviewer": "Codex source review; no independent human approval"
+  },
+  {
+    "source_id": "sbe:src/pages/defi/uniswap-v2-add-remove-liquidity/UniswapV2Liquidity.sol",
+    "sha256": "eee4d083ea86c3f816040a447cd737735029e27307f93514d9af53f0b0dfffc2",
+    "operation": "call",
+    "span": {
+      "endLine": 80,
+      "length": 92,
+      "line": 78,
+      "offset": 2676
+    },
+    "function": "safeApprove",
+    "label": "unsupported",
+    "pattern": "non_runtime_entry",
+    "rationale": "Internal/private/constructor operation is outside the public/external runtime task; no interprocedural label is claimed.",
+    "reviewer": "Codex source review; no independent human approval"
+  },
+  {
+    "source_id": "sbe:src/pages/delegatecall/Delegatecall.sol",
+    "sha256": "fd899ceb717a2aa3d98e759c2ee47f9c08753ff7833825dd1096ea846a89a26a",
+    "operation": "delegatecall",
+    "span": {
+      "endLine": 27,
+      "length": 95,
+      "line": 25,
+      "offset": 619
+    },
+    "function": "setVars",
+    "label": "positive",
+    "pattern": "tuple_unused",
+    "rationale": "The success variable and returndata are bound but never used before normal return.",
+    "reviewer": "Codex source review; no independent human approval"
+  },
+  {
+    "source_id": "sbe:src/pages/fallback/Fallback.sol",
+    "sha256": "c4add70e9f73fb7fb5c045cb88db7ef6b992ab601af050ac1aa77a995fe7fa2b",
+    "operation": "call",
+    "span": {
+      "endLine": 31,
+      "length": 30,
+      "line": 31,
+      "offset": 917
+    },
+    "function": "callFallback",
+    "label": "negative",
+    "pattern": "require",
+    "rationale": "The exact function requires this operation's bound success before its normal continuation; checked returndata is not an escaped success boolean.",
+    "reviewer": "Codex source review; no independent human approval"
+  },
+  {
+    "source_id": "sbe:src/pages/fallback/FallbackInputOutput.sol",
+    "sha256": "0b9b70167c25fbbf7bd81e5844121f5cb0de6e97a2e529083fd4d5eb7dae7b77",
+    "operation": "call",
+    "span": {
+      "endLine": 12,
+      "length": 35,
+      "line": 12,
+      "offset": 331
+    },
+    "function": "",
+    "label": "negative",
+    "pattern": "require",
+    "rationale": "The exact function requires this operation's bound success before its normal continuation; checked returndata is not an escaped success boolean.",
+    "reviewer": "Codex source review; no independent human approval"
+  },
+  {
+    "source_id": "sbe:src/pages/fallback/FallbackInputOutput.sol",
+    "sha256": "0b9b70167c25fbbf7bd81e5844121f5cb0de6e97a2e529083fd4d5eb7dae7b77",
+    "operation": "call",
+    "span": {
+      "endLine": 35,
+      "length": 20,
+      "line": 35,
+      "offset": 820
+    },
+    "function": "test",
+    "label": "negative",
+    "pattern": "require",
+    "rationale": "The exact function requires this operation's bound success before its normal continuation; checked returndata is not an escaped success boolean.",
+    "reviewer": "Codex source review; no independent human approval"
+  },
+  {
+    "source_id": "sbe:src/pages/hacks/block-timestamp-manipulation/BlockTimestamp.sol",
+    "sha256": "1bb7ce8f7a491ff3e25a1194a1c0541bec34cebac9c497526f5419b23b0a8bb0",
+    "operation": "call",
+    "span": {
+      "endLine": 31,
+      "length": 49,
+      "line": 31,
+      "offset": 965
+    },
+    "function": "spin",
+    "label": "negative",
+    "pattern": "require",
+    "rationale": "The exact function requires this operation's bound success before its normal continuation; checked returndata is not an escaped success boolean.",
+    "reviewer": "Codex source review; no independent human approval"
+  },
+  {
+    "source_id": "sbe:src/pages/hacks/delegatecall/Delegatecall_1.sol",
+    "sha256": "2209c1aa92c66ba855baa14070c510b7dfa3b0b9266e7db611863071013ed63e",
+    "operation": "delegatecall",
+    "span": {
+      "endLine": 46,
+      "length": 35,
+      "line": 46,
+      "offset": 1328
+    },
+    "function": "",
+    "label": "positive",
+    "pattern": "discarded",
+    "rationale": "The invoked low-level call or delegatecall result is discarded, without a failure guard.",
+    "reviewer": "Codex source review; no independent human approval"
+  },
+  {
+    "source_id": "sbe:src/pages/hacks/delegatecall/Delegatecall_1.sol",
+    "sha256": "2209c1aa92c66ba855baa14070c510b7dfa3b0b9266e7db611863071013ed63e",
+    "operation": "call",
+    "span": {
+      "endLine": 58,
+      "length": 45,
+      "line": 58,
+      "offset": 1527
+    },
+    "function": "attack",
+    "label": "positive",
+    "pattern": "discarded",
+    "rationale": "The invoked low-level call or delegatecall result is discarded, without a failure guard.",
+    "reviewer": "Codex source review; no independent human approval"
+  },
+  {
+    "source_id": "sbe:src/pages/hacks/delegatecall/Delegatecall_2.sol",
+    "sha256": "fed9683d454b66cbc61ccc8ba4c399b0092846c9c39294e11d7bab952b4beb91",
+    "operation": "delegatecall",
+    "span": {
+      "endLine": 42,
+      "length": 71,
+      "line": 42,
+      "offset": 1118
+    },
+    "function": "doSomething",
+    "label": "positive",
+    "pattern": "discarded",
+    "rationale": "The invoked low-level call or delegatecall result is discarded, without a failure guard.",
+    "reviewer": "Codex source review; no independent human approval"
+  },
+  {
+    "source_id": "sbe:src/pages/hacks/denial-of-service/DenialOfService.sol",
+    "sha256": "b1b827503eb5c97715661ff4078de017cea9e6381b0a37d674246f58d0f17071",
+    "operation": "call",
+    "span": {
+      "endLine": 32,
+      "length": 29,
+      "line": 32,
+      "offset": 1016
+    },
+    "function": "claimThrone",
+    "label": "negative",
+    "pattern": "require",
+    "rationale": "The exact function requires this operation's bound success before its normal continuation; checked returndata is not an escaped success boolean.",
+    "reviewer": "Codex source review; no independent human approval"
+  },
+  {
+    "source_id": "sbe:src/pages/hacks/denial-of-service/PreventDenialOfService.sol",
+    "sha256": "21ef817a1729566741e470fdbfd37578769fc7fec77e7ad0102c3850e307f9de",
+    "operation": "call",
+    "span": {
+      "endLine": 24,
+      "length": 34,
+      "line": 24,
+      "offset": 607
+    },
+    "function": "withdraw",
+    "label": "negative",
+    "pattern": "require",
+    "rationale": "The exact function requires this operation's bound success before its normal continuation; checked returndata is not an escaped success boolean.",
+    "reviewer": "Codex source review; no independent human approval"
+  },
+  {
+    "source_id": "sbe:src/pages/hacks/deploy-different-contracts-same-address/TornadoHack.sol",
+    "sha256": "55c8286637f766aecf6a9e72f0374d069abaf431b5d9e052b207ad3507dbd7f7",
+    "operation": "delegatecall",
+    "span": {
+      "endLine": 53,
+      "length": 96,
+      "line": 51,
+      "offset": 1244
+    },
+    "function": "execute",
+    "label": "negative",
+    "pattern": "require",
+    "rationale": "The exact function requires this operation's bound success before its normal continuation; checked returndata is not an escaped success boolean.",
+    "reviewer": "Codex source review; no independent human approval"
+  },
+  {
+    "source_id": "sbe:src/pages/hacks/front-running/FrontRunning.sol",
+    "sha256": "969eb9021bda36da7bc8af9d9dbd0d3c7ba9247c998c111ca9ce1c19b2d2d5c6",
+    "operation": "call",
+    "span": {
+      "endLine": 38,
+      "length": 36,
+      "line": 38,
+      "offset": 1391
+    },
+    "function": "solve",
+    "label": "negative",
+    "pattern": "require",
+    "rationale": "The exact function requires this operation's bound success before its normal continuation; checked returndata is not an escaped success boolean.",
+    "reviewer": "Codex source review; no independent human approval"
+  },
+  {
+    "source_id": "sbe:src/pages/hacks/honeypot/HoneyPot.sol",
+    "sha256": "4889801b708703af470e720693bd6a62346aa9c6ff50d2d8c75b3e0f9f928aea",
+    "operation": "call",
+    "span": {
+      "endLine": 41,
+      "length": 35,
+      "line": 41,
+      "offset": 1369
+    },
+    "function": "withdraw",
+    "label": "negative",
+    "pattern": "require",
+    "rationale": "The exact function requires this operation's bound success before its normal continuation; checked returndata is not an escaped success boolean.",
+    "reviewer": "Codex source review; no independent human approval"
+  },
+  {
+    "source_id": "sbe:src/pages/hacks/phishing-with-tx-origin/TxOrigin.sol",
+    "sha256": "875a5037edf9f30eed9fb3b805a4b85ba5c4aa282ca8f42435ce29393ec87c81",
+    "operation": "call",
+    "span": {
+      "endLine": 33,
+      "length": 28,
+      "line": 33,
+      "offset": 1032
+    },
+    "function": "transfer",
+    "label": "negative",
+    "pattern": "require",
+    "rationale": "The exact function requires this operation's bound success before its normal continuation; checked returndata is not an escaped success boolean.",
+    "reviewer": "Codex source review; no independent human approval"
+  },
+  {
+    "source_id": "sbe:src/pages/hacks/randomness/Randomness.sol",
+    "sha256": "4a0c6b89b54fcc2122e3c70f1960b85e9d167bab138074cd78a39c3cff699417",
+    "operation": "call",
+    "span": {
+      "endLine": 36,
+      "length": 35,
+      "line": 36,
+      "offset": 963
+    },
+    "function": "guess",
+    "label": "negative",
+    "pattern": "require",
+    "rationale": "The exact function requires this operation's bound success before its normal continuation; checked returndata is not an escaped success boolean.",
+    "reviewer": "Codex source review; no independent human approval"
+  },
+  {
+    "source_id": "sbe:src/pages/hacks/re-entrancy/ReEntrancy.sol",
+    "sha256": "41ea55ed1429a6f3ae9c2991fdeba3cc8d458bac98f8b85ff244bb68c85a8c73",
+    "operation": "call",
+    "span": {
+      "endLine": 42,
+      "length": 31,
+      "line": 42,
+      "offset": 1175
+    },
+    "function": "withdraw",
+    "label": "negative",
+    "pattern": "require",
+    "rationale": "The exact function requires this operation's bound success before its normal continuation; checked returndata is not an escaped success boolean.",
+    "reviewer": "Codex source review; no independent human approval"
+  },
+  {
+    "source_id": "sbe:src/pages/hacks/self-destruct/ForceEther.sol",
+    "sha256": "8a08fc617ada8aed18fcd258409f08b97939caf924333cb9e167623af8ee8bb9",
+    "operation": "call",
+    "span": {
+      "endLine": 38,
+      "length": 49,
+      "line": 38,
+      "offset": 1091
+    },
+    "function": "claimReward",
+    "label": "negative",
+    "pattern": "require",
+    "rationale": "The exact function requires this operation's bound success before its normal continuation; checked returndata is not an escaped success boolean.",
+    "reviewer": "Codex source review; no independent human approval"
+  },
+  {
+    "source_id": "sbe:src/pages/hacks/self-destruct/PreventForceEther.sol",
+    "sha256": "c4abddc1e144553225490a08ed686929938c2a10077333a34c0ad081cb83da54",
+    "operation": "call",
+    "span": {
+      "endLine": 23,
+      "length": 35,
+      "line": 23,
+      "offset": 573
+    },
+    "function": "claimReward",
+    "label": "negative",
+    "pattern": "require",
+    "rationale": "The exact function requires this operation's bound success before its normal continuation; checked returndata is not an escaped success boolean.",
+    "reviewer": "Codex source review; no independent human approval"
+  },
+  {
+    "source_id": "sbe:src/pages/payable/Payable.sol",
+    "sha256": "8c4c801dd85e02811a6838096d66f6eb88d7d705e9d69e2a671e9f63ab749f71",
+    "operation": "call",
+    "span": {
+      "endLine": 28,
+      "length": 29,
+      "line": 28,
+      "offset": 919
+    },
+    "function": "withdraw",
+    "label": "negative",
+    "pattern": "require",
+    "rationale": "The exact function requires this operation's bound success before its normal continuation; checked returndata is not an escaped success boolean.",
+    "reviewer": "Codex source review; no independent human approval"
+  },
+  {
+    "source_id": "sbe:src/pages/payable/Payable.sol",
+    "sha256": "8c4c801dd85e02811a6838096d66f6eb88d7d705e9d69e2a671e9f63ab749f71",
+    "operation": "call",
+    "span": {
+      "endLine": 35,
+      "length": 28,
+      "line": 35,
+      "offset": 1224
+    },
+    "function": "transfer",
+    "label": "negative",
+    "pattern": "require",
+    "rationale": "The exact function requires this operation's bound success before its normal continuation; checked returndata is not an escaped success boolean.",
+    "reviewer": "Codex source review; no independent human approval"
+  },
+  {
+    "source_id": "sbe:src/pages/sending-ether/SendingEther.sol",
+    "sha256": "0f7f511b94a30de0cef8f4040f18f44d2ac6a8faf3ec198372e4e883b2917f47",
+    "operation": "call",
+    "span": {
+      "endLine": 48,
+      "length": 30,
+      "line": 48,
+      "offset": 1398
+    },
+    "function": "sendViaCall",
+    "label": "negative",
+    "pattern": "require",
+    "rationale": "The exact function requires this operation's bound success before its normal continuation; checked returndata is not an escaped success boolean.",
+    "reviewer": "Codex source review; no independent human approval"
+  },
+  {
+    "source_id": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "sha256": "2c30b1ac4001222ea469327ec93726fdce5f881819253b4d47c9220034334f21",
+    "operation": "call",
+    "span": {
+      "endLine": 17,
+      "length": 82,
+      "line": 17,
+      "offset": 796
+    },
+    "function": "",
+    "label": "unsupported",
+    "pattern": "non_runtime_entry",
+    "rationale": "Internal/private/constructor operation is outside the public/external runtime task; no interprocedural label is claimed.",
+    "reviewer": "Codex source review; no independent human approval"
+  },
+  {
+    "source_id": "ethernaut:contracts/src/attacks/KingAttack.sol",
+    "sha256": "aa3ae5d273f60ccf3492a3db950f8b96f58026036a35d077a4adf5abe108a082",
+    "operation": "call",
+    "span": {
+      "endLine": 7,
+      "length": 34,
+      "line": 7,
+      "offset": 164
+    },
+    "function": "doYourThing",
+    "label": "negative",
+    "pattern": "conditional_revert",
+    "rationale": "The branch on !result reverts.",
+    "reviewer": "Codex source review; no independent human approval"
+  },
+  {
+    "source_id": "ethernaut:contracts/src/levels/Delegation.sol",
+    "sha256": "58a848dbe49be90277c5b03ad467c7145a6b1351893f0cc43c9b31597c7e3469",
+    "operation": "delegatecall",
+    "span": {
+      "endLine": 26,
+      "length": 40,
+      "line": 26,
+      "offset": 483
+    },
+    "function": "",
+    "label": "positive",
+    "pattern": "ineffective_branch",
+    "rationale": "The success branch contains only this; failure falls through normally, without handling.",
+    "reviewer": "Codex source review; no independent human approval"
+  },
+  {
+    "source_id": "ethernaut:contracts/src/levels/Denial.sol",
+    "sha256": "12916df56d2f75fe24b518252b1982cc520f423f92929c27de6dcb33d4a42054",
+    "operation": "call",
+    "span": {
+      "endLine": 19,
+      "length": 37,
+      "line": 19,
+      "offset": 702
+    },
+    "function": "withdraw",
+    "label": "positive",
+    "pattern": "discarded",
+    "rationale": "The operation's return tuple is discarded and normal execution continues.",
+    "reviewer": "Codex source review; no independent human approval"
+  },
+  {
+    "source_id": "ethernaut:contracts/src/levels/Preservation.sol",
+    "sha256": "ad6e64313020ff81da51f8c9662abf781eded9a7596587797b9934af7068cc9c",
+    "operation": "delegatecall",
+    "span": {
+      "endLine": 21,
+      "length": 77,
+      "line": 21,
+      "offset": 693
+    },
+    "function": "setFirstTime",
+    "label": "positive",
+    "pattern": "discarded",
+    "rationale": "The operation's return tuple is discarded and normal execution continues.",
+    "reviewer": "Codex source review; no independent human approval"
+  },
+  {
+    "source_id": "ethernaut:contracts/src/levels/Preservation.sol",
+    "sha256": "ad6e64313020ff81da51f8c9662abf781eded9a7596587797b9934af7068cc9c",
+    "operation": "delegatecall",
+    "span": {
+      "endLine": 26,
+      "length": 77,
+      "line": 26,
+      "offset": 878
+    },
+    "function": "setSecondTime",
+    "label": "positive",
+    "pattern": "discarded",
+    "rationale": "The operation's return tuple is discarded and normal execution continues.",
+    "reviewer": "Codex source review; no independent human approval"
+  },
+  {
+    "source_id": "ethernaut:contracts/src/levels/Stake.sol",
+    "sha256": "572dc193818c2cf984fb3ed86874e418b4ff54081f9e535461325f7a88cd2e4f",
+    "operation": "call",
+    "span": {
+      "endLine": 23,
+      "length": 71,
+      "line": 23,
+      "offset": 707
+    },
+    "function": "StakeWETH",
+    "label": "unknown",
+    "pattern": "returned_or_complex",
+    "rationale": "Success is returned to a caller or discarded while returndata is interpreted by a helper; bounded local failure handling is not established.",
+    "reviewer": "Codex source review; no independent human approval"
+  },
+  {
+    "source_id": "ethernaut:contracts/src/levels/Stake.sol",
+    "sha256": "572dc193818c2cf984fb3ed86874e418b4ff54081f9e535461325f7a88cd2e4f",
+    "operation": "call",
+    "span": {
+      "endLine": 27,
+      "length": 78,
+      "line": 27,
+      "offset": 968
+    },
+    "function": "StakeWETH",
+    "label": "unknown",
+    "pattern": "returned_or_complex",
+    "rationale": "Success is returned to a caller or discarded while returndata is interpreted by a helper; bounded local failure handling is not established.",
+    "reviewer": "Codex source review; no independent human approval"
+  },
+  {
+    "source_id": "ethernaut:contracts/src/levels/Stake.sol",
+    "sha256": "572dc193818c2cf984fb3ed86874e418b4ff54081f9e535461325f7a88cd2e4f",
+    "operation": "call",
+    "span": {
+      "endLine": 36,
+      "length": 44,
+      "line": 36,
+      "offset": 1345
+    },
+    "function": "Unstake",
+    "label": "unknown",
+    "pattern": "returned_or_complex",
+    "rationale": "Success is returned to a caller or discarded while returndata is interpreted by a helper; bounded local failure handling is not established.",
+    "reviewer": "Codex source review; no independent human approval"
+  },
+  {
+    "source_id": "ethernaut:contracts/src/levels/Switch.sol",
+    "sha256": "538ca148351bfdd54ee7c362a09def34d237de2d6e08318961f8bfe70877d72e",
+    "operation": "call",
+    "span": {
+      "endLine": 25,
+      "length": 25,
+      "line": 25,
+      "offset": 805
+    },
+    "function": "flipSwitch",
+    "label": "unsupported",
+    "pattern": "complex_flow",
+    "rationale": "Function has modifiers, loops or assembly; excluded from supervised labels under the bounded task.",
+    "reviewer": "Codex source review; no independent human approval"
+  },
+  {
+    "source_id": "slither:tests/e2e/detectors/test_data/low-level-calls/0.7.6/low_level_calls.sol",
+    "sha256": "0aabb49a1b7b1fc407ce498ea486ec99022ed1b9fc2314809a3138ffdede2a78",
+    "operation": "call",
+    "span": {
+      "endLine": 6,
+      "length": 45,
+      "line": 6,
+      "offset": 111
+    },
+    "function": "send",
+    "label": "positive",
+    "pattern": "discarded",
+    "rationale": "The invoked call result is discarded before returning normally.",
+    "reviewer": "Codex source review; no independent human approval"
+  },
+  {
+    "source_id": "slither:tests/e2e/detectors/test_data/return-bomb/0.8.20/return_bomb.sol",
+    "sha256": "f86684ad7a42d7372715a175ea194ca55e29fe331208cc800b35f41074486823",
+    "operation": "call",
+    "span": {
+      "endLine": 51,
+      "length": 121,
+      "line": 47,
+      "offset": 983
+    },
+    "function": "oops",
+    "label": "unsupported",
+    "pattern": "complex_flow",
+    "rationale": "Assignment/return data flow outside feature domain; excluded from supervised labels under the bounded task.",
+    "reviewer": "Codex source review; no independent human approval"
+  },
+  {
+    "source_id": "slither:tests/e2e/detectors/test_data/unchecked-lowlevel/0.7.6/unchecked_lowlevel.sol",
+    "sha256": "aac67c1fb8e5388154fd4edde27f77a55f95a0eaf616a8b152d9db0883d754e3",
+    "operation": "call",
+    "span": {
+      "endLine": 3,
+      "length": 29,
+      "line": 3,
+      "offset": 81
+    },
+    "function": "bad",
+    "label": "positive",
+    "pattern": "discarded",
+    "rationale": "The invoked call result is discarded before returning normally.",
+    "reviewer": "Codex source review; no independent human approval"
+  },
+  {
+    "source_id": "slither:tests/e2e/detectors/test_data/unchecked-lowlevel/0.7.6/unchecked_lowlevel.sol",
+    "sha256": "aac67c1fb8e5388154fd4edde27f77a55f95a0eaf616a8b152d9db0883d754e3",
+    "operation": "call",
+    "span": {
+      "endLine": 7,
+      "length": 29,
+      "line": 7,
+      "offset": 199
+    },
+    "function": "good",
+    "label": "negative",
+    "pattern": "require",
+    "rationale": "require(ret) checks this operation's success.",
+    "reviewer": "Codex source review; no independent human approval"
+  },
+  {
+    "source_id": "slither:tests/e2e/detectors/test_data/unchecked-lowlevel/0.7.6/unchecked_lowlevel.sol",
+    "sha256": "aac67c1fb8e5388154fd4edde27f77a55f95a0eaf616a8b152d9db0883d754e3",
+    "operation": "call",
+    "span": {
+      "endLine": 12,
+      "length": 29,
+      "line": 12,
+      "offset": 340
+    },
+    "function": "good2",
+    "label": "negative",
+    "pattern": "conditional_revert",
+    "rationale": "if (!ret) reverts, terminating failure.",
+    "reviewer": "Codex source review; no independent human approval"
+  },
+  {
+    "source_id": "slither:tests/e2e/detectors/test_data/write-after-write/0.8.0/write-after-write.sol",
+    "sha256": "818d923bfed343d3f951051c2d4b89f5902f088f2ce74e4df9f660673123dab5",
+    "operation": "call",
+    "span": {
+      "endLine": 47,
+      "length": 10,
+      "line": 47,
+      "offset": 802
+    },
+    "function": "not_bugy_external_state",
+    "label": "unsupported",
+    "pattern": "non_runtime_entry",
+    "rationale": "Internal/private/constructor operation is outside the public/external runtime task; no interprocedural label is claimed.",
+    "reviewer": "Codex source review; no independent human approval"
+  },
+  {
+    "source_id": "slither:tests/e2e/detectors/test_data/write-after-write/0.8.0/write-after-write.sol",
+    "sha256": "818d923bfed343d3f951051c2d4b89f5902f088f2ce74e4df9f660673123dab5",
+    "operation": "call",
+    "span": {
+      "endLine": 55,
+      "length": 10,
+      "line": 55,
+      "offset": 953
+    },
+    "function": "bugy_external_local",
+    "label": "unsupported",
+    "pattern": "non_runtime_entry",
+    "rationale": "Internal/private/constructor operation is outside the public/external runtime task; no interprocedural label is claimed.",
+    "reviewer": "Codex source review; no independent human approval"
+  },
+  {
+    "source_id": "serial:12_amplification_attack__double_spending_01/Dependencies.sol",
+    "sha256": "266618689f87aa555936cdcf963d3570b77e4f360bdcc791a00ac99b632c6cb2",
+    "operation": "call",
+    "span": {
+      "endLine": 63,
+      "length": 49,
+      "line": 63,
+      "offset": 2409
+    },
+    "function": "sell",
+    "label": "negative",
+    "pattern": "require",
+    "rationale": "The bound success is required immediately after this call; other vulnerabilities do not change the UEC label.",
+    "reviewer": "Codex source review; no independent human approval"
+  },
+  {
+    "source_id": "serial:13_double_spending_02/FixedNaiveBank.sol",
+    "sha256": "41dcdc48e91c0b108a8e8af64b406a06e30239d8f14a7bdf074d0e0aede132a4",
+    "operation": "call",
+    "span": {
+      "endLine": 58,
+      "length": 43,
+      "line": 58,
+      "offset": 2178
+    },
+    "function": "withdraw",
+    "label": "negative",
+    "pattern": "require",
+    "rationale": "The bound success is required immediately after this call; other vulnerabilities do not change the UEC label.",
+    "reviewer": "Codex source review; no independent human approval"
+  },
+  {
+    "source_id": "serial:13_double_spending_02/InsecureNaiveBank.sol",
+    "sha256": "278e7c4fb0947753678d81f76add6714fc2f7175d3756b3dc3b926e117f1ea0b",
+    "operation": "call",
+    "span": {
+      "endLine": 49,
+      "length": 43,
+      "line": 49,
+      "offset": 1665
+    },
+    "function": "withdraw",
+    "label": "negative",
+    "pattern": "require",
+    "rationale": "The bound success is required immediately after this call; other vulnerabilities do not change the UEC label.",
+    "reviewer": "Codex source review; no independent human approval"
+  },
+  {
+    "source_id": "openzeppelin:contracts/mocks/compound/CompTimelock.sol",
+    "sha256": "3ed36bcc1e255da8a7fe84a758d5f2a580ef88e07db62925a8db369d9104aabb",
+    "operation": "call",
+    "span": {
+      "endLine": 162,
+      "length": 35,
+      "line": 162,
+      "offset": 6231
+    },
+    "function": "executeTransaction",
+    "label": "negative",
+    "pattern": "require",
+    "rationale": "The bound success is required immediately after this call; other vulnerabilities do not change the UEC label.",
+    "reviewer": "Codex source review; no independent human approval"
+  },
+  {
+    "source_id": "openzeppelin:contracts/utils/Address.sol",
+    "sha256": "8b85a2463eda119c2f42c34fa3d942b61aee65df381f48ed436fe8edb3a7d602",
+    "operation": "call",
+    "span": {
+      "endLine": 67,
+      "length": 33,
+      "line": 67,
+      "offset": 2831
+    },
+    "function": "sendValue",
+    "label": "unsupported",
+    "pattern": "non_runtime_entry",
+    "rationale": "Internal/private/constructor operation is outside the public/external runtime task; no interprocedural label is claimed.",
+    "reviewer": "Codex source review; no independent human approval"
+  },
+  {
+    "source_id": "openzeppelin:contracts/utils/Address.sol",
+    "sha256": "8b85a2463eda119c2f42c34fa3d942b61aee65df381f48ed436fe8edb3a7d602",
+    "operation": "call",
+    "span": {
+      "endLine": 135,
+      "length": 31,
+      "line": 135,
+      "offset": 5487
+    },
+    "function": "functionCallWithValue",
+    "label": "unsupported",
+    "pattern": "non_runtime_entry",
+    "rationale": "Internal/private/constructor operation is outside the public/external runtime task; no interprocedural label is claimed.",
+    "reviewer": "Codex source review; no independent human approval"
+  },
+  {
+    "source_id": "openzeppelin:contracts/utils/Address.sol",
+    "sha256": "8b85a2463eda119c2f42c34fa3d942b61aee65df381f48ed436fe8edb3a7d602",
+    "operation": "staticcall",
+    "span": {
+      "endLine": 160,
+      "length": 23,
+      "line": 160,
+      "offset": 6379
+    },
+    "function": "functionStaticCall",
+    "label": "unsupported",
+    "pattern": "non_runtime_entry",
+    "rationale": "Internal/private/constructor operation is outside the public/external runtime task; no interprocedural label is claimed.",
+    "reviewer": "Codex source review; no independent human approval"
+  },
+  {
+    "source_id": "openzeppelin:contracts/utils/Address.sol",
+    "sha256": "8b85a2463eda119c2f42c34fa3d942b61aee65df381f48ed436fe8edb3a7d602",
+    "operation": "delegatecall",
+    "span": {
+      "endLine": 185,
+      "length": 25,
+      "line": 185,
+      "offset": 7265
+    },
+    "function": "functionDelegateCall",
+    "label": "unsupported",
+    "pattern": "non_runtime_entry",
+    "rationale": "Internal/private/constructor operation is outside the public/external runtime task; no interprocedural label is claimed.",
+    "reviewer": "Codex source review; no independent human approval"
+  },
+  {
+    "source_id": "controlled:Handling.sol",
+    "sha256": "dad97c87da3297262d9cbe3f9a03602180de033ea212f567d0027a747505bdf7",
+    "operation": "call",
+    "span": {
+      "endLine": 11,
+      "length": 17,
+      "line": 11,
+      "offset": 371
+    },
+    "function": "discarded",
+    "label": "positive",
+    "pattern": "discarded",
+    "rationale": "The low-level result is discarded.",
+    "reviewer": "Codex source review; no independent human approval"
+  },
+  {
+    "source_id": "controlled:Handling.sol",
+    "sha256": "dad97c87da3297262d9cbe3f9a03602180de033ea212f567d0027a747505bdf7",
+    "operation": "call",
+    "span": {
+      "endLine": 14,
+      "length": 17,
+      "line": 14,
+      "offset": 490
+    },
+    "function": "boundUnused",
+    "label": "positive",
+    "pattern": "tuple_unused",
+    "rationale": "Success is bound but never read.",
+    "reviewer": "Codex source review; no independent human approval"
+  },
+  {
+    "source_id": "controlled:Handling.sol",
+    "sha256": "dad97c87da3297262d9cbe3f9a03602180de033ea212f567d0027a747505bdf7",
+    "operation": "call",
+    "span": {
+      "endLine": 17,
+      "length": 17,
+      "line": 17,
+      "offset": 606
+    },
+    "function": "required",
+    "label": "negative",
+    "pattern": "require",
+    "rationale": "require checks this operation's success.",
+    "reviewer": "Codex source review; no independent human approval"
+  },
+  {
+    "source_id": "controlled:Handling.sol",
+    "sha256": "dad97c87da3297262d9cbe3f9a03602180de033ea212f567d0027a747505bdf7",
+    "operation": "staticcall",
+    "span": {
+      "endLine": 21,
+      "length": 23,
+      "line": 21,
+      "offset": 743
+    },
+    "function": "asserted",
+    "label": "negative",
+    "pattern": "assert",
+    "rationale": "assert checks this staticcall success.",
+    "reviewer": "Codex source review; no independent human approval"
+  },
+  {
+    "source_id": "controlled:Handling.sol",
+    "sha256": "dad97c87da3297262d9cbe3f9a03602180de033ea212f567d0027a747505bdf7",
+    "operation": "delegatecall",
+    "span": {
+      "endLine": 25,
+      "length": 25,
+      "line": 25,
+      "offset": 890
+    },
+    "function": "revertFailure",
+    "label": "negative",
+    "pattern": "conditional_revert",
+    "rationale": "The false-success branch reverts.",
+    "reviewer": "Codex source review; no independent human approval"
+  },
+  {
+    "source_id": "controlled:Handling.sol",
+    "sha256": "dad97c87da3297262d9cbe3f9a03602180de033ea212f567d0027a747505bdf7",
+    "operation": "call",
+    "span": {
+      "endLine": 29,
+      "length": 17,
+      "line": 29,
+      "offset": 1046
+    },
+    "function": "recordFailure",
+    "label": "negative",
+    "pattern": "conditional_state",
+    "rationale": "Failure causes an explicit state update.",
+    "reviewer": "Codex source review; no independent human approval"
+  },
+  {
+    "source_id": "controlled:Handling.sol",
+    "sha256": "dad97c87da3297262d9cbe3f9a03602180de033ea212f567d0027a747505bdf7",
+    "operation": "call",
+    "span": {
+      "endLine": 33,
+      "length": 17,
+      "line": 33,
+      "offset": 1196
+    },
+    "function": "logFailure",
+    "label": "negative",
+    "pattern": "conditional_event",
+    "rationale": "Failure emits a dedicated event in its own branch.",
+    "reviewer": "Codex source review; no independent human approval"
+  },
+  {
+    "source_id": "controlled:Handling.sol",
+    "sha256": "dad97c87da3297262d9cbe3f9a03602180de033ea212f567d0027a747505bdf7",
+    "operation": "call",
+    "span": {
+      "endLine": 37,
+      "length": 17,
+      "line": 37,
+      "offset": 1354
+    },
+    "function": "emptyFailure",
+    "label": "positive",
+    "pattern": "empty_branch",
+    "rationale": "The failure branch is empty and execution returns normally.",
+    "reviewer": "Codex source review; no independent human approval"
+  },
+  {
+    "source_id": "controlled:Handling.sol",
+    "sha256": "dad97c87da3297262d9cbe3f9a03602180de033ea212f567d0027a747505bdf7",
+    "operation": "call",
+    "span": {
+      "endLine": 41,
+      "length": 17,
+      "line": 41,
+      "offset": 1500
+    },
+    "function": "ineffectiveFailure",
+    "label": "positive",
+    "pattern": "ineffective_branch",
+    "rationale": "Failure only initializes an unused local variable.",
+    "reviewer": "Codex source review; no independent human approval"
+  },
+  {
+    "source_id": "controlled:Handling.sol",
+    "sha256": "dad97c87da3297262d9cbe3f9a03602180de033ea212f567d0027a747505bdf7",
+    "operation": "call",
+    "span": {
+      "endLine": 45,
+      "length": 17,
+      "line": 45,
+      "offset": 1660
+    },
+    "function": "overwritten",
+    "label": "positive",
+    "pattern": "overwritten",
+    "rationale": "Success is replaced by true before require, so call failure can continue.",
+    "reviewer": "Codex source review; no independent human approval"
+  },
+  {
+    "source_id": "controlled:Handling.sol",
+    "sha256": "dad97c87da3297262d9cbe3f9a03602180de033ea212f567d0027a747505bdf7",
+    "operation": "call",
+    "span": {
+      "endLine": 50,
+      "length": 17,
+      "line": 50,
+      "offset": 1820
+    },
+    "function": "checkedAlias",
+    "label": "negative",
+    "pattern": "checked_alias",
+    "rationale": "The unchanged boolean alias is required.",
+    "reviewer": "Codex source review; no independent human approval"
+  },
+  {
+    "source_id": "controlled:Handling.sol",
+    "sha256": "dad97c87da3297262d9cbe3f9a03602180de033ea212f567d0027a747505bdf7",
+    "operation": "call",
+    "span": {
+      "endLine": 55,
+      "length": 17,
+      "line": 55,
+      "offset": 1993
+    },
+    "function": "ignoredAlias",
+    "label": "positive",
+    "pattern": "unused_alias",
+    "rationale": "Success is copied but neither copy handles failure.",
+    "reviewer": "Codex source review; no independent human approval"
+  },
+  {
+    "source_id": "controlled:Handling.sol",
+    "sha256": "dad97c87da3297262d9cbe3f9a03602180de033ea212f567d0027a747505bdf7",
+    "operation": "call",
+    "span": {
+      "endLine": 59,
+      "length": 17,
+      "line": 59,
+      "offset": 2151
+    },
+    "function": "returned",
+    "label": "unknown",
+    "pattern": "returned",
+    "rationale": "Success escapes to the caller; handling is not established here.",
+    "reviewer": "Codex source review; no independent human approval"
+  },
+  {
+    "source_id": "controlled:Handling.sol",
+    "sha256": "dad97c87da3297262d9cbe3f9a03602180de033ea212f567d0027a747505bdf7",
+    "operation": "call",
+    "span": {
+      "endLine": 63,
+      "length": 17,
+      "line": 63,
+      "offset": 2285
+    },
+    "function": "escaped",
+    "label": "unknown",
+    "pattern": "passed",
+    "rationale": "Success is passed to an internal helper, outside bounded local handling.",
+    "reviewer": "Codex source review; no independent human approval"
+  },
+  {
+    "source_id": "controlled:Handling.sol",
+    "sha256": "dad97c87da3297262d9cbe3f9a03602180de033ea212f567d0027a747505bdf7",
+    "operation": "call",
+    "span": {
+      "endLine": 69,
+      "length": 17,
+      "line": 69,
+      "offset": 2484
+    },
+    "function": "tupleAssignment",
+    "label": "negative",
+    "pattern": "tuple_assignment",
+    "rationale": "The existing boolean receives the success tuple slot and is required; v1 features abstain.",
+    "reviewer": "Codex source review; no independent human approval"
+  },
+  {
+    "source_id": "controlled:Handling.sol",
+    "sha256": "dad97c87da3297262d9cbe3f9a03602180de033ea212f567d0027a747505bdf7",
+    "operation": "call",
+    "span": {
+      "endLine": 73,
+      "length": 17,
+      "line": 73,
+      "offset": 2653
+    },
+    "function": "looped",
+    "label": "unsupported",
+    "pattern": "loop",
+    "rationale": "The operation is inside a loop, outside bounded feature/control-flow support.",
+    "reviewer": "Codex source review; no independent human approval"
+  },
+  {
+    "source_id": "controlled:Handling.sol",
+    "sha256": "dad97c87da3297262d9cbe3f9a03602180de033ea212f567d0027a747505bdf7",
+    "operation": "delegatecall",
+    "span": {
+      "endLine": 76,
+      "length": 25,
+      "line": 76,
+      "offset": 2763
+    },
+    "function": "discardDelegate",
+    "label": "positive",
+    "pattern": "discarded",
+    "rationale": "The delegatecall result is discarded.",
+    "reviewer": "Codex source review; no independent human approval"
+  },
+  {
+    "source_id": "controlled:Handling.sol",
+    "sha256": "dad97c87da3297262d9cbe3f9a03602180de033ea212f567d0027a747505bdf7",
+    "operation": "staticcall",
+    "span": {
+      "endLine": 79,
+      "length": 23,
+      "line": 79,
+      "offset": 2884
+    },
+    "function": "discardStatic",
+    "label": "positive",
+    "pattern": "discarded",
+    "rationale": "The staticcall result is discarded.",
+    "reviewer": "Codex source review; no independent human approval"
+  },
+  {
+    "source_id": "controlled:Handling.sol",
+    "sha256": "dad97c87da3297262d9cbe3f9a03602180de033ea212f567d0027a747505bdf7",
+    "operation": "call",
+    "span": {
+      "endLine": 85,
+      "length": 17,
+      "line": 85,
+      "offset": 3135
+    },
+    "function": "returnFailure",
+    "label": "negative",
+    "pattern": "conditional_return",
+    "rationale": "An explicit failure branch returns zero; success returns one.",
+    "reviewer": "Codex source review; no independent human approval"
+  }
+]

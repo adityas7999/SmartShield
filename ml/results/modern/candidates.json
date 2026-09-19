@@ -1,0 +1,3002 @@
+[
+  {
+    "function": "test",
+    "function_kind": "function",
+    "operation": "call",
+    "record": {
+      "features": {
+        "argument_count": 1,
+        "assigned_result": 1,
+        "condition_ancestor": 0,
+        "delegatecall": 0,
+        "function_statement_count": 2,
+        "guard_ancestor": 0,
+        "later_result_references": 1,
+        "standalone_expression": 0,
+        "staticcall": 0,
+        "unary_ancestor": 0,
+        "value_option": 0
+      },
+      "function": "test",
+      "id": "a90d3b32044f424f:308",
+      "operation": "call",
+      "schema": "uec-ast-v1",
+      "span": {
+        "endLine": 14,
+        "length": 20,
+        "line": 14,
+        "offset": 308
+      },
+      "status": "supported"
+    },
+    "sha256": "a90d3b32044f424fb8633cfde92a1b4e38d3309deae42e8cfd67526082d41ff4",
+    "source_id": "sbe:src/pages/abi-encode/AbiEncode.sol",
+    "span": {
+      "endLine": 14,
+      "length": 20,
+      "line": 14,
+      "offset": 308
+    },
+    "visibility": "external"
+  },
+  {
+    "function": "execute",
+    "function_kind": "function",
+    "operation": "call",
+    "record": {
+      "features": {
+        "argument_count": 1,
+        "assigned_result": 1,
+        "condition_ancestor": 0,
+        "delegatecall": 0,
+        "function_statement_count": 2,
+        "guard_ancestor": 0,
+        "later_result_references": 1,
+        "standalone_expression": 0,
+        "staticcall": 0,
+        "unary_ancestor": 0,
+        "value_option": 1
+      },
+      "function": "execute",
+      "id": "52171eff71d6303a:709",
+      "operation": "call",
+      "schema": "uec-ast-v1",
+      "span": {
+        "endLine": 24,
+        "length": 37,
+        "line": 24,
+        "offset": 709
+      },
+      "status": "supported"
+    },
+    "sha256": "52171eff71d6303a20fa914df744eef8534aaead9016325230a7d49418314cca",
+    "source_id": "sbe:src/pages/app/deploy-any-contract/Proxy.sol",
+    "span": {
+      "endLine": 24,
+      "length": 37,
+      "line": 24,
+      "offset": 709
+    },
+    "visibility": "external"
+  },
+  {
+    "function": "multiCall",
+    "function_kind": "function",
+    "operation": "staticcall",
+    "record": {
+      "function": "multiCall",
+      "id": "2465d82261d628d1:455",
+      "operation": "staticcall",
+      "reason": "Function has modifiers, loops or assembly",
+      "schema": "uec-ast-v1",
+      "span": {
+        "endLine": 14,
+        "length": 30,
+        "line": 14,
+        "offset": 455
+      },
+      "status": "unsupported"
+    },
+    "sha256": "2465d82261d628d1ea9122ac11f92082fe3b3ca9047715866d215b1ded2ae6e5",
+    "source_id": "sbe:src/pages/app/multi-call/MultiCall.sol",
+    "span": {
+      "endLine": 14,
+      "length": 30,
+      "line": 14,
+      "offset": 455
+    },
+    "visibility": "external"
+  },
+  {
+    "function": "multiDelegatecall",
+    "function_kind": "function",
+    "operation": "delegatecall",
+    "record": {
+      "function": "multiDelegatecall",
+      "id": "5f26ab083174e247:370",
+      "operation": "delegatecall",
+      "reason": "Function has modifiers, loops or assembly",
+      "schema": "uec-ast-v1",
+      "span": {
+        "endLine": 13,
+        "length": 35,
+        "line": 13,
+        "offset": 370
+      },
+      "status": "unsupported"
+    },
+    "sha256": "5f26ab083174e24701774b3e12a184ee4762055a061e89b150fe12b41bf84468",
+    "source_id": "sbe:src/pages/app/multi-delegatecall/MultiDelegatecall.sol",
+    "span": {
+      "endLine": 13,
+      "length": 35,
+      "line": 13,
+      "offset": 370
+    },
+    "visibility": "external"
+  },
+  {
+    "function": "executeTransaction",
+    "function_kind": "function",
+    "operation": "call",
+    "record": {
+      "function": "executeTransaction",
+      "id": "b4cdc8bb2a5333dd:3478",
+      "operation": "call",
+      "reason": "Function has modifiers, loops or assembly",
+      "schema": "uec-ast-v1",
+      "span": {
+        "endLine": 123,
+        "length": 85,
+        "line": 121,
+        "offset": 3478
+      },
+      "status": "unsupported"
+    },
+    "sha256": "b4cdc8bb2a5333dd77e64e67726074bf7a6c482df34379bc8c74c4e2a0005895",
+    "source_id": "sbe:src/pages/app/multi-sig-wallet/MultiSigWallet.sol",
+    "span": {
+      "endLine": 123,
+      "length": 85,
+      "line": 121,
+      "offset": 3478
+    },
+    "visibility": "public"
+  },
+  {
+    "function": "execute",
+    "function_kind": "function",
+    "operation": "call",
+    "record": {
+      "function": "execute",
+      "id": "e6f9075a7d68bb69:3802",
+      "operation": "call",
+      "reason": "Function has modifiers, loops or assembly",
+      "schema": "uec-ast-v1",
+      "span": {
+        "endLine": 127,
+        "length": 33,
+        "line": 127,
+        "offset": 3802
+      },
+      "status": "unsupported"
+    },
+    "sha256": "e6f9075a7d68bb696aea552c437860e1b3247255e000300065ffa1fc687f29e7",
+    "source_id": "sbe:src/pages/app/time-lock/TimeLock.sol",
+    "span": {
+      "endLine": 127,
+      "length": 33,
+      "line": 127,
+      "offset": 3802
+    },
+    "visibility": "external"
+  },
+  {
+    "function": "_delegate",
+    "function_kind": "function",
+    "operation": "delegatecall",
+    "record": {
+      "features": {
+        "argument_count": 1,
+        "assigned_result": 1,
+        "condition_ancestor": 0,
+        "delegatecall": 1,
+        "function_statement_count": 2,
+        "guard_ancestor": 0,
+        "later_result_references": 1,
+        "standalone_expression": 0,
+        "staticcall": 0,
+        "unary_ancestor": 0,
+        "value_option": 0
+      },
+      "function": "_delegate",
+      "id": "e6d0c381a5c7ebdd:561",
+      "operation": "delegatecall",
+      "schema": "uec-ast-v1",
+      "span": {
+        "endLine": 35,
+        "length": 37,
+        "line": 35,
+        "offset": 561
+      },
+      "status": "supported"
+    },
+    "sha256": "e6d0c381a5c7ebdde9993fe24a673f448baf2b20892be590f03ec9505d0fcfd6",
+    "source_id": "sbe:src/pages/app/upgradeable-proxy/UpgradeableProxy.sol",
+    "span": {
+      "endLine": 35,
+      "length": 37,
+      "line": 35,
+      "offset": 561
+    },
+    "visibility": "private"
+  },
+  {
+    "function": "getProxyAdmin",
+    "function_kind": "function",
+    "operation": "staticcall",
+    "record": {
+      "features": {
+        "argument_count": 1,
+        "assigned_result": 1,
+        "condition_ancestor": 0,
+        "delegatecall": 0,
+        "function_statement_count": 2,
+        "guard_ancestor": 0,
+        "later_result_references": 1,
+        "standalone_expression": 0,
+        "staticcall": 1,
+        "unary_ancestor": 0,
+        "value_option": 0
+      },
+      "function": "getProxyAdmin",
+      "id": "e6d0c381a5c7ebdd:5342",
+      "operation": "staticcall",
+      "schema": "uec-ast-v1",
+      "span": {
+        "endLine": 190,
+        "length": 49,
+        "line": 190,
+        "offset": 5342
+      },
+      "status": "supported"
+    },
+    "sha256": "e6d0c381a5c7ebdde9993fe24a673f448baf2b20892be590f03ec9505d0fcfd6",
+    "source_id": "sbe:src/pages/app/upgradeable-proxy/UpgradeableProxy.sol",
+    "span": {
+      "endLine": 190,
+      "length": 49,
+      "line": 190,
+      "offset": 5342
+    },
+    "visibility": "external"
+  },
+  {
+    "function": "getProxyImplementation",
+    "function_kind": "function",
+    "operation": "staticcall",
+    "record": {
+      "features": {
+        "argument_count": 1,
+        "assigned_result": 1,
+        "condition_ancestor": 0,
+        "delegatecall": 0,
+        "function_statement_count": 2,
+        "guard_ancestor": 0,
+        "later_result_references": 1,
+        "standalone_expression": 0,
+        "staticcall": 1,
+        "unary_ancestor": 0,
+        "value_option": 0
+      },
+      "function": "getProxyImplementation",
+      "id": "e6d0c381a5c7ebdd:5602",
+      "operation": "staticcall",
+      "schema": "uec-ast-v1",
+      "span": {
+        "endLine": 198,
+        "length": 80,
+        "line": 196,
+        "offset": 5602
+      },
+      "status": "supported"
+    },
+    "sha256": "e6d0c381a5c7ebdde9993fe24a673f448baf2b20892be590f03ec9505d0fcfd6",
+    "source_id": "sbe:src/pages/app/upgradeable-proxy/UpgradeableProxy.sol",
+    "span": {
+      "endLine": 198,
+      "length": 80,
+      "line": 196,
+      "offset": 5602
+    },
+    "visibility": "external"
+  },
+  {
+    "function": "testCallFoo",
+    "function_kind": "function",
+    "operation": "call",
+    "record": {
+      "features": {
+        "argument_count": 1,
+        "assigned_result": 1,
+        "condition_ancestor": 0,
+        "delegatecall": 0,
+        "function_statement_count": 2,
+        "guard_ancestor": 0,
+        "later_result_references": 1,
+        "standalone_expression": 0,
+        "staticcall": 0,
+        "unary_ancestor": 0,
+        "value_option": 1
+      },
+      "function": "testCallFoo",
+      "id": "0057e4c84684c9db:841",
+      "operation": "call",
+      "schema": "uec-ast-v1",
+      "span": {
+        "endLine": 27,
+        "length": 126,
+        "line": 25,
+        "offset": 841
+      },
+      "status": "supported"
+    },
+    "sha256": "0057e4c84684c9dbe16790fc0fbb0d5df0eea0265f82b8ff85e535e43fde2aa4",
+    "source_id": "sbe:src/pages/call/Call.sol",
+    "span": {
+      "endLine": 27,
+      "length": 126,
+      "line": 25,
+      "offset": 841
+    },
+    "visibility": "public"
+  },
+  {
+    "function": "testCallDoesNotExist",
+    "function_kind": "function",
+    "operation": "call",
+    "record": {
+      "features": {
+        "argument_count": 1,
+        "assigned_result": 1,
+        "condition_ancestor": 0,
+        "delegatecall": 0,
+        "function_statement_count": 2,
+        "guard_ancestor": 0,
+        "later_result_references": 1,
+        "standalone_expression": 0,
+        "staticcall": 0,
+        "unary_ancestor": 0,
+        "value_option": 1
+      },
+      "function": "testCallDoesNotExist",
+      "id": "0057e4c84684c9db:1211",
+      "operation": "call",
+      "schema": "uec-ast-v1",
+      "span": {
+        "endLine": 36,
+        "length": 93,
+        "line": 34,
+        "offset": 1211
+      },
+      "status": "supported"
+    },
+    "sha256": "0057e4c84684c9dbe16790fc0fbb0d5df0eea0265f82b8ff85e535e43fde2aa4",
+    "source_id": "sbe:src/pages/call/Call.sol",
+    "span": {
+      "endLine": 36,
+      "length": 93,
+      "line": 34,
+      "offset": 1211
+    },
+    "visibility": "public"
+  },
+  {
+    "function": "safeTransferFrom",
+    "function_kind": "function",
+    "operation": "call",
+    "record": {
+      "features": {
+        "argument_count": 1,
+        "assigned_result": 1,
+        "condition_ancestor": 0,
+        "delegatecall": 0,
+        "function_statement_count": 2,
+        "guard_ancestor": 0,
+        "later_result_references": 1,
+        "standalone_expression": 0,
+        "staticcall": 0,
+        "unary_ancestor": 0,
+        "value_option": 0
+      },
+      "function": "safeTransferFrom",
+      "id": "eee4d083ea86c3f8:2082",
+      "operation": "call",
+      "schema": "uec-ast-v1",
+      "span": {
+        "endLine": 65,
+        "length": 107,
+        "line": 63,
+        "offset": 2082
+      },
+      "status": "supported"
+    },
+    "sha256": "eee4d083ea86c3f816040a447cd737735029e27307f93514d9af53f0b0dfffc2",
+    "source_id": "sbe:src/pages/defi/uniswap-v2-add-remove-liquidity/UniswapV2Liquidity.sol",
+    "span": {
+      "endLine": 65,
+      "length": 107,
+      "line": 63,
+      "offset": 2082
+    },
+    "visibility": "internal"
+  },
+  {
+    "function": "safeApprove",
+    "function_kind": "function",
+    "operation": "call",
+    "record": {
+      "features": {
+        "argument_count": 1,
+        "assigned_result": 1,
+        "condition_ancestor": 0,
+        "delegatecall": 0,
+        "function_statement_count": 2,
+        "guard_ancestor": 0,
+        "later_result_references": 1,
+        "standalone_expression": 0,
+        "staticcall": 0,
+        "unary_ancestor": 0,
+        "value_option": 0
+      },
+      "function": "safeApprove",
+      "id": "eee4d083ea86c3f8:2676",
+      "operation": "call",
+      "schema": "uec-ast-v1",
+      "span": {
+        "endLine": 80,
+        "length": 92,
+        "line": 78,
+        "offset": 2676
+      },
+      "status": "supported"
+    },
+    "sha256": "eee4d083ea86c3f816040a447cd737735029e27307f93514d9af53f0b0dfffc2",
+    "source_id": "sbe:src/pages/defi/uniswap-v2-add-remove-liquidity/UniswapV2Liquidity.sol",
+    "span": {
+      "endLine": 80,
+      "length": 92,
+      "line": 78,
+      "offset": 2676
+    },
+    "visibility": "internal"
+  },
+  {
+    "function": "setVars",
+    "function_kind": "function",
+    "operation": "delegatecall",
+    "record": {
+      "features": {
+        "argument_count": 1,
+        "assigned_result": 1,
+        "condition_ancestor": 0,
+        "delegatecall": 1,
+        "function_statement_count": 1,
+        "guard_ancestor": 0,
+        "later_result_references": 0,
+        "standalone_expression": 0,
+        "staticcall": 0,
+        "unary_ancestor": 0,
+        "value_option": 0
+      },
+      "function": "setVars",
+      "id": "fd899ceb717a2aa3:619",
+      "operation": "delegatecall",
+      "schema": "uec-ast-v1",
+      "span": {
+        "endLine": 27,
+        "length": 95,
+        "line": 25,
+        "offset": 619
+      },
+      "status": "supported"
+    },
+    "sha256": "fd899ceb717a2aa3d98e759c2ee47f9c08753ff7833825dd1096ea846a89a26a",
+    "source_id": "sbe:src/pages/delegatecall/Delegatecall.sol",
+    "span": {
+      "endLine": 27,
+      "length": 95,
+      "line": 25,
+      "offset": 619
+    },
+    "visibility": "public"
+  },
+  {
+    "function": "callFallback",
+    "function_kind": "function",
+    "operation": "call",
+    "record": {
+      "features": {
+        "argument_count": 1,
+        "assigned_result": 1,
+        "condition_ancestor": 0,
+        "delegatecall": 0,
+        "function_statement_count": 2,
+        "guard_ancestor": 0,
+        "later_result_references": 1,
+        "standalone_expression": 0,
+        "staticcall": 0,
+        "unary_ancestor": 0,
+        "value_option": 1
+      },
+      "function": "callFallback",
+      "id": "c4add70e9f73fb7f:917",
+      "operation": "call",
+      "schema": "uec-ast-v1",
+      "span": {
+        "endLine": 31,
+        "length": 30,
+        "line": 31,
+        "offset": 917
+      },
+      "status": "supported"
+    },
+    "sha256": "c4add70e9f73fb7fb5c045cb88db7ef6b992ab601af050ac1aa77a995fe7fa2b",
+    "source_id": "sbe:src/pages/fallback/Fallback.sol",
+    "span": {
+      "endLine": 31,
+      "length": 30,
+      "line": 31,
+      "offset": 917
+    },
+    "visibility": "public"
+  },
+  {
+    "function": "",
+    "function_kind": "fallback",
+    "operation": "call",
+    "record": {
+      "features": {
+        "argument_count": 1,
+        "assigned_result": 1,
+        "condition_ancestor": 0,
+        "delegatecall": 0,
+        "function_statement_count": 2,
+        "guard_ancestor": 0,
+        "later_result_references": 1,
+        "standalone_expression": 0,
+        "staticcall": 0,
+        "unary_ancestor": 0,
+        "value_option": 1
+      },
+      "function": "<fallback>",
+      "id": "0b9b70167c25fbbf:331",
+      "operation": "call",
+      "schema": "uec-ast-v1",
+      "span": {
+        "endLine": 12,
+        "length": 35,
+        "line": 12,
+        "offset": 331
+      },
+      "status": "supported"
+    },
+    "sha256": "0b9b70167c25fbbf7bd81e5844121f5cb0de6e97a2e529083fd4d5eb7dae7b77",
+    "source_id": "sbe:src/pages/fallback/FallbackInputOutput.sol",
+    "span": {
+      "endLine": 12,
+      "length": 35,
+      "line": 12,
+      "offset": 331
+    },
+    "visibility": "external"
+  },
+  {
+    "function": "test",
+    "function_kind": "function",
+    "operation": "call",
+    "record": {
+      "features": {
+        "argument_count": 1,
+        "assigned_result": 1,
+        "condition_ancestor": 0,
+        "delegatecall": 0,
+        "function_statement_count": 3,
+        "guard_ancestor": 0,
+        "later_result_references": 1,
+        "standalone_expression": 0,
+        "staticcall": 0,
+        "unary_ancestor": 0,
+        "value_option": 0
+      },
+      "function": "test",
+      "id": "0b9b70167c25fbbf:820",
+      "operation": "call",
+      "schema": "uec-ast-v1",
+      "span": {
+        "endLine": 35,
+        "length": 20,
+        "line": 35,
+        "offset": 820
+      },
+      "status": "supported"
+    },
+    "sha256": "0b9b70167c25fbbf7bd81e5844121f5cb0de6e97a2e529083fd4d5eb7dae7b77",
+    "source_id": "sbe:src/pages/fallback/FallbackInputOutput.sol",
+    "span": {
+      "endLine": 35,
+      "length": 20,
+      "line": 35,
+      "offset": 820
+    },
+    "visibility": "external"
+  },
+  {
+    "function": "spin",
+    "function_kind": "function",
+    "operation": "call",
+    "record": {
+      "features": {
+        "argument_count": 1,
+        "assigned_result": 1,
+        "condition_ancestor": 0,
+        "delegatecall": 0,
+        "function_statement_count": 6,
+        "guard_ancestor": 0,
+        "later_result_references": 1,
+        "standalone_expression": 0,
+        "staticcall": 0,
+        "unary_ancestor": 0,
+        "value_option": 1
+      },
+      "function": "spin",
+      "id": "1bb7ce8f7a491ff3:965",
+      "operation": "call",
+      "schema": "uec-ast-v1",
+      "span": {
+        "endLine": 31,
+        "length": 49,
+        "line": 31,
+        "offset": 965
+      },
+      "status": "supported"
+    },
+    "sha256": "1bb7ce8f7a491ff3e25a1194a1c0541bec34cebac9c497526f5419b23b0a8bb0",
+    "source_id": "sbe:src/pages/hacks/block-timestamp-manipulation/BlockTimestamp.sol",
+    "span": {
+      "endLine": 31,
+      "length": 49,
+      "line": 31,
+      "offset": 965
+    },
+    "visibility": "external"
+  },
+  {
+    "function": "",
+    "function_kind": "fallback",
+    "operation": "delegatecall",
+    "record": {
+      "features": {
+        "argument_count": 1,
+        "assigned_result": 0,
+        "condition_ancestor": 0,
+        "delegatecall": 1,
+        "function_statement_count": 1,
+        "guard_ancestor": 0,
+        "later_result_references": 0,
+        "standalone_expression": 1,
+        "staticcall": 0,
+        "unary_ancestor": 0,
+        "value_option": 0
+      },
+      "function": "<fallback>",
+      "id": "2209c1aa92c66ba8:1328",
+      "operation": "delegatecall",
+      "schema": "uec-ast-v1",
+      "span": {
+        "endLine": 46,
+        "length": 35,
+        "line": 46,
+        "offset": 1328
+      },
+      "status": "supported"
+    },
+    "sha256": "2209c1aa92c66ba855baa14070c510b7dfa3b0b9266e7db611863071013ed63e",
+    "source_id": "sbe:src/pages/hacks/delegatecall/Delegatecall_1.sol",
+    "span": {
+      "endLine": 46,
+      "length": 35,
+      "line": 46,
+      "offset": 1328
+    },
+    "visibility": "external"
+  },
+  {
+    "function": "attack",
+    "function_kind": "function",
+    "operation": "call",
+    "record": {
+      "features": {
+        "argument_count": 1,
+        "assigned_result": 0,
+        "condition_ancestor": 0,
+        "delegatecall": 0,
+        "function_statement_count": 1,
+        "guard_ancestor": 0,
+        "later_result_references": 0,
+        "standalone_expression": 1,
+        "staticcall": 0,
+        "unary_ancestor": 0,
+        "value_option": 0
+      },
+      "function": "attack",
+      "id": "2209c1aa92c66ba8:1527",
+      "operation": "call",
+      "schema": "uec-ast-v1",
+      "span": {
+        "endLine": 58,
+        "length": 45,
+        "line": 58,
+        "offset": 1527
+      },
+      "status": "supported"
+    },
+    "sha256": "2209c1aa92c66ba855baa14070c510b7dfa3b0b9266e7db611863071013ed63e",
+    "source_id": "sbe:src/pages/hacks/delegatecall/Delegatecall_1.sol",
+    "span": {
+      "endLine": 58,
+      "length": 45,
+      "line": 58,
+      "offset": 1527
+    },
+    "visibility": "public"
+  },
+  {
+    "function": "doSomething",
+    "function_kind": "function",
+    "operation": "delegatecall",
+    "record": {
+      "features": {
+        "argument_count": 1,
+        "assigned_result": 0,
+        "condition_ancestor": 0,
+        "delegatecall": 1,
+        "function_statement_count": 1,
+        "guard_ancestor": 0,
+        "later_result_references": 0,
+        "standalone_expression": 1,
+        "staticcall": 0,
+        "unary_ancestor": 0,
+        "value_option": 0
+      },
+      "function": "doSomething",
+      "id": "fed9683d454b66cb:1118",
+      "operation": "delegatecall",
+      "schema": "uec-ast-v1",
+      "span": {
+        "endLine": 42,
+        "length": 71,
+        "line": 42,
+        "offset": 1118
+      },
+      "status": "supported"
+    },
+    "sha256": "fed9683d454b66cbc61ccc8ba4c399b0092846c9c39294e11d7bab952b4beb91",
+    "source_id": "sbe:src/pages/hacks/delegatecall/Delegatecall_2.sol",
+    "span": {
+      "endLine": 42,
+      "length": 71,
+      "line": 42,
+      "offset": 1118
+    },
+    "visibility": "public"
+  },
+  {
+    "function": "claimThrone",
+    "function_kind": "function",
+    "operation": "call",
+    "record": {
+      "features": {
+        "argument_count": 1,
+        "assigned_result": 1,
+        "condition_ancestor": 0,
+        "delegatecall": 0,
+        "function_statement_count": 5,
+        "guard_ancestor": 0,
+        "later_result_references": 1,
+        "standalone_expression": 0,
+        "staticcall": 0,
+        "unary_ancestor": 0,
+        "value_option": 1
+      },
+      "function": "claimThrone",
+      "id": "b1b827503eb5c977:1016",
+      "operation": "call",
+      "schema": "uec-ast-v1",
+      "span": {
+        "endLine": 32,
+        "length": 29,
+        "line": 32,
+        "offset": 1016
+      },
+      "status": "supported"
+    },
+    "sha256": "b1b827503eb5c97715661ff4078de017cea9e6381b0a37d674246f58d0f17071",
+    "source_id": "sbe:src/pages/hacks/denial-of-service/DenialOfService.sol",
+    "span": {
+      "endLine": 32,
+      "length": 29,
+      "line": 32,
+      "offset": 1016
+    },
+    "visibility": "external"
+  },
+  {
+    "function": "withdraw",
+    "function_kind": "function",
+    "operation": "call",
+    "record": {
+      "features": {
+        "argument_count": 1,
+        "assigned_result": 1,
+        "condition_ancestor": 0,
+        "delegatecall": 0,
+        "function_statement_count": 5,
+        "guard_ancestor": 0,
+        "later_result_references": 1,
+        "standalone_expression": 0,
+        "staticcall": 0,
+        "unary_ancestor": 0,
+        "value_option": 1
+      },
+      "function": "withdraw",
+      "id": "21ef817a17295667:607",
+      "operation": "call",
+      "schema": "uec-ast-v1",
+      "span": {
+        "endLine": 24,
+        "length": 34,
+        "line": 24,
+        "offset": 607
+      },
+      "status": "supported"
+    },
+    "sha256": "21ef817a1729566741e470fdbfd37578769fc7fec77e7ad0102c3850e307f9de",
+    "source_id": "sbe:src/pages/hacks/denial-of-service/PreventDenialOfService.sol",
+    "span": {
+      "endLine": 24,
+      "length": 34,
+      "line": 24,
+      "offset": 607
+    },
+    "visibility": "public"
+  },
+  {
+    "function": "execute",
+    "function_kind": "function",
+    "operation": "delegatecall",
+    "record": {
+      "features": {
+        "argument_count": 1,
+        "assigned_result": 1,
+        "condition_ancestor": 0,
+        "delegatecall": 1,
+        "function_statement_count": 6,
+        "guard_ancestor": 0,
+        "later_result_references": 1,
+        "standalone_expression": 0,
+        "staticcall": 0,
+        "unary_ancestor": 0,
+        "value_option": 0
+      },
+      "function": "execute",
+      "id": "55c8286637f766ae:1244",
+      "operation": "delegatecall",
+      "schema": "uec-ast-v1",
+      "span": {
+        "endLine": 53,
+        "length": 96,
+        "line": 51,
+        "offset": 1244
+      },
+      "status": "supported"
+    },
+    "sha256": "55c8286637f766aecf6a9e72f0374d069abaf431b5d9e052b207ad3507dbd7f7",
+    "source_id": "sbe:src/pages/hacks/deploy-different-contracts-same-address/TornadoHack.sol",
+    "span": {
+      "endLine": 53,
+      "length": 96,
+      "line": 51,
+      "offset": 1244
+    },
+    "visibility": "external"
+  },
+  {
+    "function": "solve",
+    "function_kind": "function",
+    "operation": "call",
+    "record": {
+      "features": {
+        "argument_count": 1,
+        "assigned_result": 1,
+        "condition_ancestor": 0,
+        "delegatecall": 0,
+        "function_statement_count": 3,
+        "guard_ancestor": 0,
+        "later_result_references": 1,
+        "standalone_expression": 0,
+        "staticcall": 0,
+        "unary_ancestor": 0,
+        "value_option": 1
+      },
+      "function": "solve",
+      "id": "969eb9021bda36da:1391",
+      "operation": "call",
+      "schema": "uec-ast-v1",
+      "span": {
+        "endLine": 38,
+        "length": 36,
+        "line": 38,
+        "offset": 1391
+      },
+      "status": "supported"
+    },
+    "sha256": "969eb9021bda36da7bc8af9d9dbd0d3c7ba9247c998c111ca9ce1c19b2d2d5c6",
+    "source_id": "sbe:src/pages/hacks/front-running/FrontRunning.sol",
+    "span": {
+      "endLine": 38,
+      "length": 36,
+      "line": 38,
+      "offset": 1391
+    },
+    "visibility": "public"
+  },
+  {
+    "function": "withdraw",
+    "function_kind": "function",
+    "operation": "call",
+    "record": {
+      "features": {
+        "argument_count": 1,
+        "assigned_result": 1,
+        "condition_ancestor": 0,
+        "delegatecall": 0,
+        "function_statement_count": 5,
+        "guard_ancestor": 0,
+        "later_result_references": 1,
+        "standalone_expression": 0,
+        "staticcall": 0,
+        "unary_ancestor": 0,
+        "value_option": 1
+      },
+      "function": "withdraw",
+      "id": "4889801b708703af:1369",
+      "operation": "call",
+      "schema": "uec-ast-v1",
+      "span": {
+        "endLine": 41,
+        "length": 35,
+        "line": 41,
+        "offset": 1369
+      },
+      "status": "supported"
+    },
+    "sha256": "4889801b708703af470e720693bd6a62346aa9c6ff50d2d8c75b3e0f9f928aea",
+    "source_id": "sbe:src/pages/hacks/honeypot/HoneyPot.sol",
+    "span": {
+      "endLine": 41,
+      "length": 35,
+      "line": 41,
+      "offset": 1369
+    },
+    "visibility": "public"
+  },
+  {
+    "function": "transfer",
+    "function_kind": "function",
+    "operation": "call",
+    "record": {
+      "features": {
+        "argument_count": 1,
+        "assigned_result": 1,
+        "condition_ancestor": 0,
+        "delegatecall": 0,
+        "function_statement_count": 3,
+        "guard_ancestor": 0,
+        "later_result_references": 1,
+        "standalone_expression": 0,
+        "staticcall": 0,
+        "unary_ancestor": 0,
+        "value_option": 1
+      },
+      "function": "transfer",
+      "id": "875a5037edf9f30e:1032",
+      "operation": "call",
+      "schema": "uec-ast-v1",
+      "span": {
+        "endLine": 33,
+        "length": 28,
+        "line": 33,
+        "offset": 1032
+      },
+      "status": "supported"
+    },
+    "sha256": "875a5037edf9f30eed9fb3b805a4b85ba5c4aa282ca8f42435ce29393ec87c81",
+    "source_id": "sbe:src/pages/hacks/phishing-with-tx-origin/TxOrigin.sol",
+    "span": {
+      "endLine": 33,
+      "length": 28,
+      "line": 33,
+      "offset": 1032
+    },
+    "visibility": "public"
+  },
+  {
+    "function": "guess",
+    "function_kind": "function",
+    "operation": "call",
+    "record": {
+      "features": {
+        "argument_count": 1,
+        "assigned_result": 1,
+        "condition_ancestor": 0,
+        "delegatecall": 0,
+        "function_statement_count": 4,
+        "guard_ancestor": 0,
+        "later_result_references": 1,
+        "standalone_expression": 0,
+        "staticcall": 0,
+        "unary_ancestor": 0,
+        "value_option": 1
+      },
+      "function": "guess",
+      "id": "4a0c6b89b54fcc21:963",
+      "operation": "call",
+      "schema": "uec-ast-v1",
+      "span": {
+        "endLine": 36,
+        "length": 35,
+        "line": 36,
+        "offset": 963
+      },
+      "status": "supported"
+    },
+    "sha256": "4a0c6b89b54fcc2122e3c70f1960b85e9d167bab138074cd78a39c3cff699417",
+    "source_id": "sbe:src/pages/hacks/randomness/Randomness.sol",
+    "span": {
+      "endLine": 36,
+      "length": 35,
+      "line": 36,
+      "offset": 963
+    },
+    "visibility": "public"
+  },
+  {
+    "function": "withdraw",
+    "function_kind": "function",
+    "operation": "call",
+    "record": {
+      "features": {
+        "argument_count": 1,
+        "assigned_result": 1,
+        "condition_ancestor": 0,
+        "delegatecall": 0,
+        "function_statement_count": 5,
+        "guard_ancestor": 0,
+        "later_result_references": 1,
+        "standalone_expression": 0,
+        "staticcall": 0,
+        "unary_ancestor": 0,
+        "value_option": 1
+      },
+      "function": "withdraw",
+      "id": "41ea55ed1429a6f3:1175",
+      "operation": "call",
+      "schema": "uec-ast-v1",
+      "span": {
+        "endLine": 42,
+        "length": 31,
+        "line": 42,
+        "offset": 1175
+      },
+      "status": "supported"
+    },
+    "sha256": "41ea55ed1429a6f3ae9c2991fdeba3cc8d458bac98f8b85ff244bb68c85a8c73",
+    "source_id": "sbe:src/pages/hacks/re-entrancy/ReEntrancy.sol",
+    "span": {
+      "endLine": 42,
+      "length": 31,
+      "line": 42,
+      "offset": 1175
+    },
+    "visibility": "public"
+  },
+  {
+    "function": "claimReward",
+    "function_kind": "function",
+    "operation": "call",
+    "record": {
+      "features": {
+        "argument_count": 1,
+        "assigned_result": 1,
+        "condition_ancestor": 0,
+        "delegatecall": 0,
+        "function_statement_count": 3,
+        "guard_ancestor": 0,
+        "later_result_references": 1,
+        "standalone_expression": 0,
+        "staticcall": 0,
+        "unary_ancestor": 0,
+        "value_option": 1
+      },
+      "function": "claimReward",
+      "id": "8a08fc617ada8aed:1091",
+      "operation": "call",
+      "schema": "uec-ast-v1",
+      "span": {
+        "endLine": 38,
+        "length": 49,
+        "line": 38,
+        "offset": 1091
+      },
+      "status": "supported"
+    },
+    "sha256": "8a08fc617ada8aed18fcd258409f08b97939caf924333cb9e167623af8ee8bb9",
+    "source_id": "sbe:src/pages/hacks/self-destruct/ForceEther.sol",
+    "span": {
+      "endLine": 38,
+      "length": 49,
+      "line": 38,
+      "offset": 1091
+    },
+    "visibility": "public"
+  },
+  {
+    "function": "claimReward",
+    "function_kind": "function",
+    "operation": "call",
+    "record": {
+      "features": {
+        "argument_count": 1,
+        "assigned_result": 1,
+        "condition_ancestor": 0,
+        "delegatecall": 0,
+        "function_statement_count": 3,
+        "guard_ancestor": 0,
+        "later_result_references": 1,
+        "standalone_expression": 0,
+        "staticcall": 0,
+        "unary_ancestor": 0,
+        "value_option": 1
+      },
+      "function": "claimReward",
+      "id": "c4abddc1e1445532:573",
+      "operation": "call",
+      "schema": "uec-ast-v1",
+      "span": {
+        "endLine": 23,
+        "length": 35,
+        "line": 23,
+        "offset": 573
+      },
+      "status": "supported"
+    },
+    "sha256": "c4abddc1e144553225490a08ed686929938c2a10077333a34c0ad081cb83da54",
+    "source_id": "sbe:src/pages/hacks/self-destruct/PreventForceEther.sol",
+    "span": {
+      "endLine": 23,
+      "length": 35,
+      "line": 23,
+      "offset": 573
+    },
+    "visibility": "public"
+  },
+  {
+    "function": "withdraw",
+    "function_kind": "function",
+    "operation": "call",
+    "record": {
+      "features": {
+        "argument_count": 1,
+        "assigned_result": 1,
+        "condition_ancestor": 0,
+        "delegatecall": 0,
+        "function_statement_count": 3,
+        "guard_ancestor": 0,
+        "later_result_references": 1,
+        "standalone_expression": 0,
+        "staticcall": 0,
+        "unary_ancestor": 0,
+        "value_option": 1
+      },
+      "function": "withdraw",
+      "id": "8c4c801dd85e0281:919",
+      "operation": "call",
+      "schema": "uec-ast-v1",
+      "span": {
+        "endLine": 28,
+        "length": 29,
+        "line": 28,
+        "offset": 919
+      },
+      "status": "supported"
+    },
+    "sha256": "8c4c801dd85e02811a6838096d66f6eb88d7d705e9d69e2a671e9f63ab749f71",
+    "source_id": "sbe:src/pages/payable/Payable.sol",
+    "span": {
+      "endLine": 28,
+      "length": 29,
+      "line": 28,
+      "offset": 919
+    },
+    "visibility": "public"
+  },
+  {
+    "function": "transfer",
+    "function_kind": "function",
+    "operation": "call",
+    "record": {
+      "features": {
+        "argument_count": 1,
+        "assigned_result": 1,
+        "condition_ancestor": 0,
+        "delegatecall": 0,
+        "function_statement_count": 2,
+        "guard_ancestor": 0,
+        "later_result_references": 1,
+        "standalone_expression": 0,
+        "staticcall": 0,
+        "unary_ancestor": 0,
+        "value_option": 1
+      },
+      "function": "transfer",
+      "id": "8c4c801dd85e0281:1224",
+      "operation": "call",
+      "schema": "uec-ast-v1",
+      "span": {
+        "endLine": 35,
+        "length": 28,
+        "line": 35,
+        "offset": 1224
+      },
+      "status": "supported"
+    },
+    "sha256": "8c4c801dd85e02811a6838096d66f6eb88d7d705e9d69e2a671e9f63ab749f71",
+    "source_id": "sbe:src/pages/payable/Payable.sol",
+    "span": {
+      "endLine": 35,
+      "length": 28,
+      "line": 35,
+      "offset": 1224
+    },
+    "visibility": "public"
+  },
+  {
+    "function": "sendViaCall",
+    "function_kind": "function",
+    "operation": "call",
+    "record": {
+      "features": {
+        "argument_count": 1,
+        "assigned_result": 1,
+        "condition_ancestor": 0,
+        "delegatecall": 0,
+        "function_statement_count": 2,
+        "guard_ancestor": 0,
+        "later_result_references": 1,
+        "standalone_expression": 0,
+        "staticcall": 0,
+        "unary_ancestor": 0,
+        "value_option": 1
+      },
+      "function": "sendViaCall",
+      "id": "0f7f511b94a30de0:1398",
+      "operation": "call",
+      "schema": "uec-ast-v1",
+      "span": {
+        "endLine": 48,
+        "length": 30,
+        "line": 48,
+        "offset": 1398
+      },
+      "status": "supported"
+    },
+    "sha256": "0f7f511b94a30de0cef8f4040f18f44d2ac6a8faf3ec198372e4e883b2917f47",
+    "source_id": "sbe:src/pages/sending-ether/SendingEther.sol",
+    "span": {
+      "endLine": 48,
+      "length": 30,
+      "line": 48,
+      "offset": 1398
+    },
+    "visibility": "public"
+  },
+  {
+    "function": "",
+    "function_kind": "constructor",
+    "operation": "call",
+    "record": {
+      "function": "<fallback>",
+      "id": "2c30b1ac4001222e:796",
+      "operation": "call",
+      "reason": "Function has modifiers, loops or assembly",
+      "schema": "uec-ast-v1",
+      "span": {
+        "endLine": 17,
+        "length": 82,
+        "line": 17,
+        "offset": 796
+      },
+      "status": "unsupported"
+    },
+    "sha256": "2c30b1ac4001222ea469327ec93726fdce5f881819253b4d47c9220034334f21",
+    "source_id": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "span": {
+      "endLine": 17,
+      "length": 82,
+      "line": 17,
+      "offset": 796
+    },
+    "visibility": "public"
+  },
+  {
+    "function": "doYourThing",
+    "function_kind": "function",
+    "operation": "call",
+    "record": {
+      "features": {
+        "argument_count": 1,
+        "assigned_result": 1,
+        "condition_ancestor": 0,
+        "delegatecall": 0,
+        "function_statement_count": 3,
+        "guard_ancestor": 0,
+        "later_result_references": 1,
+        "standalone_expression": 0,
+        "staticcall": 0,
+        "unary_ancestor": 0,
+        "value_option": 1
+      },
+      "function": "doYourThing",
+      "id": "aa3ae5d273f60ccf:164",
+      "operation": "call",
+      "schema": "uec-ast-v1",
+      "span": {
+        "endLine": 7,
+        "length": 34,
+        "line": 7,
+        "offset": 164
+      },
+      "status": "supported"
+    },
+    "sha256": "aa3ae5d273f60ccf3492a3db950f8b96f58026036a35d077a4adf5abe108a082",
+    "source_id": "ethernaut:contracts/src/attacks/KingAttack.sol",
+    "span": {
+      "endLine": 7,
+      "length": 34,
+      "line": 7,
+      "offset": 164
+    },
+    "visibility": "public"
+  },
+  {
+    "function": "",
+    "function_kind": "fallback",
+    "operation": "delegatecall",
+    "record": {
+      "features": {
+        "argument_count": 1,
+        "assigned_result": 1,
+        "condition_ancestor": 0,
+        "delegatecall": 1,
+        "function_statement_count": 3,
+        "guard_ancestor": 0,
+        "later_result_references": 1,
+        "standalone_expression": 0,
+        "staticcall": 0,
+        "unary_ancestor": 0,
+        "value_option": 0
+      },
+      "function": "<fallback>",
+      "id": "58a848dbe49be902:483",
+      "operation": "delegatecall",
+      "schema": "uec-ast-v1",
+      "span": {
+        "endLine": 26,
+        "length": 40,
+        "line": 26,
+        "offset": 483
+      },
+      "status": "supported"
+    },
+    "sha256": "58a848dbe49be90277c5b03ad467c7145a6b1351893f0cc43c9b31597c7e3469",
+    "source_id": "ethernaut:contracts/src/levels/Delegation.sol",
+    "span": {
+      "endLine": 26,
+      "length": 40,
+      "line": 26,
+      "offset": 483
+    },
+    "visibility": "external"
+  },
+  {
+    "function": "withdraw",
+    "function_kind": "function",
+    "operation": "call",
+    "record": {
+      "features": {
+        "argument_count": 1,
+        "assigned_result": 0,
+        "condition_ancestor": 0,
+        "delegatecall": 0,
+        "function_statement_count": 5,
+        "guard_ancestor": 0,
+        "later_result_references": 0,
+        "standalone_expression": 1,
+        "staticcall": 0,
+        "unary_ancestor": 0,
+        "value_option": 1
+      },
+      "function": "withdraw",
+      "id": "12916df56d2f75fe:702",
+      "operation": "call",
+      "schema": "uec-ast-v1",
+      "span": {
+        "endLine": 19,
+        "length": 37,
+        "line": 19,
+        "offset": 702
+      },
+      "status": "supported"
+    },
+    "sha256": "12916df56d2f75fe24b518252b1982cc520f423f92929c27de6dcb33d4a42054",
+    "source_id": "ethernaut:contracts/src/levels/Denial.sol",
+    "span": {
+      "endLine": 19,
+      "length": 37,
+      "line": 19,
+      "offset": 702
+    },
+    "visibility": "public"
+  },
+  {
+    "function": "setFirstTime",
+    "function_kind": "function",
+    "operation": "delegatecall",
+    "record": {
+      "features": {
+        "argument_count": 1,
+        "assigned_result": 0,
+        "condition_ancestor": 0,
+        "delegatecall": 1,
+        "function_statement_count": 1,
+        "guard_ancestor": 0,
+        "later_result_references": 0,
+        "standalone_expression": 1,
+        "staticcall": 0,
+        "unary_ancestor": 0,
+        "value_option": 0
+      },
+      "function": "setFirstTime",
+      "id": "ad6e64313020ff81:693",
+      "operation": "delegatecall",
+      "schema": "uec-ast-v1",
+      "span": {
+        "endLine": 21,
+        "length": 77,
+        "line": 21,
+        "offset": 693
+      },
+      "status": "supported"
+    },
+    "sha256": "ad6e64313020ff81da51f8c9662abf781eded9a7596587797b9934af7068cc9c",
+    "source_id": "ethernaut:contracts/src/levels/Preservation.sol",
+    "span": {
+      "endLine": 21,
+      "length": 77,
+      "line": 21,
+      "offset": 693
+    },
+    "visibility": "public"
+  },
+  {
+    "function": "setSecondTime",
+    "function_kind": "function",
+    "operation": "delegatecall",
+    "record": {
+      "features": {
+        "argument_count": 1,
+        "assigned_result": 0,
+        "condition_ancestor": 0,
+        "delegatecall": 1,
+        "function_statement_count": 1,
+        "guard_ancestor": 0,
+        "later_result_references": 0,
+        "standalone_expression": 1,
+        "staticcall": 0,
+        "unary_ancestor": 0,
+        "value_option": 0
+      },
+      "function": "setSecondTime",
+      "id": "ad6e64313020ff81:878",
+      "operation": "delegatecall",
+      "schema": "uec-ast-v1",
+      "span": {
+        "endLine": 26,
+        "length": 77,
+        "line": 26,
+        "offset": 878
+      },
+      "status": "supported"
+    },
+    "sha256": "ad6e64313020ff81da51f8c9662abf781eded9a7596587797b9934af7068cc9c",
+    "source_id": "ethernaut:contracts/src/levels/Preservation.sol",
+    "span": {
+      "endLine": 26,
+      "length": 77,
+      "line": 26,
+      "offset": 878
+    },
+    "visibility": "public"
+  },
+  {
+    "function": "StakeWETH",
+    "function_kind": "function",
+    "operation": "call",
+    "record": {
+      "function": "StakeWETH",
+      "id": "572dc193818c2cf9:707",
+      "operation": "call",
+      "reason": "Unresolved success binding",
+      "schema": "uec-ast-v1",
+      "span": {
+        "endLine": 23,
+        "length": 71,
+        "line": 23,
+        "offset": 707
+      },
+      "status": "unsupported"
+    },
+    "sha256": "572dc193818c2cf984fb3ed86874e418b4ff54081f9e535461325f7a88cd2e4f",
+    "source_id": "ethernaut:contracts/src/levels/Stake.sol",
+    "span": {
+      "endLine": 23,
+      "length": 71,
+      "line": 23,
+      "offset": 707
+    },
+    "visibility": "public"
+  },
+  {
+    "function": "StakeWETH",
+    "function_kind": "function",
+    "operation": "call",
+    "record": {
+      "features": {
+        "argument_count": 1,
+        "assigned_result": 1,
+        "condition_ancestor": 0,
+        "delegatecall": 0,
+        "function_statement_count": 7,
+        "guard_ancestor": 0,
+        "later_result_references": 1,
+        "standalone_expression": 0,
+        "staticcall": 0,
+        "unary_ancestor": 0,
+        "value_option": 0
+      },
+      "function": "StakeWETH",
+      "id": "572dc193818c2cf9:968",
+      "operation": "call",
+      "schema": "uec-ast-v1",
+      "span": {
+        "endLine": 27,
+        "length": 78,
+        "line": 27,
+        "offset": 968
+      },
+      "status": "supported"
+    },
+    "sha256": "572dc193818c2cf984fb3ed86874e418b4ff54081f9e535461325f7a88cd2e4f",
+    "source_id": "ethernaut:contracts/src/levels/Stake.sol",
+    "span": {
+      "endLine": 27,
+      "length": 78,
+      "line": 27,
+      "offset": 968
+    },
+    "visibility": "public"
+  },
+  {
+    "function": "Unstake",
+    "function_kind": "function",
+    "operation": "call",
+    "record": {
+      "features": {
+        "argument_count": 1,
+        "assigned_result": 1,
+        "condition_ancestor": 0,
+        "delegatecall": 0,
+        "function_statement_count": 4,
+        "guard_ancestor": 0,
+        "later_result_references": 1,
+        "standalone_expression": 0,
+        "staticcall": 0,
+        "unary_ancestor": 0,
+        "value_option": 1
+      },
+      "function": "Unstake",
+      "id": "572dc193818c2cf9:1345",
+      "operation": "call",
+      "schema": "uec-ast-v1",
+      "span": {
+        "endLine": 36,
+        "length": 44,
+        "line": 36,
+        "offset": 1345
+      },
+      "status": "supported"
+    },
+    "sha256": "572dc193818c2cf984fb3ed86874e418b4ff54081f9e535461325f7a88cd2e4f",
+    "source_id": "ethernaut:contracts/src/levels/Stake.sol",
+    "span": {
+      "endLine": 36,
+      "length": 44,
+      "line": 36,
+      "offset": 1345
+    },
+    "visibility": "public"
+  },
+  {
+    "function": "flipSwitch",
+    "function_kind": "function",
+    "operation": "call",
+    "record": {
+      "function": "flipSwitch",
+      "id": "538ca148351bfdd5:805",
+      "operation": "call",
+      "reason": "Function has modifiers, loops or assembly",
+      "schema": "uec-ast-v1",
+      "span": {
+        "endLine": 25,
+        "length": 25,
+        "line": 25,
+        "offset": 805
+      },
+      "status": "unsupported"
+    },
+    "sha256": "538ca148351bfdd54ee7c362a09def34d237de2d6e08318961f8bfe70877d72e",
+    "source_id": "ethernaut:contracts/src/levels/Switch.sol",
+    "span": {
+      "endLine": 25,
+      "length": 25,
+      "line": 25,
+      "offset": 805
+    },
+    "visibility": "public"
+  },
+  {
+    "function": "send",
+    "function_kind": "function",
+    "operation": "call",
+    "record": {
+      "features": {
+        "argument_count": 1,
+        "assigned_result": 0,
+        "condition_ancestor": 0,
+        "delegatecall": 0,
+        "function_statement_count": 1,
+        "guard_ancestor": 0,
+        "later_result_references": 0,
+        "standalone_expression": 1,
+        "staticcall": 0,
+        "unary_ancestor": 0,
+        "value_option": 1
+      },
+      "function": "send",
+      "id": "0aabb49a1b7b1fc4:111",
+      "operation": "call",
+      "schema": "uec-ast-v1",
+      "span": {
+        "endLine": 6,
+        "length": 45,
+        "line": 6,
+        "offset": 111
+      },
+      "status": "supported"
+    },
+    "sha256": "0aabb49a1b7b1fc407ce498ea486ec99022ed1b9fc2314809a3138ffdede2a78",
+    "source_id": "slither:tests/e2e/detectors/test_data/low-level-calls/0.7.6/low_level_calls.sol",
+    "span": {
+      "endLine": 6,
+      "length": 45,
+      "line": 6,
+      "offset": 111
+    },
+    "visibility": "external"
+  },
+  {
+    "function": "oops",
+    "function_kind": "function",
+    "operation": "call",
+    "record": {
+      "function": "oops",
+      "id": "f86684ad7a42d737:983",
+      "operation": "call",
+      "reason": "Assignment/return data flow outside feature domain",
+      "schema": "uec-ast-v1",
+      "span": {
+        "endLine": 51,
+        "length": 121,
+        "line": 47,
+        "offset": 983
+      },
+      "status": "unsupported"
+    },
+    "sha256": "f86684ad7a42d7372715a175ea194ca55e29fe331208cc800b35f41074486823",
+    "source_id": "slither:tests/e2e/detectors/test_data/return-bomb/0.8.20/return_bomb.sol",
+    "span": {
+      "endLine": 51,
+      "length": 121,
+      "line": 47,
+      "offset": 983
+    },
+    "visibility": "public"
+  },
+  {
+    "function": "bad",
+    "function_kind": "function",
+    "operation": "call",
+    "record": {
+      "features": {
+        "argument_count": 1,
+        "assigned_result": 0,
+        "condition_ancestor": 0,
+        "delegatecall": 0,
+        "function_statement_count": 1,
+        "guard_ancestor": 0,
+        "later_result_references": 0,
+        "standalone_expression": 1,
+        "staticcall": 0,
+        "unary_ancestor": 0,
+        "value_option": 1
+      },
+      "function": "bad",
+      "id": "aac67c1fb8e53881:81",
+      "operation": "call",
+      "schema": "uec-ast-v1",
+      "span": {
+        "endLine": 3,
+        "length": 29,
+        "line": 3,
+        "offset": 81
+      },
+      "status": "supported"
+    },
+    "sha256": "aac67c1fb8e5388154fd4edde27f77a55f95a0eaf616a8b152d9db0883d754e3",
+    "source_id": "slither:tests/e2e/detectors/test_data/unchecked-lowlevel/0.7.6/unchecked_lowlevel.sol",
+    "span": {
+      "endLine": 3,
+      "length": 29,
+      "line": 3,
+      "offset": 81
+    },
+    "visibility": "external"
+  },
+  {
+    "function": "good",
+    "function_kind": "function",
+    "operation": "call",
+    "record": {
+      "features": {
+        "argument_count": 1,
+        "assigned_result": 1,
+        "condition_ancestor": 0,
+        "delegatecall": 0,
+        "function_statement_count": 2,
+        "guard_ancestor": 0,
+        "later_result_references": 1,
+        "standalone_expression": 0,
+        "staticcall": 0,
+        "unary_ancestor": 0,
+        "value_option": 1
+      },
+      "function": "good",
+      "id": "aac67c1fb8e53881:199",
+      "operation": "call",
+      "schema": "uec-ast-v1",
+      "span": {
+        "endLine": 7,
+        "length": 29,
+        "line": 7,
+        "offset": 199
+      },
+      "status": "supported"
+    },
+    "sha256": "aac67c1fb8e5388154fd4edde27f77a55f95a0eaf616a8b152d9db0883d754e3",
+    "source_id": "slither:tests/e2e/detectors/test_data/unchecked-lowlevel/0.7.6/unchecked_lowlevel.sol",
+    "span": {
+      "endLine": 7,
+      "length": 29,
+      "line": 7,
+      "offset": 199
+    },
+    "visibility": "external"
+  },
+  {
+    "function": "good2",
+    "function_kind": "function",
+    "operation": "call",
+    "record": {
+      "features": {
+        "argument_count": 1,
+        "assigned_result": 1,
+        "condition_ancestor": 0,
+        "delegatecall": 0,
+        "function_statement_count": 3,
+        "guard_ancestor": 0,
+        "later_result_references": 1,
+        "standalone_expression": 0,
+        "staticcall": 0,
+        "unary_ancestor": 0,
+        "value_option": 1
+      },
+      "function": "good2",
+      "id": "aac67c1fb8e53881:340",
+      "operation": "call",
+      "schema": "uec-ast-v1",
+      "span": {
+        "endLine": 12,
+        "length": 29,
+        "line": 12,
+        "offset": 340
+      },
+      "status": "supported"
+    },
+    "sha256": "aac67c1fb8e5388154fd4edde27f77a55f95a0eaf616a8b152d9db0883d754e3",
+    "source_id": "slither:tests/e2e/detectors/test_data/unchecked-lowlevel/0.7.6/unchecked_lowlevel.sol",
+    "span": {
+      "endLine": 12,
+      "length": 29,
+      "line": 12,
+      "offset": 340
+    },
+    "visibility": "external"
+  },
+  {
+    "function": "not_bugy_external_state",
+    "function_kind": "function",
+    "operation": "call",
+    "record": {
+      "features": {
+        "argument_count": 1,
+        "assigned_result": 0,
+        "condition_ancestor": 0,
+        "delegatecall": 0,
+        "function_statement_count": 4,
+        "guard_ancestor": 0,
+        "later_result_references": 0,
+        "standalone_expression": 1,
+        "staticcall": 0,
+        "unary_ancestor": 0,
+        "value_option": 0
+      },
+      "function": "not_bugy_external_state",
+      "id": "818d923bfed343d3:802",
+      "operation": "call",
+      "schema": "uec-ast-v1",
+      "span": {
+        "endLine": 47,
+        "length": 10,
+        "line": 47,
+        "offset": 802
+      },
+      "status": "supported"
+    },
+    "sha256": "818d923bfed343d3f951051c2d4b89f5902f088f2ce74e4df9f660673123dab5",
+    "source_id": "slither:tests/e2e/detectors/test_data/write-after-write/0.8.0/write-after-write.sol",
+    "span": {
+      "endLine": 47,
+      "length": 10,
+      "line": 47,
+      "offset": 802
+    },
+    "visibility": "internal"
+  },
+  {
+    "function": "bugy_external_local",
+    "function_kind": "function",
+    "operation": "call",
+    "record": {
+      "features": {
+        "argument_count": 1,
+        "assigned_result": 0,
+        "condition_ancestor": 0,
+        "delegatecall": 0,
+        "function_statement_count": 5,
+        "guard_ancestor": 0,
+        "later_result_references": 0,
+        "standalone_expression": 1,
+        "staticcall": 0,
+        "unary_ancestor": 0,
+        "value_option": 0
+      },
+      "function": "bugy_external_local",
+      "id": "818d923bfed343d3:953",
+      "operation": "call",
+      "schema": "uec-ast-v1",
+      "span": {
+        "endLine": 55,
+        "length": 10,
+        "line": 55,
+        "offset": 953
+      },
+      "status": "supported"
+    },
+    "sha256": "818d923bfed343d3f951051c2d4b89f5902f088f2ce74e4df9f660673123dab5",
+    "source_id": "slither:tests/e2e/detectors/test_data/write-after-write/0.8.0/write-after-write.sol",
+    "span": {
+      "endLine": 55,
+      "length": 10,
+      "line": 55,
+      "offset": 953
+    },
+    "visibility": "internal"
+  },
+  {
+    "function": "sell",
+    "function_kind": "function",
+    "operation": "call",
+    "record": {
+      "features": {
+        "argument_count": 1,
+        "assigned_result": 1,
+        "condition_ancestor": 0,
+        "delegatecall": 0,
+        "function_statement_count": 4,
+        "guard_ancestor": 0,
+        "later_result_references": 1,
+        "standalone_expression": 0,
+        "staticcall": 0,
+        "unary_ancestor": 0,
+        "value_option": 1
+      },
+      "function": "sell",
+      "id": "266618689f87aa55:2409",
+      "operation": "call",
+      "schema": "uec-ast-v1",
+      "span": {
+        "endLine": 63,
+        "length": 49,
+        "line": 63,
+        "offset": 2409
+      },
+      "status": "supported"
+    },
+    "sha256": "266618689f87aa555936cdcf963d3570b77e4f360bdcc791a00ac99b632c6cb2",
+    "source_id": "serial:12_amplification_attack__double_spending_01/Dependencies.sol",
+    "span": {
+      "endLine": 63,
+      "length": 49,
+      "line": 63,
+      "offset": 2409
+    },
+    "visibility": "external"
+  },
+  {
+    "function": "withdraw",
+    "function_kind": "function",
+    "operation": "call",
+    "record": {
+      "features": {
+        "argument_count": 1,
+        "assigned_result": 1,
+        "condition_ancestor": 0,
+        "delegatecall": 0,
+        "function_statement_count": 4,
+        "guard_ancestor": 0,
+        "later_result_references": 1,
+        "standalone_expression": 0,
+        "staticcall": 0,
+        "unary_ancestor": 0,
+        "value_option": 1
+      },
+      "function": "withdraw",
+      "id": "41dcdc48e91c0b10:2178",
+      "operation": "call",
+      "schema": "uec-ast-v1",
+      "span": {
+        "endLine": 58,
+        "length": 43,
+        "line": 58,
+        "offset": 2178
+      },
+      "status": "supported"
+    },
+    "sha256": "41dcdc48e91c0b108a8e8af64b406a06e30239d8f14a7bdf074d0e0aede132a4",
+    "source_id": "serial:13_double_spending_02/FixedNaiveBank.sol",
+    "span": {
+      "endLine": 58,
+      "length": 43,
+      "line": 58,
+      "offset": 2178
+    },
+    "visibility": "external"
+  },
+  {
+    "function": "withdraw",
+    "function_kind": "function",
+    "operation": "call",
+    "record": {
+      "features": {
+        "argument_count": 1,
+        "assigned_result": 1,
+        "condition_ancestor": 0,
+        "delegatecall": 0,
+        "function_statement_count": 4,
+        "guard_ancestor": 0,
+        "later_result_references": 1,
+        "standalone_expression": 0,
+        "staticcall": 0,
+        "unary_ancestor": 0,
+        "value_option": 1
+      },
+      "function": "withdraw",
+      "id": "278e7c4fb0947753:1665",
+      "operation": "call",
+      "schema": "uec-ast-v1",
+      "span": {
+        "endLine": 49,
+        "length": 43,
+        "line": 49,
+        "offset": 1665
+      },
+      "status": "supported"
+    },
+    "sha256": "278e7c4fb0947753678d81f76add6714fc2f7175d3756b3dc3b926e117f1ea0b",
+    "source_id": "serial:13_double_spending_02/InsecureNaiveBank.sol",
+    "span": {
+      "endLine": 49,
+      "length": 43,
+      "line": 49,
+      "offset": 1665
+    },
+    "visibility": "external"
+  },
+  {
+    "function": "executeTransaction",
+    "function_kind": "function",
+    "operation": "call",
+    "record": {
+      "features": {
+        "argument_count": 1,
+        "assigned_result": 1,
+        "condition_ancestor": 0,
+        "delegatecall": 0,
+        "function_statement_count": 13,
+        "guard_ancestor": 0,
+        "later_result_references": 1,
+        "standalone_expression": 0,
+        "staticcall": 0,
+        "unary_ancestor": 0,
+        "value_option": 1
+      },
+      "function": "executeTransaction",
+      "id": "3ed36bcc1e255da8:6231",
+      "operation": "call",
+      "schema": "uec-ast-v1",
+      "span": {
+        "endLine": 162,
+        "length": 35,
+        "line": 162,
+        "offset": 6231
+      },
+      "status": "supported"
+    },
+    "sha256": "3ed36bcc1e255da8a7fe84a758d5f2a580ef88e07db62925a8db369d9104aabb",
+    "source_id": "openzeppelin:contracts/mocks/compound/CompTimelock.sol",
+    "span": {
+      "endLine": 162,
+      "length": 35,
+      "line": 162,
+      "offset": 6231
+    },
+    "visibility": "public"
+  },
+  {
+    "function": "sendValue",
+    "function_kind": "function",
+    "operation": "call",
+    "record": {
+      "features": {
+        "argument_count": 1,
+        "assigned_result": 1,
+        "condition_ancestor": 0,
+        "delegatecall": 0,
+        "function_statement_count": 3,
+        "guard_ancestor": 0,
+        "later_result_references": 1,
+        "standalone_expression": 0,
+        "staticcall": 0,
+        "unary_ancestor": 0,
+        "value_option": 1
+      },
+      "function": "sendValue",
+      "id": "8b85a2463eda119c:2831",
+      "operation": "call",
+      "schema": "uec-ast-v1",
+      "span": {
+        "endLine": 67,
+        "length": 33,
+        "line": 67,
+        "offset": 2831
+      },
+      "status": "supported"
+    },
+    "sha256": "8b85a2463eda119c2f42c34fa3d942b61aee65df381f48ed436fe8edb3a7d602",
+    "source_id": "openzeppelin:contracts/utils/Address.sol",
+    "span": {
+      "endLine": 67,
+      "length": 33,
+      "line": 67,
+      "offset": 2831
+    },
+    "visibility": "internal"
+  },
+  {
+    "function": "functionCallWithValue",
+    "function_kind": "function",
+    "operation": "call",
+    "record": {
+      "features": {
+        "argument_count": 1,
+        "assigned_result": 1,
+        "condition_ancestor": 0,
+        "delegatecall": 0,
+        "function_statement_count": 2,
+        "guard_ancestor": 0,
+        "later_result_references": 1,
+        "standalone_expression": 0,
+        "staticcall": 0,
+        "unary_ancestor": 0,
+        "value_option": 1
+      },
+      "function": "functionCallWithValue",
+      "id": "8b85a2463eda119c:5487",
+      "operation": "call",
+      "schema": "uec-ast-v1",
+      "span": {
+        "endLine": 135,
+        "length": 31,
+        "line": 135,
+        "offset": 5487
+      },
+      "status": "supported"
+    },
+    "sha256": "8b85a2463eda119c2f42c34fa3d942b61aee65df381f48ed436fe8edb3a7d602",
+    "source_id": "openzeppelin:contracts/utils/Address.sol",
+    "span": {
+      "endLine": 135,
+      "length": 31,
+      "line": 135,
+      "offset": 5487
+    },
+    "visibility": "internal"
+  },
+  {
+    "function": "functionStaticCall",
+    "function_kind": "function",
+    "operation": "staticcall",
+    "record": {
+      "features": {
+        "argument_count": 1,
+        "assigned_result": 1,
+        "condition_ancestor": 0,
+        "delegatecall": 0,
+        "function_statement_count": 1,
+        "guard_ancestor": 0,
+        "later_result_references": 1,
+        "standalone_expression": 0,
+        "staticcall": 1,
+        "unary_ancestor": 0,
+        "value_option": 0
+      },
+      "function": "functionStaticCall",
+      "id": "8b85a2463eda119c:6379",
+      "operation": "staticcall",
+      "schema": "uec-ast-v1",
+      "span": {
+        "endLine": 160,
+        "length": 23,
+        "line": 160,
+        "offset": 6379
+      },
+      "status": "supported"
+    },
+    "sha256": "8b85a2463eda119c2f42c34fa3d942b61aee65df381f48ed436fe8edb3a7d602",
+    "source_id": "openzeppelin:contracts/utils/Address.sol",
+    "span": {
+      "endLine": 160,
+      "length": 23,
+      "line": 160,
+      "offset": 6379
+    },
+    "visibility": "internal"
+  },
+  {
+    "function": "functionDelegateCall",
+    "function_kind": "function",
+    "operation": "delegatecall",
+    "record": {
+      "features": {
+        "argument_count": 1,
+        "assigned_result": 1,
+        "condition_ancestor": 0,
+        "delegatecall": 1,
+        "function_statement_count": 1,
+        "guard_ancestor": 0,
+        "later_result_references": 1,
+        "standalone_expression": 0,
+        "staticcall": 0,
+        "unary_ancestor": 0,
+        "value_option": 0
+      },
+      "function": "functionDelegateCall",
+      "id": "8b85a2463eda119c:7265",
+      "operation": "delegatecall",
+      "schema": "uec-ast-v1",
+      "span": {
+        "endLine": 185,
+        "length": 25,
+        "line": 185,
+        "offset": 7265
+      },
+      "status": "supported"
+    },
+    "sha256": "8b85a2463eda119c2f42c34fa3d942b61aee65df381f48ed436fe8edb3a7d602",
+    "source_id": "openzeppelin:contracts/utils/Address.sol",
+    "span": {
+      "endLine": 185,
+      "length": 25,
+      "line": 185,
+      "offset": 7265
+    },
+    "visibility": "internal"
+  },
+  {
+    "function": "discarded",
+    "function_kind": "function",
+    "operation": "call",
+    "record": {
+      "features": {
+        "argument_count": 1,
+        "assigned_result": 0,
+        "condition_ancestor": 0,
+        "delegatecall": 0,
+        "function_statement_count": 1,
+        "guard_ancestor": 0,
+        "later_result_references": 0,
+        "standalone_expression": 1,
+        "staticcall": 0,
+        "unary_ancestor": 0,
+        "value_option": 0
+      },
+      "function": "discarded",
+      "id": "dad97c87da329726:371",
+      "operation": "call",
+      "schema": "uec-ast-v1",
+      "span": {
+        "endLine": 11,
+        "length": 17,
+        "line": 11,
+        "offset": 371
+      },
+      "status": "supported"
+    },
+    "sha256": "dad97c87da3297262d9cbe3f9a03602180de033ea212f567d0027a747505bdf7",
+    "source_id": "controlled:Handling.sol",
+    "span": {
+      "endLine": 11,
+      "length": 17,
+      "line": 11,
+      "offset": 371
+    },
+    "visibility": "external"
+  },
+  {
+    "function": "boundUnused",
+    "function_kind": "function",
+    "operation": "call",
+    "record": {
+      "features": {
+        "argument_count": 1,
+        "assigned_result": 1,
+        "condition_ancestor": 0,
+        "delegatecall": 0,
+        "function_statement_count": 1,
+        "guard_ancestor": 0,
+        "later_result_references": 0,
+        "standalone_expression": 0,
+        "staticcall": 0,
+        "unary_ancestor": 0,
+        "value_option": 0
+      },
+      "function": "boundUnused",
+      "id": "dad97c87da329726:490",
+      "operation": "call",
+      "schema": "uec-ast-v1",
+      "span": {
+        "endLine": 14,
+        "length": 17,
+        "line": 14,
+        "offset": 490
+      },
+      "status": "supported"
+    },
+    "sha256": "dad97c87da3297262d9cbe3f9a03602180de033ea212f567d0027a747505bdf7",
+    "source_id": "controlled:Handling.sol",
+    "span": {
+      "endLine": 14,
+      "length": 17,
+      "line": 14,
+      "offset": 490
+    },
+    "visibility": "external"
+  },
+  {
+    "function": "required",
+    "function_kind": "function",
+    "operation": "call",
+    "record": {
+      "features": {
+        "argument_count": 1,
+        "assigned_result": 1,
+        "condition_ancestor": 0,
+        "delegatecall": 0,
+        "function_statement_count": 2,
+        "guard_ancestor": 0,
+        "later_result_references": 1,
+        "standalone_expression": 0,
+        "staticcall": 0,
+        "unary_ancestor": 0,
+        "value_option": 0
+      },
+      "function": "required",
+      "id": "dad97c87da329726:606",
+      "operation": "call",
+      "schema": "uec-ast-v1",
+      "span": {
+        "endLine": 17,
+        "length": 17,
+        "line": 17,
+        "offset": 606
+      },
+      "status": "supported"
+    },
+    "sha256": "dad97c87da3297262d9cbe3f9a03602180de033ea212f567d0027a747505bdf7",
+    "source_id": "controlled:Handling.sol",
+    "span": {
+      "endLine": 17,
+      "length": 17,
+      "line": 17,
+      "offset": 606
+    },
+    "visibility": "external"
+  },
+  {
+    "function": "asserted",
+    "function_kind": "function",
+    "operation": "staticcall",
+    "record": {
+      "features": {
+        "argument_count": 1,
+        "assigned_result": 1,
+        "condition_ancestor": 0,
+        "delegatecall": 0,
+        "function_statement_count": 2,
+        "guard_ancestor": 0,
+        "later_result_references": 1,
+        "standalone_expression": 0,
+        "staticcall": 1,
+        "unary_ancestor": 0,
+        "value_option": 0
+      },
+      "function": "asserted",
+      "id": "dad97c87da329726:743",
+      "operation": "staticcall",
+      "schema": "uec-ast-v1",
+      "span": {
+        "endLine": 21,
+        "length": 23,
+        "line": 21,
+        "offset": 743
+      },
+      "status": "supported"
+    },
+    "sha256": "dad97c87da3297262d9cbe3f9a03602180de033ea212f567d0027a747505bdf7",
+    "source_id": "controlled:Handling.sol",
+    "span": {
+      "endLine": 21,
+      "length": 23,
+      "line": 21,
+      "offset": 743
+    },
+    "visibility": "external"
+  },
+  {
+    "function": "revertFailure",
+    "function_kind": "function",
+    "operation": "delegatecall",
+    "record": {
+      "features": {
+        "argument_count": 1,
+        "assigned_result": 1,
+        "condition_ancestor": 0,
+        "delegatecall": 1,
+        "function_statement_count": 3,
+        "guard_ancestor": 0,
+        "later_result_references": 1,
+        "standalone_expression": 0,
+        "staticcall": 0,
+        "unary_ancestor": 0,
+        "value_option": 0
+      },
+      "function": "revertFailure",
+      "id": "dad97c87da329726:890",
+      "operation": "delegatecall",
+      "schema": "uec-ast-v1",
+      "span": {
+        "endLine": 25,
+        "length": 25,
+        "line": 25,
+        "offset": 890
+      },
+      "status": "supported"
+    },
+    "sha256": "dad97c87da3297262d9cbe3f9a03602180de033ea212f567d0027a747505bdf7",
+    "source_id": "controlled:Handling.sol",
+    "span": {
+      "endLine": 25,
+      "length": 25,
+      "line": 25,
+      "offset": 890
+    },
+    "visibility": "external"
+  },
+  {
+    "function": "recordFailure",
+    "function_kind": "function",
+    "operation": "call",
+    "record": {
+      "features": {
+        "argument_count": 1,
+        "assigned_result": 1,
+        "condition_ancestor": 0,
+        "delegatecall": 0,
+        "function_statement_count": 3,
+        "guard_ancestor": 0,
+        "later_result_references": 1,
+        "standalone_expression": 0,
+        "staticcall": 0,
+        "unary_ancestor": 0,
+        "value_option": 0
+      },
+      "function": "recordFailure",
+      "id": "dad97c87da329726:1046",
+      "operation": "call",
+      "schema": "uec-ast-v1",
+      "span": {
+        "endLine": 29,
+        "length": 17,
+        "line": 29,
+        "offset": 1046
+      },
+      "status": "supported"
+    },
+    "sha256": "dad97c87da3297262d9cbe3f9a03602180de033ea212f567d0027a747505bdf7",
+    "source_id": "controlled:Handling.sol",
+    "span": {
+      "endLine": 29,
+      "length": 17,
+      "line": 29,
+      "offset": 1046
+    },
+    "visibility": "external"
+  },
+  {
+    "function": "logFailure",
+    "function_kind": "function",
+    "operation": "call",
+    "record": {
+      "features": {
+        "argument_count": 1,
+        "assigned_result": 1,
+        "condition_ancestor": 0,
+        "delegatecall": 0,
+        "function_statement_count": 3,
+        "guard_ancestor": 0,
+        "later_result_references": 1,
+        "standalone_expression": 0,
+        "staticcall": 0,
+        "unary_ancestor": 0,
+        "value_option": 0
+      },
+      "function": "logFailure",
+      "id": "dad97c87da329726:1196",
+      "operation": "call",
+      "schema": "uec-ast-v1",
+      "span": {
+        "endLine": 33,
+        "length": 17,
+        "line": 33,
+        "offset": 1196
+      },
+      "status": "supported"
+    },
+    "sha256": "dad97c87da3297262d9cbe3f9a03602180de033ea212f567d0027a747505bdf7",
+    "source_id": "controlled:Handling.sol",
+    "span": {
+      "endLine": 33,
+      "length": 17,
+      "line": 33,
+      "offset": 1196
+    },
+    "visibility": "external"
+  },
+  {
+    "function": "emptyFailure",
+    "function_kind": "function",
+    "operation": "call",
+    "record": {
+      "features": {
+        "argument_count": 1,
+        "assigned_result": 1,
+        "condition_ancestor": 0,
+        "delegatecall": 0,
+        "function_statement_count": 2,
+        "guard_ancestor": 0,
+        "later_result_references": 1,
+        "standalone_expression": 0,
+        "staticcall": 0,
+        "unary_ancestor": 0,
+        "value_option": 0
+      },
+      "function": "emptyFailure",
+      "id": "dad97c87da329726:1354",
+      "operation": "call",
+      "schema": "uec-ast-v1",
+      "span": {
+        "endLine": 37,
+        "length": 17,
+        "line": 37,
+        "offset": 1354
+      },
+      "status": "supported"
+    },
+    "sha256": "dad97c87da3297262d9cbe3f9a03602180de033ea212f567d0027a747505bdf7",
+    "source_id": "controlled:Handling.sol",
+    "span": {
+      "endLine": 37,
+      "length": 17,
+      "line": 37,
+      "offset": 1354
+    },
+    "visibility": "external"
+  },
+  {
+    "function": "ineffectiveFailure",
+    "function_kind": "function",
+    "operation": "call",
+    "record": {
+      "features": {
+        "argument_count": 1,
+        "assigned_result": 1,
+        "condition_ancestor": 0,
+        "delegatecall": 0,
+        "function_statement_count": 3,
+        "guard_ancestor": 0,
+        "later_result_references": 1,
+        "standalone_expression": 0,
+        "staticcall": 0,
+        "unary_ancestor": 0,
+        "value_option": 0
+      },
+      "function": "ineffectiveFailure",
+      "id": "dad97c87da329726:1500",
+      "operation": "call",
+      "schema": "uec-ast-v1",
+      "span": {
+        "endLine": 41,
+        "length": 17,
+        "line": 41,
+        "offset": 1500
+      },
+      "status": "supported"
+    },
+    "sha256": "dad97c87da3297262d9cbe3f9a03602180de033ea212f567d0027a747505bdf7",
+    "source_id": "controlled:Handling.sol",
+    "span": {
+      "endLine": 41,
+      "length": 17,
+      "line": 41,
+      "offset": 1500
+    },
+    "visibility": "external"
+  },
+  {
+    "function": "overwritten",
+    "function_kind": "function",
+    "operation": "call",
+    "record": {
+      "features": {
+        "argument_count": 1,
+        "assigned_result": 1,
+        "condition_ancestor": 0,
+        "delegatecall": 0,
+        "function_statement_count": 3,
+        "guard_ancestor": 0,
+        "later_result_references": 2,
+        "standalone_expression": 0,
+        "staticcall": 0,
+        "unary_ancestor": 0,
+        "value_option": 0
+      },
+      "function": "overwritten",
+      "id": "dad97c87da329726:1660",
+      "operation": "call",
+      "schema": "uec-ast-v1",
+      "span": {
+        "endLine": 45,
+        "length": 17,
+        "line": 45,
+        "offset": 1660
+      },
+      "status": "supported"
+    },
+    "sha256": "dad97c87da3297262d9cbe3f9a03602180de033ea212f567d0027a747505bdf7",
+    "source_id": "controlled:Handling.sol",
+    "span": {
+      "endLine": 45,
+      "length": 17,
+      "line": 45,
+      "offset": 1660
+    },
+    "visibility": "external"
+  },
+  {
+    "function": "checkedAlias",
+    "function_kind": "function",
+    "operation": "call",
+    "record": {
+      "features": {
+        "argument_count": 1,
+        "assigned_result": 1,
+        "condition_ancestor": 0,
+        "delegatecall": 0,
+        "function_statement_count": 3,
+        "guard_ancestor": 0,
+        "later_result_references": 1,
+        "standalone_expression": 0,
+        "staticcall": 0,
+        "unary_ancestor": 0,
+        "value_option": 0
+      },
+      "function": "checkedAlias",
+      "id": "dad97c87da329726:1820",
+      "operation": "call",
+      "schema": "uec-ast-v1",
+      "span": {
+        "endLine": 50,
+        "length": 17,
+        "line": 50,
+        "offset": 1820
+      },
+      "status": "supported"
+    },
+    "sha256": "dad97c87da3297262d9cbe3f9a03602180de033ea212f567d0027a747505bdf7",
+    "source_id": "controlled:Handling.sol",
+    "span": {
+      "endLine": 50,
+      "length": 17,
+      "line": 50,
+      "offset": 1820
+    },
+    "visibility": "external"
+  },
+  {
+    "function": "ignoredAlias",
+    "function_kind": "function",
+    "operation": "call",
+    "record": {
+      "features": {
+        "argument_count": 1,
+        "assigned_result": 1,
+        "condition_ancestor": 0,
+        "delegatecall": 0,
+        "function_statement_count": 2,
+        "guard_ancestor": 0,
+        "later_result_references": 1,
+        "standalone_expression": 0,
+        "staticcall": 0,
+        "unary_ancestor": 0,
+        "value_option": 0
+      },
+      "function": "ignoredAlias",
+      "id": "dad97c87da329726:1993",
+      "operation": "call",
+      "schema": "uec-ast-v1",
+      "span": {
+        "endLine": 55,
+        "length": 17,
+        "line": 55,
+        "offset": 1993
+      },
+      "status": "supported"
+    },
+    "sha256": "dad97c87da3297262d9cbe3f9a03602180de033ea212f567d0027a747505bdf7",
+    "source_id": "controlled:Handling.sol",
+    "span": {
+      "endLine": 55,
+      "length": 17,
+      "line": 55,
+      "offset": 1993
+    },
+    "visibility": "external"
+  },
+  {
+    "function": "returned",
+    "function_kind": "function",
+    "operation": "call",
+    "record": {
+      "features": {
+        "argument_count": 1,
+        "assigned_result": 1,
+        "condition_ancestor": 0,
+        "delegatecall": 0,
+        "function_statement_count": 1,
+        "guard_ancestor": 0,
+        "later_result_references": 1,
+        "standalone_expression": 0,
+        "staticcall": 0,
+        "unary_ancestor": 0,
+        "value_option": 0
+      },
+      "function": "returned",
+      "id": "dad97c87da329726:2151",
+      "operation": "call",
+      "schema": "uec-ast-v1",
+      "span": {
+        "endLine": 59,
+        "length": 17,
+        "line": 59,
+        "offset": 2151
+      },
+      "status": "supported"
+    },
+    "sha256": "dad97c87da3297262d9cbe3f9a03602180de033ea212f567d0027a747505bdf7",
+    "source_id": "controlled:Handling.sol",
+    "span": {
+      "endLine": 59,
+      "length": 17,
+      "line": 59,
+      "offset": 2151
+    },
+    "visibility": "external"
+  },
+  {
+    "function": "escaped",
+    "function_kind": "function",
+    "operation": "call",
+    "record": {
+      "features": {
+        "argument_count": 1,
+        "assigned_result": 1,
+        "condition_ancestor": 0,
+        "delegatecall": 0,
+        "function_statement_count": 2,
+        "guard_ancestor": 0,
+        "later_result_references": 1,
+        "standalone_expression": 0,
+        "staticcall": 0,
+        "unary_ancestor": 0,
+        "value_option": 0
+      },
+      "function": "escaped",
+      "id": "dad97c87da329726:2285",
+      "operation": "call",
+      "schema": "uec-ast-v1",
+      "span": {
+        "endLine": 63,
+        "length": 17,
+        "line": 63,
+        "offset": 2285
+      },
+      "status": "supported"
+    },
+    "sha256": "dad97c87da3297262d9cbe3f9a03602180de033ea212f567d0027a747505bdf7",
+    "source_id": "controlled:Handling.sol",
+    "span": {
+      "endLine": 63,
+      "length": 17,
+      "line": 63,
+      "offset": 2285
+    },
+    "visibility": "external"
+  },
+  {
+    "function": "tupleAssignment",
+    "function_kind": "function",
+    "operation": "call",
+    "record": {
+      "function": "tupleAssignment",
+      "id": "dad97c87da329726:2484",
+      "operation": "call",
+      "reason": "Assignment/return data flow outside feature domain",
+      "schema": "uec-ast-v1",
+      "span": {
+        "endLine": 69,
+        "length": 17,
+        "line": 69,
+        "offset": 2484
+      },
+      "status": "unsupported"
+    },
+    "sha256": "dad97c87da3297262d9cbe3f9a03602180de033ea212f567d0027a747505bdf7",
+    "source_id": "controlled:Handling.sol",
+    "span": {
+      "endLine": 69,
+      "length": 17,
+      "line": 69,
+      "offset": 2484
+    },
+    "visibility": "external"
+  },
+  {
+    "function": "looped",
+    "function_kind": "function",
+    "operation": "call",
+    "record": {
+      "function": "looped",
+      "id": "dad97c87da329726:2653",
+      "operation": "call",
+      "reason": "Function has modifiers, loops or assembly",
+      "schema": "uec-ast-v1",
+      "span": {
+        "endLine": 73,
+        "length": 17,
+        "line": 73,
+        "offset": 2653
+      },
+      "status": "unsupported"
+    },
+    "sha256": "dad97c87da3297262d9cbe3f9a03602180de033ea212f567d0027a747505bdf7",
+    "source_id": "controlled:Handling.sol",
+    "span": {
+      "endLine": 73,
+      "length": 17,
+      "line": 73,
+      "offset": 2653
+    },
+    "visibility": "external"
+  },
+  {
+    "function": "discardDelegate",
+    "function_kind": "function",
+    "operation": "delegatecall",
+    "record": {
+      "features": {
+        "argument_count": 1,
+        "assigned_result": 0,
+        "condition_ancestor": 0,
+        "delegatecall": 1,
+        "function_statement_count": 1,
+        "guard_ancestor": 0,
+        "later_result_references": 0,
+        "standalone_expression": 1,
+        "staticcall": 0,
+        "unary_ancestor": 0,
+        "value_option": 0
+      },
+      "function": "discardDelegate",
+      "id": "dad97c87da329726:2763",
+      "operation": "delegatecall",
+      "schema": "uec-ast-v1",
+      "span": {
+        "endLine": 76,
+        "length": 25,
+        "line": 76,
+        "offset": 2763
+      },
+      "status": "supported"
+    },
+    "sha256": "dad97c87da3297262d9cbe3f9a03602180de033ea212f567d0027a747505bdf7",
+    "source_id": "controlled:Handling.sol",
+    "span": {
+      "endLine": 76,
+      "length": 25,
+      "line": 76,
+      "offset": 2763
+    },
+    "visibility": "external"
+  },
+  {
+    "function": "discardStatic",
+    "function_kind": "function",
+    "operation": "staticcall",
+    "record": {
+      "features": {
+        "argument_count": 1,
+        "assigned_result": 0,
+        "condition_ancestor": 0,
+        "delegatecall": 0,
+        "function_statement_count": 1,
+        "guard_ancestor": 0,
+        "later_result_references": 0,
+        "standalone_expression": 1,
+        "staticcall": 1,
+        "unary_ancestor": 0,
+        "value_option": 0
+      },
+      "function": "discardStatic",
+      "id": "dad97c87da329726:2884",
+      "operation": "staticcall",
+      "schema": "uec-ast-v1",
+      "span": {
+        "endLine": 79,
+        "length": 23,
+        "line": 79,
+        "offset": 2884
+      },
+      "status": "supported"
+    },
+    "sha256": "dad97c87da3297262d9cbe3f9a03602180de033ea212f567d0027a747505bdf7",
+    "source_id": "controlled:Handling.sol",
+    "span": {
+      "endLine": 79,
+      "length": 23,
+      "line": 79,
+      "offset": 2884
+    },
+    "visibility": "external"
+  },
+  {
+    "function": "returnFailure",
+    "function_kind": "function",
+    "operation": "call",
+    "record": {
+      "features": {
+        "argument_count": 1,
+        "assigned_result": 1,
+        "condition_ancestor": 0,
+        "delegatecall": 0,
+        "function_statement_count": 2,
+        "guard_ancestor": 0,
+        "later_result_references": 1,
+        "standalone_expression": 0,
+        "staticcall": 0,
+        "unary_ancestor": 0,
+        "value_option": 0
+      },
+      "function": "returnFailure",
+      "id": "dad97c87da329726:3135",
+      "operation": "call",
+      "schema": "uec-ast-v1",
+      "span": {
+        "endLine": 85,
+        "length": 17,
+        "line": 85,
+        "offset": 3135
+      },
+      "status": "supported"
+    },
+    "sha256": "dad97c87da3297262d9cbe3f9a03602180de033ea212f567d0027a747505bdf7",
+    "source_id": "controlled:Handling.sol",
+    "span": {
+      "endLine": 85,
+      "length": 17,
+      "line": 85,
+      "offset": 3135
+    },
+    "visibility": "external"
+  }
+]

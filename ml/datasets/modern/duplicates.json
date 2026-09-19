@@ -1,0 +1,173 @@
+{
+  "groups": {
+    "controlled:Handling.sol": "controlled:Handling.sol",
+    "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "ethernaut:contracts/src/attacks/HigherOrderAttack.sol": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "ethernaut:contracts/src/attacks/KingAttack.sol": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "ethernaut:contracts/src/levels/BetHouse.sol": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "ethernaut:contracts/src/levels/Cashback.sol": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "ethernaut:contracts/src/levels/Delegation.sol": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "ethernaut:contracts/src/levels/Denial.sol": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "ethernaut:contracts/src/levels/DenialFactory.sol": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "ethernaut:contracts/src/levels/KingFactory.sol": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "ethernaut:contracts/src/levels/Motorbike.sol": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "ethernaut:contracts/src/levels/NotOptimisticPortal.sol": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "ethernaut:contracts/src/levels/Preservation.sol": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "ethernaut:contracts/src/levels/PuzzleWallet.sol": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "ethernaut:contracts/src/levels/RecoveryFactory.sol": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "ethernaut:contracts/src/levels/Reentrance.sol": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "ethernaut:contracts/src/levels/Stake.sol": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "ethernaut:contracts/src/levels/Switch.sol": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "examples:call-dynamic.sol": "examples:call-dynamic.sol",
+    "examples:reentry-attack.sol": "examples:call-dynamic.sol",
+    "examples:send-eth.sol": "examples:call-dynamic.sol",
+    "multicall:src/Multicall.sol": "multicall:src/Multicall.sol",
+    "multicall:src/Multicall2.sol": "multicall:src/Multicall.sol",
+    "multicall:src/Multicall3.sol": "multicall:src/Multicall.sol",
+    "multicall:src/test/mocks/MockCallee.sol": "multicall:src/Multicall.sol",
+    "openzeppelin:contracts/mocks/compound/CompTimelock.sol": "openzeppelin:contracts/mocks/compound/CompTimelock.sol",
+    "openzeppelin:contracts/proxy/transparent/ProxyAdmin.sol": "openzeppelin:contracts/proxy/transparent/ProxyAdmin.sol",
+    "openzeppelin:contracts/utils/Address.sol": "openzeppelin:contracts/proxy/transparent/ProxyAdmin.sol",
+    "safe:contracts/base/FallbackManager.sol": "safe:contracts/base/FallbackManager.sol",
+    "sbe:src/pages/abi-encode/AbiEncode.sol": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "sbe:src/pages/app/bi-directional-payment-channel/BiDirectionalPaymentChannel.sol": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "sbe:src/pages/app/deploy-any-contract/Proxy.sol": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "sbe:src/pages/app/multi-call/MultiCall.sol": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "sbe:src/pages/app/multi-delegatecall/MultiDelegatecall.sol": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "sbe:src/pages/app/multi-sig-wallet/MultiSigWallet.sol": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "sbe:src/pages/app/time-lock/TimeLock.sol": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "sbe:src/pages/app/uni-directional-payment-channel/UniDirectionalPaymentChannel.sol": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "sbe:src/pages/app/upgradeable-proxy/UpgradeableProxy.sol": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "sbe:src/pages/call/Call.sol": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "sbe:src/pages/defi/uniswap-v2-add-remove-liquidity/UniswapV2Liquidity.sol": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "sbe:src/pages/defi/uniswap-v2-add-remove-liquidity/UniswapV2LiquidityTest.sol": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "sbe:src/pages/delegatecall/Delegatecall.sol": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "sbe:src/pages/fallback/Fallback.sol": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "sbe:src/pages/fallback/FallbackInputOutput.sol": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "sbe:src/pages/hacks/block-timestamp-manipulation/BlockTimestamp.sol": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "sbe:src/pages/hacks/delegatecall/Delegatecall_1.sol": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "sbe:src/pages/hacks/delegatecall/Delegatecall_2.sol": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "sbe:src/pages/hacks/denial-of-service/DenialOfService.sol": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "sbe:src/pages/hacks/denial-of-service/PreventDenialOfService.sol": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "sbe:src/pages/hacks/deploy-different-contracts-same-address/TornadoHack.sol": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "sbe:src/pages/hacks/front-running/FrontRunning.sol": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "sbe:src/pages/hacks/front-running/PreventFrontRunning.sol": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "sbe:src/pages/hacks/honeypot/HoneyPot.sol": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "sbe:src/pages/hacks/overflow/Overflow.sol": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "sbe:src/pages/hacks/phishing-with-tx-origin/TxOrigin.sol": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "sbe:src/pages/hacks/randomness/Randomness.sol": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "sbe:src/pages/hacks/re-entrancy/ReEntrancy.sol": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "sbe:src/pages/hacks/self-destruct/ForceEther.sol": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "sbe:src/pages/hacks/self-destruct/PreventForceEther.sol": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "sbe:src/pages/hacks/signature-replay/PreventSigReplay.sol": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "sbe:src/pages/hacks/signature-replay/SigReplay.sol": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "sbe:src/pages/payable/Payable.sol": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "sbe:src/pages/sending-ether/SendingEther.sol": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "serial:01_integer_underflow/FixedEtherVault.sol": "serial:01_integer_underflow/FixedEtherVault.sol",
+    "serial:01_integer_underflow/InsecureEtherVault.sol": "serial:01_integer_underflow/FixedEtherVault.sol",
+    "serial:02_reentrancy/FixedEtherVault.sol": "serial:01_integer_underflow/FixedEtherVault.sol",
+    "serial:02_reentrancy/InsecureEtherVault.sol": "serial:01_integer_underflow/FixedEtherVault.sol",
+    "serial:04_cross_function_reentrancy/FixedEtherVault.sol": "serial:01_integer_underflow/FixedEtherVault.sol",
+    "serial:04_cross_function_reentrancy/InsecureEtherVault.sol": "serial:01_integer_underflow/FixedEtherVault.sol",
+    "serial:05_cross_contract_reentrancy/FixedMoonVault.sol": "serial:01_integer_underflow/FixedEtherVault.sol",
+    "serial:05_cross_contract_reentrancy/InsecureMoonVault.sol": "serial:01_integer_underflow/FixedEtherVault.sol",
+    "serial:06_integer_overflow/FixedMoonToken.sol": "serial:01_integer_underflow/FixedEtherVault.sol",
+    "serial:06_integer_overflow/InsecureMoonToken.sol": "serial:01_integer_underflow/FixedEtherVault.sol",
+    "serial:07_phishing_with_improper_authorization/FixedDonation.sol": "serial:01_integer_underflow/FixedEtherVault.sol",
+    "serial:07_phishing_with_improper_authorization/InsecureDonation.sol": "serial:01_integer_underflow/FixedEtherVault.sol",
+    "serial:08_unexpected_ether_with_forcibly_sending_ether/FixedMoonToken.sol": "serial:01_integer_underflow/FixedEtherVault.sol",
+    "serial:08_unexpected_ether_with_forcibly_sending_ether/InsecureMoonToken.sol": "serial:01_integer_underflow/FixedEtherVault.sol",
+    "serial:09_denial_of_service_with_revert/Attack.sol": "serial:01_integer_underflow/FixedEtherVault.sol",
+    "serial:09_denial_of_service_with_revert/FixedWinnerTakesItAll.sol": "serial:01_integer_underflow/FixedEtherVault.sol",
+    "serial:09_denial_of_service_with_revert/InsecureWinnerTakesItAll.sol": "serial:01_integer_underflow/FixedEtherVault.sol",
+    "serial:10_denial_of_service_with_gas_limit/FixedNaiveBank.sol": "serial:01_integer_underflow/FixedEtherVault.sol",
+    "serial:10_denial_of_service_with_gas_limit/InsecureNaiveBank.sol": "serial:01_integer_underflow/FixedEtherVault.sol",
+    "serial:11_denial_of_service_with_induction_variable_overflow/FixedSimpleAirdrop.sol": "serial:01_integer_underflow/FixedEtherVault.sol",
+    "serial:11_denial_of_service_with_induction_variable_overflow/VulnerableSimpleAirdrop.sol": "serial:01_integer_underflow/FixedEtherVault.sol",
+    "serial:12_amplification_attack__double_spending_01/Dependencies.sol": "serial:01_integer_underflow/FixedEtherVault.sol",
+    "serial:13_double_spending_02/FixedNaiveBank.sol": "serial:01_integer_underflow/FixedEtherVault.sol",
+    "serial:13_double_spending_02/InsecureNaiveBank.sol": "serial:01_integer_underflow/FixedEtherVault.sol",
+    "slither:tests/e2e/detectors/test_data/low-level-calls/0.4.25/low_level_calls.sol": "slither:tests/e2e/detectors/test_data/low-level-calls/0.4.25/low_level_calls.sol",
+    "slither:tests/e2e/detectors/test_data/low-level-calls/0.5.16/low_level_calls.sol": "slither:tests/e2e/detectors/test_data/low-level-calls/0.4.25/low_level_calls.sol",
+    "slither:tests/e2e/detectors/test_data/low-level-calls/0.6.11/low_level_calls.sol": "slither:tests/e2e/detectors/test_data/low-level-calls/0.4.25/low_level_calls.sol",
+    "slither:tests/e2e/detectors/test_data/low-level-calls/0.7.6/low_level_calls.sol": "slither:tests/e2e/detectors/test_data/low-level-calls/0.4.25/low_level_calls.sol",
+    "slither:tests/e2e/detectors/test_data/return-bomb/0.8.20/return_bomb.sol": "slither:tests/e2e/detectors/test_data/low-level-calls/0.4.25/low_level_calls.sol",
+    "slither:tests/e2e/detectors/test_data/unchecked-lowlevel/0.4.25/unchecked_lowlevel.sol": "slither:tests/e2e/detectors/test_data/low-level-calls/0.4.25/low_level_calls.sol",
+    "slither:tests/e2e/detectors/test_data/unchecked-lowlevel/0.5.16/unchecked_lowlevel.sol": "slither:tests/e2e/detectors/test_data/low-level-calls/0.4.25/low_level_calls.sol",
+    "slither:tests/e2e/detectors/test_data/unchecked-lowlevel/0.6.11/unchecked_lowlevel.sol": "slither:tests/e2e/detectors/test_data/low-level-calls/0.4.25/low_level_calls.sol",
+    "slither:tests/e2e/detectors/test_data/unchecked-lowlevel/0.7.6/unchecked_lowlevel.sol": "slither:tests/e2e/detectors/test_data/low-level-calls/0.4.25/low_level_calls.sol",
+    "slither:tests/e2e/detectors/test_data/write-after-write/0.8.0/write-after-write.sol": "slither:tests/e2e/detectors/test_data/low-level-calls/0.4.25/low_level_calls.sol",
+    "solmate:src/utils/CREATE3.sol": "solmate:src/utils/CREATE3.sol",
+    "uniswap:contracts/base/Multicall.sol": "uniswap:contracts/base/Multicall.sol",
+    "uniswap:contracts/lens/UniswapInterfaceMulticall.sol": "uniswap:contracts/base/Multicall.sol",
+    "uniswap:contracts/libraries/TransferHelper.sol": "uniswap:contracts/base/Multicall.sol"
+  },
+  "method": "Known ancestry and repository families; exact SHA and normalized token 5-gram Jaccard >=0.80, transitive union.",
+  "near_pairs": [
+    [
+      "sbe:src/pages/hacks/signature-replay/PreventSigReplay.sol",
+      "sbe:src/pages/hacks/signature-replay/SigReplay.sol",
+      0.8039
+    ],
+    [
+      "slither:tests/e2e/detectors/test_data/low-level-calls/0.4.25/low_level_calls.sol",
+      "slither:tests/e2e/detectors/test_data/low-level-calls/0.5.16/low_level_calls.sol",
+      1.0
+    ],
+    [
+      "slither:tests/e2e/detectors/test_data/low-level-calls/0.4.25/low_level_calls.sol",
+      "slither:tests/e2e/detectors/test_data/low-level-calls/0.6.11/low_level_calls.sol",
+      0.8246
+    ],
+    [
+      "slither:tests/e2e/detectors/test_data/low-level-calls/0.5.16/low_level_calls.sol",
+      "slither:tests/e2e/detectors/test_data/low-level-calls/0.6.11/low_level_calls.sol",
+      0.8246
+    ],
+    [
+      "slither:tests/e2e/detectors/test_data/unchecked-lowlevel/0.5.16/unchecked_lowlevel.sol",
+      "slither:tests/e2e/detectors/test_data/unchecked-lowlevel/0.6.11/unchecked_lowlevel.sol",
+      1.0
+    ],
+    [
+      "serial:04_cross_function_reentrancy/FixedEtherVault.sol",
+      "serial:04_cross_function_reentrancy/InsecureEtherVault.sol",
+      0.9322
+    ],
+    [
+      "serial:05_cross_contract_reentrancy/FixedMoonVault.sol",
+      "serial:05_cross_contract_reentrancy/InsecureMoonVault.sol",
+      0.8803
+    ],
+    [
+      "serial:07_phishing_with_improper_authorization/FixedDonation.sol",
+      "serial:07_phishing_with_improper_authorization/InsecureDonation.sol",
+      1.0
+    ],
+    [
+      "serial:08_unexpected_ether_with_forcibly_sending_ether/FixedMoonToken.sol",
+      "serial:08_unexpected_ether_with_forcibly_sending_ether/InsecureMoonToken.sol",
+      0.9563
+    ],
+    [
+      "serial:09_denial_of_service_with_revert/FixedWinnerTakesItAll.sol",
+      "serial:09_denial_of_service_with_revert/InsecureWinnerTakesItAll.sol",
+      0.8014
+    ],
+    [
+      "serial:10_denial_of_service_with_gas_limit/FixedNaiveBank.sol",
+      "serial:10_denial_of_service_with_gas_limit/InsecureNaiveBank.sol",
+      0.8219
+    ],
+    [
+      "serial:10_denial_of_service_with_gas_limit/InsecureNaiveBank.sol",
+      "serial:13_double_spending_02/InsecureNaiveBank.sol",
+      0.8651
+    ],
+    [
+      "serial:11_denial_of_service_with_induction_variable_overflow/FixedSimpleAirdrop.sol",
+      "serial:11_denial_of_service_with_induction_variable_overflow/VulnerableSimpleAirdrop.sol",
+      0.9425
+    ]
+  ]
+}

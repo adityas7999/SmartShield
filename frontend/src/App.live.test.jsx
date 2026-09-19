@@ -36,6 +36,13 @@ liveDescribe("real React → Python → solc → C++ acceptance", () => {
         "contract Multi",
       ),
     );
+    // Keep the shared-line regression independent of the sample's formatting.
+    const lines = screen.getByLabelText("Solidity source code").value.split("\n");
+    const sharedLineSource = lines.slice(0, 2).join("\n") + "\n" +
+      lines.slice(2).filter((line) => !line.trim().startsWith("//")).join(" ");
+    fireEvent.change(screen.getByLabelText("Solidity source code"), {
+      target: { value: sharedLineSource },
+    });
     fireEvent.click(screen.getByRole("button", { name: "Analyze contract" }));
     await screen.findByText("4 findings", {}, { timeout: 15000 });
     expect(report.findings).toHaveLength(4);

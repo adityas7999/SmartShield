@@ -9,6 +9,12 @@ test("real multi-rule report, source navigation, export, print, and coverage", a
   await expect(page.getByLabel("Solidity source code")).toContainText(
     "contract Multi",
   );
+  // Exercise four independently selectable findings on the same source line.
+  const lines = (await page.getByLabel("Solidity source code").inputValue()).split("\n");
+  await page.getByLabel("Solidity source code").fill(
+    lines.slice(0, 2).join("\n") + "\n" +
+    lines.slice(2).filter((line) => !line.trim().startsWith("//")).join(" "),
+  );
   const response = page.waitForResponse((r) =>
     r.url().endsWith("/api/analyze"),
   );

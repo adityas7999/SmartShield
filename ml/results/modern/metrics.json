@@ -1,0 +1,1512 @@
+{
+  "comparison": {
+    "dummy": {
+      "abstention_correct": 0,
+      "extra_false_positives": 2,
+      "extra_true_positives": 0,
+      "matched_completed": {
+        "classes": {
+          "negative": 2,
+          "positive": 2
+        },
+        "confusion_matrix": [
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            2
+          ]
+        ],
+        "families": 1,
+        "macro_f1": 0.3333333333333333,
+        "matrix_order": [
+          "verified_negative",
+          "positive"
+        ],
+        "n": 4,
+        "per_class": {
+          "positive": {
+            "f1": 0.6666666666666666,
+            "precision": 0.5,
+            "precision_95_wilson": [
+              0.15003898915214947,
+              0.8499610108478506
+            ],
+            "predicted_count": 4,
+            "recall": 1.0,
+            "recall_95_wilson": [
+              0.34238022750665303,
+              1.0
+            ],
+            "support": 2
+          },
+          "verified_negative": {
+            "f1": 0.0,
+            "precision": null,
+            "precision_95_wilson": null,
+            "predicted_count": 0,
+            "recall": 0.0,
+            "recall_95_wilson": [
+              0.0,
+              0.6576197724933469
+            ],
+            "support": 2
+          }
+        },
+        "pr_auc_average_precision": null,
+        "pr_auc_note": "Average precision (stepwise PR-AUC); undefined without both classes. Small purposive families limit interpretation.",
+        "uncertainty_note": "Wilson intervals are descriptive per-operation intervals; related operations are correlated. They do not establish family-level generalization."
+      },
+      "on_rule_abstentions": {
+        "classes": {},
+        "confusion_matrix": null,
+        "families": 0,
+        "macro_f1": null,
+        "n": 0,
+        "per_class": null,
+        "pr_auc_average_precision": null,
+        "pr_auc_note": "Average precision (stepwise PR-AUC); undefined without both classes. Small purposive families limit interpretation.",
+        "reason": "No eligible cases; metrics undefined, not zero error"
+      }
+    },
+    "gradient_boosting": {
+      "abstention_correct": 0,
+      "extra_false_positives": 0,
+      "extra_true_positives": 0,
+      "matched_completed": {
+        "classes": {
+          "negative": 2,
+          "positive": 2
+        },
+        "confusion_matrix": [
+          [
+            2,
+            0
+          ],
+          [
+            0,
+            2
+          ]
+        ],
+        "families": 1,
+        "macro_f1": 1.0,
+        "matrix_order": [
+          "verified_negative",
+          "positive"
+        ],
+        "n": 4,
+        "per_class": {
+          "positive": {
+            "f1": 1.0,
+            "precision": 1.0,
+            "precision_95_wilson": [
+              0.34238022750665303,
+              1.0
+            ],
+            "predicted_count": 2,
+            "recall": 1.0,
+            "recall_95_wilson": [
+              0.34238022750665303,
+              1.0
+            ],
+            "support": 2
+          },
+          "verified_negative": {
+            "f1": 1.0,
+            "precision": 1.0,
+            "precision_95_wilson": [
+              0.34238022750665303,
+              1.0
+            ],
+            "predicted_count": 2,
+            "recall": 1.0,
+            "recall_95_wilson": [
+              0.34238022750665303,
+              1.0
+            ],
+            "support": 2
+          }
+        },
+        "pr_auc_average_precision": null,
+        "pr_auc_note": "Average precision (stepwise PR-AUC); undefined without both classes. Small purposive families limit interpretation.",
+        "uncertainty_note": "Wilson intervals are descriptive per-operation intervals; related operations are correlated. They do not establish family-level generalization."
+      },
+      "on_rule_abstentions": {
+        "classes": {},
+        "confusion_matrix": null,
+        "families": 0,
+        "macro_f1": null,
+        "n": 0,
+        "per_class": null,
+        "pr_auc_average_precision": null,
+        "pr_auc_note": "Average precision (stepwise PR-AUC); undefined without both classes. Small purposive families limit interpretation.",
+        "reason": "No eligible cases; metrics undefined, not zero error"
+      }
+    },
+    "logistic": {
+      "abstention_correct": 0,
+      "extra_false_positives": 0,
+      "extra_true_positives": 0,
+      "matched_completed": {
+        "classes": {
+          "negative": 2,
+          "positive": 2
+        },
+        "confusion_matrix": [
+          [
+            2,
+            0
+          ],
+          [
+            0,
+            2
+          ]
+        ],
+        "families": 1,
+        "macro_f1": 1.0,
+        "matrix_order": [
+          "verified_negative",
+          "positive"
+        ],
+        "n": 4,
+        "per_class": {
+          "positive": {
+            "f1": 1.0,
+            "precision": 1.0,
+            "precision_95_wilson": [
+              0.34238022750665303,
+              1.0
+            ],
+            "predicted_count": 2,
+            "recall": 1.0,
+            "recall_95_wilson": [
+              0.34238022750665303,
+              1.0
+            ],
+            "support": 2
+          },
+          "verified_negative": {
+            "f1": 1.0,
+            "precision": 1.0,
+            "precision_95_wilson": [
+              0.34238022750665303,
+              1.0
+            ],
+            "predicted_count": 2,
+            "recall": 1.0,
+            "recall_95_wilson": [
+              0.34238022750665303,
+              1.0
+            ],
+            "support": 2
+          }
+        },
+        "pr_auc_average_precision": null,
+        "pr_auc_note": "Average precision (stepwise PR-AUC); undefined without both classes. Small purposive families limit interpretation.",
+        "uncertainty_note": "Wilson intervals are descriptive per-operation intervals; related operations are correlated. They do not establish family-level generalization."
+      },
+      "on_rule_abstentions": {
+        "classes": {},
+        "confusion_matrix": null,
+        "families": 0,
+        "macro_f1": null,
+        "n": 0,
+        "per_class": null,
+        "pr_auc_average_precision": null,
+        "pr_auc_note": "Average precision (stepwise PR-AUC); undefined without both classes. Small purposive families limit interpretation.",
+        "reason": "No eligible cases; metrics undefined, not zero error"
+      }
+    }
+  },
+  "counts": {
+    "test": {
+      "classes": {
+        "negative": 2,
+        "positive": 2
+      },
+      "eligible_operations": 4,
+      "exclusions": {
+        "label: unsupported": 3
+      },
+      "families": 1,
+      "kinds": {
+        "benchmark-derived": 4
+      },
+      "reviewed_operations": 7
+    },
+    "train": {
+      "classes": {
+        "negative": 8,
+        "positive": 8
+      },
+      "eligible_operations": 16,
+      "exclusions": {
+        "Assignment/return data flow outside feature domain": 1,
+        "label: unknown": 2,
+        "label: unsupported": 5
+      },
+      "families": 2,
+      "kinds": {
+        "benchmark-derived": 1,
+        "controlled": 15
+      },
+      "reviewed_operations": 24
+    },
+    "validation": {
+      "classes": {
+        "negative": 25,
+        "positive": 8
+      },
+      "eligible_operations": 33,
+      "exclusions": {
+        "label: unknown": 5,
+        "label: unsupported": 9
+      },
+      "families": 2,
+      "kinds": {
+        "benchmark-derived": 33
+      },
+      "reviewed_operations": 47
+    }
+  },
+  "environment": {
+    "numpy": "2.2.6",
+    "python": "3.12.14",
+    "sklearn": "1.7.2"
+  },
+  "experiment": "modern-uec-v1",
+  "feature_names": [
+    "standalone_expression",
+    "assigned_result",
+    "later_result_references",
+    "guard_ancestor",
+    "condition_ancestor",
+    "unary_ancestor",
+    "delegatecall",
+    "staticcall",
+    "value_option",
+    "argument_count",
+    "function_statement_count"
+  ],
+  "input_hashes": {
+    "duplicates.json": "12abd96c265bc19d9add12c1eff2873077355969be584d0291c1b1fd9c7b356e",
+    "features.py": "a226e7eb04d1b69cb3885567659f0758a1cfd761a8dcb3c8b4af3d57d9b21b34",
+    "inventory.json": "54b4fb2671b5c67f3807a120f7205ad575ee67a36d778b2d4bea7e4f5322ca6f",
+    "labels.json": "6861d674d933867bcc3ba3702ef60b57531a5a2301af178d06b67e277f6c3ad2",
+    "sources.json": "dbf94df86f553b5f48bbb7c2d7afdc3b55b7628b966fe01a71d54ef43921ac48",
+    "split.json": "1081b366efa11e6503c8f6f6ca9ff6c7ff479df634dc6ba6bcb6e28e89cc3b4f"
+  },
+  "integration": {
+    "candidate_selected_on_validation": "gradient_boosting",
+    "checks": {
+      "at_least_10_per_class": false,
+      "at_least_20_test_families": false,
+      "at_least_two_real_world_test_families": false,
+      "backend_feature_parity": true,
+      "beats_dummy_macro_f1": true,
+      "binary_test_coverage_at_least_80_percent": true,
+      "false_positive_rate_at_most_5_percent": true,
+      "hgb_beats_logistic_if_selected": false,
+      "incremental_value_on_completed_rule_cases": false,
+      "paired_advantage_over_dummy": false,
+      "paired_advantage_over_logistic": false,
+      "positive_precision_lower_bound_at_least_80_percent": false
+    },
+    "failed_checks": [
+      "at_least_20_test_families",
+      "at_least_10_per_class",
+      "at_least_two_real_world_test_families",
+      "hgb_beats_logistic_if_selected",
+      "positive_precision_lower_bound_at_least_80_percent",
+      "paired_advantage_over_dummy",
+      "paired_advantage_over_logistic",
+      "incremental_value_on_completed_rule_cases"
+    ],
+    "integrate": false
+  },
+  "limitations": [
+    "Purposive tiny benchmark test, not real-world accuracy.",
+    "No independent human label review; unknown labels excluded.",
+    "Unchanged v1 syntax features omit important failure-handling semantics.",
+    "Family counts fall below the requested independent-test requirement.",
+    "No calibrated probability, vulnerability confidence or exploitability claim."
+  ],
+  "models": {
+    "dummy": {
+      "by_kind": {
+        "benchmark-derived": {
+          "classes": {
+            "negative": 2,
+            "positive": 2
+          },
+          "confusion_matrix": [
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              2
+            ]
+          ],
+          "families": 1,
+          "macro_f1": 0.3333333333333333,
+          "matrix_order": [
+            "verified_negative",
+            "positive"
+          ],
+          "n": 4,
+          "per_class": {
+            "positive": {
+              "f1": 0.6666666666666666,
+              "precision": 0.5,
+              "precision_95_wilson": [
+                0.15003898915214947,
+                0.8499610108478506
+              ],
+              "predicted_count": 4,
+              "recall": 1.0,
+              "recall_95_wilson": [
+                0.34238022750665303,
+                1.0
+              ],
+              "support": 2
+            },
+            "verified_negative": {
+              "f1": 0.0,
+              "precision": null,
+              "precision_95_wilson": null,
+              "predicted_count": 0,
+              "recall": 0.0,
+              "recall_95_wilson": [
+                0.0,
+                0.6576197724933469
+              ],
+              "support": 2
+            }
+          },
+          "pr_auc_average_precision": 0.5,
+          "pr_auc_note": "Average precision (stepwise PR-AUC); undefined without both classes. Small purposive families limit interpretation.",
+          "uncertainty_note": "Wilson intervals are descriptive per-operation intervals; related operations are correlated. They do not establish family-level generalization."
+        },
+        "controlled": {
+          "classes": {},
+          "confusion_matrix": null,
+          "families": 0,
+          "macro_f1": null,
+          "n": 0,
+          "per_class": null,
+          "pr_auc_average_precision": null,
+          "pr_auc_note": "Average precision (stepwise PR-AUC); undefined without both classes. Small purposive families limit interpretation.",
+          "reason": "No eligible cases; metrics undefined, not zero error"
+        },
+        "real-world": {
+          "classes": {},
+          "confusion_matrix": null,
+          "families": 0,
+          "macro_f1": null,
+          "n": 0,
+          "per_class": null,
+          "pr_auc_average_precision": null,
+          "pr_auc_note": "Average precision (stepwise PR-AUC); undefined without both classes. Small purposive families limit interpretation.",
+          "reason": "No eligible cases; metrics undefined, not zero error"
+        }
+      },
+      "by_pattern": {
+        "conditional_revert": {
+          "classes": {
+            "negative": 1
+          },
+          "confusion_matrix": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "families": 1,
+          "macro_f1": 0.0,
+          "matrix_order": [
+            "verified_negative",
+            "positive"
+          ],
+          "n": 1,
+          "per_class": {
+            "positive": {
+              "f1": 0.0,
+              "precision": 0.0,
+              "precision_95_wilson": [
+                0.0,
+                0.7934506856227626
+              ],
+              "predicted_count": 1,
+              "recall": null,
+              "recall_95_wilson": null,
+              "support": 0
+            },
+            "verified_negative": {
+              "f1": 0.0,
+              "precision": null,
+              "precision_95_wilson": null,
+              "predicted_count": 0,
+              "recall": 0.0,
+              "recall_95_wilson": [
+                0.0,
+                0.7934506856227626
+              ],
+              "support": 1
+            }
+          },
+          "pr_auc_average_precision": null,
+          "pr_auc_note": "Average precision (stepwise PR-AUC); undefined without both classes. Small purposive families limit interpretation.",
+          "uncertainty_note": "Wilson intervals are descriptive per-operation intervals; related operations are correlated. They do not establish family-level generalization."
+        },
+        "discarded": {
+          "classes": {
+            "positive": 2
+          },
+          "confusion_matrix": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              2
+            ]
+          ],
+          "families": 1,
+          "macro_f1": 0.5,
+          "matrix_order": [
+            "verified_negative",
+            "positive"
+          ],
+          "n": 2,
+          "per_class": {
+            "positive": {
+              "f1": 1.0,
+              "precision": 1.0,
+              "precision_95_wilson": [
+                0.34238022750665303,
+                1.0
+              ],
+              "predicted_count": 2,
+              "recall": 1.0,
+              "recall_95_wilson": [
+                0.34238022750665303,
+                1.0
+              ],
+              "support": 2
+            },
+            "verified_negative": {
+              "f1": null,
+              "precision": null,
+              "precision_95_wilson": null,
+              "predicted_count": 0,
+              "recall": null,
+              "recall_95_wilson": null,
+              "support": 0
+            }
+          },
+          "pr_auc_average_precision": null,
+          "pr_auc_note": "Average precision (stepwise PR-AUC); undefined without both classes. Small purposive families limit interpretation.",
+          "uncertainty_note": "Wilson intervals are descriptive per-operation intervals; related operations are correlated. They do not establish family-level generalization."
+        },
+        "require": {
+          "classes": {
+            "negative": 1
+          },
+          "confusion_matrix": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "families": 1,
+          "macro_f1": 0.0,
+          "matrix_order": [
+            "verified_negative",
+            "positive"
+          ],
+          "n": 1,
+          "per_class": {
+            "positive": {
+              "f1": 0.0,
+              "precision": 0.0,
+              "precision_95_wilson": [
+                0.0,
+                0.7934506856227626
+              ],
+              "predicted_count": 1,
+              "recall": null,
+              "recall_95_wilson": null,
+              "support": 0
+            },
+            "verified_negative": {
+              "f1": 0.0,
+              "precision": null,
+              "precision_95_wilson": null,
+              "predicted_count": 0,
+              "recall": 0.0,
+              "recall_95_wilson": [
+                0.0,
+                0.7934506856227626
+              ],
+              "support": 1
+            }
+          },
+          "pr_auc_average_precision": null,
+          "pr_auc_note": "Average precision (stepwise PR-AUC); undefined without both classes. Small purposive families limit interpretation.",
+          "uncertainty_note": "Wilson intervals are descriptive per-operation intervals; related operations are correlated. They do not establish family-level generalization."
+        }
+      },
+      "classes": {
+        "negative": 2,
+        "positive": 2
+      },
+      "confusion_matrix": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          2
+        ]
+      ],
+      "families": 1,
+      "family_bootstrap": {
+        "families": 1,
+        "intervals": null,
+        "reason": "Fewer than two families; family uncertainty cannot be estimated."
+      },
+      "macro_f1": 0.3333333333333333,
+      "matrix_order": [
+        "verified_negative",
+        "positive"
+      ],
+      "measurement": {
+        "artifact_shipped": false,
+        "inference_ms_median": 0.005757999999999999,
+        "inference_ms_p95": 0.0063830499999999995,
+        "serialized_in_memory_bytes": 583,
+        "train_seconds": 0.00044024799990438623
+      },
+      "n": 4,
+      "paired_to_dummy": {
+        "families": 1,
+        "intervals": null,
+        "reason": "Fewer than two families; family uncertainty cannot be estimated."
+      },
+      "parameters": {},
+      "per_class": {
+        "positive": {
+          "f1": 0.6666666666666666,
+          "precision": 0.5,
+          "precision_95_wilson": [
+            0.15003898915214947,
+            0.8499610108478506
+          ],
+          "predicted_count": 4,
+          "recall": 1.0,
+          "recall_95_wilson": [
+            0.34238022750665303,
+            1.0
+          ],
+          "support": 2
+        },
+        "verified_negative": {
+          "f1": 0.0,
+          "precision": null,
+          "precision_95_wilson": null,
+          "predicted_count": 0,
+          "recall": 0.0,
+          "recall_95_wilson": [
+            0.0,
+            0.6576197724933469
+          ],
+          "support": 2
+        }
+      },
+      "pr_auc_average_precision": 0.5,
+      "pr_auc_note": "Average precision (stepwise PR-AUC); undefined without both classes. Small purposive families limit interpretation.",
+      "threshold": 0.5,
+      "uncertainty_note": "Wilson intervals are descriptive per-operation intervals; related operations are correlated. They do not establish family-level generalization."
+    },
+    "gradient_boosting": {
+      "by_kind": {
+        "benchmark-derived": {
+          "classes": {
+            "negative": 2,
+            "positive": 2
+          },
+          "confusion_matrix": [
+            [
+              2,
+              0
+            ],
+            [
+              0,
+              2
+            ]
+          ],
+          "families": 1,
+          "macro_f1": 1.0,
+          "matrix_order": [
+            "verified_negative",
+            "positive"
+          ],
+          "n": 4,
+          "per_class": {
+            "positive": {
+              "f1": 1.0,
+              "precision": 1.0,
+              "precision_95_wilson": [
+                0.34238022750665303,
+                1.0
+              ],
+              "predicted_count": 2,
+              "recall": 1.0,
+              "recall_95_wilson": [
+                0.34238022750665303,
+                1.0
+              ],
+              "support": 2
+            },
+            "verified_negative": {
+              "f1": 1.0,
+              "precision": 1.0,
+              "precision_95_wilson": [
+                0.34238022750665303,
+                1.0
+              ],
+              "predicted_count": 2,
+              "recall": 1.0,
+              "recall_95_wilson": [
+                0.34238022750665303,
+                1.0
+              ],
+              "support": 2
+            }
+          },
+          "pr_auc_average_precision": 1.0,
+          "pr_auc_note": "Average precision (stepwise PR-AUC); undefined without both classes. Small purposive families limit interpretation.",
+          "uncertainty_note": "Wilson intervals are descriptive per-operation intervals; related operations are correlated. They do not establish family-level generalization."
+        },
+        "controlled": {
+          "classes": {},
+          "confusion_matrix": null,
+          "families": 0,
+          "macro_f1": null,
+          "n": 0,
+          "per_class": null,
+          "pr_auc_average_precision": null,
+          "pr_auc_note": "Average precision (stepwise PR-AUC); undefined without both classes. Small purposive families limit interpretation.",
+          "reason": "No eligible cases; metrics undefined, not zero error"
+        },
+        "real-world": {
+          "classes": {},
+          "confusion_matrix": null,
+          "families": 0,
+          "macro_f1": null,
+          "n": 0,
+          "per_class": null,
+          "pr_auc_average_precision": null,
+          "pr_auc_note": "Average precision (stepwise PR-AUC); undefined without both classes. Small purposive families limit interpretation.",
+          "reason": "No eligible cases; metrics undefined, not zero error"
+        }
+      },
+      "by_pattern": {
+        "conditional_revert": {
+          "classes": {
+            "negative": 1
+          },
+          "confusion_matrix": [
+            [
+              1,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "families": 1,
+          "macro_f1": 0.5,
+          "matrix_order": [
+            "verified_negative",
+            "positive"
+          ],
+          "n": 1,
+          "per_class": {
+            "positive": {
+              "f1": null,
+              "precision": null,
+              "precision_95_wilson": null,
+              "predicted_count": 0,
+              "recall": null,
+              "recall_95_wilson": null,
+              "support": 0
+            },
+            "verified_negative": {
+              "f1": 1.0,
+              "precision": 1.0,
+              "precision_95_wilson": [
+                0.20654931437723745,
+                1.0
+              ],
+              "predicted_count": 1,
+              "recall": 1.0,
+              "recall_95_wilson": [
+                0.20654931437723745,
+                1.0
+              ],
+              "support": 1
+            }
+          },
+          "pr_auc_average_precision": null,
+          "pr_auc_note": "Average precision (stepwise PR-AUC); undefined without both classes. Small purposive families limit interpretation.",
+          "uncertainty_note": "Wilson intervals are descriptive per-operation intervals; related operations are correlated. They do not establish family-level generalization."
+        },
+        "discarded": {
+          "classes": {
+            "positive": 2
+          },
+          "confusion_matrix": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              2
+            ]
+          ],
+          "families": 1,
+          "macro_f1": 0.5,
+          "matrix_order": [
+            "verified_negative",
+            "positive"
+          ],
+          "n": 2,
+          "per_class": {
+            "positive": {
+              "f1": 1.0,
+              "precision": 1.0,
+              "precision_95_wilson": [
+                0.34238022750665303,
+                1.0
+              ],
+              "predicted_count": 2,
+              "recall": 1.0,
+              "recall_95_wilson": [
+                0.34238022750665303,
+                1.0
+              ],
+              "support": 2
+            },
+            "verified_negative": {
+              "f1": null,
+              "precision": null,
+              "precision_95_wilson": null,
+              "predicted_count": 0,
+              "recall": null,
+              "recall_95_wilson": null,
+              "support": 0
+            }
+          },
+          "pr_auc_average_precision": null,
+          "pr_auc_note": "Average precision (stepwise PR-AUC); undefined without both classes. Small purposive families limit interpretation.",
+          "uncertainty_note": "Wilson intervals are descriptive per-operation intervals; related operations are correlated. They do not establish family-level generalization."
+        },
+        "require": {
+          "classes": {
+            "negative": 1
+          },
+          "confusion_matrix": [
+            [
+              1,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "families": 1,
+          "macro_f1": 0.5,
+          "matrix_order": [
+            "verified_negative",
+            "positive"
+          ],
+          "n": 1,
+          "per_class": {
+            "positive": {
+              "f1": null,
+              "precision": null,
+              "precision_95_wilson": null,
+              "predicted_count": 0,
+              "recall": null,
+              "recall_95_wilson": null,
+              "support": 0
+            },
+            "verified_negative": {
+              "f1": 1.0,
+              "precision": 1.0,
+              "precision_95_wilson": [
+                0.20654931437723745,
+                1.0
+              ],
+              "predicted_count": 1,
+              "recall": 1.0,
+              "recall_95_wilson": [
+                0.20654931437723745,
+                1.0
+              ],
+              "support": 1
+            }
+          },
+          "pr_auc_average_precision": null,
+          "pr_auc_note": "Average precision (stepwise PR-AUC); undefined without both classes. Small purposive families limit interpretation.",
+          "uncertainty_note": "Wilson intervals are descriptive per-operation intervals; related operations are correlated. They do not establish family-level generalization."
+        }
+      },
+      "classes": {
+        "negative": 2,
+        "positive": 2
+      },
+      "confusion_matrix": [
+        [
+          2,
+          0
+        ],
+        [
+          0,
+          2
+        ]
+      ],
+      "families": 1,
+      "family_bootstrap": {
+        "families": 1,
+        "intervals": null,
+        "reason": "Fewer than two families; family uncertainty cannot be estimated."
+      },
+      "macro_f1": 1.0,
+      "matrix_order": [
+        "verified_negative",
+        "positive"
+      ],
+      "measurement": {
+        "artifact_shipped": false,
+        "inference_ms_median": 0.49818850000000003,
+        "inference_ms_p95": 0.6158445499999999,
+        "serialized_in_memory_bytes": 45392,
+        "train_seconds": 0.022900663999735116
+      },
+      "n": 4,
+      "paired_to_dummy": {
+        "families": 1,
+        "intervals": null,
+        "reason": "Fewer than two families; family uncertainty cannot be estimated."
+      },
+      "paired_to_logistic": {
+        "families": 1,
+        "intervals": null,
+        "reason": "Fewer than two families; family uncertainty cannot be estimated."
+      },
+      "parameters": {
+        "max_leaf_nodes": 3,
+        "min_samples_leaf": 2
+      },
+      "per_class": {
+        "positive": {
+          "f1": 1.0,
+          "precision": 1.0,
+          "precision_95_wilson": [
+            0.34238022750665303,
+            1.0
+          ],
+          "predicted_count": 2,
+          "recall": 1.0,
+          "recall_95_wilson": [
+            0.34238022750665303,
+            1.0
+          ],
+          "support": 2
+        },
+        "verified_negative": {
+          "f1": 1.0,
+          "precision": 1.0,
+          "precision_95_wilson": [
+            0.34238022750665303,
+            1.0
+          ],
+          "predicted_count": 2,
+          "recall": 1.0,
+          "recall_95_wilson": [
+            0.34238022750665303,
+            1.0
+          ],
+          "support": 2
+        }
+      },
+      "pr_auc_average_precision": 1.0,
+      "pr_auc_note": "Average precision (stepwise PR-AUC); undefined without both classes. Small purposive families limit interpretation.",
+      "threshold": 0.5,
+      "uncertainty_note": "Wilson intervals are descriptive per-operation intervals; related operations are correlated. They do not establish family-level generalization."
+    },
+    "logistic": {
+      "by_kind": {
+        "benchmark-derived": {
+          "classes": {
+            "negative": 2,
+            "positive": 2
+          },
+          "confusion_matrix": [
+            [
+              2,
+              0
+            ],
+            [
+              0,
+              2
+            ]
+          ],
+          "families": 1,
+          "macro_f1": 1.0,
+          "matrix_order": [
+            "verified_negative",
+            "positive"
+          ],
+          "n": 4,
+          "per_class": {
+            "positive": {
+              "f1": 1.0,
+              "precision": 1.0,
+              "precision_95_wilson": [
+                0.34238022750665303,
+                1.0
+              ],
+              "predicted_count": 2,
+              "recall": 1.0,
+              "recall_95_wilson": [
+                0.34238022750665303,
+                1.0
+              ],
+              "support": 2
+            },
+            "verified_negative": {
+              "f1": 1.0,
+              "precision": 1.0,
+              "precision_95_wilson": [
+                0.34238022750665303,
+                1.0
+              ],
+              "predicted_count": 2,
+              "recall": 1.0,
+              "recall_95_wilson": [
+                0.34238022750665303,
+                1.0
+              ],
+              "support": 2
+            }
+          },
+          "pr_auc_average_precision": 1.0,
+          "pr_auc_note": "Average precision (stepwise PR-AUC); undefined without both classes. Small purposive families limit interpretation.",
+          "uncertainty_note": "Wilson intervals are descriptive per-operation intervals; related operations are correlated. They do not establish family-level generalization."
+        },
+        "controlled": {
+          "classes": {},
+          "confusion_matrix": null,
+          "families": 0,
+          "macro_f1": null,
+          "n": 0,
+          "per_class": null,
+          "pr_auc_average_precision": null,
+          "pr_auc_note": "Average precision (stepwise PR-AUC); undefined without both classes. Small purposive families limit interpretation.",
+          "reason": "No eligible cases; metrics undefined, not zero error"
+        },
+        "real-world": {
+          "classes": {},
+          "confusion_matrix": null,
+          "families": 0,
+          "macro_f1": null,
+          "n": 0,
+          "per_class": null,
+          "pr_auc_average_precision": null,
+          "pr_auc_note": "Average precision (stepwise PR-AUC); undefined without both classes. Small purposive families limit interpretation.",
+          "reason": "No eligible cases; metrics undefined, not zero error"
+        }
+      },
+      "by_pattern": {
+        "conditional_revert": {
+          "classes": {
+            "negative": 1
+          },
+          "confusion_matrix": [
+            [
+              1,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "families": 1,
+          "macro_f1": 0.5,
+          "matrix_order": [
+            "verified_negative",
+            "positive"
+          ],
+          "n": 1,
+          "per_class": {
+            "positive": {
+              "f1": null,
+              "precision": null,
+              "precision_95_wilson": null,
+              "predicted_count": 0,
+              "recall": null,
+              "recall_95_wilson": null,
+              "support": 0
+            },
+            "verified_negative": {
+              "f1": 1.0,
+              "precision": 1.0,
+              "precision_95_wilson": [
+                0.20654931437723745,
+                1.0
+              ],
+              "predicted_count": 1,
+              "recall": 1.0,
+              "recall_95_wilson": [
+                0.20654931437723745,
+                1.0
+              ],
+              "support": 1
+            }
+          },
+          "pr_auc_average_precision": null,
+          "pr_auc_note": "Average precision (stepwise PR-AUC); undefined without both classes. Small purposive families limit interpretation.",
+          "uncertainty_note": "Wilson intervals are descriptive per-operation intervals; related operations are correlated. They do not establish family-level generalization."
+        },
+        "discarded": {
+          "classes": {
+            "positive": 2
+          },
+          "confusion_matrix": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              2
+            ]
+          ],
+          "families": 1,
+          "macro_f1": 0.5,
+          "matrix_order": [
+            "verified_negative",
+            "positive"
+          ],
+          "n": 2,
+          "per_class": {
+            "positive": {
+              "f1": 1.0,
+              "precision": 1.0,
+              "precision_95_wilson": [
+                0.34238022750665303,
+                1.0
+              ],
+              "predicted_count": 2,
+              "recall": 1.0,
+              "recall_95_wilson": [
+                0.34238022750665303,
+                1.0
+              ],
+              "support": 2
+            },
+            "verified_negative": {
+              "f1": null,
+              "precision": null,
+              "precision_95_wilson": null,
+              "predicted_count": 0,
+              "recall": null,
+              "recall_95_wilson": null,
+              "support": 0
+            }
+          },
+          "pr_auc_average_precision": null,
+          "pr_auc_note": "Average precision (stepwise PR-AUC); undefined without both classes. Small purposive families limit interpretation.",
+          "uncertainty_note": "Wilson intervals are descriptive per-operation intervals; related operations are correlated. They do not establish family-level generalization."
+        },
+        "require": {
+          "classes": {
+            "negative": 1
+          },
+          "confusion_matrix": [
+            [
+              1,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "families": 1,
+          "macro_f1": 0.5,
+          "matrix_order": [
+            "verified_negative",
+            "positive"
+          ],
+          "n": 1,
+          "per_class": {
+            "positive": {
+              "f1": null,
+              "precision": null,
+              "precision_95_wilson": null,
+              "predicted_count": 0,
+              "recall": null,
+              "recall_95_wilson": null,
+              "support": 0
+            },
+            "verified_negative": {
+              "f1": 1.0,
+              "precision": 1.0,
+              "precision_95_wilson": [
+                0.20654931437723745,
+                1.0
+              ],
+              "predicted_count": 1,
+              "recall": 1.0,
+              "recall_95_wilson": [
+                0.20654931437723745,
+                1.0
+              ],
+              "support": 1
+            }
+          },
+          "pr_auc_average_precision": null,
+          "pr_auc_note": "Average precision (stepwise PR-AUC); undefined without both classes. Small purposive families limit interpretation.",
+          "uncertainty_note": "Wilson intervals are descriptive per-operation intervals; related operations are correlated. They do not establish family-level generalization."
+        }
+      },
+      "classes": {
+        "negative": 2,
+        "positive": 2
+      },
+      "confusion_matrix": [
+        [
+          2,
+          0
+        ],
+        [
+          0,
+          2
+        ]
+      ],
+      "families": 1,
+      "family_bootstrap": {
+        "families": 1,
+        "intervals": null,
+        "reason": "Fewer than two families; family uncertainty cannot be estimated."
+      },
+      "fixed_0_5_sensitivity": {
+        "classes": {
+          "negative": 2,
+          "positive": 2
+        },
+        "confusion_matrix": [
+          [
+            2,
+            0
+          ],
+          [
+            0,
+            2
+          ]
+        ],
+        "families": 1,
+        "macro_f1": 1.0,
+        "matrix_order": [
+          "verified_negative",
+          "positive"
+        ],
+        "n": 4,
+        "per_class": {
+          "positive": {
+            "f1": 1.0,
+            "precision": 1.0,
+            "precision_95_wilson": [
+              0.34238022750665303,
+              1.0
+            ],
+            "predicted_count": 2,
+            "recall": 1.0,
+            "recall_95_wilson": [
+              0.34238022750665303,
+              1.0
+            ],
+            "support": 2
+          },
+          "verified_negative": {
+            "f1": 1.0,
+            "precision": 1.0,
+            "precision_95_wilson": [
+              0.34238022750665303,
+              1.0
+            ],
+            "predicted_count": 2,
+            "recall": 1.0,
+            "recall_95_wilson": [
+              0.34238022750665303,
+              1.0
+            ],
+            "support": 2
+          }
+        },
+        "pr_auc_average_precision": 1.0,
+        "pr_auc_note": "Average precision (stepwise PR-AUC); undefined without both classes. Small purposive families limit interpretation.",
+        "uncertainty_note": "Wilson intervals are descriptive per-operation intervals; related operations are correlated. They do not establish family-level generalization."
+      },
+      "macro_f1": 1.0,
+      "matrix_order": [
+        "verified_negative",
+        "positive"
+      ],
+      "measurement": {
+        "artifact_shipped": false,
+        "inference_ms_median": 0.08705299999999999,
+        "inference_ms_p95": 0.14627854999999995,
+        "serialized_in_memory_bytes": 1709,
+        "train_seconds": 0.0017166269999506767
+      },
+      "n": 4,
+      "paired_to_dummy": {
+        "families": 1,
+        "intervals": null,
+        "reason": "Fewer than two families; family uncertainty cannot be estimated."
+      },
+      "parameters": {},
+      "per_class": {
+        "positive": {
+          "f1": 1.0,
+          "precision": 1.0,
+          "precision_95_wilson": [
+            0.34238022750665303,
+            1.0
+          ],
+          "predicted_count": 2,
+          "recall": 1.0,
+          "recall_95_wilson": [
+            0.34238022750665303,
+            1.0
+          ],
+          "support": 2
+        },
+        "verified_negative": {
+          "f1": 1.0,
+          "precision": 1.0,
+          "precision_95_wilson": [
+            0.34238022750665303,
+            1.0
+          ],
+          "predicted_count": 2,
+          "recall": 1.0,
+          "recall_95_wilson": [
+            0.34238022750665303,
+            1.0
+          ],
+          "support": 2
+        }
+      },
+      "pr_auc_average_precision": 1.0,
+      "pr_auc_note": "Average precision (stepwise PR-AUC); undefined without both classes. Small purposive families limit interpretation.",
+      "threshold": 0.5,
+      "uncertainty_note": "Wilson intervals are descriptive per-operation intervals; related operations are correlated. They do not establish family-level generalization."
+    }
+  },
+  "rule_completed": {
+    "classes": {
+      "negative": 2,
+      "positive": 2
+    },
+    "confusion_matrix": [
+      [
+        2,
+        0
+      ],
+      [
+        0,
+        2
+      ]
+    ],
+    "families": 1,
+    "macro_f1": 1.0,
+    "matrix_order": [
+      "verified_negative",
+      "positive"
+    ],
+    "n": 4,
+    "per_class": {
+      "positive": {
+        "f1": 1.0,
+        "precision": 1.0,
+        "precision_95_wilson": [
+          0.34238022750665303,
+          1.0
+        ],
+        "predicted_count": 2,
+        "recall": 1.0,
+        "recall_95_wilson": [
+          0.34238022750665303,
+          1.0
+        ],
+        "support": 2
+      },
+      "verified_negative": {
+        "f1": 1.0,
+        "precision": 1.0,
+        "precision_95_wilson": [
+          0.34238022750665303,
+          1.0
+        ],
+        "predicted_count": 2,
+        "recall": 1.0,
+        "recall_95_wilson": [
+          0.34238022750665303,
+          1.0
+        ],
+        "support": 2
+      }
+    },
+    "pr_auc_average_precision": null,
+    "pr_auc_note": "Average precision (stepwise PR-AUC); undefined without both classes. Small purposive families limit interpretation.",
+    "uncertainty_note": "Wilson intervals are descriptive per-operation intervals; related operations are correlated. They do not establish family-level generalization."
+  },
+  "rule_operation_statuses": {
+    "completed": 4
+  },
+  "rule_sources": {
+    "slither:tests/e2e/detectors/test_data/low-level-calls/0.7.6/low_level_calls.sol": {
+      "findings": [
+        {
+          "available": true,
+          "column": 9,
+          "endColumn": 54,
+          "endLine": 6,
+          "file": "Input.sol",
+          "length": 45,
+          "line": 6,
+          "offset": 111
+        }
+      ],
+      "reasons": [],
+      "ruleId": "UEC-001",
+      "status": "completed"
+    },
+    "slither:tests/e2e/detectors/test_data/unchecked-lowlevel/0.7.6/unchecked_lowlevel.sol": {
+      "findings": [
+        {
+          "available": true,
+          "column": 9,
+          "endColumn": 38,
+          "endLine": 3,
+          "file": "Input.sol",
+          "length": 29,
+          "line": 3,
+          "offset": 81
+        }
+      ],
+      "reasons": [],
+      "ruleId": "UEC-001",
+      "status": "completed"
+    }
+  },
+  "scaler_training_mean": [
+    0.1875,
+    0.8125,
+    0.8125,
+    0.0,
+    0.0,
+    0.0,
+    0.125,
+    0.125,
+    0.0625,
+    1.0,
+    2.8125
+  ],
+  "schema": "uec-ast-v1",
+  "selection": {
+    "preferred": "gradient_boosting",
+    "rationale": "HGB requires at least 0.02 validation macro-F1 advantage; otherwise prefer logistic.",
+    "trials": [
+      {
+        "model": "dummy",
+        "parameters": {},
+        "threshold": 0.5,
+        "validation_macro_f1": 0.1951219512195122,
+        "validation_positive_precision": 0.24242424242424243
+      },
+      {
+        "model": "logistic",
+        "parameters": {},
+        "threshold": 0.5,
+        "validation_macro_f1": 0.9093406593406593,
+        "validation_positive_precision": 1.0
+      },
+      {
+        "model": "gradient_boosting",
+        "parameters": {
+          "max_leaf_nodes": 3,
+          "min_samples_leaf": 2
+        },
+        "threshold": 0.5,
+        "validation_macro_f1": 0.9568627450980391,
+        "validation_positive_precision": 1.0
+      },
+      {
+        "model": "gradient_boosting",
+        "parameters": {
+          "max_leaf_nodes": 3,
+          "min_samples_leaf": 5
+        },
+        "threshold": 0.5,
+        "validation_macro_f1": 0.6590909090909091,
+        "validation_positive_precision": 0.42857142857142855
+      },
+      {
+        "model": "gradient_boosting",
+        "parameters": {
+          "max_leaf_nodes": 7,
+          "min_samples_leaf": 2
+        },
+        "threshold": 0.5,
+        "validation_macro_f1": 0.9568627450980391,
+        "validation_positive_precision": 1.0
+      },
+      {
+        "model": "gradient_boosting",
+        "parameters": {
+          "max_leaf_nodes": 7,
+          "min_samples_leaf": 5
+        },
+        "threshold": 0.5,
+        "validation_macro_f1": 0.6590909090909091,
+        "validation_positive_precision": 0.42857142857142855
+      }
+    ]
+  },
+  "task": "UEC-operation-v1"
+}

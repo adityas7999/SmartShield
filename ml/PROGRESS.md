@@ -1,63 +1,83 @@
-# ML experiment checkpoint
+# Modern UEC experiment checkpoint — complete
 
-Branch: `feat/ml-logistic-experiment`.
-PR: https://github.com/adityas7999/SmartShield/pull/10 (against main; not merged).
-Base: `d09fa55663684113c25a47fd0eb315c73cc337e5`.
-Latest implementation commit: `d276de6ffbf46c66cd2f58ae1ff514cfcfb0eeea`.
-The containing documentation checkpoint is the current `git log -1 --format=%H`;
-its own hash cannot be embedded in its contents. Check Git status before resuming.
+Branch: `feat/modern-uec-gradient-boosting`.
+PR: https://github.com/adityas7999/SmartShield/pull/11 (open against main; not merged).
+Base main: `7db3ce7d213dc56bf6c8fef777084b2c555a882e` (merged PR #10).
+Implementation commit: `b05df5462fcc212ca2a25c2107b6b80c635594fe`.
+The containing documentation commit is the current `git log -1 --format=%H`;
+check `git status` and the PR's head/checks before resuming.
 
-## Completed milestones
+## Completed checkpoints
 
-1. `08687ba00fc5e5cb85e97f8bb958730de472d4d1`: pre-edit inventory of current main,
-   merged four-rule engine/report/API/frontend/CI. No open PRs at inspection.
-2. `1c07d2b42004af1a73d9f3e9ff20631c0fd4d805`: pinned candidate audit, precise
-   task/labels and frozen family split, before features or model training.
-3. `d276de6ffbf46c66cd2f58ae1ff514cfcfb0eeea`: shared AST features, logistic
-   experiment, measured results, notebook, tests, gate decision and local verification.
+1. `2d741f0692a04c3c565a1f158c313b8c0d79ca17`: inventory/recovery checkpoint.
+2. `a6aaf94f0ed8439bf0824e7fb06e8be28f226611`: licensed source audit, reviewed
+   labels, conservative family groups, deterministic split and protocol frozen
+   before model fitting. Exact input and v1 feature hashes are committed.
+3. `b05df5462fcc212ca2a25c2107b6b80c635594fe`: model comparison, executed notebook,
+   results/error analysis, gate rejection, focused tests and local verification.
+4. This documentation checkpoint records successful implementation CI and PR #11.
 
-Local milestone hashes were 2e5dcdc / 7f6e1b7 / a9d2643. CLI push lacked credentials;
-GitHub connector publication preserved each exact tree and milestone parent order.
-The local branch was aligned to the verified remote trees without force-pushing.
+CLI push lacked credentials. Connector publication preserved the exact file trees
+and milestone parent order, with non-forced ref updates. Local duplicate commits
+were reconciled with their published equivalents. No main push or automatic merge.
 
-## Outcome
+## Dataset and experiment result
 
-- Candidate pins and license restrictions are in datasets/sources.json. Downloads
-  remain ignored; no raw external contracts or trained artifact is committed.
-- Audit: SmartBugs 143 + SolidiFI 350 = 493 sources; **0/493 compile unchanged with
-  product solc 0.8.20**. Seven exact duplicate groups, 335 near-duplicate pairs,
-  115 connected families. Frozen split hash is in results/config.json.
-- Reviewed labels: 8 positive, 9 verified negative, 2 unsupported, 1 unknown.
-- Historical solc 0.4.25 pilot: 11 training operations (4 positive/7 negative),
-  6 held-out operations / 4 families; confusion matrix [[2,0],[0,4]]. No tuning.
-- Historical C++ baseline: completed 1/6, unsupported 5/6. Both methods agree on
-  the completed case. Product test denominator is zero, not zero errors.
-- Gate FAILS. No model, API/UI/schema changes or upgrade to rule coverage statuses.
+- Eleven upstream repositories, explicit scopes/pins/licenses: 100 external files
+  plus one MIT controlled suite. Raw sources are ignored, fetched reproducibly.
+- 44/101 compile unchanged through actual single-file solc 0.8.20 backend;
+  57 compilation exclusions (16 import-diagnostic cases, 41 version/syntax cases).
+- 78 reviewed operations: 36 negative, 18 positive, 17 unsupported, 7 unknown.
+  One binary tuple assignment also has unsupported v1 features. No independent
+  human label approval is claimed.
+- Eleven audit groups, only five eligible families: four external plus controlled.
+  SBE/Ethernaut lineage stays together; all controlled functions stay in training.
+  No acceptance fixtures in independent evaluation. Forty reliable families and
+  twenty held-out families were not reached; limitations are explicit.
+- Eligible train: 16 / 2 families (8 positive, 8 negative). Validation: 33 / 2
+  families (8 positive, 25 negative). Test: 4 / 1 family (2 positive, 2 negative).
+  Test is benchmark-derived; real-world and controlled test denominators are zero.
+- Dummy confusion matrix [[0,2],[0,2]]. Logistic, HGB and completed C++ each
+  [[2,0],[0,2]]. No HGB test advantage over logistic, no extra correct predictions
+  beyond C++. C++ statuses: completed 4, unsupported 0, failed 0.
+- Validation chose HGB (3 leaves, minimum 2, threshold 0.5); no selection changed
+  after test. No family-bootstrap interval can be estimated from one test family.
+- Integration FAILS. No serialized model, production API/schema/detector change or
+  ML frontend panel. Historical PR #10 inputs/results remain intact.
 
-## Commands and verified results
+## Verification
 
-Exact environment-specific commands and resolved setup failures: VERIFICATION.md.
-- `python -m ml.src.audit --freeze`: audit passed; split created before features.
-- `python -m ml.src.experiment`: historical experiment completed; gate failed.
-- `python -m pytest ml/tests -q`: 14 passed locally and in CI.
-- `python -m ml.src.verify`: every notebook cell reproduced locally without sockets.
-- `python -m ml.src.verify --kernel`: normal Jupyter execution/reproduction passed in CI.
-- C++ build + 5 CTest suites (all 71 acceptance fixtures), 13 corpus checks,
-  10/10 corpus compilations, 86 backend tests, 5 frontend component tests,
-  production build, 2 live React/API/solc/C++ tests and 4 browser tests passed
-  locally and in CI.
+Implementation CI: https://github.com/adityas7999/SmartShield/actions/runs/35462783411
+Job `105949521153`: every step successful on implementation head `b05df546`;
+GitHub tested merge ref `d6093613b235491c5cb3839adbf9ffb5df3c3936`.
+CI artifact: https://github.com/adityas7999/SmartShield/actions/runs/35462783411/artifacts/10590097279
+The PR records the final documentation head's CI result; no code changed after
+this verified implementation.
 
-Verified implementation CI: https://github.com/adityas7999/SmartShield/actions/runs/35338793222
-Job 105579714475, all steps successful. The PR records the final head's CI result,
-including this documentation-only checkpoint. CI preserves logs and experiment
-outputs as artifacts.
+Local and CI: C++ build + 5 CTest suites/all 71 acceptance fixtures; 13 corpus
+metadata checks; 10/10 corpus compilation and 37 locations; 88 backend tests;
+22 ML tests; 5 frontend component tests; production build; 2 live integration
+tests; 4 desktop/mobile browser tests. Historical and modern audits, notebook
+cells and deterministic results reproduced. Normal Jupyter kernels passed in CI.
 
-## Blockers / next concrete action
+Local kernel interface enumeration was blocked; socket-free reproduction passed.
+Local Playwright download/unpacking failed; Chromium 133 from npm was unpacked
+under the workspace and all four browser tests passed after removing its
+single-process flag. CI used normal pinned Playwright Chromium. Full commands,
+versions, recovered failures and limitations: `ml/modern/VERIFICATION.md`.
 
-No unresolved implementation or test failure. The experiment's deployment blockers
-are insufficient independent labels, historical compiler/domain mismatch and no
-measured incremental benefit. Do not ship a predictor from this sample.
+Preserved main's checked withdrawal in Multi.sol and added a separate deliberately
+unchecked notification to restore its documented four-rule regression. Live/browser
+checks now deliberately compact that fixture for same-line navigation coverage.
+Initial final-evaluation JSON serialization failed on NumPy integers; corrected
+count serialization and repeated the unchanged protocol. No test-driven tuning.
 
-Review PR #10; do not merge automatically. Any follow-up experiment needs a new
-reviewed modern-Solidity dataset and explicit protocol. Do not repeat this frozen
-experiment to search for a favorable score; use verify only for reproduction.
+## Next action
+
+Review PR #11; do not merge automatically. There is no unfinished implementation
+step. Do not restart or resplit this experiment to improve its score. Use
+`python -m ml.modern.dataset fetch` then `python -m ml.modern.verify --kernel`
+for exact reproduction (omit --kernel only for the documented local restriction).
+Any broader dataset or feature experiment needs a separately frozen protocol and
+new untouched family evidence. The current small benchmark cannot justify a
+product predictor.

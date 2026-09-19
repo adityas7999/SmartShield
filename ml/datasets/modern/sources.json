@@ -1,0 +1,250 @@
+[
+  {
+    "id": "sbe",
+    "kind": "benchmark-derived",
+    "license": "MIT",
+    "license_path": "LICENSE",
+    "paths": [
+      "src/pages/abi-encode/AbiEncode.sol",
+      "src/pages/app/bi-directional-payment-channel/BiDirectionalPaymentChannel.sol",
+      "src/pages/app/deploy-any-contract/Proxy.sol",
+      "src/pages/app/multi-call/MultiCall.sol",
+      "src/pages/app/multi-delegatecall/MultiDelegatecall.sol",
+      "src/pages/app/multi-sig-wallet/MultiSigWallet.sol",
+      "src/pages/app/time-lock/TimeLock.sol",
+      "src/pages/app/uni-directional-payment-channel/UniDirectionalPaymentChannel.sol",
+      "src/pages/app/upgradeable-proxy/UpgradeableProxy.sol",
+      "src/pages/call/Call.sol",
+      "src/pages/defi/uniswap-v2-add-remove-liquidity/UniswapV2Liquidity.sol",
+      "src/pages/defi/uniswap-v2-add-remove-liquidity/UniswapV2LiquidityTest.sol",
+      "src/pages/delegatecall/Delegatecall.sol",
+      "src/pages/fallback/Fallback.sol",
+      "src/pages/fallback/FallbackInputOutput.sol",
+      "src/pages/hacks/block-timestamp-manipulation/BlockTimestamp.sol",
+      "src/pages/hacks/delegatecall/Delegatecall_1.sol",
+      "src/pages/hacks/delegatecall/Delegatecall_2.sol",
+      "src/pages/hacks/denial-of-service/DenialOfService.sol",
+      "src/pages/hacks/denial-of-service/PreventDenialOfService.sol",
+      "src/pages/hacks/deploy-different-contracts-same-address/TornadoHack.sol",
+      "src/pages/hacks/front-running/FrontRunning.sol",
+      "src/pages/hacks/front-running/PreventFrontRunning.sol",
+      "src/pages/hacks/honeypot/HoneyPot.sol",
+      "src/pages/hacks/overflow/Overflow.sol",
+      "src/pages/hacks/phishing-with-tx-origin/TxOrigin.sol",
+      "src/pages/hacks/randomness/Randomness.sol",
+      "src/pages/hacks/re-entrancy/ReEntrancy.sol",
+      "src/pages/hacks/self-destruct/ForceEther.sol",
+      "src/pages/hacks/self-destruct/PreventForceEther.sol",
+      "src/pages/hacks/signature-replay/PreventSigReplay.sol",
+      "src/pages/hacks/signature-replay/SigReplay.sol",
+      "src/pages/payable/Payable.sol",
+      "src/pages/sending-ether/SendingEther.sol"
+    ],
+    "repository": "https://github.com/Cyfrin/solidity-by-example.github.io",
+    "revision": "a09841a23ca90f5686d5c277a24e77a13c97ff74",
+    "search_scope": [
+      "src/pages"
+    ]
+  },
+  {
+    "id": "ethernaut",
+    "kind": "benchmark-derived",
+    "license": "MIT",
+    "license_path": "LICENSE",
+    "paths": [
+      "contracts/src/attacks/GatekeeperOneAttack.sol",
+      "contracts/src/attacks/HigherOrderAttack.sol",
+      "contracts/src/attacks/KingAttack.sol",
+      "contracts/src/levels/BetHouse.sol",
+      "contracts/src/levels/Cashback.sol",
+      "contracts/src/levels/Delegation.sol",
+      "contracts/src/levels/Denial.sol",
+      "contracts/src/levels/DenialFactory.sol",
+      "contracts/src/levels/KingFactory.sol",
+      "contracts/src/levels/Motorbike.sol",
+      "contracts/src/levels/NotOptimisticPortal.sol",
+      "contracts/src/levels/Preservation.sol",
+      "contracts/src/levels/PuzzleWallet.sol",
+      "contracts/src/levels/RecoveryFactory.sol",
+      "contracts/src/levels/Reentrance.sol",
+      "contracts/src/levels/Stake.sol",
+      "contracts/src/levels/Switch.sol"
+    ],
+    "repository": "https://github.com/OpenZeppelin/ethernaut",
+    "revision": "d05643a40aa98c45d66247c69ffceab8f44dd8cb",
+    "search_scope": [
+      "contracts/src/levels",
+      "contracts/src/attacks"
+    ]
+  },
+  {
+    "id": "slither",
+    "kind": "benchmark-derived",
+    "license": "AGPL-3.0-only",
+    "license_path": "LICENSE",
+    "paths": [
+      "tests/e2e/detectors/test_data/low-level-calls/0.4.25/low_level_calls.sol",
+      "tests/e2e/detectors/test_data/low-level-calls/0.5.16/low_level_calls.sol",
+      "tests/e2e/detectors/test_data/low-level-calls/0.6.11/low_level_calls.sol",
+      "tests/e2e/detectors/test_data/low-level-calls/0.7.6/low_level_calls.sol",
+      "tests/e2e/detectors/test_data/return-bomb/0.8.20/return_bomb.sol",
+      "tests/e2e/detectors/test_data/unchecked-lowlevel/0.4.25/unchecked_lowlevel.sol",
+      "tests/e2e/detectors/test_data/unchecked-lowlevel/0.5.16/unchecked_lowlevel.sol",
+      "tests/e2e/detectors/test_data/unchecked-lowlevel/0.6.11/unchecked_lowlevel.sol",
+      "tests/e2e/detectors/test_data/unchecked-lowlevel/0.7.6/unchecked_lowlevel.sol",
+      "tests/e2e/detectors/test_data/write-after-write/0.8.0/write-after-write.sol"
+    ],
+    "repository": "https://github.com/crytic/slither",
+    "revision": "eef5df948b8992eff85786b6b0bb4a193933e2c9",
+    "search_scope": [
+      "tests/e2e/detectors/test_data/unchecked-lowlevel",
+      "tests/e2e/detectors/test_data/low-level-calls",
+      "tests/e2e/detectors/test_data/return-bomb",
+      "tests/e2e/detectors/test_data/write-after-write"
+    ]
+  },
+  {
+    "id": "serial",
+    "kind": "benchmark-derived",
+    "license": "BSL-1.0",
+    "license_path": "LICENSE",
+    "paths": [
+      "01_integer_underflow/FixedEtherVault.sol",
+      "01_integer_underflow/InsecureEtherVault.sol",
+      "02_reentrancy/FixedEtherVault.sol",
+      "02_reentrancy/InsecureEtherVault.sol",
+      "04_cross_function_reentrancy/FixedEtherVault.sol",
+      "04_cross_function_reentrancy/InsecureEtherVault.sol",
+      "05_cross_contract_reentrancy/FixedMoonVault.sol",
+      "05_cross_contract_reentrancy/InsecureMoonVault.sol",
+      "06_integer_overflow/FixedMoonToken.sol",
+      "06_integer_overflow/InsecureMoonToken.sol",
+      "07_phishing_with_improper_authorization/FixedDonation.sol",
+      "07_phishing_with_improper_authorization/InsecureDonation.sol",
+      "08_unexpected_ether_with_forcibly_sending_ether/FixedMoonToken.sol",
+      "08_unexpected_ether_with_forcibly_sending_ether/InsecureMoonToken.sol",
+      "09_denial_of_service_with_revert/Attack.sol",
+      "09_denial_of_service_with_revert/FixedWinnerTakesItAll.sol",
+      "09_denial_of_service_with_revert/InsecureWinnerTakesItAll.sol",
+      "10_denial_of_service_with_gas_limit/FixedNaiveBank.sol",
+      "10_denial_of_service_with_gas_limit/InsecureNaiveBank.sol",
+      "11_denial_of_service_with_induction_variable_overflow/FixedSimpleAirdrop.sol",
+      "11_denial_of_service_with_induction_variable_overflow/VulnerableSimpleAirdrop.sol",
+      "12_amplification_attack__double_spending_01/Dependencies.sol",
+      "13_double_spending_02/FixedNaiveBank.sol",
+      "13_double_spending_02/InsecureNaiveBank.sol"
+    ],
+    "repository": "https://github.com/serial-coder/solidity-security-by-example",
+    "revision": "f2c617837d9c23165c72c56929e4d3793ec020e3",
+    "search_scope": [
+      "."
+    ]
+  },
+  {
+    "id": "openzeppelin",
+    "kind": "real-world",
+    "license": "MIT",
+    "license_path": "LICENSE",
+    "paths": [
+      "contracts/mocks/compound/CompTimelock.sol",
+      "contracts/proxy/transparent/ProxyAdmin.sol",
+      "contracts/utils/Address.sol"
+    ],
+    "repository": "https://github.com/OpenZeppelin/openzeppelin-contracts",
+    "revision": "dc44c9f1a4c3b10af99492eed84f83ed244203f6",
+    "search_scope": [
+      "contracts/utils/Address.sol",
+      "contracts/mocks/compound/CompTimelock.sol",
+      "contracts/proxy"
+    ]
+  },
+  {
+    "id": "multicall",
+    "kind": "real-world",
+    "license": "MIT",
+    "license_path": "LICENSE",
+    "paths": [
+      "src/Multicall.sol",
+      "src/Multicall2.sol",
+      "src/Multicall3.sol",
+      "src/test/mocks/MockCallee.sol"
+    ],
+    "repository": "https://github.com/mds1/multicall",
+    "revision": "b667d67ecfa5361a81e8f110234ce242613b0012",
+    "search_scope": [
+      "src"
+    ]
+  },
+  {
+    "id": "safe",
+    "kind": "real-world",
+    "license": "LGPL-3.0-only",
+    "license_path": "LICENSE",
+    "paths": [
+      "contracts/base/FallbackManager.sol"
+    ],
+    "repository": "https://github.com/safe-global/safe-smart-account",
+    "revision": "bf943f80fec5ac647159d26161446ac5d716a294",
+    "search_scope": [
+      "contracts"
+    ]
+  },
+  {
+    "id": "solmate",
+    "kind": "real-world",
+    "license": "AGPL-3.0-only",
+    "license_path": "LICENSE",
+    "paths": [
+      "src/utils/CREATE3.sol"
+    ],
+    "repository": "https://github.com/transmissions11/solmate",
+    "revision": "89365b880c4f3c786bdd453d4b8e8fe410344a69",
+    "search_scope": [
+      "src"
+    ]
+  },
+  {
+    "id": "solady",
+    "kind": "real-world",
+    "license": "MIT",
+    "license_path": "LICENSE",
+    "paths": [],
+    "repository": "https://github.com/Vectorized/solady",
+    "revision": "2afba69bf67b78dd4abeadcc696052b3a6f71499",
+    "search_scope": [
+      "src"
+    ]
+  },
+  {
+    "id": "uniswap",
+    "kind": "real-world",
+    "license": "GPL-2.0-or-later",
+    "license_path": "LICENSE",
+    "paths": [
+      "contracts/base/Multicall.sol",
+      "contracts/lens/UniswapInterfaceMulticall.sol",
+      "contracts/libraries/TransferHelper.sol"
+    ],
+    "repository": "https://github.com/Uniswap/v3-periphery",
+    "revision": "0682387198a24c7cd63566a2c58398533860a5d1",
+    "search_scope": [
+      "contracts"
+    ]
+  },
+  {
+    "id": "examples",
+    "kind": "benchmark-derived",
+    "license": "unknown",
+    "license_path": null,
+    "paths": [
+      "call-dynamic.sol",
+      "reentry-attack.sol",
+      "send-eth.sol"
+    ],
+    "repository": "https://github.com/raineorshine/solidity-by-example",
+    "revision": "65d707aa2bd9171a02f97f8d0c859daf51f6bee4",
+    "search_scope": [
+      "."
+    ]
+  }
+]

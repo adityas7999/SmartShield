@@ -5,6 +5,11 @@ contract Multi {
     address public owner;
     mapping(address => uint256) public balances;
 
+    // Deliberately unchecked: preserve this fixture's independent UEC example.
+    function notify(address target) external {
+        target.call("");
+    }
+
     function replace(address newOwner) external {
         owner = newOwner;
     }

@@ -1,0 +1,2234 @@
+[
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [],
+      "status": "compiled"
+    },
+    "family": "sbe-ethernaut-tutorial-lineage",
+    "group": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "id": "sbe:src/pages/abi-encode/AbiEncode.sol",
+    "kind": "benchmark-derived",
+    "license": "MIT",
+    "license_url": "https://github.com/Cyfrin/solidity-by-example.github.io/blob/a09841a23ca90f5686d5c277a24e77a13c97ff74/src/pages/abi-encode/AbiEncode.sol",
+    "path": "src/pages/abi-encode/AbiEncode.sol",
+    "pragma": [
+      "^0.8.20"
+    ],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/Cyfrin/solidity-by-example.github.io",
+    "revision": "a09841a23ca90f5686d5c277a24e77a13c97ff74",
+    "sha256": "a90d3b32044f424fb8633cfde92a1b4e38d3309deae42e8cfd67526082d41ff4"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [
+        "ParserError: Source \"github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v4.5/contracts/utils/cryptography/ECDSA.sol\" not found: File import callback not supported\n  --> Input.sol:30:1:\n   |\n30 | import \"github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v4.5/contracts/utils/cryptography/ECDSA.sol\";\n   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n"
+      ],
+      "status": "compilation_error"
+    },
+    "family": "sbe-ethernaut-tutorial-lineage",
+    "group": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "id": "sbe:src/pages/app/bi-directional-payment-channel/BiDirectionalPaymentChannel.sol",
+    "kind": "benchmark-derived",
+    "license": "MIT",
+    "license_url": "https://github.com/Cyfrin/solidity-by-example.github.io/blob/a09841a23ca90f5686d5c277a24e77a13c97ff74/src/pages/app/bi-directional-payment-channel/BiDirectionalPaymentChannel.sol",
+    "path": "src/pages/app/bi-directional-payment-channel/BiDirectionalPaymentChannel.sol",
+    "pragma": [
+      "^0.8.20"
+    ],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/Cyfrin/solidity-by-example.github.io",
+    "revision": "a09841a23ca90f5686d5c277a24e77a13c97ff74",
+    "sha256": "6ce7dd17f09e2af99574dc053dc5ec8e12887120571ebc2ff242cb6161a87419"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [],
+      "status": "compiled"
+    },
+    "family": "sbe-ethernaut-tutorial-lineage",
+    "group": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "id": "sbe:src/pages/app/deploy-any-contract/Proxy.sol",
+    "kind": "benchmark-derived",
+    "license": "MIT",
+    "license_url": "https://github.com/Cyfrin/solidity-by-example.github.io/blob/a09841a23ca90f5686d5c277a24e77a13c97ff74/src/pages/app/deploy-any-contract/Proxy.sol",
+    "path": "src/pages/app/deploy-any-contract/Proxy.sol",
+    "pragma": [
+      "^0.8.20"
+    ],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/Cyfrin/solidity-by-example.github.io",
+    "revision": "a09841a23ca90f5686d5c277a24e77a13c97ff74",
+    "sha256": "52171eff71d6303a20fa914df744eef8534aaead9016325230a7d49418314cca"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [],
+      "status": "compiled"
+    },
+    "family": "sbe-ethernaut-tutorial-lineage",
+    "group": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "id": "sbe:src/pages/app/multi-call/MultiCall.sol",
+    "kind": "benchmark-derived",
+    "license": "MIT",
+    "license_url": "https://github.com/Cyfrin/solidity-by-example.github.io/blob/a09841a23ca90f5686d5c277a24e77a13c97ff74/src/pages/app/multi-call/MultiCall.sol",
+    "path": "src/pages/app/multi-call/MultiCall.sol",
+    "pragma": [
+      "^0.8.20"
+    ],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/Cyfrin/solidity-by-example.github.io",
+    "revision": "a09841a23ca90f5686d5c277a24e77a13c97ff74",
+    "sha256": "2465d82261d628d1ea9122ac11f92082fe3b3ca9047715866d215b1ded2ae6e5"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [],
+      "status": "compiled"
+    },
+    "family": "sbe-ethernaut-tutorial-lineage",
+    "group": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "id": "sbe:src/pages/app/multi-delegatecall/MultiDelegatecall.sol",
+    "kind": "benchmark-derived",
+    "license": "MIT",
+    "license_url": "https://github.com/Cyfrin/solidity-by-example.github.io/blob/a09841a23ca90f5686d5c277a24e77a13c97ff74/src/pages/app/multi-delegatecall/MultiDelegatecall.sol",
+    "path": "src/pages/app/multi-delegatecall/MultiDelegatecall.sol",
+    "pragma": [
+      "^0.8.20"
+    ],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/Cyfrin/solidity-by-example.github.io",
+    "revision": "a09841a23ca90f5686d5c277a24e77a13c97ff74",
+    "sha256": "5f26ab083174e24701774b3e12a184ee4762055a061e89b150fe12b41bf84468"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [],
+      "status": "compiled"
+    },
+    "family": "sbe-ethernaut-tutorial-lineage",
+    "group": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "id": "sbe:src/pages/app/multi-sig-wallet/MultiSigWallet.sol",
+    "kind": "benchmark-derived",
+    "license": "MIT",
+    "license_url": "https://github.com/Cyfrin/solidity-by-example.github.io/blob/a09841a23ca90f5686d5c277a24e77a13c97ff74/src/pages/app/multi-sig-wallet/MultiSigWallet.sol",
+    "path": "src/pages/app/multi-sig-wallet/MultiSigWallet.sol",
+    "pragma": [
+      "^0.8.20"
+    ],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/Cyfrin/solidity-by-example.github.io",
+    "revision": "a09841a23ca90f5686d5c277a24e77a13c97ff74",
+    "sha256": "b4cdc8bb2a5333dd77e64e67726074bf7a6c482df34379bc8c74c4e2a0005895"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [],
+      "status": "compiled"
+    },
+    "family": "sbe-ethernaut-tutorial-lineage",
+    "group": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "id": "sbe:src/pages/app/time-lock/TimeLock.sol",
+    "kind": "benchmark-derived",
+    "license": "MIT",
+    "license_url": "https://github.com/Cyfrin/solidity-by-example.github.io/blob/a09841a23ca90f5686d5c277a24e77a13c97ff74/src/pages/app/time-lock/TimeLock.sol",
+    "path": "src/pages/app/time-lock/TimeLock.sol",
+    "pragma": [
+      "^0.8.20"
+    ],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/Cyfrin/solidity-by-example.github.io",
+    "revision": "a09841a23ca90f5686d5c277a24e77a13c97ff74",
+    "sha256": "e6f9075a7d68bb696aea552c437860e1b3247255e000300065ffa1fc687f29e7"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [
+        "ParserError: Source \"github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v4.5/contracts/utils/cryptography/ECDSA.sol\" not found: File import callback not supported\n --> Input.sol:4:1:\n  |\n4 | import \"github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v4.5/contracts/utils/cryptography/ECDSA.sol\";\n  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n",
+        "ParserError: Source \"github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v4.5/contracts/security/ReentrancyGuard.sol\" not found: File import callback not supported\n --> Input.sol:5:1:\n  |\n5 | import \"github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v4.5/contracts/security/ReentrancyGuard.sol\";\n  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n"
+      ],
+      "status": "compilation_error"
+    },
+    "family": "sbe-ethernaut-tutorial-lineage",
+    "group": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "id": "sbe:src/pages/app/uni-directional-payment-channel/UniDirectionalPaymentChannel.sol",
+    "kind": "benchmark-derived",
+    "license": "MIT",
+    "license_url": "https://github.com/Cyfrin/solidity-by-example.github.io/blob/a09841a23ca90f5686d5c277a24e77a13c97ff74/src/pages/app/uni-directional-payment-channel/UniDirectionalPaymentChannel.sol",
+    "path": "src/pages/app/uni-directional-payment-channel/UniDirectionalPaymentChannel.sol",
+    "pragma": [
+      "^0.8.20"
+    ],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/Cyfrin/solidity-by-example.github.io",
+    "revision": "a09841a23ca90f5686d5c277a24e77a13c97ff74",
+    "sha256": "1025f61a2ea18fcf39382175e06625e8c6352c62023c1684e6ff7488527a3378"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [],
+      "status": "compiled"
+    },
+    "family": "sbe-ethernaut-tutorial-lineage",
+    "group": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "id": "sbe:src/pages/app/upgradeable-proxy/UpgradeableProxy.sol",
+    "kind": "benchmark-derived",
+    "license": "MIT",
+    "license_url": "https://github.com/Cyfrin/solidity-by-example.github.io/blob/a09841a23ca90f5686d5c277a24e77a13c97ff74/src/pages/app/upgradeable-proxy/UpgradeableProxy.sol",
+    "path": "src/pages/app/upgradeable-proxy/UpgradeableProxy.sol",
+    "pragma": [
+      "^0.8.20"
+    ],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/Cyfrin/solidity-by-example.github.io",
+    "revision": "a09841a23ca90f5686d5c277a24e77a13c97ff74",
+    "sha256": "e6d0c381a5c7ebdde9993fe24a673f448baf2b20892be590f03ec9505d0fcfd6"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [],
+      "status": "compiled"
+    },
+    "family": "sbe-ethernaut-tutorial-lineage",
+    "group": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "id": "sbe:src/pages/call/Call.sol",
+    "kind": "benchmark-derived",
+    "license": "MIT",
+    "license_url": "https://github.com/Cyfrin/solidity-by-example.github.io/blob/a09841a23ca90f5686d5c277a24e77a13c97ff74/src/pages/call/Call.sol",
+    "path": "src/pages/call/Call.sol",
+    "pragma": [
+      "^0.8.20"
+    ],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/Cyfrin/solidity-by-example.github.io",
+    "revision": "a09841a23ca90f5686d5c277a24e77a13c97ff74",
+    "sha256": "0057e4c84684c9dbe16790fc0fbb0d5df0eea0265f82b8ff85e535e43fde2aa4"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [],
+      "status": "compiled"
+    },
+    "family": "sbe-ethernaut-tutorial-lineage",
+    "group": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "id": "sbe:src/pages/defi/uniswap-v2-add-remove-liquidity/UniswapV2Liquidity.sol",
+    "kind": "benchmark-derived",
+    "license": "MIT",
+    "license_url": "https://github.com/Cyfrin/solidity-by-example.github.io/blob/a09841a23ca90f5686d5c277a24e77a13c97ff74/src/pages/defi/uniswap-v2-add-remove-liquidity/UniswapV2Liquidity.sol",
+    "path": "src/pages/defi/uniswap-v2-add-remove-liquidity/UniswapV2Liquidity.sol",
+    "pragma": [
+      "^0.8.20"
+    ],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/Cyfrin/solidity-by-example.github.io",
+    "revision": "a09841a23ca90f5686d5c277a24e77a13c97ff74",
+    "sha256": "eee4d083ea86c3f816040a447cd737735029e27307f93514d9af53f0b0dfffc2"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [
+        "ParserError: Source \"forge-std/Test.sol\" not found: File import callback not supported\n --> Input.sol:4:1:\n  |\n4 | import \"forge-std/Test.sol\";\n  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n",
+        "ParserError: Source \"forge-std/console.sol\" not found: File import callback not supported\n --> Input.sol:5:1:\n  |\n5 | import \"forge-std/console.sol\";\n  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n",
+        "ParserError: Source \"src/UniswapV2Liquidity.sol\" not found: File import callback not supported\n --> Input.sol:7:1:\n  |\n7 | import \"../src/UniswapV2Liquidity.sol\";\n  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n"
+      ],
+      "status": "compilation_error"
+    },
+    "family": "sbe-ethernaut-tutorial-lineage",
+    "group": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "id": "sbe:src/pages/defi/uniswap-v2-add-remove-liquidity/UniswapV2LiquidityTest.sol",
+    "kind": "benchmark-derived",
+    "license": "MIT",
+    "license_url": "https://github.com/Cyfrin/solidity-by-example.github.io/blob/a09841a23ca90f5686d5c277a24e77a13c97ff74/src/pages/defi/uniswap-v2-add-remove-liquidity/UniswapV2LiquidityTest.sol",
+    "path": "src/pages/defi/uniswap-v2-add-remove-liquidity/UniswapV2LiquidityTest.sol",
+    "pragma": [
+      "^0.8.20"
+    ],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/Cyfrin/solidity-by-example.github.io",
+    "revision": "a09841a23ca90f5686d5c277a24e77a13c97ff74",
+    "sha256": "541e0dc722b57f0e3481853ad85935ab125dbac7d8202901a009a3bf24e8d7a7"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [],
+      "status": "compiled"
+    },
+    "family": "sbe-ethernaut-tutorial-lineage",
+    "group": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "id": "sbe:src/pages/delegatecall/Delegatecall.sol",
+    "kind": "benchmark-derived",
+    "license": "MIT",
+    "license_url": "https://github.com/Cyfrin/solidity-by-example.github.io/blob/a09841a23ca90f5686d5c277a24e77a13c97ff74/src/pages/delegatecall/Delegatecall.sol",
+    "path": "src/pages/delegatecall/Delegatecall.sol",
+    "pragma": [
+      "^0.8.20"
+    ],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/Cyfrin/solidity-by-example.github.io",
+    "revision": "a09841a23ca90f5686d5c277a24e77a13c97ff74",
+    "sha256": "fd899ceb717a2aa3d98e759c2ee47f9c08753ff7833825dd1096ea846a89a26a"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [],
+      "status": "compiled"
+    },
+    "family": "sbe-ethernaut-tutorial-lineage",
+    "group": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "id": "sbe:src/pages/fallback/Fallback.sol",
+    "kind": "benchmark-derived",
+    "license": "MIT",
+    "license_url": "https://github.com/Cyfrin/solidity-by-example.github.io/blob/a09841a23ca90f5686d5c277a24e77a13c97ff74/src/pages/fallback/Fallback.sol",
+    "path": "src/pages/fallback/Fallback.sol",
+    "pragma": [
+      "^0.8.20"
+    ],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/Cyfrin/solidity-by-example.github.io",
+    "revision": "a09841a23ca90f5686d5c277a24e77a13c97ff74",
+    "sha256": "c4add70e9f73fb7fb5c045cb88db7ef6b992ab601af050ac1aa77a995fe7fa2b"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [],
+      "status": "compiled"
+    },
+    "family": "sbe-ethernaut-tutorial-lineage",
+    "group": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "id": "sbe:src/pages/fallback/FallbackInputOutput.sol",
+    "kind": "benchmark-derived",
+    "license": "MIT",
+    "license_url": "https://github.com/Cyfrin/solidity-by-example.github.io/blob/a09841a23ca90f5686d5c277a24e77a13c97ff74/LICENSE",
+    "path": "src/pages/fallback/FallbackInputOutput.sol",
+    "pragma": [
+      "^0.8.20"
+    ],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/Cyfrin/solidity-by-example.github.io",
+    "revision": "a09841a23ca90f5686d5c277a24e77a13c97ff74",
+    "sha256": "0b9b70167c25fbbf7bd81e5844121f5cb0de6e97a2e529083fd4d5eb7dae7b77"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [],
+      "status": "compiled"
+    },
+    "family": "sbe-ethernaut-tutorial-lineage",
+    "group": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "id": "sbe:src/pages/hacks/block-timestamp-manipulation/BlockTimestamp.sol",
+    "kind": "benchmark-derived",
+    "license": "MIT",
+    "license_url": "https://github.com/Cyfrin/solidity-by-example.github.io/blob/a09841a23ca90f5686d5c277a24e77a13c97ff74/src/pages/hacks/block-timestamp-manipulation/BlockTimestamp.sol",
+    "path": "src/pages/hacks/block-timestamp-manipulation/BlockTimestamp.sol",
+    "pragma": [
+      "^0.8.20"
+    ],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/Cyfrin/solidity-by-example.github.io",
+    "revision": "a09841a23ca90f5686d5c277a24e77a13c97ff74",
+    "sha256": "1bb7ce8f7a491ff3e25a1194a1c0541bec34cebac9c497526f5419b23b0a8bb0"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [],
+      "status": "compiled"
+    },
+    "family": "sbe-ethernaut-tutorial-lineage",
+    "group": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "id": "sbe:src/pages/hacks/delegatecall/Delegatecall_1.sol",
+    "kind": "benchmark-derived",
+    "license": "MIT",
+    "license_url": "https://github.com/Cyfrin/solidity-by-example.github.io/blob/a09841a23ca90f5686d5c277a24e77a13c97ff74/src/pages/hacks/delegatecall/Delegatecall_1.sol",
+    "path": "src/pages/hacks/delegatecall/Delegatecall_1.sol",
+    "pragma": [
+      "^0.8.20"
+    ],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/Cyfrin/solidity-by-example.github.io",
+    "revision": "a09841a23ca90f5686d5c277a24e77a13c97ff74",
+    "sha256": "2209c1aa92c66ba855baa14070c510b7dfa3b0b9266e7db611863071013ed63e"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [],
+      "status": "compiled"
+    },
+    "family": "sbe-ethernaut-tutorial-lineage",
+    "group": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "id": "sbe:src/pages/hacks/delegatecall/Delegatecall_2.sol",
+    "kind": "benchmark-derived",
+    "license": "MIT",
+    "license_url": "https://github.com/Cyfrin/solidity-by-example.github.io/blob/a09841a23ca90f5686d5c277a24e77a13c97ff74/src/pages/hacks/delegatecall/Delegatecall_2.sol",
+    "path": "src/pages/hacks/delegatecall/Delegatecall_2.sol",
+    "pragma": [
+      "^0.8.20"
+    ],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/Cyfrin/solidity-by-example.github.io",
+    "revision": "a09841a23ca90f5686d5c277a24e77a13c97ff74",
+    "sha256": "fed9683d454b66cbc61ccc8ba4c399b0092846c9c39294e11d7bab952b4beb91"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [],
+      "status": "compiled"
+    },
+    "family": "sbe-ethernaut-tutorial-lineage",
+    "group": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "id": "sbe:src/pages/hacks/denial-of-service/DenialOfService.sol",
+    "kind": "benchmark-derived",
+    "license": "MIT",
+    "license_url": "https://github.com/Cyfrin/solidity-by-example.github.io/blob/a09841a23ca90f5686d5c277a24e77a13c97ff74/src/pages/hacks/denial-of-service/DenialOfService.sol",
+    "path": "src/pages/hacks/denial-of-service/DenialOfService.sol",
+    "pragma": [
+      "^0.8.20"
+    ],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/Cyfrin/solidity-by-example.github.io",
+    "revision": "a09841a23ca90f5686d5c277a24e77a13c97ff74",
+    "sha256": "b1b827503eb5c97715661ff4078de017cea9e6381b0a37d674246f58d0f17071"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [],
+      "status": "compiled"
+    },
+    "family": "sbe-ethernaut-tutorial-lineage",
+    "group": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "id": "sbe:src/pages/hacks/denial-of-service/PreventDenialOfService.sol",
+    "kind": "benchmark-derived",
+    "license": "MIT",
+    "license_url": "https://github.com/Cyfrin/solidity-by-example.github.io/blob/a09841a23ca90f5686d5c277a24e77a13c97ff74/src/pages/hacks/denial-of-service/PreventDenialOfService.sol",
+    "path": "src/pages/hacks/denial-of-service/PreventDenialOfService.sol",
+    "pragma": [
+      "^0.8.20"
+    ],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/Cyfrin/solidity-by-example.github.io",
+    "revision": "a09841a23ca90f5686d5c277a24e77a13c97ff74",
+    "sha256": "21ef817a1729566741e470fdbfd37578769fc7fec77e7ad0102c3850e307f9de"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [],
+      "status": "compiled"
+    },
+    "family": "sbe-ethernaut-tutorial-lineage",
+    "group": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "id": "sbe:src/pages/hacks/deploy-different-contracts-same-address/TornadoHack.sol",
+    "kind": "benchmark-derived",
+    "license": "MIT",
+    "license_url": "https://github.com/Cyfrin/solidity-by-example.github.io/blob/a09841a23ca90f5686d5c277a24e77a13c97ff74/src/pages/hacks/deploy-different-contracts-same-address/TornadoHack.sol",
+    "path": "src/pages/hacks/deploy-different-contracts-same-address/TornadoHack.sol",
+    "pragma": [
+      "^0.8.20"
+    ],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/Cyfrin/solidity-by-example.github.io",
+    "revision": "a09841a23ca90f5686d5c277a24e77a13c97ff74",
+    "sha256": "55c8286637f766aecf6a9e72f0374d069abaf431b5d9e052b207ad3507dbd7f7"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [],
+      "status": "compiled"
+    },
+    "family": "sbe-ethernaut-tutorial-lineage",
+    "group": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "id": "sbe:src/pages/hacks/front-running/FrontRunning.sol",
+    "kind": "benchmark-derived",
+    "license": "MIT",
+    "license_url": "https://github.com/Cyfrin/solidity-by-example.github.io/blob/a09841a23ca90f5686d5c277a24e77a13c97ff74/src/pages/hacks/front-running/FrontRunning.sol",
+    "path": "src/pages/hacks/front-running/FrontRunning.sol",
+    "pragma": [
+      "^0.8.20"
+    ],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/Cyfrin/solidity-by-example.github.io",
+    "revision": "a09841a23ca90f5686d5c277a24e77a13c97ff74",
+    "sha256": "969eb9021bda36da7bc8af9d9dbd0d3c7ba9247c998c111ca9ce1c19b2d2d5c6"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [
+        "ParserError: Source \"github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v4.5/contracts/utils/Strings.sol\" not found: File import callback not supported\n --> Input.sol:4:1:\n  |\n4 | import \"github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v4.5/contracts/utils/Strings.sol\";\n  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n"
+      ],
+      "status": "compilation_error"
+    },
+    "family": "sbe-ethernaut-tutorial-lineage",
+    "group": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "id": "sbe:src/pages/hacks/front-running/PreventFrontRunning.sol",
+    "kind": "benchmark-derived",
+    "license": "MIT",
+    "license_url": "https://github.com/Cyfrin/solidity-by-example.github.io/blob/a09841a23ca90f5686d5c277a24e77a13c97ff74/src/pages/hacks/front-running/PreventFrontRunning.sol",
+    "path": "src/pages/hacks/front-running/PreventFrontRunning.sol",
+    "pragma": [
+      "^0.8.20"
+    ],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/Cyfrin/solidity-by-example.github.io",
+    "revision": "a09841a23ca90f5686d5c277a24e77a13c97ff74",
+    "sha256": "379ff4bad58ddcf8c7db2ac25cccd0e2e7e03663e80362409b8f0c999423aa2c"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [],
+      "status": "compiled"
+    },
+    "family": "sbe-ethernaut-tutorial-lineage",
+    "group": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "id": "sbe:src/pages/hacks/honeypot/HoneyPot.sol",
+    "kind": "benchmark-derived",
+    "license": "MIT",
+    "license_url": "https://github.com/Cyfrin/solidity-by-example.github.io/blob/a09841a23ca90f5686d5c277a24e77a13c97ff74/src/pages/hacks/honeypot/HoneyPot.sol",
+    "path": "src/pages/hacks/honeypot/HoneyPot.sol",
+    "pragma": [
+      "^0.8.20"
+    ],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/Cyfrin/solidity-by-example.github.io",
+    "revision": "a09841a23ca90f5686d5c277a24e77a13c97ff74",
+    "sha256": "4889801b708703af470e720693bd6a62346aa9c6ff50d2d8c75b3e0f9f928aea"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [
+        "ParserError: Source file requires different compiler version (current compiler is 0.8.20+commit.a1b79de6.Emscripten.clang) - note that nightly builds are considered to be strictly less than the released version\n --> Input.sol:2:1:\n  |\n2 | pragma solidity ^0.7.6;\n  | ^^^^^^^^^^^^^^^^^^^^^^^\n\n"
+      ],
+      "status": "compilation_error"
+    },
+    "family": "sbe-ethernaut-tutorial-lineage",
+    "group": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "id": "sbe:src/pages/hacks/overflow/Overflow.sol",
+    "kind": "benchmark-derived",
+    "license": "MIT",
+    "license_url": "https://github.com/Cyfrin/solidity-by-example.github.io/blob/a09841a23ca90f5686d5c277a24e77a13c97ff74/src/pages/hacks/overflow/Overflow.sol",
+    "path": "src/pages/hacks/overflow/Overflow.sol",
+    "pragma": [
+      "^0.7.6"
+    ],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/Cyfrin/solidity-by-example.github.io",
+    "revision": "a09841a23ca90f5686d5c277a24e77a13c97ff74",
+    "sha256": "c975384d6bec6c746a49605f0a51606ae9da8c643a7ebf30e5a7f2b92be13508"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [],
+      "status": "compiled"
+    },
+    "family": "sbe-ethernaut-tutorial-lineage",
+    "group": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "id": "sbe:src/pages/hacks/phishing-with-tx-origin/TxOrigin.sol",
+    "kind": "benchmark-derived",
+    "license": "MIT",
+    "license_url": "https://github.com/Cyfrin/solidity-by-example.github.io/blob/a09841a23ca90f5686d5c277a24e77a13c97ff74/src/pages/hacks/phishing-with-tx-origin/TxOrigin.sol",
+    "path": "src/pages/hacks/phishing-with-tx-origin/TxOrigin.sol",
+    "pragma": [
+      "^0.8.20"
+    ],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/Cyfrin/solidity-by-example.github.io",
+    "revision": "a09841a23ca90f5686d5c277a24e77a13c97ff74",
+    "sha256": "875a5037edf9f30eed9fb3b805a4b85ba5c4aa282ca8f42435ce29393ec87c81"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [],
+      "status": "compiled"
+    },
+    "family": "sbe-ethernaut-tutorial-lineage",
+    "group": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "id": "sbe:src/pages/hacks/randomness/Randomness.sol",
+    "kind": "benchmark-derived",
+    "license": "MIT",
+    "license_url": "https://github.com/Cyfrin/solidity-by-example.github.io/blob/a09841a23ca90f5686d5c277a24e77a13c97ff74/src/pages/hacks/randomness/Randomness.sol",
+    "path": "src/pages/hacks/randomness/Randomness.sol",
+    "pragma": [
+      "^0.8.20"
+    ],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/Cyfrin/solidity-by-example.github.io",
+    "revision": "a09841a23ca90f5686d5c277a24e77a13c97ff74",
+    "sha256": "4a0c6b89b54fcc2122e3c70f1960b85e9d167bab138074cd78a39c3cff699417"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [],
+      "status": "compiled"
+    },
+    "family": "sbe-ethernaut-tutorial-lineage",
+    "group": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "id": "sbe:src/pages/hacks/re-entrancy/ReEntrancy.sol",
+    "kind": "benchmark-derived",
+    "license": "MIT",
+    "license_url": "https://github.com/Cyfrin/solidity-by-example.github.io/blob/a09841a23ca90f5686d5c277a24e77a13c97ff74/src/pages/hacks/re-entrancy/ReEntrancy.sol",
+    "path": "src/pages/hacks/re-entrancy/ReEntrancy.sol",
+    "pragma": [
+      "^0.8.20"
+    ],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/Cyfrin/solidity-by-example.github.io",
+    "revision": "a09841a23ca90f5686d5c277a24e77a13c97ff74",
+    "sha256": "41ea55ed1429a6f3ae9c2991fdeba3cc8d458bac98f8b85ff244bb68c85a8c73"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [],
+      "status": "compiled"
+    },
+    "family": "sbe-ethernaut-tutorial-lineage",
+    "group": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "id": "sbe:src/pages/hacks/self-destruct/ForceEther.sol",
+    "kind": "benchmark-derived",
+    "license": "MIT",
+    "license_url": "https://github.com/Cyfrin/solidity-by-example.github.io/blob/a09841a23ca90f5686d5c277a24e77a13c97ff74/src/pages/hacks/self-destruct/ForceEther.sol",
+    "path": "src/pages/hacks/self-destruct/ForceEther.sol",
+    "pragma": [
+      "^0.8.20"
+    ],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/Cyfrin/solidity-by-example.github.io",
+    "revision": "a09841a23ca90f5686d5c277a24e77a13c97ff74",
+    "sha256": "8a08fc617ada8aed18fcd258409f08b97939caf924333cb9e167623af8ee8bb9"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [],
+      "status": "compiled"
+    },
+    "family": "sbe-ethernaut-tutorial-lineage",
+    "group": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "id": "sbe:src/pages/hacks/self-destruct/PreventForceEther.sol",
+    "kind": "benchmark-derived",
+    "license": "MIT",
+    "license_url": "https://github.com/Cyfrin/solidity-by-example.github.io/blob/a09841a23ca90f5686d5c277a24e77a13c97ff74/src/pages/hacks/self-destruct/PreventForceEther.sol",
+    "path": "src/pages/hacks/self-destruct/PreventForceEther.sol",
+    "pragma": [
+      "^0.8.20"
+    ],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/Cyfrin/solidity-by-example.github.io",
+    "revision": "a09841a23ca90f5686d5c277a24e77a13c97ff74",
+    "sha256": "c4abddc1e144553225490a08ed686929938c2a10077333a34c0ad081cb83da54"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [
+        "ParserError: Source \"github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v4.5/contracts/utils/cryptography/ECDSA.sol\" not found: File import callback not supported\n --> Input.sol:4:1:\n  |\n4 | import \"github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v4.5/contracts/utils/cryptography/ECDSA.sol\";\n  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n"
+      ],
+      "status": "compilation_error"
+    },
+    "family": "sbe-ethernaut-tutorial-lineage",
+    "group": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "id": "sbe:src/pages/hacks/signature-replay/PreventSigReplay.sol",
+    "kind": "benchmark-derived",
+    "license": "MIT",
+    "license_url": "https://github.com/Cyfrin/solidity-by-example.github.io/blob/a09841a23ca90f5686d5c277a24e77a13c97ff74/src/pages/hacks/signature-replay/PreventSigReplay.sol",
+    "path": "src/pages/hacks/signature-replay/PreventSigReplay.sol",
+    "pragma": [
+      "^0.8.20"
+    ],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/Cyfrin/solidity-by-example.github.io",
+    "revision": "a09841a23ca90f5686d5c277a24e77a13c97ff74",
+    "sha256": "9a416e8ccb980f96e3fa32bcb83c7f19c9caddb78344f1833bdd570a83250579"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [
+        "ParserError: Source \"github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v4.5/contracts/utils/cryptography/ECDSA.sol\" not found: File import callback not supported\n --> Input.sol:4:1:\n  |\n4 | import \"github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v4.5/contracts/utils/cryptography/ECDSA.sol\";\n  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n"
+      ],
+      "status": "compilation_error"
+    },
+    "family": "sbe-ethernaut-tutorial-lineage",
+    "group": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "id": "sbe:src/pages/hacks/signature-replay/SigReplay.sol",
+    "kind": "benchmark-derived",
+    "license": "MIT",
+    "license_url": "https://github.com/Cyfrin/solidity-by-example.github.io/blob/a09841a23ca90f5686d5c277a24e77a13c97ff74/src/pages/hacks/signature-replay/SigReplay.sol",
+    "path": "src/pages/hacks/signature-replay/SigReplay.sol",
+    "pragma": [
+      "^0.8.20"
+    ],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/Cyfrin/solidity-by-example.github.io",
+    "revision": "a09841a23ca90f5686d5c277a24e77a13c97ff74",
+    "sha256": "d7f364a6c8754e91f567da09ddbbfc0f97204e9da35bafb7dc0eec0c8ac9d700"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [],
+      "status": "compiled"
+    },
+    "family": "sbe-ethernaut-tutorial-lineage",
+    "group": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "id": "sbe:src/pages/payable/Payable.sol",
+    "kind": "benchmark-derived",
+    "license": "MIT",
+    "license_url": "https://github.com/Cyfrin/solidity-by-example.github.io/blob/a09841a23ca90f5686d5c277a24e77a13c97ff74/src/pages/payable/Payable.sol",
+    "path": "src/pages/payable/Payable.sol",
+    "pragma": [
+      "^0.8.20"
+    ],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/Cyfrin/solidity-by-example.github.io",
+    "revision": "a09841a23ca90f5686d5c277a24e77a13c97ff74",
+    "sha256": "8c4c801dd85e02811a6838096d66f6eb88d7d705e9d69e2a671e9f63ab749f71"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [],
+      "status": "compiled"
+    },
+    "family": "sbe-ethernaut-tutorial-lineage",
+    "group": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "id": "sbe:src/pages/sending-ether/SendingEther.sol",
+    "kind": "benchmark-derived",
+    "license": "MIT",
+    "license_url": "https://github.com/Cyfrin/solidity-by-example.github.io/blob/a09841a23ca90f5686d5c277a24e77a13c97ff74/src/pages/sending-ether/SendingEther.sol",
+    "path": "src/pages/sending-ether/SendingEther.sol",
+    "pragma": [
+      "^0.8.20"
+    ],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/Cyfrin/solidity-by-example.github.io",
+    "revision": "a09841a23ca90f5686d5c277a24e77a13c97ff74",
+    "sha256": "0f7f511b94a30de0cef8f4040f18f44d2ac6a8faf3ec198372e4e883b2917f47"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [],
+      "status": "compiled"
+    },
+    "family": "sbe-ethernaut-tutorial-lineage",
+    "group": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "id": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "kind": "benchmark-derived",
+    "license": "MIT",
+    "license_url": "https://github.com/OpenZeppelin/ethernaut/blob/d05643a40aa98c45d66247c69ffceab8f44dd8cb/contracts/src/attacks/GatekeeperOneAttack.sol",
+    "path": "contracts/src/attacks/GatekeeperOneAttack.sol",
+    "pragma": [
+      "^0.8.0"
+    ],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/OpenZeppelin/ethernaut",
+    "revision": "d05643a40aa98c45d66247c69ffceab8f44dd8cb",
+    "sha256": "2c30b1ac4001222ea469327ec93726fdce5f881819253b4d47c9220034334f21"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [
+        "ParserError: Source file requires different compiler version (current compiler is 0.8.20+commit.a1b79de6.Emscripten.clang) - note that nightly builds are considered to be strictly less than the released version\n --> Input.sol:2:1:\n  |\n2 | pragma solidity 0.6.12;\n  | ^^^^^^^^^^^^^^^^^^^^^^^\n\n"
+      ],
+      "status": "compilation_error"
+    },
+    "family": "sbe-ethernaut-tutorial-lineage",
+    "group": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "id": "ethernaut:contracts/src/attacks/HigherOrderAttack.sol",
+    "kind": "benchmark-derived",
+    "license": "MIT",
+    "license_url": "https://github.com/OpenZeppelin/ethernaut/blob/d05643a40aa98c45d66247c69ffceab8f44dd8cb/contracts/src/attacks/HigherOrderAttack.sol",
+    "path": "contracts/src/attacks/HigherOrderAttack.sol",
+    "pragma": [
+      "0.6.12"
+    ],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/OpenZeppelin/ethernaut",
+    "revision": "d05643a40aa98c45d66247c69ffceab8f44dd8cb",
+    "sha256": "7f11517f52a343aa3ffa9eb2cd013b16107dd34d988dc97032898dd652af4de8"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [],
+      "status": "compiled"
+    },
+    "family": "sbe-ethernaut-tutorial-lineage",
+    "group": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "id": "ethernaut:contracts/src/attacks/KingAttack.sol",
+    "kind": "benchmark-derived",
+    "license": "MIT",
+    "license_url": "https://github.com/OpenZeppelin/ethernaut/blob/d05643a40aa98c45d66247c69ffceab8f44dd8cb/contracts/src/attacks/KingAttack.sol",
+    "path": "contracts/src/attacks/KingAttack.sol",
+    "pragma": [
+      "^0.8.0"
+    ],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/OpenZeppelin/ethernaut",
+    "revision": "d05643a40aa98c45d66247c69ffceab8f44dd8cb",
+    "sha256": "aa3ae5d273f60ccf3492a3db950f8b96f58026036a35d077a4adf5abe108a082"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [
+        "ParserError: Source \"openzeppelin-contracts-08/token/ERC20/ERC20.sol\" not found: File import callback not supported\n --> Input.sol:4:1:\n  |\n4 | import {ERC20} from \"openzeppelin-contracts-08/token/ERC20/ERC20.sol\";\n  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n",
+        "ParserError: Source \"openzeppelin-contracts-08/access/Ownable.sol\" not found: File import callback not supported\n --> Input.sol:5:1:\n  |\n5 | import {Ownable} from \"openzeppelin-contracts-08/access/Ownable.sol\";\n  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n",
+        "ParserError: Source \"openzeppelin-contracts-08/security/ReentrancyGuard.sol\" not found: File import callback not supported\n --> Input.sol:6:1:\n  |\n6 | import {ReentrancyGuard} from \"openzeppelin-contracts-08/security/ReentrancyGuard.sol\";\n  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n"
+      ],
+      "status": "compilation_error"
+    },
+    "family": "sbe-ethernaut-tutorial-lineage",
+    "group": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "id": "ethernaut:contracts/src/levels/BetHouse.sol",
+    "kind": "benchmark-derived",
+    "license": "MIT",
+    "license_url": "https://github.com/OpenZeppelin/ethernaut/blob/d05643a40aa98c45d66247c69ffceab8f44dd8cb/contracts/src/levels/BetHouse.sol",
+    "path": "contracts/src/levels/BetHouse.sol",
+    "pragma": [
+      "^0.8.0"
+    ],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/OpenZeppelin/ethernaut",
+    "revision": "d05643a40aa98c45d66247c69ffceab8f44dd8cb",
+    "sha256": "da16b9326c2bb14d899e20e244b7507c221a09abdc7d114acefc6455c882ed50"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [
+        "ParserError: Source file requires different compiler version (current compiler is 0.8.20+commit.a1b79de6.Emscripten.clang) - note that nightly builds are considered to be strictly less than the released version\n --> Input.sol:2:1:\n  |\n2 | pragma solidity 0.8.30;\n  | ^^^^^^^^^^^^^^^^^^^^^^^\n\n"
+      ],
+      "status": "compilation_error"
+    },
+    "family": "sbe-ethernaut-tutorial-lineage",
+    "group": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "id": "ethernaut:contracts/src/levels/Cashback.sol",
+    "kind": "benchmark-derived",
+    "license": "MIT",
+    "license_url": "https://github.com/OpenZeppelin/ethernaut/blob/d05643a40aa98c45d66247c69ffceab8f44dd8cb/contracts/src/levels/Cashback.sol",
+    "path": "contracts/src/levels/Cashback.sol",
+    "pragma": [
+      "0.8.30"
+    ],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/OpenZeppelin/ethernaut",
+    "revision": "d05643a40aa98c45d66247c69ffceab8f44dd8cb",
+    "sha256": "1b5a9874b255b1f5caca03d99654d9c1d65be20bc35eacc0f72b6e262cdd7118"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [],
+      "status": "compiled"
+    },
+    "family": "sbe-ethernaut-tutorial-lineage",
+    "group": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "id": "ethernaut:contracts/src/levels/Delegation.sol",
+    "kind": "benchmark-derived",
+    "license": "MIT",
+    "license_url": "https://github.com/OpenZeppelin/ethernaut/blob/d05643a40aa98c45d66247c69ffceab8f44dd8cb/contracts/src/levels/Delegation.sol",
+    "path": "contracts/src/levels/Delegation.sol",
+    "pragma": [
+      "^0.8.0"
+    ],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/OpenZeppelin/ethernaut",
+    "revision": "d05643a40aa98c45d66247c69ffceab8f44dd8cb",
+    "sha256": "58a848dbe49be90277c5b03ad467c7145a6b1351893f0cc43c9b31597c7e3469"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [],
+      "status": "compiled"
+    },
+    "family": "sbe-ethernaut-tutorial-lineage",
+    "group": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "id": "ethernaut:contracts/src/levels/Denial.sol",
+    "kind": "benchmark-derived",
+    "license": "MIT",
+    "license_url": "https://github.com/OpenZeppelin/ethernaut/blob/d05643a40aa98c45d66247c69ffceab8f44dd8cb/contracts/src/levels/Denial.sol",
+    "path": "contracts/src/levels/Denial.sol",
+    "pragma": [
+      "^0.8.0"
+    ],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/OpenZeppelin/ethernaut",
+    "revision": "d05643a40aa98c45d66247c69ffceab8f44dd8cb",
+    "sha256": "12916df56d2f75fe24b518252b1982cc520f423f92929c27de6dcb33d4a42054"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [
+        "ParserError: Source \"base/Level.sol\" not found: File import callback not supported\n --> Input.sol:5:1:\n  |\n5 | import \"./base/Level.sol\";\n  | ^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n",
+        "ParserError: Source \"Denial.sol\" not found: File import callback not supported\n --> Input.sol:6:1:\n  |\n6 | import \"./Denial.sol\";\n  | ^^^^^^^^^^^^^^^^^^^^^^\n\n"
+      ],
+      "status": "compilation_error"
+    },
+    "family": "sbe-ethernaut-tutorial-lineage",
+    "group": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "id": "ethernaut:contracts/src/levels/DenialFactory.sol",
+    "kind": "benchmark-derived",
+    "license": "MIT",
+    "license_url": "https://github.com/OpenZeppelin/ethernaut/blob/d05643a40aa98c45d66247c69ffceab8f44dd8cb/contracts/src/levels/DenialFactory.sol",
+    "path": "contracts/src/levels/DenialFactory.sol",
+    "pragma": [
+      "^0.8.0"
+    ],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/OpenZeppelin/ethernaut",
+    "revision": "d05643a40aa98c45d66247c69ffceab8f44dd8cb",
+    "sha256": "c87302ae43ba083f257c73713f367541ef8523c903caccfc5d4e2481b21d08b3"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [
+        "ParserError: Source \"base/Level.sol\" not found: File import callback not supported\n --> Input.sol:5:1:\n  |\n5 | import \"./base/Level.sol\";\n  | ^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n",
+        "ParserError: Source \"King.sol\" not found: File import callback not supported\n --> Input.sol:6:1:\n  |\n6 | import \"./King.sol\";\n  | ^^^^^^^^^^^^^^^^^^^^\n\n"
+      ],
+      "status": "compilation_error"
+    },
+    "family": "sbe-ethernaut-tutorial-lineage",
+    "group": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "id": "ethernaut:contracts/src/levels/KingFactory.sol",
+    "kind": "benchmark-derived",
+    "license": "MIT",
+    "license_url": "https://github.com/OpenZeppelin/ethernaut/blob/d05643a40aa98c45d66247c69ffceab8f44dd8cb/contracts/src/levels/KingFactory.sol",
+    "path": "contracts/src/levels/KingFactory.sol",
+    "pragma": [
+      "^0.8.0"
+    ],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/OpenZeppelin/ethernaut",
+    "revision": "d05643a40aa98c45d66247c69ffceab8f44dd8cb",
+    "sha256": "4b7bc29d561c7688b020c9a5445963ce459ea57562a4f8bbffb7b4a4704afb7a"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [
+        "ParserError: Source file requires different compiler version (current compiler is 0.8.20+commit.a1b79de6.Emscripten.clang) - note that nightly builds are considered to be strictly less than the released version\n --> Input.sol:3:1:\n  |\n3 | pragma solidity <0.7.0;\n  | ^^^^^^^^^^^^^^^^^^^^^^^\n\n"
+      ],
+      "status": "compilation_error"
+    },
+    "family": "sbe-ethernaut-tutorial-lineage",
+    "group": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "id": "ethernaut:contracts/src/levels/Motorbike.sol",
+    "kind": "benchmark-derived",
+    "license": "MIT",
+    "license_url": "https://github.com/OpenZeppelin/ethernaut/blob/d05643a40aa98c45d66247c69ffceab8f44dd8cb/contracts/src/levels/Motorbike.sol",
+    "path": "contracts/src/levels/Motorbike.sol",
+    "pragma": [
+      "<0.7.0"
+    ],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/OpenZeppelin/ethernaut",
+    "revision": "d05643a40aa98c45d66247c69ffceab8f44dd8cb",
+    "sha256": "23e1fda3b97c9ab6044bf52f4213dbbc271ece3f5657a2b34409ff71d701d6cc"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [
+        "ParserError: Source \"helpers/lib/rlp/Lib_RLPReader.sol\" not found: File import callback not supported\n --> Input.sol:5:1:\n  |\n5 | import { Lib_RLPReader } from \"../helpers/lib/rlp/Lib_RLPReader.sol\";\n  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n",
+        "ParserError: Source \"helpers/lib/trie/Lib_SecureMerkleTrie.sol\" not found: File import callback not supported\n --> Input.sol:7:1:\n  |\n7 | import { Lib_SecureMerkleTrie } from \"../helpers/lib/trie/Lib_SecureMerkleTrie.sol\";\n  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n",
+        "ParserError: Source \"@openzeppelin/contracts/utils/ReentrancyGuard.sol\" not found: File import callback not supported\n --> Input.sol:8:1:\n  |\n8 | import { ReentrancyGuard } from \"@openzeppelin/contracts/utils/ReentrancyGuard.sol\";\n  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n",
+        "ParserError: Source \"@openzeppelin/contracts/token/ERC20/ERC20.sol\" not found: File import callback not supported\n --> Input.sol:9:1:\n  |\n9 | import { ERC20 } from \"@openzeppelin/contracts/token/ERC20/ERC20.sol\";\n  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n"
+      ],
+      "status": "compilation_error"
+    },
+    "family": "sbe-ethernaut-tutorial-lineage",
+    "group": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "id": "ethernaut:contracts/src/levels/NotOptimisticPortal.sol",
+    "kind": "benchmark-derived",
+    "license": "MIT",
+    "license_url": "https://github.com/OpenZeppelin/ethernaut/blob/d05643a40aa98c45d66247c69ffceab8f44dd8cb/contracts/src/levels/NotOptimisticPortal.sol",
+    "path": "contracts/src/levels/NotOptimisticPortal.sol",
+    "pragma": [
+      "^0.8.0"
+    ],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/OpenZeppelin/ethernaut",
+    "revision": "d05643a40aa98c45d66247c69ffceab8f44dd8cb",
+    "sha256": "8358c10cb7361acf5a0970838c5d6ad259a2f0515b331a5f8e8ba64b21f5de4d"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [],
+      "status": "compiled"
+    },
+    "family": "sbe-ethernaut-tutorial-lineage",
+    "group": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "id": "ethernaut:contracts/src/levels/Preservation.sol",
+    "kind": "benchmark-derived",
+    "license": "MIT",
+    "license_url": "https://github.com/OpenZeppelin/ethernaut/blob/d05643a40aa98c45d66247c69ffceab8f44dd8cb/contracts/src/levels/Preservation.sol",
+    "path": "contracts/src/levels/Preservation.sol",
+    "pragma": [
+      "^0.8.0"
+    ],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/OpenZeppelin/ethernaut",
+    "revision": "d05643a40aa98c45d66247c69ffceab8f44dd8cb",
+    "sha256": "ad6e64313020ff81da51f8c9662abf781eded9a7596587797b9934af7068cc9c"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [
+        "ParserError: Source \"helpers/UpgradeableProxy-08.sol\" not found: File import callback not supported\n --> Input.sol:4:1:\n  |\n4 | import \"../helpers/UpgradeableProxy-08.sol\";\n  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n"
+      ],
+      "status": "compilation_error"
+    },
+    "family": "sbe-ethernaut-tutorial-lineage",
+    "group": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "id": "ethernaut:contracts/src/levels/PuzzleWallet.sol",
+    "kind": "benchmark-derived",
+    "license": "MIT",
+    "license_url": "https://github.com/OpenZeppelin/ethernaut/blob/d05643a40aa98c45d66247c69ffceab8f44dd8cb/contracts/src/levels/PuzzleWallet.sol",
+    "path": "contracts/src/levels/PuzzleWallet.sol",
+    "pragma": [
+      "^0.8.0"
+    ],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/OpenZeppelin/ethernaut",
+    "revision": "d05643a40aa98c45d66247c69ffceab8f44dd8cb",
+    "sha256": "52e9f59a1eb9062fd38149e374dea5ff6c481132eacc7c8ddfc1cffa67022613"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [
+        "ParserError: Source \"base/Level.sol\" not found: File import callback not supported\n --> Input.sol:5:1:\n  |\n5 | import \"./base/Level.sol\";\n  | ^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n",
+        "ParserError: Source \"Recovery.sol\" not found: File import callback not supported\n --> Input.sol:6:1:\n  |\n6 | import \"./Recovery.sol\";\n  | ^^^^^^^^^^^^^^^^^^^^^^^^\n\n"
+      ],
+      "status": "compilation_error"
+    },
+    "family": "sbe-ethernaut-tutorial-lineage",
+    "group": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "id": "ethernaut:contracts/src/levels/RecoveryFactory.sol",
+    "kind": "benchmark-derived",
+    "license": "MIT",
+    "license_url": "https://github.com/OpenZeppelin/ethernaut/blob/d05643a40aa98c45d66247c69ffceab8f44dd8cb/contracts/src/levels/RecoveryFactory.sol",
+    "path": "contracts/src/levels/RecoveryFactory.sol",
+    "pragma": [
+      "^0.8.0"
+    ],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/OpenZeppelin/ethernaut",
+    "revision": "d05643a40aa98c45d66247c69ffceab8f44dd8cb",
+    "sha256": "ac393652dbce7fec901066bc4428072e24ed3403ba1e3784914d46c1b747e7e0"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [
+        "ParserError: Source file requires different compiler version (current compiler is 0.8.20+commit.a1b79de6.Emscripten.clang) - note that nightly builds are considered to be strictly less than the released version\n --> Input.sol:2:1:\n  |\n2 | pragma solidity ^0.6.12;\n  | ^^^^^^^^^^^^^^^^^^^^^^^^\n\n"
+      ],
+      "status": "compilation_error"
+    },
+    "family": "sbe-ethernaut-tutorial-lineage",
+    "group": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "id": "ethernaut:contracts/src/levels/Reentrance.sol",
+    "kind": "benchmark-derived",
+    "license": "MIT",
+    "license_url": "https://github.com/OpenZeppelin/ethernaut/blob/d05643a40aa98c45d66247c69ffceab8f44dd8cb/contracts/src/levels/Reentrance.sol",
+    "path": "contracts/src/levels/Reentrance.sol",
+    "pragma": [
+      "^0.6.12"
+    ],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/OpenZeppelin/ethernaut",
+    "revision": "d05643a40aa98c45d66247c69ffceab8f44dd8cb",
+    "sha256": "6fa85593d1139b8ffddde352012f520dd16a52baf6532921a8fc144f224d375d"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [],
+      "status": "compiled"
+    },
+    "family": "sbe-ethernaut-tutorial-lineage",
+    "group": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "id": "ethernaut:contracts/src/levels/Stake.sol",
+    "kind": "benchmark-derived",
+    "license": "MIT",
+    "license_url": "https://github.com/OpenZeppelin/ethernaut/blob/d05643a40aa98c45d66247c69ffceab8f44dd8cb/contracts/src/levels/Stake.sol",
+    "path": "contracts/src/levels/Stake.sol",
+    "pragma": [
+      "^0.8.0"
+    ],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/OpenZeppelin/ethernaut",
+    "revision": "d05643a40aa98c45d66247c69ffceab8f44dd8cb",
+    "sha256": "572dc193818c2cf984fb3ed86874e418b4ff54081f9e535461325f7a88cd2e4f"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [],
+      "status": "compiled"
+    },
+    "family": "sbe-ethernaut-tutorial-lineage",
+    "group": "ethernaut:contracts/src/attacks/GatekeeperOneAttack.sol",
+    "id": "ethernaut:contracts/src/levels/Switch.sol",
+    "kind": "benchmark-derived",
+    "license": "MIT",
+    "license_url": "https://github.com/OpenZeppelin/ethernaut/blob/d05643a40aa98c45d66247c69ffceab8f44dd8cb/contracts/src/levels/Switch.sol",
+    "path": "contracts/src/levels/Switch.sol",
+    "pragma": [
+      "^0.8.0"
+    ],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/OpenZeppelin/ethernaut",
+    "revision": "d05643a40aa98c45d66247c69ffceab8f44dd8cb",
+    "sha256": "538ca148351bfdd54ee7c362a09def34d237de2d6e08318961f8bfe70877d72e"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [
+        "ParserError: Expected a state variable declaration. If you intended this as a fallback function or a function to handle plain ether transactions, use the \"fallback\" keyword or the \"receive\" keyword instead.\n  --> Input.sol:14:33:\n   |\n14 |     function () payable external{\n   |                                 ^\n\n"
+      ],
+      "status": "compilation_error"
+    },
+    "family": "slither",
+    "group": "slither:tests/e2e/detectors/test_data/low-level-calls/0.4.25/low_level_calls.sol",
+    "id": "slither:tests/e2e/detectors/test_data/low-level-calls/0.4.25/low_level_calls.sol",
+    "kind": "benchmark-derived",
+    "license": "AGPL-3.0-only",
+    "license_url": "https://github.com/crytic/slither/blob/eef5df948b8992eff85786b6b0bb4a193933e2c9/LICENSE",
+    "path": "tests/e2e/detectors/test_data/low-level-calls/0.4.25/low_level_calls.sol",
+    "pragma": [],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/crytic/slither",
+    "revision": "eef5df948b8992eff85786b6b0bb4a193933e2c9",
+    "sha256": "76383f0876195096a757c7bcafb887efd3ee9520c3060100bfb80a4a8003b23e"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [
+        "ParserError: Expected a state variable declaration. If you intended this as a fallback function or a function to handle plain ether transactions, use the \"fallback\" keyword or the \"receive\" keyword instead.\n  --> Input.sol:14:33:\n   |\n14 |     function () payable external{\n   |                                 ^\n\n"
+      ],
+      "status": "compilation_error"
+    },
+    "family": "slither",
+    "group": "slither:tests/e2e/detectors/test_data/low-level-calls/0.4.25/low_level_calls.sol",
+    "id": "slither:tests/e2e/detectors/test_data/low-level-calls/0.5.16/low_level_calls.sol",
+    "kind": "benchmark-derived",
+    "license": "AGPL-3.0-only",
+    "license_url": "https://github.com/crytic/slither/blob/eef5df948b8992eff85786b6b0bb4a193933e2c9/LICENSE",
+    "path": "tests/e2e/detectors/test_data/low-level-calls/0.5.16/low_level_calls.sol",
+    "pragma": [],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/crytic/slither",
+    "revision": "eef5df948b8992eff85786b6b0bb4a193933e2c9",
+    "sha256": "76383f0876195096a757c7bcafb887efd3ee9520c3060100bfb80a4a8003b23e"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [
+        "TypeError: Using \".value(...)\" is deprecated. Use \"{value: ...}\" instead.\n --> Input.sol:6:9:\n  |\n6 |         _receiver.call.value(msg.value).gas(7777)(\"\");\n  |         ^^^^^^^^^^^^^^^^^^^^\n\n",
+        "TypeError: Using \".gas(...)\" is deprecated. Use \"{gas: ...}\" instead.\n --> Input.sol:6:9:\n  |\n6 |         _receiver.call.value(msg.value).gas(7777)(\"\");\n  |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n"
+      ],
+      "status": "compilation_error"
+    },
+    "family": "slither",
+    "group": "slither:tests/e2e/detectors/test_data/low-level-calls/0.4.25/low_level_calls.sol",
+    "id": "slither:tests/e2e/detectors/test_data/low-level-calls/0.6.11/low_level_calls.sol",
+    "kind": "benchmark-derived",
+    "license": "AGPL-3.0-only",
+    "license_url": "https://github.com/crytic/slither/blob/eef5df948b8992eff85786b6b0bb4a193933e2c9/LICENSE",
+    "path": "tests/e2e/detectors/test_data/low-level-calls/0.6.11/low_level_calls.sol",
+    "pragma": [],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/crytic/slither",
+    "revision": "eef5df948b8992eff85786b6b0bb4a193933e2c9",
+    "sha256": "51896745d1ccfa0963e654b5fae12088fa0757d5d1536290ffb8578ff910d347"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [],
+      "status": "compiled"
+    },
+    "family": "slither",
+    "group": "slither:tests/e2e/detectors/test_data/low-level-calls/0.4.25/low_level_calls.sol",
+    "id": "slither:tests/e2e/detectors/test_data/low-level-calls/0.7.6/low_level_calls.sol",
+    "kind": "benchmark-derived",
+    "license": "AGPL-3.0-only",
+    "license_url": "https://github.com/crytic/slither/blob/eef5df948b8992eff85786b6b0bb4a193933e2c9/LICENSE",
+    "path": "tests/e2e/detectors/test_data/low-level-calls/0.7.6/low_level_calls.sol",
+    "pragma": [],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/crytic/slither",
+    "revision": "eef5df948b8992eff85786b6b0bb4a193933e2c9",
+    "sha256": "0aabb49a1b7b1fc407ce498ea486ec99022ed1b9fc2314809a3138ffdede2a78"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [],
+      "status": "compiled"
+    },
+    "family": "slither",
+    "group": "slither:tests/e2e/detectors/test_data/low-level-calls/0.4.25/low_level_calls.sol",
+    "id": "slither:tests/e2e/detectors/test_data/return-bomb/0.8.20/return_bomb.sol",
+    "kind": "benchmark-derived",
+    "license": "AGPL-3.0-only",
+    "license_url": "https://github.com/crytic/slither/blob/eef5df948b8992eff85786b6b0bb4a193933e2c9/LICENSE",
+    "path": "tests/e2e/detectors/test_data/return-bomb/0.8.20/return_bomb.sol",
+    "pragma": [],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/crytic/slither",
+    "revision": "eef5df948b8992eff85786b6b0bb4a193933e2c9",
+    "sha256": "f86684ad7a42d7372715a175ea194ca55e29fe331208cc800b35f41074486823"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [
+        "TypeError: Using \".value(...)\" is deprecated. Use \"{value: ...}\" instead.\n --> Input.sol:3:9:\n  |\n3 |         dst.call.value(msg.value)(\"\");\n  |         ^^^^^^^^^^^^^^\n\n",
+        "TypeError: Using \".value(...)\" is deprecated. Use \"{value: ...}\" instead.\n --> Input.sol:7:17:\n  |\n7 |         require(dst.call.value(msg.value)());\n  |                 ^^^^^^^^^^^^^^\n\n",
+        "TypeError: Wrong argument count for function call: 0 arguments given but expected 1. This function requires a single bytes argument. Use \"\" as argument to provide empty calldata.\n --> Input.sol:7:17:\n  |\n7 |         require(dst.call.value(msg.value)());\n  |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n",
+        "TypeError: No matching declaration found after argument-dependent lookup.\n --> Input.sol:7:9:\n  |\n7 |         require(dst.call.value(msg.value)());\n  |         ^^^^^^^\nNote: Candidate: function require(bool)\nNote: Candidate: function require(bool, string memory)\n\n"
+      ],
+      "status": "compilation_error"
+    },
+    "family": "slither",
+    "group": "slither:tests/e2e/detectors/test_data/low-level-calls/0.4.25/low_level_calls.sol",
+    "id": "slither:tests/e2e/detectors/test_data/unchecked-lowlevel/0.4.25/unchecked_lowlevel.sol",
+    "kind": "benchmark-derived",
+    "license": "AGPL-3.0-only",
+    "license_url": "https://github.com/crytic/slither/blob/eef5df948b8992eff85786b6b0bb4a193933e2c9/LICENSE",
+    "path": "tests/e2e/detectors/test_data/unchecked-lowlevel/0.4.25/unchecked_lowlevel.sol",
+    "pragma": [],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/crytic/slither",
+    "revision": "eef5df948b8992eff85786b6b0bb4a193933e2c9",
+    "sha256": "add783af4ef8148c460be96ed575a6ca96013ab2185db3f8f9c62eb61eb7b987"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [
+        "DeclarationError: The name \"_\" is reserved.\n --> Input.sol:7:20:\n  |\n7 |         (bool ret, bytes memory _) = dst.call.value(msg.value)(\"\");\n  |                    ^^^^^^^^^^^^^^\n\n",
+        "TypeError: Using \".value(...)\" is deprecated. Use \"{value: ...}\" instead.\n --> Input.sol:3:9:\n  |\n3 |         dst.call.value(msg.value)(\"\");\n  |         ^^^^^^^^^^^^^^\n\n",
+        "TypeError: Using \".value(...)\" is deprecated. Use \"{value: ...}\" instead.\n --> Input.sol:7:38:\n  |\n7 |         (bool ret, bytes memory _) = dst.call.value(msg.value)(\"\");\n  |                                      ^^^^^^^^^^^^^^\n\n"
+      ],
+      "status": "compilation_error"
+    },
+    "family": "slither",
+    "group": "slither:tests/e2e/detectors/test_data/low-level-calls/0.4.25/low_level_calls.sol",
+    "id": "slither:tests/e2e/detectors/test_data/unchecked-lowlevel/0.5.16/unchecked_lowlevel.sol",
+    "kind": "benchmark-derived",
+    "license": "AGPL-3.0-only",
+    "license_url": "https://github.com/crytic/slither/blob/eef5df948b8992eff85786b6b0bb4a193933e2c9/LICENSE",
+    "path": "tests/e2e/detectors/test_data/unchecked-lowlevel/0.5.16/unchecked_lowlevel.sol",
+    "pragma": [],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/crytic/slither",
+    "revision": "eef5df948b8992eff85786b6b0bb4a193933e2c9",
+    "sha256": "5e973bf90c724a79563abefb6694a8f9d8457770c4834104ea319586d3ecb788"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [
+        "DeclarationError: The name \"_\" is reserved.\n --> Input.sol:7:20:\n  |\n7 |         (bool ret, bytes memory _) = dst.call.value(msg.value)(\"\");\n  |                    ^^^^^^^^^^^^^^\n\n",
+        "TypeError: Using \".value(...)\" is deprecated. Use \"{value: ...}\" instead.\n --> Input.sol:3:9:\n  |\n3 |         dst.call.value(msg.value)(\"\");\n  |         ^^^^^^^^^^^^^^\n\n",
+        "TypeError: Using \".value(...)\" is deprecated. Use \"{value: ...}\" instead.\n --> Input.sol:7:38:\n  |\n7 |         (bool ret, bytes memory _) = dst.call.value(msg.value)(\"\");\n  |                                      ^^^^^^^^^^^^^^\n\n"
+      ],
+      "status": "compilation_error"
+    },
+    "family": "slither",
+    "group": "slither:tests/e2e/detectors/test_data/low-level-calls/0.4.25/low_level_calls.sol",
+    "id": "slither:tests/e2e/detectors/test_data/unchecked-lowlevel/0.6.11/unchecked_lowlevel.sol",
+    "kind": "benchmark-derived",
+    "license": "AGPL-3.0-only",
+    "license_url": "https://github.com/crytic/slither/blob/eef5df948b8992eff85786b6b0bb4a193933e2c9/LICENSE",
+    "path": "tests/e2e/detectors/test_data/unchecked-lowlevel/0.6.11/unchecked_lowlevel.sol",
+    "pragma": [],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/crytic/slither",
+    "revision": "eef5df948b8992eff85786b6b0bb4a193933e2c9",
+    "sha256": "5e973bf90c724a79563abefb6694a8f9d8457770c4834104ea319586d3ecb788"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [],
+      "status": "compiled"
+    },
+    "family": "slither",
+    "group": "slither:tests/e2e/detectors/test_data/low-level-calls/0.4.25/low_level_calls.sol",
+    "id": "slither:tests/e2e/detectors/test_data/unchecked-lowlevel/0.7.6/unchecked_lowlevel.sol",
+    "kind": "benchmark-derived",
+    "license": "AGPL-3.0-only",
+    "license_url": "https://github.com/crytic/slither/blob/eef5df948b8992eff85786b6b0bb4a193933e2c9/LICENSE",
+    "path": "tests/e2e/detectors/test_data/unchecked-lowlevel/0.7.6/unchecked_lowlevel.sol",
+    "pragma": [],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/crytic/slither",
+    "revision": "eef5df948b8992eff85786b6b0bb4a193933e2c9",
+    "sha256": "aac67c1fb8e5388154fd4edde27f77a55f95a0eaf616a8b152d9db0883d754e3"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [],
+      "status": "compiled"
+    },
+    "family": "slither",
+    "group": "slither:tests/e2e/detectors/test_data/low-level-calls/0.4.25/low_level_calls.sol",
+    "id": "slither:tests/e2e/detectors/test_data/write-after-write/0.8.0/write-after-write.sol",
+    "kind": "benchmark-derived",
+    "license": "AGPL-3.0-only",
+    "license_url": "https://github.com/crytic/slither/blob/eef5df948b8992eff85786b6b0bb4a193933e2c9/LICENSE",
+    "path": "tests/e2e/detectors/test_data/write-after-write/0.8.0/write-after-write.sol",
+    "pragma": [],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/crytic/slither",
+    "revision": "eef5df948b8992eff85786b6b0bb4a193933e2c9",
+    "sha256": "818d923bfed343d3f951051c2d4b89f5902f088f2ce74e4df9f660673123dab5"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [
+        "ParserError: Source file requires different compiler version (current compiler is 0.8.20+commit.a1b79de6.Emscripten.clang) - note that nightly builds are considered to be strictly less than the released version\n  --> Input.sol:11:1:\n   |\n11 | pragma solidity 0.6.12;\n   | ^^^^^^^^^^^^^^^^^^^^^^^\n\n"
+      ],
+      "status": "compilation_error"
+    },
+    "family": "serial",
+    "group": "serial:01_integer_underflow/FixedEtherVault.sol",
+    "id": "serial:01_integer_underflow/FixedEtherVault.sol",
+    "kind": "benchmark-derived",
+    "license": "BSL-1.0 (Boost Software License 1.0)",
+    "license_url": "https://github.com/serial-coder/solidity-security-by-example/blob/f2c617837d9c23165c72c56929e4d3793ec020e3/01_integer_underflow/FixedEtherVault.sol",
+    "path": "01_integer_underflow/FixedEtherVault.sol",
+    "pragma": [
+      "0.6.12"
+    ],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/serial-coder/solidity-security-by-example",
+    "revision": "f2c617837d9c23165c72c56929e4d3793ec020e3",
+    "sha256": "43fab7607c677c98b5ad9f4ab20cf8f5e0adc996374fd0460414eef3a0f79a4a"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [
+        "ParserError: Source file requires different compiler version (current compiler is 0.8.20+commit.a1b79de6.Emscripten.clang) - note that nightly builds are considered to be strictly less than the released version\n  --> Input.sol:11:1:\n   |\n11 | pragma solidity 0.6.12;\n   | ^^^^^^^^^^^^^^^^^^^^^^^\n\n"
+      ],
+      "status": "compilation_error"
+    },
+    "family": "serial",
+    "group": "serial:01_integer_underflow/FixedEtherVault.sol",
+    "id": "serial:01_integer_underflow/InsecureEtherVault.sol",
+    "kind": "benchmark-derived",
+    "license": "BSL-1.0 (Boost Software License 1.0)",
+    "license_url": "https://github.com/serial-coder/solidity-security-by-example/blob/f2c617837d9c23165c72c56929e4d3793ec020e3/01_integer_underflow/InsecureEtherVault.sol",
+    "path": "01_integer_underflow/InsecureEtherVault.sol",
+    "pragma": [
+      "0.6.12"
+    ],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/serial-coder/solidity-security-by-example",
+    "revision": "f2c617837d9c23165c72c56929e4d3793ec020e3",
+    "sha256": "40a64751f2d2ec09c7b6fe2c17f985379f33989e867986fd2f0328263e07c98f"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [
+        "ParserError: Source file requires different compiler version (current compiler is 0.8.20+commit.a1b79de6.Emscripten.clang) - note that nightly builds are considered to be strictly less than the released version\n  --> Input.sol:11:1:\n   |\n11 | pragma solidity 0.8.13;\n   | ^^^^^^^^^^^^^^^^^^^^^^^\n\n"
+      ],
+      "status": "compilation_error"
+    },
+    "family": "serial",
+    "group": "serial:01_integer_underflow/FixedEtherVault.sol",
+    "id": "serial:02_reentrancy/FixedEtherVault.sol",
+    "kind": "benchmark-derived",
+    "license": "BSL-1.0 (Boost Software License 1.0)",
+    "license_url": "https://github.com/serial-coder/solidity-security-by-example/blob/f2c617837d9c23165c72c56929e4d3793ec020e3/02_reentrancy/FixedEtherVault.sol",
+    "path": "02_reentrancy/FixedEtherVault.sol",
+    "pragma": [
+      "0.8.13"
+    ],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/serial-coder/solidity-security-by-example",
+    "revision": "f2c617837d9c23165c72c56929e4d3793ec020e3",
+    "sha256": "9104342570cc0d793485e4a96c7e5d265464eda915ea472b1bf80776ca732cea"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [
+        "ParserError: Source file requires different compiler version (current compiler is 0.8.20+commit.a1b79de6.Emscripten.clang) - note that nightly builds are considered to be strictly less than the released version\n  --> Input.sol:11:1:\n   |\n11 | pragma solidity 0.8.13;\n   | ^^^^^^^^^^^^^^^^^^^^^^^\n\n"
+      ],
+      "status": "compilation_error"
+    },
+    "family": "serial",
+    "group": "serial:01_integer_underflow/FixedEtherVault.sol",
+    "id": "serial:02_reentrancy/InsecureEtherVault.sol",
+    "kind": "benchmark-derived",
+    "license": "BSL-1.0 (Boost Software License 1.0)",
+    "license_url": "https://github.com/serial-coder/solidity-security-by-example/blob/f2c617837d9c23165c72c56929e4d3793ec020e3/02_reentrancy/InsecureEtherVault.sol",
+    "path": "02_reentrancy/InsecureEtherVault.sol",
+    "pragma": [
+      "0.8.13"
+    ],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/serial-coder/solidity-security-by-example",
+    "revision": "f2c617837d9c23165c72c56929e4d3793ec020e3",
+    "sha256": "6673d88b9f4b915a2542f05f7476f0603df84bab31612c56b5ac2970d2fe8aba"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [
+        "ParserError: Source file requires different compiler version (current compiler is 0.8.20+commit.a1b79de6.Emscripten.clang) - note that nightly builds are considered to be strictly less than the released version\n  --> Input.sol:11:1:\n   |\n11 | pragma solidity 0.8.13;\n   | ^^^^^^^^^^^^^^^^^^^^^^^\n\n"
+      ],
+      "status": "compilation_error"
+    },
+    "family": "serial",
+    "group": "serial:01_integer_underflow/FixedEtherVault.sol",
+    "id": "serial:04_cross_function_reentrancy/FixedEtherVault.sol",
+    "kind": "benchmark-derived",
+    "license": "BSL-1.0 (Boost Software License 1.0)",
+    "license_url": "https://github.com/serial-coder/solidity-security-by-example/blob/f2c617837d9c23165c72c56929e4d3793ec020e3/04_cross_function_reentrancy/FixedEtherVault.sol",
+    "path": "04_cross_function_reentrancy/FixedEtherVault.sol",
+    "pragma": [
+      "0.8.13"
+    ],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/serial-coder/solidity-security-by-example",
+    "revision": "f2c617837d9c23165c72c56929e4d3793ec020e3",
+    "sha256": "15ab2763d330ee33ec9490af0d11775341aa8a0c8f6502553f5d68a94699dc25"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [
+        "ParserError: Source file requires different compiler version (current compiler is 0.8.20+commit.a1b79de6.Emscripten.clang) - note that nightly builds are considered to be strictly less than the released version\n  --> Input.sol:11:1:\n   |\n11 | pragma solidity 0.8.13;\n   | ^^^^^^^^^^^^^^^^^^^^^^^\n\n"
+      ],
+      "status": "compilation_error"
+    },
+    "family": "serial",
+    "group": "serial:01_integer_underflow/FixedEtherVault.sol",
+    "id": "serial:04_cross_function_reentrancy/InsecureEtherVault.sol",
+    "kind": "benchmark-derived",
+    "license": "BSL-1.0 (Boost Software License 1.0)",
+    "license_url": "https://github.com/serial-coder/solidity-security-by-example/blob/f2c617837d9c23165c72c56929e4d3793ec020e3/04_cross_function_reentrancy/InsecureEtherVault.sol",
+    "path": "04_cross_function_reentrancy/InsecureEtherVault.sol",
+    "pragma": [
+      "0.8.13"
+    ],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/serial-coder/solidity-security-by-example",
+    "revision": "f2c617837d9c23165c72c56929e4d3793ec020e3",
+    "sha256": "beca83e8eff503e861764fc5894193778c00088da69fba8885f393538ba972af"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [
+        "ParserError: Source file requires different compiler version (current compiler is 0.8.20+commit.a1b79de6.Emscripten.clang) - note that nightly builds are considered to be strictly less than the released version\n  --> Input.sol:11:1:\n   |\n11 | pragma solidity 0.8.17;\n   | ^^^^^^^^^^^^^^^^^^^^^^^\n\n"
+      ],
+      "status": "compilation_error"
+    },
+    "family": "serial",
+    "group": "serial:01_integer_underflow/FixedEtherVault.sol",
+    "id": "serial:05_cross_contract_reentrancy/FixedMoonVault.sol",
+    "kind": "benchmark-derived",
+    "license": "BSL-1.0 (Boost Software License 1.0)",
+    "license_url": "https://github.com/serial-coder/solidity-security-by-example/blob/f2c617837d9c23165c72c56929e4d3793ec020e3/05_cross_contract_reentrancy/FixedMoonVault.sol",
+    "path": "05_cross_contract_reentrancy/FixedMoonVault.sol",
+    "pragma": [
+      "0.8.17"
+    ],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/serial-coder/solidity-security-by-example",
+    "revision": "f2c617837d9c23165c72c56929e4d3793ec020e3",
+    "sha256": "d8ffd8bda7b8421c75b595133baf506f43e500ac9f4c70d9d1f3ce6b0e3ecd9a"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [
+        "ParserError: Source file requires different compiler version (current compiler is 0.8.20+commit.a1b79de6.Emscripten.clang) - note that nightly builds are considered to be strictly less than the released version\n  --> Input.sol:11:1:\n   |\n11 | pragma solidity 0.8.17;\n   | ^^^^^^^^^^^^^^^^^^^^^^^\n\n"
+      ],
+      "status": "compilation_error"
+    },
+    "family": "serial",
+    "group": "serial:01_integer_underflow/FixedEtherVault.sol",
+    "id": "serial:05_cross_contract_reentrancy/InsecureMoonVault.sol",
+    "kind": "benchmark-derived",
+    "license": "BSL-1.0 (Boost Software License 1.0)",
+    "license_url": "https://github.com/serial-coder/solidity-security-by-example/blob/f2c617837d9c23165c72c56929e4d3793ec020e3/05_cross_contract_reentrancy/InsecureMoonVault.sol",
+    "path": "05_cross_contract_reentrancy/InsecureMoonVault.sol",
+    "pragma": [
+      "0.8.17"
+    ],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/serial-coder/solidity-security-by-example",
+    "revision": "f2c617837d9c23165c72c56929e4d3793ec020e3",
+    "sha256": "b78147384710a8e297952f11d564517756f7d72246e3a22f7a363cce223dea3c"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [
+        "ParserError: Source file requires different compiler version (current compiler is 0.8.20+commit.a1b79de6.Emscripten.clang) - note that nightly builds are considered to be strictly less than the released version\n  --> Input.sol:11:1:\n   |\n11 | pragma solidity 0.6.12;\n   | ^^^^^^^^^^^^^^^^^^^^^^^\n\n"
+      ],
+      "status": "compilation_error"
+    },
+    "family": "serial",
+    "group": "serial:01_integer_underflow/FixedEtherVault.sol",
+    "id": "serial:06_integer_overflow/FixedMoonToken.sol",
+    "kind": "benchmark-derived",
+    "license": "BSL-1.0 (Boost Software License 1.0)",
+    "license_url": "https://github.com/serial-coder/solidity-security-by-example/blob/f2c617837d9c23165c72c56929e4d3793ec020e3/06_integer_overflow/FixedMoonToken.sol",
+    "path": "06_integer_overflow/FixedMoonToken.sol",
+    "pragma": [
+      "0.6.12"
+    ],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/serial-coder/solidity-security-by-example",
+    "revision": "f2c617837d9c23165c72c56929e4d3793ec020e3",
+    "sha256": "89be6b05d67c4e1bde2db647ec107a9c827a46ce3b8dedc1f7a82aef350856b0"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [
+        "ParserError: Source file requires different compiler version (current compiler is 0.8.20+commit.a1b79de6.Emscripten.clang) - note that nightly builds are considered to be strictly less than the released version\n  --> Input.sol:11:1:\n   |\n11 | pragma solidity 0.6.12;\n   | ^^^^^^^^^^^^^^^^^^^^^^^\n\n"
+      ],
+      "status": "compilation_error"
+    },
+    "family": "serial",
+    "group": "serial:01_integer_underflow/FixedEtherVault.sol",
+    "id": "serial:06_integer_overflow/InsecureMoonToken.sol",
+    "kind": "benchmark-derived",
+    "license": "BSL-1.0 (Boost Software License 1.0)",
+    "license_url": "https://github.com/serial-coder/solidity-security-by-example/blob/f2c617837d9c23165c72c56929e4d3793ec020e3/06_integer_overflow/InsecureMoonToken.sol",
+    "path": "06_integer_overflow/InsecureMoonToken.sol",
+    "pragma": [
+      "0.6.12"
+    ],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/serial-coder/solidity-security-by-example",
+    "revision": "f2c617837d9c23165c72c56929e4d3793ec020e3",
+    "sha256": "15f471b41a794b3a0b346fea604a95a0ea461904a23b4b5045b9be2c69376d73"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [
+        "ParserError: Source file requires different compiler version (current compiler is 0.8.20+commit.a1b79de6.Emscripten.clang) - note that nightly builds are considered to be strictly less than the released version\n  --> Input.sol:11:1:\n   |\n11 | pragma solidity 0.8.17;\n   | ^^^^^^^^^^^^^^^^^^^^^^^\n\n"
+      ],
+      "status": "compilation_error"
+    },
+    "family": "serial",
+    "group": "serial:01_integer_underflow/FixedEtherVault.sol",
+    "id": "serial:07_phishing_with_improper_authorization/FixedDonation.sol",
+    "kind": "benchmark-derived",
+    "license": "BSL-1.0 (Boost Software License 1.0)",
+    "license_url": "https://github.com/serial-coder/solidity-security-by-example/blob/f2c617837d9c23165c72c56929e4d3793ec020e3/07_phishing_with_improper_authorization/FixedDonation.sol",
+    "path": "07_phishing_with_improper_authorization/FixedDonation.sol",
+    "pragma": [
+      "0.8.17"
+    ],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/serial-coder/solidity-security-by-example",
+    "revision": "f2c617837d9c23165c72c56929e4d3793ec020e3",
+    "sha256": "c493d402875b458472e5a80a8f9380c0b41dcc8fb2f502ec7c11a9606766d321"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [
+        "ParserError: Source file requires different compiler version (current compiler is 0.8.20+commit.a1b79de6.Emscripten.clang) - note that nightly builds are considered to be strictly less than the released version\n  --> Input.sol:11:1:\n   |\n11 | pragma solidity 0.8.17;\n   | ^^^^^^^^^^^^^^^^^^^^^^^\n\n"
+      ],
+      "status": "compilation_error"
+    },
+    "family": "serial",
+    "group": "serial:01_integer_underflow/FixedEtherVault.sol",
+    "id": "serial:07_phishing_with_improper_authorization/InsecureDonation.sol",
+    "kind": "benchmark-derived",
+    "license": "BSL-1.0 (Boost Software License 1.0)",
+    "license_url": "https://github.com/serial-coder/solidity-security-by-example/blob/f2c617837d9c23165c72c56929e4d3793ec020e3/07_phishing_with_improper_authorization/InsecureDonation.sol",
+    "path": "07_phishing_with_improper_authorization/InsecureDonation.sol",
+    "pragma": [
+      "0.8.17"
+    ],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/serial-coder/solidity-security-by-example",
+    "revision": "f2c617837d9c23165c72c56929e4d3793ec020e3",
+    "sha256": "abe91d68823221220fa5ddd1c3922331fe1d9757fb4bd412d650ea650aa29d5f"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [
+        "ParserError: Source file requires different compiler version (current compiler is 0.8.20+commit.a1b79de6.Emscripten.clang) - note that nightly builds are considered to be strictly less than the released version\n  --> Input.sol:11:1:\n   |\n11 | pragma solidity 0.8.17;\n   | ^^^^^^^^^^^^^^^^^^^^^^^\n\n"
+      ],
+      "status": "compilation_error"
+    },
+    "family": "serial",
+    "group": "serial:01_integer_underflow/FixedEtherVault.sol",
+    "id": "serial:08_unexpected_ether_with_forcibly_sending_ether/FixedMoonToken.sol",
+    "kind": "benchmark-derived",
+    "license": "BSL-1.0 (Boost Software License 1.0)",
+    "license_url": "https://github.com/serial-coder/solidity-security-by-example/blob/f2c617837d9c23165c72c56929e4d3793ec020e3/08_unexpected_ether_with_forcibly_sending_ether/FixedMoonToken.sol",
+    "path": "08_unexpected_ether_with_forcibly_sending_ether/FixedMoonToken.sol",
+    "pragma": [
+      "0.8.17"
+    ],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/serial-coder/solidity-security-by-example",
+    "revision": "f2c617837d9c23165c72c56929e4d3793ec020e3",
+    "sha256": "9f86a3d9a9798b701cf31597fb26aeaaa6fed727960dc77d4038b065ff7c31be"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [
+        "ParserError: Source file requires different compiler version (current compiler is 0.8.20+commit.a1b79de6.Emscripten.clang) - note that nightly builds are considered to be strictly less than the released version\n  --> Input.sol:11:1:\n   |\n11 | pragma solidity 0.8.17;\n   | ^^^^^^^^^^^^^^^^^^^^^^^\n\n"
+      ],
+      "status": "compilation_error"
+    },
+    "family": "serial",
+    "group": "serial:01_integer_underflow/FixedEtherVault.sol",
+    "id": "serial:08_unexpected_ether_with_forcibly_sending_ether/InsecureMoonToken.sol",
+    "kind": "benchmark-derived",
+    "license": "BSL-1.0 (Boost Software License 1.0)",
+    "license_url": "https://github.com/serial-coder/solidity-security-by-example/blob/f2c617837d9c23165c72c56929e4d3793ec020e3/08_unexpected_ether_with_forcibly_sending_ether/InsecureMoonToken.sol",
+    "path": "08_unexpected_ether_with_forcibly_sending_ether/InsecureMoonToken.sol",
+    "pragma": [
+      "0.8.17"
+    ],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/serial-coder/solidity-security-by-example",
+    "revision": "f2c617837d9c23165c72c56929e4d3793ec020e3",
+    "sha256": "50945aaf041279d6f039d2095b9bb86436401eebb33c3805a02b6b9d687dc07d"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [
+        "ParserError: Source file requires different compiler version (current compiler is 0.8.20+commit.a1b79de6.Emscripten.clang) - note that nightly builds are considered to be strictly less than the released version\n  --> Input.sol:11:1:\n   |\n11 | pragma solidity 0.8.19;\n   | ^^^^^^^^^^^^^^^^^^^^^^^\n\n"
+      ],
+      "status": "compilation_error"
+    },
+    "family": "serial",
+    "group": "serial:01_integer_underflow/FixedEtherVault.sol",
+    "id": "serial:09_denial_of_service_with_revert/Attack.sol",
+    "kind": "benchmark-derived",
+    "license": "BSL-1.0 (Boost Software License 1.0)",
+    "license_url": "https://github.com/serial-coder/solidity-security-by-example/blob/f2c617837d9c23165c72c56929e4d3793ec020e3/09_denial_of_service_with_revert/Attack.sol",
+    "path": "09_denial_of_service_with_revert/Attack.sol",
+    "pragma": [
+      "0.8.19"
+    ],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/serial-coder/solidity-security-by-example",
+    "revision": "f2c617837d9c23165c72c56929e4d3793ec020e3",
+    "sha256": "2be2a1d807f514108b638033f047e7d06c30507f9f12816adf3208046aee7c1f"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [
+        "ParserError: Source file requires different compiler version (current compiler is 0.8.20+commit.a1b79de6.Emscripten.clang) - note that nightly builds are considered to be strictly less than the released version\n  --> Input.sol:11:1:\n   |\n11 | pragma solidity 0.8.19;\n   | ^^^^^^^^^^^^^^^^^^^^^^^\n\n"
+      ],
+      "status": "compilation_error"
+    },
+    "family": "serial",
+    "group": "serial:01_integer_underflow/FixedEtherVault.sol",
+    "id": "serial:09_denial_of_service_with_revert/FixedWinnerTakesItAll.sol",
+    "kind": "benchmark-derived",
+    "license": "BSL-1.0 (Boost Software License 1.0)",
+    "license_url": "https://github.com/serial-coder/solidity-security-by-example/blob/f2c617837d9c23165c72c56929e4d3793ec020e3/09_denial_of_service_with_revert/FixedWinnerTakesItAll.sol",
+    "path": "09_denial_of_service_with_revert/FixedWinnerTakesItAll.sol",
+    "pragma": [
+      "0.8.19"
+    ],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/serial-coder/solidity-security-by-example",
+    "revision": "f2c617837d9c23165c72c56929e4d3793ec020e3",
+    "sha256": "b3201c966d2d41dff4964b436cd70088ef970a52018caf295b1b7aa4220a8480"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [
+        "ParserError: Source file requires different compiler version (current compiler is 0.8.20+commit.a1b79de6.Emscripten.clang) - note that nightly builds are considered to be strictly less than the released version\n  --> Input.sol:11:1:\n   |\n11 | pragma solidity 0.8.19;\n   | ^^^^^^^^^^^^^^^^^^^^^^^\n\n"
+      ],
+      "status": "compilation_error"
+    },
+    "family": "serial",
+    "group": "serial:01_integer_underflow/FixedEtherVault.sol",
+    "id": "serial:09_denial_of_service_with_revert/InsecureWinnerTakesItAll.sol",
+    "kind": "benchmark-derived",
+    "license": "BSL-1.0 (Boost Software License 1.0)",
+    "license_url": "https://github.com/serial-coder/solidity-security-by-example/blob/f2c617837d9c23165c72c56929e4d3793ec020e3/09_denial_of_service_with_revert/InsecureWinnerTakesItAll.sol",
+    "path": "09_denial_of_service_with_revert/InsecureWinnerTakesItAll.sol",
+    "pragma": [
+      "0.8.19"
+    ],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/serial-coder/solidity-security-by-example",
+    "revision": "f2c617837d9c23165c72c56929e4d3793ec020e3",
+    "sha256": "fb316d0cf0b67b2ecd81d152c450a8ad39c96b37484194888e0dc79804f58cc4"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [
+        "ParserError: Source file requires different compiler version (current compiler is 0.8.20+commit.a1b79de6.Emscripten.clang) - note that nightly builds are considered to be strictly less than the released version\n  --> Input.sol:11:1:\n   |\n11 | pragma solidity 0.8.19;\n   | ^^^^^^^^^^^^^^^^^^^^^^^\n\n"
+      ],
+      "status": "compilation_error"
+    },
+    "family": "serial",
+    "group": "serial:01_integer_underflow/FixedEtherVault.sol",
+    "id": "serial:10_denial_of_service_with_gas_limit/FixedNaiveBank.sol",
+    "kind": "benchmark-derived",
+    "license": "BSL-1.0 (Boost Software License 1.0)",
+    "license_url": "https://github.com/serial-coder/solidity-security-by-example/blob/f2c617837d9c23165c72c56929e4d3793ec020e3/10_denial_of_service_with_gas_limit/FixedNaiveBank.sol",
+    "path": "10_denial_of_service_with_gas_limit/FixedNaiveBank.sol",
+    "pragma": [
+      "0.8.19"
+    ],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/serial-coder/solidity-security-by-example",
+    "revision": "f2c617837d9c23165c72c56929e4d3793ec020e3",
+    "sha256": "be550c26969c58511bd4810b2ceea4e62ce0e4a72f3b52b66564e950c90325cf"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [
+        "ParserError: Source file requires different compiler version (current compiler is 0.8.20+commit.a1b79de6.Emscripten.clang) - note that nightly builds are considered to be strictly less than the released version\n  --> Input.sol:11:1:\n   |\n11 | pragma solidity 0.8.19;\n   | ^^^^^^^^^^^^^^^^^^^^^^^\n\n"
+      ],
+      "status": "compilation_error"
+    },
+    "family": "serial",
+    "group": "serial:01_integer_underflow/FixedEtherVault.sol",
+    "id": "serial:10_denial_of_service_with_gas_limit/InsecureNaiveBank.sol",
+    "kind": "benchmark-derived",
+    "license": "BSL-1.0 (Boost Software License 1.0)",
+    "license_url": "https://github.com/serial-coder/solidity-security-by-example/blob/f2c617837d9c23165c72c56929e4d3793ec020e3/10_denial_of_service_with_gas_limit/InsecureNaiveBank.sol",
+    "path": "10_denial_of_service_with_gas_limit/InsecureNaiveBank.sol",
+    "pragma": [
+      "0.8.19"
+    ],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/serial-coder/solidity-security-by-example",
+    "revision": "f2c617837d9c23165c72c56929e4d3793ec020e3",
+    "sha256": "fd996c49576c41a3c146b05bd1c9ea43a8dd78dab5e060a7a13fc08848e98212"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [
+        "ParserError: Source file requires different compiler version (current compiler is 0.8.20+commit.a1b79de6.Emscripten.clang) - note that nightly builds are considered to be strictly less than the released version\n  --> Input.sol:11:1:\n   |\n11 | pragma solidity 0.6.12;\n   | ^^^^^^^^^^^^^^^^^^^^^^^\n\n"
+      ],
+      "status": "compilation_error"
+    },
+    "family": "serial",
+    "group": "serial:01_integer_underflow/FixedEtherVault.sol",
+    "id": "serial:11_denial_of_service_with_induction_variable_overflow/FixedSimpleAirdrop.sol",
+    "kind": "benchmark-derived",
+    "license": "BSL-1.0 (Boost Software License 1.0)",
+    "license_url": "https://github.com/serial-coder/solidity-security-by-example/blob/f2c617837d9c23165c72c56929e4d3793ec020e3/11_denial_of_service_with_induction_variable_overflow/FixedSimpleAirdrop.sol",
+    "path": "11_denial_of_service_with_induction_variable_overflow/FixedSimpleAirdrop.sol",
+    "pragma": [
+      "0.6.12"
+    ],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/serial-coder/solidity-security-by-example",
+    "revision": "f2c617837d9c23165c72c56929e4d3793ec020e3",
+    "sha256": "824a6d5800bc00dfd63a4d7978419a030db1ac42d1ca1f2dd045ec02ba7e023c"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [
+        "ParserError: Source file requires different compiler version (current compiler is 0.8.20+commit.a1b79de6.Emscripten.clang) - note that nightly builds are considered to be strictly less than the released version\n  --> Input.sol:11:1:\n   |\n11 | pragma solidity 0.6.12;\n   | ^^^^^^^^^^^^^^^^^^^^^^^\n\n"
+      ],
+      "status": "compilation_error"
+    },
+    "family": "serial",
+    "group": "serial:01_integer_underflow/FixedEtherVault.sol",
+    "id": "serial:11_denial_of_service_with_induction_variable_overflow/VulnerableSimpleAirdrop.sol",
+    "kind": "benchmark-derived",
+    "license": "BSL-1.0 (Boost Software License 1.0)",
+    "license_url": "https://github.com/serial-coder/solidity-security-by-example/blob/f2c617837d9c23165c72c56929e4d3793ec020e3/11_denial_of_service_with_induction_variable_overflow/VulnerableSimpleAirdrop.sol",
+    "path": "11_denial_of_service_with_induction_variable_overflow/VulnerableSimpleAirdrop.sol",
+    "pragma": [
+      "0.6.12"
+    ],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/serial-coder/solidity-security-by-example",
+    "revision": "f2c617837d9c23165c72c56929e4d3793ec020e3",
+    "sha256": "363dad11ee07ea4a9c37801a86757c72ac46c1a15e26445adf01dde3f4633d07"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [],
+      "status": "compiled"
+    },
+    "family": "serial",
+    "group": "serial:01_integer_underflow/FixedEtherVault.sol",
+    "id": "serial:12_amplification_attack__double_spending_01/Dependencies.sol",
+    "kind": "benchmark-derived",
+    "license": "BSL-1.0 (Boost Software License 1.0)",
+    "license_url": "https://github.com/serial-coder/solidity-security-by-example/blob/f2c617837d9c23165c72c56929e4d3793ec020e3/12_amplification_attack__double_spending_01/Dependencies.sol",
+    "path": "12_amplification_attack__double_spending_01/Dependencies.sol",
+    "pragma": [
+      "0.8.20"
+    ],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/serial-coder/solidity-security-by-example",
+    "revision": "f2c617837d9c23165c72c56929e4d3793ec020e3",
+    "sha256": "266618689f87aa555936cdcf963d3570b77e4f360bdcc791a00ac99b632c6cb2"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [],
+      "status": "compiled"
+    },
+    "family": "serial",
+    "group": "serial:01_integer_underflow/FixedEtherVault.sol",
+    "id": "serial:13_double_spending_02/FixedNaiveBank.sol",
+    "kind": "benchmark-derived",
+    "license": "BSL-1.0 (Boost Software License 1.0)",
+    "license_url": "https://github.com/serial-coder/solidity-security-by-example/blob/f2c617837d9c23165c72c56929e4d3793ec020e3/13_double_spending_02/FixedNaiveBank.sol",
+    "path": "13_double_spending_02/FixedNaiveBank.sol",
+    "pragma": [
+      "0.8.20"
+    ],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/serial-coder/solidity-security-by-example",
+    "revision": "f2c617837d9c23165c72c56929e4d3793ec020e3",
+    "sha256": "41dcdc48e91c0b108a8e8af64b406a06e30239d8f14a7bdf074d0e0aede132a4"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [],
+      "status": "compiled"
+    },
+    "family": "serial",
+    "group": "serial:01_integer_underflow/FixedEtherVault.sol",
+    "id": "serial:13_double_spending_02/InsecureNaiveBank.sol",
+    "kind": "benchmark-derived",
+    "license": "BSL-1.0 (Boost Software License 1.0)",
+    "license_url": "https://github.com/serial-coder/solidity-security-by-example/blob/f2c617837d9c23165c72c56929e4d3793ec020e3/13_double_spending_02/InsecureNaiveBank.sol",
+    "path": "13_double_spending_02/InsecureNaiveBank.sol",
+    "pragma": [
+      "0.8.20"
+    ],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/serial-coder/solidity-security-by-example",
+    "revision": "f2c617837d9c23165c72c56929e4d3793ec020e3",
+    "sha256": "278e7c4fb0947753678d81f76add6714fc2f7175d3756b3dc3b926e117f1ea0b"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [],
+      "status": "compiled"
+    },
+    "family": "compound-timelock",
+    "group": "openzeppelin:contracts/mocks/compound/CompTimelock.sol",
+    "id": "openzeppelin:contracts/mocks/compound/CompTimelock.sol",
+    "kind": "benchmark-derived",
+    "license": "BSD-3-Clause",
+    "license_url": "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/dc44c9f1a4c3b10af99492eed84f83ed244203f6/contracts/mocks/compound/CompTimelock.sol",
+    "path": "contracts/mocks/compound/CompTimelock.sol",
+    "pragma": [
+      "^0.8.0"
+    ],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/OpenZeppelin/openzeppelin-contracts",
+    "revision": "dc44c9f1a4c3b10af99492eed84f83ed244203f6",
+    "sha256": "3ed36bcc1e255da8a7fe84a758d5f2a580ef88e07db62925a8db369d9104aabb"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [
+        "ParserError: Source \"TransparentUpgradeableProxy.sol\" not found: File import callback not supported\n --> Input.sol:6:1:\n  |\n6 | import \"./TransparentUpgradeableProxy.sol\";\n  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n",
+        "ParserError: Source \"access/Ownable.sol\" not found: File import callback not supported\n --> Input.sol:7:1:\n  |\n7 | import \"../../access/Ownable.sol\";\n  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n"
+      ],
+      "status": "compilation_error"
+    },
+    "family": "openzeppelin",
+    "group": "openzeppelin:contracts/proxy/transparent/ProxyAdmin.sol",
+    "id": "openzeppelin:contracts/proxy/transparent/ProxyAdmin.sol",
+    "kind": "real-world",
+    "license": "MIT",
+    "license_url": "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/dc44c9f1a4c3b10af99492eed84f83ed244203f6/contracts/proxy/transparent/ProxyAdmin.sol",
+    "path": "contracts/proxy/transparent/ProxyAdmin.sol",
+    "pragma": [
+      "^0.8.0"
+    ],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/OpenZeppelin/openzeppelin-contracts",
+    "revision": "dc44c9f1a4c3b10af99492eed84f83ed244203f6",
+    "sha256": "e1f18ca464715b24fa20b49ca2b75aff9084a96bd7e726ace63097270719433b"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [],
+      "status": "compiled"
+    },
+    "family": "openzeppelin",
+    "group": "openzeppelin:contracts/proxy/transparent/ProxyAdmin.sol",
+    "id": "openzeppelin:contracts/utils/Address.sol",
+    "kind": "real-world",
+    "license": "MIT",
+    "license_url": "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/dc44c9f1a4c3b10af99492eed84f83ed244203f6/contracts/utils/Address.sol",
+    "path": "contracts/utils/Address.sol",
+    "pragma": [
+      "^0.8.1"
+    ],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/OpenZeppelin/openzeppelin-contracts",
+    "revision": "dc44c9f1a4c3b10af99492eed84f83ed244203f6",
+    "sha256": "8b85a2463eda119c2f42c34fa3d942b61aee65df381f48ed436fe8edb3a7d602"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [
+        "ParserError: Source file requires different compiler version (current compiler is 0.8.20+commit.a1b79de6.Emscripten.clang) - note that nightly builds are considered to be strictly less than the released version\n --> Input.sol:2:1:\n  |\n2 | pragma solidity 0.8.12;\n  | ^^^^^^^^^^^^^^^^^^^^^^^\n\n"
+      ],
+      "status": "compilation_error"
+    },
+    "family": "multicall",
+    "group": "multicall:src/Multicall.sol",
+    "id": "multicall:src/Multicall.sol",
+    "kind": "real-world",
+    "license": "MIT",
+    "license_url": "https://github.com/mds1/multicall/blob/b667d67ecfa5361a81e8f110234ce242613b0012/src/Multicall.sol",
+    "path": "src/Multicall.sol",
+    "pragma": [
+      "0.8.12"
+    ],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/mds1/multicall",
+    "revision": "b667d67ecfa5361a81e8f110234ce242613b0012",
+    "sha256": "684999ab2305bd68ad0b005902b845a4be19e06f4b98dba5569e3c38a02810f0"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [
+        "ParserError: Source file requires different compiler version (current compiler is 0.8.20+commit.a1b79de6.Emscripten.clang) - note that nightly builds are considered to be strictly less than the released version\n --> Input.sol:2:1:\n  |\n2 | pragma solidity 0.8.12;\n  | ^^^^^^^^^^^^^^^^^^^^^^^\n\n"
+      ],
+      "status": "compilation_error"
+    },
+    "family": "multicall",
+    "group": "multicall:src/Multicall.sol",
+    "id": "multicall:src/Multicall2.sol",
+    "kind": "real-world",
+    "license": "MIT",
+    "license_url": "https://github.com/mds1/multicall/blob/b667d67ecfa5361a81e8f110234ce242613b0012/src/Multicall2.sol",
+    "path": "src/Multicall2.sol",
+    "pragma": [
+      "0.8.12"
+    ],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/mds1/multicall",
+    "revision": "b667d67ecfa5361a81e8f110234ce242613b0012",
+    "sha256": "2ca0e5149e63e02def2bc42be9c0dd8fd1c67ae42f271c446cfc673c8228a87e"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [
+        "ParserError: Source file requires different compiler version (current compiler is 0.8.20+commit.a1b79de6.Emscripten.clang) - note that nightly builds are considered to be strictly less than the released version\n --> Input.sol:2:1:\n  |\n2 | pragma solidity 0.8.12;\n  | ^^^^^^^^^^^^^^^^^^^^^^^\n\n"
+      ],
+      "status": "compilation_error"
+    },
+    "family": "multicall",
+    "group": "multicall:src/Multicall.sol",
+    "id": "multicall:src/Multicall3.sol",
+    "kind": "real-world",
+    "license": "MIT",
+    "license_url": "https://github.com/mds1/multicall/blob/b667d67ecfa5361a81e8f110234ce242613b0012/src/Multicall3.sol",
+    "path": "src/Multicall3.sol",
+    "pragma": [
+      "0.8.12"
+    ],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/mds1/multicall",
+    "revision": "b667d67ecfa5361a81e8f110234ce242613b0012",
+    "sha256": "2054218939d3fa0f52f8ce1a33658d570a550671f63197356ee5744f7e188b1e"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [
+        "ParserError: Source file requires different compiler version (current compiler is 0.8.20+commit.a1b79de6.Emscripten.clang) - note that nightly builds are considered to be strictly less than the released version\n --> Input.sol:2:1:\n  |\n2 | pragma solidity 0.8.12;\n  | ^^^^^^^^^^^^^^^^^^^^^^^\n\n"
+      ],
+      "status": "compilation_error"
+    },
+    "family": "multicall",
+    "group": "multicall:src/Multicall.sol",
+    "id": "multicall:src/test/mocks/MockCallee.sol",
+    "kind": "real-world",
+    "license": "MIT",
+    "license_url": "https://github.com/mds1/multicall/blob/b667d67ecfa5361a81e8f110234ce242613b0012/src/test/mocks/MockCallee.sol",
+    "path": "src/test/mocks/MockCallee.sol",
+    "pragma": [
+      "0.8.12"
+    ],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/mds1/multicall",
+    "revision": "b667d67ecfa5361a81e8f110234ce242613b0012",
+    "sha256": "c36a1a6de78b1c6e1ba923f74316e6d8bfceef66230e7ce6547bc6434abd96da"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [
+        "ParserError: Source \"common/SelfAuthorized.sol\" not found: File import callback not supported\n --> Input.sol:4:1:\n  |\n4 | import \"../common/SelfAuthorized.sol\";\n  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n"
+      ],
+      "status": "compilation_error"
+    },
+    "family": "safe",
+    "group": "safe:contracts/base/FallbackManager.sol",
+    "id": "safe:contracts/base/FallbackManager.sol",
+    "kind": "real-world",
+    "license": "LGPL-3.0-only",
+    "license_url": "https://github.com/safe-global/safe-smart-account/blob/bf943f80fec5ac647159d26161446ac5d716a294/contracts/base/FallbackManager.sol",
+    "path": "contracts/base/FallbackManager.sol",
+    "pragma": [
+      ">=0.7.0 <0.9.0"
+    ],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/safe-global/safe-smart-account",
+    "revision": "bf943f80fec5ac647159d26161446ac5d716a294",
+    "sha256": "209c67c9557153f2ff6f9d0a82f0c570e5eec5c2bef7735f69a1c60e8aa4058b"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [
+        "ParserError: Source \"Bytes32AddressLib.sol\" not found: File import callback not supported\n --> Input.sol:4:1:\n  |\n4 | import {Bytes32AddressLib} from \"./Bytes32AddressLib.sol\";\n  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n"
+      ],
+      "status": "compilation_error"
+    },
+    "family": "solmate",
+    "group": "solmate:src/utils/CREATE3.sol",
+    "id": "solmate:src/utils/CREATE3.sol",
+    "kind": "real-world",
+    "license": "AGPL-3.0-only",
+    "license_url": "https://github.com/transmissions11/solmate/blob/89365b880c4f3c786bdd453d4b8e8fe410344a69/src/utils/CREATE3.sol",
+    "path": "src/utils/CREATE3.sol",
+    "pragma": [
+      ">=0.8.0"
+    ],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/transmissions11/solmate",
+    "revision": "89365b880c4f3c786bdd453d4b8e8fe410344a69",
+    "sha256": "0eff8e4b9ef607a8d82422fe9796517782e2b1b98ff9ad4386e899e0af363685"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [
+        "ParserError: Source file requires different compiler version (current compiler is 0.8.20+commit.a1b79de6.Emscripten.clang) - note that nightly builds are considered to be strictly less than the released version\n --> Input.sol:2:1:\n  |\n2 | pragma solidity =0.7.6;\n  | ^^^^^^^^^^^^^^^^^^^^^^^\n\n"
+      ],
+      "status": "compilation_error"
+    },
+    "family": "uniswap",
+    "group": "uniswap:contracts/base/Multicall.sol",
+    "id": "uniswap:contracts/base/Multicall.sol",
+    "kind": "real-world",
+    "license": "GPL-2.0-or-later",
+    "license_url": "https://github.com/Uniswap/v3-periphery/blob/0682387198a24c7cd63566a2c58398533860a5d1/contracts/base/Multicall.sol",
+    "path": "contracts/base/Multicall.sol",
+    "pragma": [
+      "=0.7.6"
+    ],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/Uniswap/v3-periphery",
+    "revision": "0682387198a24c7cd63566a2c58398533860a5d1",
+    "sha256": "029ad0bcade48ff32da51094a3fb245fd7d8324c4fb4dd20fb4b2614efc9618c"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [
+        "ParserError: Source file requires different compiler version (current compiler is 0.8.20+commit.a1b79de6.Emscripten.clang) - note that nightly builds are considered to be strictly less than the released version\n --> Input.sol:2:1:\n  |\n2 | pragma solidity =0.7.6;\n  | ^^^^^^^^^^^^^^^^^^^^^^^\n\n"
+      ],
+      "status": "compilation_error"
+    },
+    "family": "uniswap",
+    "group": "uniswap:contracts/base/Multicall.sol",
+    "id": "uniswap:contracts/lens/UniswapInterfaceMulticall.sol",
+    "kind": "real-world",
+    "license": "MIT",
+    "license_url": "https://github.com/Uniswap/v3-periphery/blob/0682387198a24c7cd63566a2c58398533860a5d1/contracts/lens/UniswapInterfaceMulticall.sol",
+    "path": "contracts/lens/UniswapInterfaceMulticall.sol",
+    "pragma": [
+      "=0.7.6"
+    ],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/Uniswap/v3-periphery",
+    "revision": "0682387198a24c7cd63566a2c58398533860a5d1",
+    "sha256": "18bb725250fd66e1cb1ee08e9d8aca4b19346ee232ee1266d883e0508c51cdc1"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [
+        "ParserError: Source \"@openzeppelin/contracts/token/ERC20/IERC20.sol\" not found: File import callback not supported\n --> Input.sol:4:1:\n  |\n4 | import '@openzeppelin/contracts/token/ERC20/IERC20.sol';\n  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n"
+      ],
+      "status": "compilation_error"
+    },
+    "family": "uniswap",
+    "group": "uniswap:contracts/base/Multicall.sol",
+    "id": "uniswap:contracts/libraries/TransferHelper.sol",
+    "kind": "real-world",
+    "license": "GPL-2.0-or-later",
+    "license_url": "https://github.com/Uniswap/v3-periphery/blob/0682387198a24c7cd63566a2c58398533860a5d1/contracts/libraries/TransferHelper.sol",
+    "path": "contracts/libraries/TransferHelper.sol",
+    "pragma": [
+      ">=0.6.0"
+    ],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/Uniswap/v3-periphery",
+    "revision": "0682387198a24c7cd63566a2c58398533860a5d1",
+    "sha256": "7d02f695d41542209c5aa2b18b4041b53412e494491b3c44a361828261c366fd"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [
+        "ParserError: Expected '{' but got 'constant'\n --> Input.sol:9:20:\n  |\n9 |     function bar() constant returns(uint) {\n  |                    ^^^^^^^^\n\n"
+      ],
+      "status": "compilation_error"
+    },
+    "family": "examples",
+    "group": "examples:call-dynamic.sol",
+    "id": "examples:call-dynamic.sol",
+    "kind": "benchmark-derived",
+    "license": "unknown",
+    "license_url": null,
+    "path": "call-dynamic.sol",
+    "pragma": [],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/raineorshine/solidity-by-example",
+    "revision": "65d707aa2bd9171a02f97f8d0c859daf51f6bee4",
+    "sha256": "0ccadba48eb06665c2129e8d8eba69f3bebd363696c17f3fe26d8f7e9592a3cd"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [
+        "ParserError: Expected a state variable declaration. If you intended this as a fallback function or a function to handle plain ether transactions, use the \"fallback\" keyword or the \"receive\" keyword instead.\n  --> Input.sol:33:16:\n   |\n33 |     function() {\n   |                ^\n\n"
+      ],
+      "status": "compilation_error"
+    },
+    "family": "examples",
+    "group": "examples:call-dynamic.sol",
+    "id": "examples:reentry-attack.sol",
+    "kind": "benchmark-derived",
+    "license": "unknown",
+    "license_url": null,
+    "path": "reentry-attack.sol",
+    "pragma": [],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/raineorshine/solidity-by-example",
+    "revision": "65d707aa2bd9171a02f97f8d0c859daf51f6bee4",
+    "sha256": "8f5f8efdb0c7e865b5eae64c0c126930db1b656a916874207ea1ad8db5411a50"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [
+        "SyntaxError: No visibility specified. Did you intend to add \"public\"?\n --> Input.sol:5:5:\n  |\n5 |     function foo() {\n  |     ^ (Relevant source part starts here and spans across multiple lines).\n\n",
+        "SyntaxError: \"throw\" is deprecated in favour of \"revert()\", \"require()\" and \"assert()\".\n  --> Input.sol:18:38:\n   |\n18 |         if(!a.call.value(1 ether)()) throw;\n   |                                      ^^^^^\n\n",
+        "TypeError: Type int_const 291 is not implicitly convertible to expected type address.\n --> Input.sol:3:17:\n  |\n3 |     address a = 0x123;\n  |                 ^^^^^\n\n",
+        "TypeError: \"send\" and \"transfer\" are only available for objects of type \"address payable\", not \"address\".\n --> Input.sol:9:9:\n  |\n9 |         a.send(1 ether);\n  |         ^^^^^^\n\n"
+      ],
+      "status": "compilation_error"
+    },
+    "family": "examples",
+    "group": "examples:call-dynamic.sol",
+    "id": "examples:send-eth.sol",
+    "kind": "benchmark-derived",
+    "license": "unknown",
+    "license_url": null,
+    "path": "send-eth.sol",
+    "pragma": [],
+    "redistribution": "not redistributed; fetch upstream with its notices",
+    "repository": "https://github.com/raineorshine/solidity-by-example",
+    "revision": "65d707aa2bd9171a02f97f8d0c859daf51f6bee4",
+    "sha256": "4a899de22667ee0065adb94bcd16d24864b7456ca92eaecea7dcb4b7d332eee5"
+  },
+  {
+    "compilation": {
+      "compiler": "0.8.20+commit.a1b79de6",
+      "errors": [],
+      "status": "compiled"
+    },
+    "family": "controlled-handling-suite",
+    "group": "controlled:Handling.sol",
+    "id": "controlled:Handling.sol",
+    "kind": "controlled",
+    "license": "MIT",
+    "license_url": "ml/datasets/modern/controlled/LICENSE",
+    "path": "ml/datasets/modern/controlled/Handling.sol",
+    "pragma": [
+      "^0.8.20"
+    ],
+    "redistribution": "committed with MIT license; purpose-built controlled fixture",
+    "repository": "https://github.com/adityas7999/SmartShield",
+    "revision": "content-sha256:dad97c87da3297262d9cbe3f9a03602180de033ea212f567d0027a747505bdf7",
+    "sha256": "dad97c87da3297262d9cbe3f9a03602180de033ea212f567d0027a747505bdf7"
+  }
+]

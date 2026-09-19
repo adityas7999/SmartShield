@@ -61,3 +61,35 @@ single-file backend. Do not flatten or silently rewrite them to inflate counts.
 Next: publish this frozen dataset/protocol checkpoint, then run models and final
 test once. Complete notebook, confidence/error analysis, regression and CI gates.
 CLI push cannot authenticate; connector publication is used without force pushes.
+
+## Executed comparison
+
+Frozen dataset checkpoint: `a6aaf94f0ed8439bf0824e7fb06e8be28f226611`.
+Final fixed test evaluation completed. Logistic/HGB/C++ each have confusion matrix
+[[2,0],[0,2]] on four operations from one benchmark family; dummy [[0,2],[0,2]].
+Validation preferred HGB (3 leaves, leaf minimum 2, threshold 0.5), but it has no
+held-out advantage over logistic or C++. No real-world test operations; no
+family-bootstrap interval is estimable from one family. Integration rejected.
+
+First evaluation hit a NumPy-int JSON serialization error while saving results;
+converted counts to native ints and repeated the identical fixed evaluation.
+No splits, features, thresholds, model settings or labels changed after test.
+
+Local: 22 ML tests passed, 88 backend tests passed, 5 CTest suites passed, corpus
+10/10 and metadata 13 tests passed, frontend build passed. Live integration's
+hard-coded same-line sample assumption was stale after main reformatted Multi;
+tests now explicitly compact this fixture to line 3 and retain shared-line checks.
+Live integration then passed both tests. Notebook kernel startup is blocked by
+network-interface enumeration permissions; socket-free full reproduction is
+running, with normal kernel reproduction configured in CI. Browser fallback and
+remaining documentation/PR/CI verification are next. Do not retrain to improve test.
+
+Both historical and modern socket-free notebook reproductions passed, including
+exact audit, split, selection, metrics and error comparisons. Historical generated
+artifacts were restored to their original bytes after timing-only reproduction.
+All 22 ML tests pass without the physical-core warning with LOKY_MAX_CPU_COUNT=1.
+
+Final local browser run: 4/4 passed (Chromium 133.0.6943.0, desktop/mobile).
+Implementation, dataset, results, notebook and local verification are complete.
+Next: publish implementation, open PR against main, inspect all CI steps and record
+final-head result. No merge and no product ML artifact.

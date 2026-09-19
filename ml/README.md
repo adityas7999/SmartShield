@@ -1,3 +1,8 @@
+# ML experiments
+
+The [modern UEC dataset and logistic/HGB comparison](modern/README.md) is separate
+from the preserved historical pilot below. The modern integration gate also fails.
+
 # First ML experiment: no product integration
 
 The integration gate **failed**. All 493 unchanged candidate contracts fail the

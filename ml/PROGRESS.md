@@ -1,95 +1,83 @@
-# Modern UEC experiment checkpoint
+# Modern UEC experiment checkpoint — complete
 
 Branch: `feat/modern-uec-gradient-boosting`.
-Base: `7db3ce7d213dc56bf6c8fef777084b2c555a882e` (merged PR #10).
-Current checkpoint: the commit containing this file; inspect `git log -1` and
-`git status` before resuming. No new branch or experiment restart is needed.
+PR: https://github.com/adityas7999/SmartShield/pull/11 (open against main; not merged).
+Base main: `7db3ce7d213dc56bf6c8fef777084b2c555a882e` (merged PR #10).
+Implementation commit: `b05df5462fcc212ca2a25c2107b6b80c635594fe`.
+The containing documentation commit is the current `git log -1 --format=%H`;
+check `git status` and the PR's head/checks before resuming.
 
-## Completed
+## Completed checkpoints
 
-- Inspected merged feature extraction, labels, baseline, backend and CI.
-- Confirmed the product uses a single source with pinned solc 0.8.20 and no import resolver.
-- Created and published the named feature branch from the exact main commit.
-- Preserved the historical experiment and its rejected integration decision.
+1. `2d741f0692a04c3c565a1f158c313b8c0d79ca17`: inventory/recovery checkpoint.
+2. `a6aaf94f0ed8439bf0824e7fb06e8be28f226611`: licensed source audit, reviewed
+   labels, conservative family groups, deterministic split and protocol frozen
+   before model fitting. Exact input and v1 feature hashes are committed.
+3. `b05df5462fcc212ca2a25c2107b6b80c635594fe`: model comparison, executed notebook,
+   results/error analysis, gate rejection, focused tests and local verification.
+4. This documentation checkpoint records successful implementation CI and PR #11.
 
-## Current work and next action
+CLI push lacked credentials. Connector publication preserved the exact file trees
+and milestone parent order, with non-forced ref updates. Local duplicate commits
+were reconciled with their published equivalents. No main push or automatic merge.
 
-Audit modern public sources, immutable pins and licenses. Review exact operations
-before splitting or fitting models. All downloaded upstream sources stay in
-`.tools/modern-data/`, outside Git. Related tutorials/copies count as one family.
-No model has been fit; no validation or test predictions have been examined.
+## Dataset and experiment result
 
-## Protocol constraints
+- Eleven upstream repositories, explicit scopes/pins/licenses: 100 external files
+  plus one MIT controlled suite. Raw sources are ignored, fetched reproducibly.
+- 44/101 compile unchanged through actual single-file solc 0.8.20 backend;
+  57 compilation exclusions (16 import-diagnostic cases, 41 version/syntax cases).
+- 78 reviewed operations: 36 negative, 18 positive, 17 unsupported, 7 unknown.
+  One binary tuple assignment also has unsupported v1 features. No independent
+  human label approval is claimed.
+- Eleven audit groups, only five eligible families: four external plus controlled.
+  SBE/Ethernaut lineage stays together; all controlled functions stay in training.
+  No acceptance fixtures in independent evaluation. Forty reliable families and
+  twenty held-out families were not reached; limitations are explicit.
+- Eligible train: 16 / 2 families (8 positive, 8 negative). Validation: 33 / 2
+  families (8 positive, 25 negative). Test: 4 / 1 family (2 positive, 2 negative).
+  Test is benchmark-derived; real-world and controlled test denominators are zero.
+- Dummy confusion matrix [[0,2],[0,2]]. Logistic, HGB and completed C++ each
+  [[2,0],[0,2]]. No HGB test advantage over logistic, no extra correct predictions
+  beyond C++. C++ statuses: completed 4, unsupported 0, failed 0.
+- Validation chose HGB (3 leaves, minimum 2, threshold 0.5); no selection changed
+  after test. No family-bootstrap interval can be estimated from one test family.
+- Integration FAILS. No serialized model, production API/schema/detector change or
+  ML frontend panel. Historical PR #10 inputs/results remain intact.
 
-Task UEC-operation-v1 only. Unknown/unsupported labels are excluded from binary
-metrics. Exact byte spans and hashes bind labels. Freeze family groups and a
-deterministic train/validation/test split before model selection. Controlled
-fixtures supplement training/coverage and never count as real-world test evidence.
-Reuse the v1 typed AST feature schema unchanged initially; do not change it after
-test evaluation. Compare dummy, fixed logistic, and HistGradientBoosting only.
-Small explicit validation-only selection. Gate requires >=20 held-out families,
-both classes, uncertainty and incremental-value evidence; otherwise no model
-artifact or product API/UI changes.
+## Verification
 
-## Verification / blockers
+Implementation CI: https://github.com/adityas7999/SmartShield/actions/runs/35462783411
+Job `105949521153`: every step successful on implementation head `b05df546`;
+GitHub tested merge ref `d6093613b235491c5cb3839adbf9ffb5df3c3936`.
+CI artifact: https://github.com/adityas7999/SmartShield/actions/runs/35462783411/artifacts/10590097279
+The PR records the final documentation head's CI result; no code changed after
+this verified implementation.
 
-Dependencies and source collection in progress. No new test results yet.
-Main restriction: unchanged imported production files cannot pass the current
-single-file backend. Do not flatten or silently rewrite them to inflate counts.
+Local and CI: C++ build + 5 CTest suites/all 71 acceptance fixtures; 13 corpus
+metadata checks; 10/10 corpus compilation and 37 locations; 88 backend tests;
+22 ML tests; 5 frontend component tests; production build; 2 live integration
+tests; 4 desktop/mobile browser tests. Historical and modern audits, notebook
+cells and deterministic results reproduced. Normal Jupyter kernels passed in CI.
 
-## Dataset checkpoint (before fitting)
+Local kernel interface enumeration was blocked; socket-free reproduction passed.
+Local Playwright download/unpacking failed; Chromium 133 from npm was unpacked
+under the workspace and all four browser tests passed after removing its
+single-process flag. CI used normal pinned Playwright Chromium. Full commands,
+versions, recovered failures and limitations: `ml/modern/VERIFICATION.md`.
 
-- Audited 11 pinned upstream repositories in documented scopes: 100 external
-  candidate files plus one controlled suite. Every actual typed operation has a
-  review/exclusion record; raw sources stay ignored. No independent human review.
-- Frozen source, label, family and split hashes in `ml/datasets/modern/frozen.json`.
-  Family stratification is explicit in `ml/modern/PROTOCOL.md`; do not resplit.
-- 78 operations: 36 negative, 18 positive, 17 unsupported, 7 unknown.
-  One binary tuple-assignment example is outside v1 feature coverage.
-- Eligible: training 16 / 2 families (8 positive, 8 negative), validation 33 /
-  2 families (8 positive, 25 negative), test 4 / 1 family (2 positive, 2 negative).
-  These denominators cannot satisfy the required 20-family integration gate.
-- SBE/Ethernaut ancestry is deliberately one family. All controlled functions
-  are one training family. No test-set predictions have been observed.
-- Before fitting, corrected pragma audit to ignore commented-out directives and
-  corrected source-license links. Verified these metadata fixes did not change
-  the deterministic split. No source bytes or labels changed.
-- Pre-existing main regression: Multi.sol checked its only low-level result but
-  the manifest still expected UEC. Preserved that guard and added a separate
-  intentionally unchecked notification call to restore four-rule acceptance.
+Preserved main's checked withdrawal in Multi.sol and added a separate deliberately
+unchecked notification to restore its documented four-rule regression. Live/browser
+checks now deliberately compact that fixture for same-line navigation coverage.
+Initial final-evaluation JSON serialization failed on NumPy integers; corrected
+count serialization and repeated the unchanged protocol. No test-driven tuning.
 
-Next: publish this frozen dataset/protocol checkpoint, then run models and final
-test once. Complete notebook, confidence/error analysis, regression and CI gates.
-CLI push cannot authenticate; connector publication is used without force pushes.
+## Next action
 
-## Executed comparison
-
-Frozen dataset checkpoint: `a6aaf94f0ed8439bf0824e7fb06e8be28f226611`.
-Final fixed test evaluation completed. Logistic/HGB/C++ each have confusion matrix
-[[2,0],[0,2]] on four operations from one benchmark family; dummy [[0,2],[0,2]].
-Validation preferred HGB (3 leaves, leaf minimum 2, threshold 0.5), but it has no
-held-out advantage over logistic or C++. No real-world test operations; no
-family-bootstrap interval is estimable from one family. Integration rejected.
-
-First evaluation hit a NumPy-int JSON serialization error while saving results;
-converted counts to native ints and repeated the identical fixed evaluation.
-No splits, features, thresholds, model settings or labels changed after test.
-
-Local: 22 ML tests passed, 88 backend tests passed, 5 CTest suites passed, corpus
-10/10 and metadata 13 tests passed, frontend build passed. Live integration's
-hard-coded same-line sample assumption was stale after main reformatted Multi;
-tests now explicitly compact this fixture to line 3 and retain shared-line checks.
-Live integration then passed both tests. Notebook kernel startup is blocked by
-network-interface enumeration permissions; socket-free full reproduction is
-running, with normal kernel reproduction configured in CI. Browser fallback and
-remaining documentation/PR/CI verification are next. Do not retrain to improve test.
-
-Both historical and modern socket-free notebook reproductions passed, including
-exact audit, split, selection, metrics and error comparisons. Historical generated
-artifacts were restored to their original bytes after timing-only reproduction.
-All 22 ML tests pass without the physical-core warning with LOKY_MAX_CPU_COUNT=1.
-
-Final local browser run: 4/4 passed (Chromium 133.0.6943.0, desktop/mobile).
-Implementation, dataset, results, notebook and local verification are complete.
-Next: publish implementation, open PR against main, inspect all CI steps and record
-final-head result. No merge and no product ML artifact.
+Review PR #11; do not merge automatically. There is no unfinished implementation
+step. Do not restart or resplit this experiment to improve its score. Use
+`python -m ml.modern.dataset fetch` then `python -m ml.modern.verify --kernel`
+for exact reproduction (omit --kernel only for the documented local restriction).
+Any broader dataset or feature experiment needs a separately frozen protocol and
+new untouched family evidence. The current small benchmark cannot justify a
+product predictor.

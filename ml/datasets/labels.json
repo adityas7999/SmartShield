@@ -1,0 +1,182 @@
+[
+  {
+    "source_id": "smartbugs/dataset/unchecked_low_level_calls/unchecked_return_value.sol",
+    "line": 12,
+    "operation": "call",
+    "label": "verified_negative",
+    "rationale": "require directly consumes the success bool and reverts on false.",
+    "sha256": "ac992f26a8a567c74fe30e0f48d0c421d3f483ff431f6672a6dae5dd6c9e168d",
+    "review": "Executing engineer source inspection; no independent human approval"
+  },
+  {
+    "source_id": "smartbugs/dataset/unchecked_low_level_calls/unchecked_return_value.sol",
+    "line": 17,
+    "operation": "call",
+    "label": "positive",
+    "rationale": "Standalone call expression discards success.",
+    "sha256": "ac992f26a8a567c74fe30e0f48d0c421d3f483ff431f6672a6dae5dd6c9e168d",
+    "review": "Executing engineer source inspection; no independent human approval"
+  },
+  {
+    "source_id": "smartbugs/dataset/access_control/FibonacciBalance.sol",
+    "line": 31,
+    "operation": "delegatecall",
+    "label": "verified_negative",
+    "rationale": "require directly consumes delegatecall success; other access-control risks do not change this target label.",
+    "sha256": "784009c0758940079bd3a7402a3acdf60e3a9a659012e19b0aa21dbc9c0a35ab",
+    "review": "Executing engineer source inspection; no independent human approval"
+  },
+  {
+    "source_id": "smartbugs/dataset/access_control/FibonacciBalance.sol",
+    "line": 38,
+    "operation": "delegatecall",
+    "label": "verified_negative",
+    "rationale": "Fallback requires delegatecall success.",
+    "sha256": "784009c0758940079bd3a7402a3acdf60e3a9a659012e19b0aa21dbc9c0a35ab",
+    "review": "Executing engineer source inspection; no independent human approval"
+  },
+  {
+    "source_id": "smartbugs/dataset/access_control/proxy.sol",
+    "line": 19,
+    "operation": "delegatecall",
+    "label": "verified_negative",
+    "rationale": "require propagates failure. Untrusted delegate target is a different vulnerability.",
+    "sha256": "3016dcfca8050200ae9e64d9bfced9bfb6cb106268c10d714aa13d386c1d1e11",
+    "review": "Executing engineer source inspection; no independent human approval"
+  },
+  {
+    "source_id": "smartbugs/dataset/reentrancy/etherbank.sol",
+    "line": 21,
+    "operation": "call",
+    "label": "verified_negative",
+    "rationale": "Negated success condition throws on failure.",
+    "sha256": "63d14a7dd1a1f2f6f5cdc04be0c509606012af3742dff18a671519c56a63ec36",
+    "review": "Executing engineer source inspection; no independent human approval"
+  },
+  {
+    "source_id": "smartbugs/dataset/reentrancy/etherstore.sol",
+    "line": 27,
+    "operation": "call",
+    "label": "verified_negative",
+    "rationale": "require directly consumes success even though later balance write can create a reentrancy pattern.",
+    "sha256": "bffe7255c351724c3ab15f6c4c4909a3d756650791360e86cf2f71c48046aa79",
+    "review": "Executing engineer source inspection; no independent human approval"
+  },
+  {
+    "source_id": "smartbugs/dataset/reentrancy/reentrancy_simple.sol",
+    "line": 24,
+    "operation": "call",
+    "label": "verified_negative",
+    "rationale": "Negated success condition throws; balance write is after the handled call.",
+    "sha256": "98b4c8b45c2e6711b1c58fb6991375f698a66f148799ca7aff6e27db8a9803e1",
+    "review": "Executing engineer source inspection; no independent human approval"
+  },
+  {
+    "source_id": "smartbugs/dataset/reentrancy/reentrancy_dao.sol",
+    "line": 18,
+    "operation": "call",
+    "label": "verified_negative",
+    "rationale": "Assigned callResult is required in the next statement before the balance write.",
+    "sha256": "e507ae792671a38307734b38b8d35abf062a7e78889e0178f8647838a2527dd2",
+    "review": "Executing engineer source inspection; no independent human approval"
+  },
+  {
+    "source_id": "smartbugs/dataset/reentrancy/simple_dao.sol",
+    "line": 19,
+    "operation": "call",
+    "label": "positive",
+    "rationale": "Assigned res is never read; credit is then decremented regardless of call success.",
+    "sha256": "40ffea56c722280688eba923676992d20be7623dcf724393c1c7ca1ef24e0ae5",
+    "review": "Executing engineer source inspection; no independent human approval"
+  },
+  {
+    "source_id": "smartbugs/dataset/unchecked_low_level_calls/0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9.sol",
+    "line": 12,
+    "operation": "call",
+    "label": "positive",
+    "rationale": "Standalone address call discards success and function returns normally.",
+    "sha256": "25e13af95fecbc40ae362a331ffb65ad8c1ac284298e3b83bfe194cfb52d0386",
+    "review": "Executing engineer source inspection; no independent human approval"
+  },
+  {
+    "source_id": "smartbugs/dataset/unchecked_low_level_calls/0x524960d55174d912768678d8c606b4d50b79d7b1.sol",
+    "line": 21,
+    "operation": "call",
+    "label": "positive",
+    "rationale": "Register call result discarded before a second distinct call.",
+    "sha256": "d933f98498dd7690c0423e8c86b3e3ca7c328cb3820e371a83a3ddd38dd48167",
+    "review": "Executing engineer source inspection; no independent human approval"
+  },
+  {
+    "source_id": "smartbugs/dataset/unchecked_low_level_calls/0x524960d55174d912768678d8c606b4d50b79d7b1.sol",
+    "line": 22,
+    "operation": "call",
+    "label": "verified_negative",
+    "rationale": "Second call failure returns false; success reaches return true. First call is a separate positive.",
+    "sha256": "d933f98498dd7690c0423e8c86b3e3ca7c328cb3820e371a83a3ddd38dd48167",
+    "review": "Executing engineer source inspection; no independent human approval"
+  },
+  {
+    "source_id": "smartbugs/dataset/unchecked_low_level_calls/0xb7c5c5aa4d42967efe906e1b66cb8df9cebf04f7.sol",
+    "line": 25,
+    "operation": "call",
+    "label": "positive",
+    "rationale": "Standalone value call discards success before resetting balance.",
+    "sha256": "649cc3600798f83d8ed12f181472a4b95938996a001e72025e65b57606f3f969",
+    "review": "Executing engineer source inspection; no independent human approval"
+  },
+  {
+    "source_id": "smartbugs/dataset/unchecked_low_level_calls/0xb11b2fed6c9354f7aa2f658d3b4d7b31d8a13b77.sol",
+    "line": 14,
+    "operation": "call",
+    "label": "positive",
+    "rationale": "Proxy function discards value-call success; inherited deposit functions are separate.",
+    "sha256": "f4027fba48f15fe9ec3d553a1bb3092c9e7f0bea2279390a7ba72765f365d671",
+    "review": "Executing engineer source inspection; no independent human approval"
+  },
+  {
+    "source_id": "smartbugs/dataset/unchecked_low_level_calls/0xbaa3de6504690efb064420d89e871c27065cdd52.sol",
+    "line": 14,
+    "operation": "call",
+    "label": "positive",
+    "rationale": "Near-identical proxy variant discards success; must share a family with the DepositProxy variant.",
+    "sha256": "02d87a04b0f158f986ff1e6aca6e8ca0d57ee23f4efec3c6a5374e470e46ec95",
+    "review": "Executing engineer source inspection; no independent human approval"
+  },
+  {
+    "source_id": "smartbugs/dataset/unchecked_low_level_calls/0xf29ebe930a539a60279ace72c707cba851a57707.sol",
+    "line": 16,
+    "operation": "call",
+    "label": "positive",
+    "rationale": "Success discarded before transferring the remaining balance to owner.",
+    "sha256": "1711ebd83906cf6cbcaa54d58221c1ffc6547a1ca1a6e6666549a98e7917ea2b",
+    "review": "Executing engineer source inspection; no independent human approval"
+  },
+  {
+    "source_id": "smartbugs/dataset/unchecked_low_level_calls/0x52d2e0f9b01101a59b38a3d05c80b7618aeed984.sol",
+    "line": 27,
+    "operation": "call",
+    "label": "unsupported",
+    "rationale": "Call inside a for loop; loop-dependent reachability excluded from this pilot feature domain.",
+    "sha256": "1d9d1408bc11b4200d7b5aef545803da55645cae566cf6d3f8ba4ec5176625ea",
+    "review": "Executing engineer source inspection; no independent human approval"
+  },
+  {
+    "source_id": "smartbugs/dataset/unchecked_low_level_calls/mishandled.sol",
+    "line": 14,
+    "operation": "send",
+    "label": "unsupported",
+    "rationale": "send is in the broad benchmark class but outside the three selected low-level operations.",
+    "sha256": "bae5ad84f4a563ed911896ded0e7432c3202757b11bac4f1cb5949085d459d0e",
+    "review": "Executing engineer source inspection; no independent human approval"
+  },
+  {
+    "source_id": "smartbugs/dataset/access_control/parity_wallet_bug_1.sol",
+    "line": 448,
+    "operation": "delegatecall",
+    "label": "unknown",
+    "rationale": "Success returned to caller; cross-call handling not established by this review.",
+    "sha256": "ca6d797c809ab8f67d8833e1208a16d7f284307ed0418fdd29a171d0b6e7cec9",
+    "review": "Executing engineer source inspection; no independent human approval"
+  }
+]

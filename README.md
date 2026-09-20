@@ -17,7 +17,12 @@ is included in this MVP.
 
 ## Run locally
 
-Prerequisites: Node 22+, Python 3.12+, CMake 3.20+, and a C++20 compiler.
+Prerequisites: Node 22+, Python 3.12+ with the `venv` module, CMake 3.20+, and a C++20 compiler.
+
+The bootstrap checks for an existing Python installation and C++ compiler. On
+Windows, Python must be installed from python.org or the Microsoft Store with
+the `python` command enabled; the Windows `py` launcher alone is not enough if
+it has no registered Python runtime.
 
 For a clean setup on a fresh clone, use the project bootstrap script instead of a
 manual ad hoc install sequence:
@@ -43,7 +48,17 @@ cmake --build build/core --parallel 2
 python -m uvicorn app.main:app --app-dir backend --host 127.0.0.1 --port 8000
 ```
 
-In a second terminal: `npm run dev --prefix frontend`. Open http://127.0.0.1:5173.
+For one-command startup after bootstrap, use:
+
+```bash
+# Windows PowerShell
+./scripts/start-local.ps1
+
+# macOS/Linux
+./scripts/start-local.sh
+```
+
+The launcher starts the API and frontend together. Open http://127.0.0.1:5173.
 Select the multi-anomaly sample or paste a contract. The report includes filters,
 source/evidence navigation, JSON download and a print view of every finding.
 

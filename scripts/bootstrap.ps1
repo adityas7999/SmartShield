@@ -7,6 +7,31 @@ function Test-Command([string]$name) {
   return $null -ne (Get-Command $name -ErrorAction SilentlyContinue)
 }
 
+function Find-Python {
+  $candidates = @(
+    $env:SMARTSHIELD_PYTHON,
+    'python',
+    'python3'
+  ) | Where-Object { $_ }
+
+  foreach ($candidate in $candidates) {
+    $command = Get-Command $candidate -ErrorAction SilentlyContinue
+    if (-not $command) { continue }
+    try {
+      $version = & $command.Source -c 'import sys; print(sys.version_info[0], sys.version_info[1])' 2>$null
+      $parts = $version -split ' '
+      if ($parts.Count -ge 2 -and [int]$parts[0] -ge 3 -and [int]$parts[1] -ge 12) {
+        return $command.Source
+      }
+    }
+    catch {
+      continue
+    }
+  }
+
+  return $null
+}
+
 function Find-Toolchain {
   $candidates = @(
     @{ Generator = 'MinGW Makefiles'; Gcc = 'g++.exe'; Gxx = 'g++.exe' },
@@ -44,11 +69,31 @@ function Find-Toolchain {
 }
 
 Write-Host '==> Checking required tools...'
-$required = @('node', 'npm', 'python', 'cmake')
+$required = @('node', 'npm', 'cmake')
 foreach ($tool in $required) {
   if (-not (Test-Command $tool)) {
     throw "Required tool not found on PATH: $tool. Install Node.js, Python 3.12+, and CMake before running this bootstrap."
   }
+}
+
+$python = Find-Python
+if (-not $python) {
+  throw 'No usable Python 3.12+ runtime found. Install Python 3.12 or newer from https://www.python.org/downloads/ and enable Add Python to PATH, then run this script again.'
+}
+Write-Host "==> Detected Python: $python"
+
+Write-Host '==> Ensuring Python virtual environment...'
+if (Test-Path '.venv\Scripts\python.exe') {
+  $venvCheck = & '.\.venv\Scripts\python.exe' -c 'import sys; print(sys.version_info[0], sys.version_info[1])' 2>$null
+  if ($LASTEXITCODE -ne 0) {
+    Remove-Item -Recurse -Force '.venv'
+  }
+}
+if (-not (Test-Path '.venv\Scripts\python.exe')) {
+  & $python -m venv .venv
+}
+if (-not (Test-Path '.venv\Scripts\python.exe')) {
+  throw 'Python was detected, but virtual environment creation failed. Check that the Python installation includes the venv module.'
 }
 
 $compiler = Find-Toolchain
@@ -73,11 +118,6 @@ if (Test-Path 'frontend/node_modules') {
   catch {
     throw 'Could not remove frontend/node_modules because a file is still locked. Close the Node process and retry.'
   }
-}
-
-Write-Host '==> Ensuring Python virtual environment...'
-if (-not (Test-Path '.venv')) {
-  py -3.12 -m venv .venv
 }
 
 & '.\.venv\Scripts\python.exe' -m pip install --upgrade pip

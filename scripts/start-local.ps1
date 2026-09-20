@@ -25,6 +25,12 @@ function Ensure-ProjectReady {
 Ensure-ProjectReady
 
 $python = Join-Path $repo '.venv\Scripts\python.exe'
+if (-not (Test-Path $python)) {
+  throw 'Project setup did not produce .venv\Scripts\python.exe. Run scripts\bootstrap.ps1 after installing Python 3.12+.'
+}
+if (-not (Test-Path (Join-Path $repo 'frontend\node_modules\vite\package.json'))) {
+  throw 'Frontend dependencies are incomplete. Run scripts\bootstrap.ps1 before starting the app.'
+}
 $backendArgs = @(
   '-m', 'uvicorn', 'app.main:app', '--app-dir', 'backend',
   '--host', '127.0.0.1', '--port', '8000'

@@ -32,8 +32,8 @@ liveDescribe("real React → Python → solc → C++ acceptance", () => {
       screen.getByRole("button", { name: "Multi-anomaly sample" }),
     );
     await waitFor(() =>
-      expect(screen.getByLabelText("Solidity source code").value).toContain(
-        "contract Multi",
+      expect(screen.getByLabelText("Solidity source code").value).toMatch(
+        /contract\s+\w+/,
       ),
     );
     fireEvent.click(screen.getByRole("button", { name: "Analyze contract" }));

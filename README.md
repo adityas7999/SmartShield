@@ -19,15 +19,28 @@ is included in this MVP.
 
 Prerequisites: Node 22+, Python 3.12+, CMake 3.20+, and a C++20 compiler.
 
+For a clean setup on a fresh clone, use the project bootstrap script instead of a
+manual ad hoc install sequence:
+
 ```bash
-npm ci --prefix backend/solc
-npm ci --prefix frontend
-python3 -m venv .venv
-source .venv/bin/activate
-python3 -m pip install -r backend/requirements.txt
+# Windows PowerShell
+./scripts/bootstrap.ps1
+
+# macOS/Linux
+./scripts/bootstrap.sh
+```
+
+The bootstrap script creates/repairs the Python virtual environment, reinstalls the
+pinned compiler and frontend dependencies, and avoids stale local `node_modules`
+state that can block `npm ci` on Windows.
+
+Then build the analyzer and start the services:
+
+```bash
 cmake -S core -B build/core -DCMAKE_BUILD_TYPE=Debug
 cmake --build build/core --parallel 2
-python3 -m uvicorn app.main:app --app-dir backend --host 127.0.0.1 --port 8000
+# Activate the venv in your shell before running the backend.
+python -m uvicorn app.main:app --app-dir backend --host 127.0.0.1 --port 8000
 ```
 
 In a second terminal: `npm run dev --prefix frontend`. Open http://127.0.0.1:5173.

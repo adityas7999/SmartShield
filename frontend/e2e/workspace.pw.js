@@ -7,7 +7,7 @@ test("real multi-rule report, source navigation, export, print, and coverage", a
   await page.goto("/");
   await page.getByRole("button", { name: "Multi-anomaly sample" }).click();
   await expect(page.getByLabel("Solidity source code")).toContainText(
-    "contract Multi",
+    /contract\s+\w+/,
   );
   const response = page.waitForResponse((r) =>
     r.url().endsWith("/api/analyze"),

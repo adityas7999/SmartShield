@@ -1,6 +1,16 @@
+import { existsSync } from 'node:fs';
 import { spawn } from 'node:child_process';
 
-const server = spawn(process.env.PYTHON ?? 'python', [
+const pythonCandidates = [
+  process.env.SMARTSHIELD_PYTHON,
+  process.env.PYTHON,
+  existsSync('.venv/Scripts/python.exe') ? '.venv/Scripts/python.exe' : null,
+  existsSync('.venv/bin/python') ? '.venv/bin/python' : null,
+  'python',
+].filter(Boolean);
+
+const python = pythonCandidates[0];
+const server = spawn(python, [
   '-m', 'uvicorn', 'app.main:app', '--app-dir', 'backend',
   '--host', '127.0.0.1', '--port', '8000'
 ], { stdio: 'inherit' });

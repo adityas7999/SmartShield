@@ -234,15 +234,16 @@ def fixture(fixture_name: str) -> FixtureResponse:
         raise _error(404, "fixture_not_found", "Choose vulnerable, safe, multi, or unsupported.")
     return FixtureResponse(
         fileName=path.name,
-        source=path.read_text(encoding="utf-8"),
+        source=path.read_bytes().decode("utf-8"),
         expected="See the actual report for findings and coverage.",
     )
 
 
 @app.post("/api/analyze")
 def analyze(request: AnalyzeRequest) -> dict[str, Any]:
-    identity = {"fileName": request.fileName, "byteLength": len(request.source.encode("utf-8")),
-                "sha256": hashlib.sha256(request.source.encode("utf-8")).hexdigest()}
+    source_bytes = request.source.encode("utf-8")
+    identity = {"fileName": request.fileName, "byteLength": len(source_bytes),
+                "sha256": hashlib.sha256(source_bytes).hexdigest()}
     try:
         compiler_output = _compile_source(request.source, request.fileName)
         result = _run_analyzer(compiler_output, request.source, request.fileName)

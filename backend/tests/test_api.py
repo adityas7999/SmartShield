@@ -14,7 +14,7 @@ ROWS = json.loads((ROOT / 'tests/acceptance/manifest.json').read_text())
 
 def request_file(path):
     path = ROOT / path
-    return client.post('/api/analyze', json={'fileName': path.name, 'source': path.read_text()})
+    return client.post('/api/analyze', json={'fileName': path.name, 'source': path.read_bytes().decode('utf-8')})
 
 @pytest.mark.parametrize('case', ROWS, ids=lambda r: r['file'])
 def test_real_analyzer_acceptance(case):

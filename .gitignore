@@ -74,7 +74,6 @@ Testing/
 __pycache__/
 *.py[cod]
 .pytest_cache/
-pip-*/
 
 # Node / Vite
 node_modules/

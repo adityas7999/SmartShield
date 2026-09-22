@@ -10,6 +10,7 @@ const pythonCandidates = [
 ].filter(Boolean);
 
 const python = pythonCandidates[0];
+if (!python) throw new Error('No Python runtime was found for the live API test');
 const server = spawn(python, [
   '-m', 'uvicorn', 'app.main:app', '--app-dir', 'backend',
   '--host', '127.0.0.1', '--port', '8000'
@@ -28,6 +29,8 @@ try {
     await new Promise(resolve => setTimeout(resolve, 200));
   }
   if (!ready) throw new Error('API did not become ready');
+  const health = await fetch('http://127.0.0.1:8000/api/health');
+  if (!health.ok) throw new Error(`API health check failed with ${health.status}`);
   // Invoke the pinned JS entry point directly, without platform-specific npm shims.
   const status = await new Promise((resolve, reject) => {
     const child = spawn(process.execPath, ['node_modules/vitest/vitest.mjs', 'run', 'src/App.live.test.jsx'], {

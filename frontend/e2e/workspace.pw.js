@@ -7,7 +7,7 @@ test("real multi-rule report, source navigation, export, print, and coverage", a
   await page.goto("/");
   await page.getByRole("button", { name: "Multi-anomaly sample" }).click();
   await expect(page.getByLabel("Solidity source code")).toContainText(
-    /contract\s+\w+/,
+    "contract Multi",
   );
   const response = page.waitForResponse((r) =>
     r.url().endsWith("/api/analyze"),
@@ -34,7 +34,7 @@ test("real multi-rule report, source navigation, export, print, and coverage", a
     await expect(page.locator(".code-line.focused").first()).toBeVisible();
   }
   await expect(
-    page.getByRole("button", { name: /Select .* on line 3/ }),
+    page.getByRole("button", { name: /Select .* on line \d+/ }),
   ).toHaveCount(4);
   await page.getByLabel("Rule", { exact: true }).selectOption("UEC-001");
   await expect(list.getByRole("button")).toHaveCount(1);

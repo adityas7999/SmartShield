@@ -1,0 +1,187 @@
+{
+  "schemaVersion": "model-training-summary-1.0.0",
+  "featureSchemaVersion": "semantic-cfg-v1",
+  "splitsStatus": "frozen",
+  "rules": {
+    "TXO-001": {
+      "ruleId": "TXO-001",
+      "selectedModel": "logistic_regression",
+      "featureSchemaVersion": "semantic-cfg-v1",
+      "featureNames": [
+        "has_origin_comparison",
+        "origin_guard_count",
+        "origin_guards_state_change",
+        "sender_auth_present",
+        "external_call_present",
+        "state_write_present",
+        "branch_count",
+        "unsupported_feature"
+      ],
+      "validationMetrics": {
+        "accuracy": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "brierScore": 0.0014
+      },
+      "allCandidateMetrics": {
+        "dummy": {
+          "accuracy": 0.8333,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "brierScore": 0.1667
+        },
+        "logistic_regression": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "brierScore": 0.0014
+        },
+        "histogram_gradient_boosting": {
+          "accuracy": 0.5,
+          "precision": 0.25,
+          "recall": 1.0,
+          "f1": 0.4,
+          "brierScore": 0.19
+        }
+      }
+    },
+    "REN-001": {
+      "ruleId": "REN-001",
+      "selectedModel": "logistic_regression",
+      "featureSchemaVersion": "semantic-cfg-v1",
+      "featureNames": [
+        "storage_read_count",
+        "external_call_count",
+        "storage_write_count",
+        "post_call_write_matches_read",
+        "checks_effects_interactions",
+        "view_pure_call_only",
+        "state_read_before_call",
+        "unsupported_feature"
+      ],
+      "validationMetrics": {
+        "accuracy": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "brierScore": 0.0171
+      },
+      "allCandidateMetrics": {
+        "dummy": {
+          "accuracy": 0.8333,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "brierScore": 0.1667
+        },
+        "logistic_regression": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "brierScore": 0.0171
+        },
+        "histogram_gradient_boosting": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "brierScore": 0.0
+        }
+      }
+    },
+    "ACC-001": {
+      "ruleId": "ACC-001",
+      "selectedModel": "logistic_regression",
+      "featureSchemaVersion": "semantic-cfg-v1",
+      "featureNames": [
+        "authority_declared",
+        "authority_write_present",
+        "caller_restriction_present",
+        "literal_address_guard",
+        "unrestricted_authority_write",
+        "two_step_handover_pattern",
+        "public_entry_point_count",
+        "unsupported_feature"
+      ],
+      "validationMetrics": {
+        "accuracy": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "brierScore": 0.0086
+      },
+      "allCandidateMetrics": {
+        "dummy": {
+          "accuracy": 0.8333,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "brierScore": 0.1667
+        },
+        "logistic_regression": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "brierScore": 0.0086
+        },
+        "histogram_gradient_boosting": {
+          "accuracy": 0.8333,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "brierScore": 0.0863
+        }
+      }
+    },
+    "UEC-001": {
+      "ruleId": "UEC-001",
+      "selectedModel": "logistic_regression",
+      "featureSchemaVersion": "semantic-cfg-v1",
+      "featureNames": [
+        "low_level_call_count",
+        "delegatecall_count",
+        "result_discarded_count",
+        "result_assigned_unused_count",
+        "result_checked_count",
+        "unhandled_call_reaches_exit",
+        "revert_on_failure_present",
+        "unsupported_feature"
+      ],
+      "validationMetrics": {
+        "accuracy": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "brierScore": 0.0177
+      },
+      "allCandidateMetrics": {
+        "dummy": {
+          "accuracy": 0.8333,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "brierScore": 0.1667
+        },
+        "logistic_regression": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "brierScore": 0.0177
+        },
+        "histogram_gradient_boosting": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "brierScore": 0.0
+        }
+      }
+    }
+  }
+}

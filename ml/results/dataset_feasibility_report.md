@@ -1,7 +1,7 @@
 # Four-rule dataset feasibility report (Phase 1 Completed — 24 Contracts)
 
 **Protocol:** `four-rule-ml-v1`
-**Checkpoint:** Phase 1 completion (Full 24-contract corpus), branch `feat/ml-phase1`
+**Checkpoint:** Full 24-contract corpus rollout, branch `feat/ml-full-rollout`
 **Status:** Phase 1 dataset curation, provenance, annotation, and family partitioning complete.
 
 ---

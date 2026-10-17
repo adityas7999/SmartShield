@@ -1,7 +1,7 @@
 # Four-rule dataset feasibility report
 
-**Protocol:** `four-rule-ml-v1`  
-**Checkpoint:** 2026-10-17, commit `7507c9d70770102dced003ec23716e42c502be7e`  
+**Protocol:** `four-rule-ml-v1`
+**Checkpoint:** 2026-10-17, commit `7507c9d70770102dced003ec23716e42c502be7e`
 **Status:** provisional; no rule is approved for supervised training or production integration
 
 ## Evidence inventory

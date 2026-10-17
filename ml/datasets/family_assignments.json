@@ -1,7 +1,7 @@
 {
   "schemaVersion": "family-assignments-1.0.0",
   "status": "provisional",
-  "splitPolicy": "Family-aware: all contracts from the same family (F01-F08) are assigned to a single partition. No family spans multiple learnable partitions.",
+  "splitPolicy": "Family-aware: all contracts from the same family (F01-F12) are assigned to a single partition. No family spans multiple learnable partitions.",
   "assignments": [
     {
       "collection": "tests/acceptance",
@@ -48,13 +48,13 @@
     {
       "collection": "ml/corpus/sources/F03_OwnerRegistry_acc_vuln.sol",
       "family": "F03-OwnerRegistry",
-      "partition": "train",
+      "partition": "validation",
       "reason": "Phase 1 corpus; registry access-control family."
     },
     {
       "collection": "ml/corpus/sources/F03_OwnerRegistry_safe.sol",
       "family": "F03-OwnerRegistry",
-      "partition": "train",
+      "partition": "validation",
       "reason": "Same family — safe two-step ownership."
     },
     {
@@ -116,8 +116,56 @@
       "family": "F08-AuctionHouse",
       "partition": "locked_test",
       "reason": "Same family — safe auction."
+    },
+    {
+      "collection": "ml/corpus/sources/F09_StakingPool_ren_vuln.sol",
+      "family": "F09-StakingPool",
+      "partition": "train",
+      "reason": "Phase 1 corpus; staking pool reentrancy family."
+    },
+    {
+      "collection": "ml/corpus/sources/F09_StakingPool_safe.sol",
+      "family": "F09-StakingPool",
+      "partition": "train",
+      "reason": "Same family — safe reward claim."
+    },
+    {
+      "collection": "ml/corpus/sources/F10_GovernanceAdmin_acc_vuln.sol",
+      "family": "F10-GovernanceAdmin",
+      "partition": "train",
+      "reason": "Phase 1 corpus; governance admin replacement family."
+    },
+    {
+      "collection": "ml/corpus/sources/F10_GovernanceAdmin_safe.sol",
+      "family": "F10-GovernanceAdmin",
+      "partition": "train",
+      "reason": "Same family — authorized admin replacement."
+    },
+    {
+      "collection": "ml/corpus/sources/F11_FlashLoanReceiver_uec_vuln.sol",
+      "family": "F11-FlashLoanReceiver",
+      "partition": "locked_test",
+      "reason": "Phase 1 corpus; flash loan receiver unhandled call family."
+    },
+    {
+      "collection": "ml/corpus/sources/F11_FlashLoanReceiver_safe.sol",
+      "family": "F11-FlashLoanReceiver",
+      "partition": "locked_test",
+      "reason": "Same family — checked call."
+    },
+    {
+      "collection": "ml/corpus/sources/F12_PaymentSplitter_txo_vuln.sol",
+      "family": "F12-PaymentSplitter",
+      "partition": "locked_test",
+      "reason": "Phase 1 corpus; payment splitter tx.origin family."
+    },
+    {
+      "collection": "ml/corpus/sources/F12_PaymentSplitter_safe.sol",
+      "family": "F12-PaymentSplitter",
+      "partition": "locked_test",
+      "reason": "Same family — msg.sender payment release."
     }
   ],
-  "crossPartitionLeakageCheck": "verified — families F01,F02,F03,F04 are train-only; F05,F06 are validation-only; F07,F08 are locked_test-only. No family spans multiple learnable partitions.",
+  "crossPartitionLeakageCheck": "verified — families F01,F02,F04,F09,F10 are train-only (10 contracts); F03,F05,F06 are validation-only (6 contracts); F07,F08,F11,F12 are locked_test-only (8 contracts). Zero family leakage across partitions.",
   "lockedTestReady": true
 }

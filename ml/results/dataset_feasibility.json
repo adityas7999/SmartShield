@@ -11,14 +11,14 @@
     "use": "excluded"
   },
   "phase1Corpus": {
-    "contracts": 16,
-    "families": 8,
+    "contracts": 24,
+    "families": 12,
     "compilationStatus": "all_passed",
-    "totalAnnotationRows": 64,
+    "totalAnnotationRows": 96,
     "partitions": {
-      "train": {"contracts": 8, "families": ["F01", "F02", "F03", "F04"]},
-      "validation": {"contracts": 4, "families": ["F05", "F06"]},
-      "lockedTest": {"contracts": 4, "families": ["F07", "F08"]}
+      "train": {"contracts": 10, "families": ["F01", "F02", "F04", "F09", "F10"]},
+      "validation": {"contracts": 6, "families": ["F03", "F05", "F06"]},
+      "lockedTest": {"contracts": 8, "families": ["F07", "F08", "F11", "F12"]}
     },
     "familyLeakage": "none_verified"
   },
@@ -28,7 +28,7 @@
       "semanticPositive": "origin identity comparison controls a sensitive state write or typed external interaction",
       "semanticNegative": "logging/display-only, unrelated, ineffective, or caller-authorized comparison",
       "unknownOrNotApplicable": ["origin alias or composite predicate unresolved", "unsupported callee/modifier", "not a candidate operation"],
-      "phase1Rows": {"present": 3, "absent": 13, "train_present": 1, "val_present": 1, "test_present": 1},
+      "phase1Rows": {"present": 4, "absent": 20, "train_present": 1, "val_present": 1, "test_present": 2},
       "decision": "phase1_data_ready"
     },
     "REN-001": {
@@ -36,7 +36,7 @@
       "semanticPositive": "represented path checks storage, interacts externally, then writes definitely the same location",
       "semanticNegative": "checks-effects-interactions, different location, unreachable write, or excluded read-only interaction",
       "unknownOrNotApplicable": ["symbolic key uncertainty", "storage alias", "unsupported flow", "not a candidate interaction"],
-      "phase1Rows": {"present": 3, "absent": 13, "train_present": 1, "val_present": 1, "test_present": 1},
+      "phase1Rows": {"present": 4, "absent": 20, "train_present": 2, "val_present": 1, "test_present": 1},
       "decision": "phase1_data_ready"
     },
     "ACC-001": {
@@ -44,7 +44,7 @@
       "semanticPositive": "designated authority is replaced without effective caller authorization",
       "semanticNegative": "ordinary state write or effectively authorized replacement",
       "unknownOrNotApplicable": ["unknown state-dependent restriction", "unsupported inheritance/modifier", "not a designated authority"],
-      "phase1Rows": {"present": 2, "absent": 14, "train_present": 1, "val_present": 0, "test_present": 1},
+      "phase1Rows": {"present": 3, "absent": 21, "train_present": 1, "val_present": 1, "test_present": 1},
       "decision": "phase1_data_ready"
     },
     "UEC-001": {
@@ -52,9 +52,9 @@
       "semanticPositive": "failure result is discarded, overwritten, or reaches continuation without meaningful handling",
       "semanticNegative": "effective failure handling or unconditional revert",
       "unknownOrNotApplicable": ["result passed to helper/caller", "complex transformation", "not a low-level call"],
-      "phase1Rows": {"present": 7, "absent": 9, "train_present": 4, "val_present": 1, "test_present": 2},
+      "phase1Rows": {"present": 9, "absent": 15, "train_present": 5, "val_present": 1, "test_present": 3},
       "decision": "phase1_data_ready"
     }
   },
-  "releaseDecision": "Phase 1 dataset, provenance, annotation, and split frozen. Ready for Phase 2 feature extraction and Phase 3 guarded training."
+  "releaseDecision": "Phase 1 dataset of 24 contracts across 12 families curated, compiled, annotated, and frozen. Positive instances verified in train, val, and locked_test for all 4 rules."
 }

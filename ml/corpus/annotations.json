@@ -1346,6 +1346,678 @@
       },
       "rationale": "require(ok) applied after both calls.",
       "family": "F08"
+    },
+    {
+      "sampleId": "corpus-F09-StakingPool-ren-vuln-TXO-001",
+      "ruleId": "TXO-001",
+      "source": {
+        "file": "F09_StakingPool_ren_vuln.sol",
+        "path": "ml/corpus/sources/F09_StakingPool_ren_vuln.sol",
+        "sha256": "1a582e6889c4af8742c1842ac9939baf030c09513000c5a0ca782b0d27be9dbd",
+        "compiler": "0.8.20+commit.a1b79de6",
+        "license": "MIT",
+        "origin": "SmartShield Phase 1 corpus \u2014 purpose-written for ML research"
+      },
+      "semanticLabel": "absent",
+      "primarySpan": null,
+      "review": {
+        "status": "reviewed",
+        "reviewer": "phase1-corpus-author",
+        "adjudication": "single-reviewer-initial"
+      },
+      "rationale": "No tx.origin usage.",
+      "family": "F09"
+    },
+    {
+      "sampleId": "corpus-F09-StakingPool-ren-vuln-REN-001",
+      "ruleId": "REN-001",
+      "source": {
+        "file": "F09_StakingPool_ren_vuln.sol",
+        "path": "ml/corpus/sources/F09_StakingPool_ren_vuln.sol",
+        "sha256": "1a582e6889c4af8742c1842ac9939baf030c09513000c5a0ca782b0d27be9dbd",
+        "compiler": "0.8.20+commit.a1b79de6",
+        "license": "MIT",
+        "origin": "SmartShield Phase 1 corpus \u2014 purpose-written for ML research"
+      },
+      "semanticLabel": "present",
+      "primarySpan": null,
+      "review": {
+        "status": "reviewed",
+        "reviewer": "phase1-corpus-author",
+        "adjudication": "single-reviewer-initial"
+      },
+      "rationale": "claimReward() reads rewards[msg.sender], calls external, then updates rewards[msg.sender]=0 \u2014 reentrancy window.",
+      "family": "F09"
+    },
+    {
+      "sampleId": "corpus-F09-StakingPool-ren-vuln-ACC-001",
+      "ruleId": "ACC-001",
+      "source": {
+        "file": "F09_StakingPool_ren_vuln.sol",
+        "path": "ml/corpus/sources/F09_StakingPool_ren_vuln.sol",
+        "sha256": "1a582e6889c4af8742c1842ac9939baf030c09513000c5a0ca782b0d27be9dbd",
+        "compiler": "0.8.20+commit.a1b79de6",
+        "license": "MIT",
+        "origin": "SmartShield Phase 1 corpus \u2014 purpose-written for ML research"
+      },
+      "semanticLabel": "absent",
+      "primarySpan": null,
+      "review": {
+        "status": "reviewed",
+        "reviewer": "phase1-corpus-author",
+        "adjudication": "single-reviewer-initial"
+      },
+      "rationale": "No authority replacement.",
+      "family": "F09"
+    },
+    {
+      "sampleId": "corpus-F09-StakingPool-ren-vuln-UEC-001",
+      "ruleId": "UEC-001",
+      "source": {
+        "file": "F09_StakingPool_ren_vuln.sol",
+        "path": "ml/corpus/sources/F09_StakingPool_ren_vuln.sol",
+        "sha256": "1a582e6889c4af8742c1842ac9939baf030c09513000c5a0ca782b0d27be9dbd",
+        "compiler": "0.8.20+commit.a1b79de6",
+        "license": "MIT",
+        "origin": "SmartShield Phase 1 corpus \u2014 purpose-written for ML research"
+      },
+      "semanticLabel": "present",
+      "primarySpan": null,
+      "review": {
+        "status": "reviewed",
+        "reviewer": "phase1-corpus-author",
+        "adjudication": "single-reviewer-initial"
+      },
+      "rationale": "msg.sender.call return value is discarded entirely.",
+      "family": "F09"
+    },
+    {
+      "sampleId": "corpus-F09-StakingPool-safe-TXO-001",
+      "ruleId": "TXO-001",
+      "source": {
+        "file": "F09_StakingPool_safe.sol",
+        "path": "ml/corpus/sources/F09_StakingPool_safe.sol",
+        "sha256": "1fb4f63a6f8e715bd79396293f29e6dc78010a441e3d4bfb251a02f7c99e7666",
+        "compiler": "0.8.20+commit.a1b79de6",
+        "license": "MIT",
+        "origin": "SmartShield Phase 1 corpus \u2014 purpose-written for ML research"
+      },
+      "semanticLabel": "absent",
+      "primarySpan": null,
+      "review": {
+        "status": "reviewed",
+        "reviewer": "phase1-corpus-author",
+        "adjudication": "single-reviewer-initial"
+      },
+      "rationale": "No tx.origin usage.",
+      "family": "F09"
+    },
+    {
+      "sampleId": "corpus-F09-StakingPool-safe-REN-001",
+      "ruleId": "REN-001",
+      "source": {
+        "file": "F09_StakingPool_safe.sol",
+        "path": "ml/corpus/sources/F09_StakingPool_safe.sol",
+        "sha256": "1fb4f63a6f8e715bd79396293f29e6dc78010a441e3d4bfb251a02f7c99e7666",
+        "compiler": "0.8.20+commit.a1b79de6",
+        "license": "MIT",
+        "origin": "SmartShield Phase 1 corpus \u2014 purpose-written for ML research"
+      },
+      "semanticLabel": "absent",
+      "primarySpan": null,
+      "review": {
+        "status": "reviewed",
+        "reviewer": "phase1-corpus-author",
+        "adjudication": "single-reviewer-initial"
+      },
+      "rationale": "rewards[msg.sender]=0 is set before the external call \u2014 CEI compliant.",
+      "family": "F09"
+    },
+    {
+      "sampleId": "corpus-F09-StakingPool-safe-ACC-001",
+      "ruleId": "ACC-001",
+      "source": {
+        "file": "F09_StakingPool_safe.sol",
+        "path": "ml/corpus/sources/F09_StakingPool_safe.sol",
+        "sha256": "1fb4f63a6f8e715bd79396293f29e6dc78010a441e3d4bfb251a02f7c99e7666",
+        "compiler": "0.8.20+commit.a1b79de6",
+        "license": "MIT",
+        "origin": "SmartShield Phase 1 corpus \u2014 purpose-written for ML research"
+      },
+      "semanticLabel": "absent",
+      "primarySpan": null,
+      "review": {
+        "status": "reviewed",
+        "reviewer": "phase1-corpus-author",
+        "adjudication": "single-reviewer-initial"
+      },
+      "rationale": "No authority replacement.",
+      "family": "F09"
+    },
+    {
+      "sampleId": "corpus-F09-StakingPool-safe-UEC-001",
+      "ruleId": "UEC-001",
+      "source": {
+        "file": "F09_StakingPool_safe.sol",
+        "path": "ml/corpus/sources/F09_StakingPool_safe.sol",
+        "sha256": "1fb4f63a6f8e715bd79396293f29e6dc78010a441e3d4bfb251a02f7c99e7666",
+        "compiler": "0.8.20+commit.a1b79de6",
+        "license": "MIT",
+        "origin": "SmartShield Phase 1 corpus \u2014 purpose-written for ML research"
+      },
+      "semanticLabel": "absent",
+      "primarySpan": null,
+      "review": {
+        "status": "reviewed",
+        "reviewer": "phase1-corpus-author",
+        "adjudication": "single-reviewer-initial"
+      },
+      "rationale": "require(ok) is applied after the call.",
+      "family": "F09"
+    },
+    {
+      "sampleId": "corpus-F10-GovernanceAdmin-acc-vuln-TXO-001",
+      "ruleId": "TXO-001",
+      "source": {
+        "file": "F10_GovernanceAdmin_acc_vuln.sol",
+        "path": "ml/corpus/sources/F10_GovernanceAdmin_acc_vuln.sol",
+        "sha256": "1eee38720d1af6d2d60c6c33ee33d8576280cffa662d273e19dbdd9cd0db99d4",
+        "compiler": "0.8.20+commit.a1b79de6",
+        "license": "MIT",
+        "origin": "SmartShield Phase 1 corpus \u2014 purpose-written for ML research"
+      },
+      "semanticLabel": "absent",
+      "primarySpan": null,
+      "review": {
+        "status": "reviewed",
+        "reviewer": "phase1-corpus-author",
+        "adjudication": "single-reviewer-initial"
+      },
+      "rationale": "No tx.origin usage.",
+      "family": "F10"
+    },
+    {
+      "sampleId": "corpus-F10-GovernanceAdmin-acc-vuln-REN-001",
+      "ruleId": "REN-001",
+      "source": {
+        "file": "F10_GovernanceAdmin_acc_vuln.sol",
+        "path": "ml/corpus/sources/F10_GovernanceAdmin_acc_vuln.sol",
+        "sha256": "1eee38720d1af6d2d60c6c33ee33d8576280cffa662d273e19dbdd9cd0db99d4",
+        "compiler": "0.8.20+commit.a1b79de6",
+        "license": "MIT",
+        "origin": "SmartShield Phase 1 corpus \u2014 purpose-written for ML research"
+      },
+      "semanticLabel": "absent",
+      "primarySpan": null,
+      "review": {
+        "status": "reviewed",
+        "reviewer": "phase1-corpus-author",
+        "adjudication": "single-reviewer-initial"
+      },
+      "rationale": "No external calls.",
+      "family": "F10"
+    },
+    {
+      "sampleId": "corpus-F10-GovernanceAdmin-acc-vuln-ACC-001",
+      "ruleId": "ACC-001",
+      "source": {
+        "file": "F10_GovernanceAdmin_acc_vuln.sol",
+        "path": "ml/corpus/sources/F10_GovernanceAdmin_acc_vuln.sol",
+        "sha256": "1eee38720d1af6d2d60c6c33ee33d8576280cffa662d273e19dbdd9cd0db99d4",
+        "compiler": "0.8.20+commit.a1b79de6",
+        "license": "MIT",
+        "origin": "SmartShield Phase 1 corpus \u2014 purpose-written for ML research"
+      },
+      "semanticLabel": "present",
+      "primarySpan": null,
+      "review": {
+        "status": "reviewed",
+        "reviewer": "phase1-corpus-author",
+        "adjudication": "single-reviewer-initial"
+      },
+      "rationale": "setAdmin() replaces designated 'admin' address with no authorization requirement.",
+      "family": "F10"
+    },
+    {
+      "sampleId": "corpus-F10-GovernanceAdmin-acc-vuln-UEC-001",
+      "ruleId": "UEC-001",
+      "source": {
+        "file": "F10_GovernanceAdmin_acc_vuln.sol",
+        "path": "ml/corpus/sources/F10_GovernanceAdmin_acc_vuln.sol",
+        "sha256": "1eee38720d1af6d2d60c6c33ee33d8576280cffa662d273e19dbdd9cd0db99d4",
+        "compiler": "0.8.20+commit.a1b79de6",
+        "license": "MIT",
+        "origin": "SmartShield Phase 1 corpus \u2014 purpose-written for ML research"
+      },
+      "semanticLabel": "absent",
+      "primarySpan": null,
+      "review": {
+        "status": "reviewed",
+        "reviewer": "phase1-corpus-author",
+        "adjudication": "single-reviewer-initial"
+      },
+      "rationale": "No low-level calls.",
+      "family": "F10"
+    },
+    {
+      "sampleId": "corpus-F10-GovernanceAdmin-safe-TXO-001",
+      "ruleId": "TXO-001",
+      "source": {
+        "file": "F10_GovernanceAdmin_safe.sol",
+        "path": "ml/corpus/sources/F10_GovernanceAdmin_safe.sol",
+        "sha256": "8d624b0a7c1ce2473612502583a85446dbbdb85000d775ac878019ffc479e254",
+        "compiler": "0.8.20+commit.a1b79de6",
+        "license": "MIT",
+        "origin": "SmartShield Phase 1 corpus \u2014 purpose-written for ML research"
+      },
+      "semanticLabel": "absent",
+      "primarySpan": null,
+      "review": {
+        "status": "reviewed",
+        "reviewer": "phase1-corpus-author",
+        "adjudication": "single-reviewer-initial"
+      },
+      "rationale": "No tx.origin usage.",
+      "family": "F10"
+    },
+    {
+      "sampleId": "corpus-F10-GovernanceAdmin-safe-REN-001",
+      "ruleId": "REN-001",
+      "source": {
+        "file": "F10_GovernanceAdmin_safe.sol",
+        "path": "ml/corpus/sources/F10_GovernanceAdmin_safe.sol",
+        "sha256": "8d624b0a7c1ce2473612502583a85446dbbdb85000d775ac878019ffc479e254",
+        "compiler": "0.8.20+commit.a1b79de6",
+        "license": "MIT",
+        "origin": "SmartShield Phase 1 corpus \u2014 purpose-written for ML research"
+      },
+      "semanticLabel": "absent",
+      "primarySpan": null,
+      "review": {
+        "status": "reviewed",
+        "reviewer": "phase1-corpus-author",
+        "adjudication": "single-reviewer-initial"
+      },
+      "rationale": "No external calls.",
+      "family": "F10"
+    },
+    {
+      "sampleId": "corpus-F10-GovernanceAdmin-safe-ACC-001",
+      "ruleId": "ACC-001",
+      "source": {
+        "file": "F10_GovernanceAdmin_safe.sol",
+        "path": "ml/corpus/sources/F10_GovernanceAdmin_safe.sol",
+        "sha256": "8d624b0a7c1ce2473612502583a85446dbbdb85000d775ac878019ffc479e254",
+        "compiler": "0.8.20+commit.a1b79de6",
+        "license": "MIT",
+        "origin": "SmartShield Phase 1 corpus \u2014 purpose-written for ML research"
+      },
+      "semanticLabel": "absent",
+      "primarySpan": null,
+      "review": {
+        "status": "reviewed",
+        "reviewer": "phase1-corpus-author",
+        "adjudication": "single-reviewer-initial"
+      },
+      "rationale": "setAdmin() requires msg.sender == admin.",
+      "family": "F10"
+    },
+    {
+      "sampleId": "corpus-F10-GovernanceAdmin-safe-UEC-001",
+      "ruleId": "UEC-001",
+      "source": {
+        "file": "F10_GovernanceAdmin_safe.sol",
+        "path": "ml/corpus/sources/F10_GovernanceAdmin_safe.sol",
+        "sha256": "8d624b0a7c1ce2473612502583a85446dbbdb85000d775ac878019ffc479e254",
+        "compiler": "0.8.20+commit.a1b79de6",
+        "license": "MIT",
+        "origin": "SmartShield Phase 1 corpus \u2014 purpose-written for ML research"
+      },
+      "semanticLabel": "absent",
+      "primarySpan": null,
+      "review": {
+        "status": "reviewed",
+        "reviewer": "phase1-corpus-author",
+        "adjudication": "single-reviewer-initial"
+      },
+      "rationale": "No low-level calls.",
+      "family": "F10"
+    },
+    {
+      "sampleId": "corpus-F11-FlashLoanReceiver-uec-vuln-TXO-001",
+      "ruleId": "TXO-001",
+      "source": {
+        "file": "F11_FlashLoanReceiver_uec_vuln.sol",
+        "path": "ml/corpus/sources/F11_FlashLoanReceiver_uec_vuln.sol",
+        "sha256": "aa9f0a4ab3cfcb2812f4134bfd94599bcb61800b9a173bf0884f711fac057d7a",
+        "compiler": "0.8.20+commit.a1b79de6",
+        "license": "MIT",
+        "origin": "SmartShield Phase 1 corpus \u2014 purpose-written for ML research"
+      },
+      "semanticLabel": "absent",
+      "primarySpan": null,
+      "review": {
+        "status": "reviewed",
+        "reviewer": "phase1-corpus-author",
+        "adjudication": "single-reviewer-initial"
+      },
+      "rationale": "No tx.origin usage.",
+      "family": "F11"
+    },
+    {
+      "sampleId": "corpus-F11-FlashLoanReceiver-uec-vuln-REN-001",
+      "ruleId": "REN-001",
+      "source": {
+        "file": "F11_FlashLoanReceiver_uec_vuln.sol",
+        "path": "ml/corpus/sources/F11_FlashLoanReceiver_uec_vuln.sol",
+        "sha256": "aa9f0a4ab3cfcb2812f4134bfd94599bcb61800b9a173bf0884f711fac057d7a",
+        "compiler": "0.8.20+commit.a1b79de6",
+        "license": "MIT",
+        "origin": "SmartShield Phase 1 corpus \u2014 purpose-written for ML research"
+      },
+      "semanticLabel": "absent",
+      "primarySpan": null,
+      "review": {
+        "status": "reviewed",
+        "reviewer": "phase1-corpus-author",
+        "adjudication": "single-reviewer-initial"
+      },
+      "rationale": "No storage check precedes the external call.",
+      "family": "F11"
+    },
+    {
+      "sampleId": "corpus-F11-FlashLoanReceiver-uec-vuln-ACC-001",
+      "ruleId": "ACC-001",
+      "source": {
+        "file": "F11_FlashLoanReceiver_uec_vuln.sol",
+        "path": "ml/corpus/sources/F11_FlashLoanReceiver_uec_vuln.sol",
+        "sha256": "aa9f0a4ab3cfcb2812f4134bfd94599bcb61800b9a173bf0884f711fac057d7a",
+        "compiler": "0.8.20+commit.a1b79de6",
+        "license": "MIT",
+        "origin": "SmartShield Phase 1 corpus \u2014 purpose-written for ML research"
+      },
+      "semanticLabel": "absent",
+      "primarySpan": null,
+      "review": {
+        "status": "reviewed",
+        "reviewer": "phase1-corpus-author",
+        "adjudication": "single-reviewer-initial"
+      },
+      "rationale": "No authority replacement.",
+      "family": "F11"
+    },
+    {
+      "sampleId": "corpus-F11-FlashLoanReceiver-uec-vuln-UEC-001",
+      "ruleId": "UEC-001",
+      "source": {
+        "file": "F11_FlashLoanReceiver_uec_vuln.sol",
+        "path": "ml/corpus/sources/F11_FlashLoanReceiver_uec_vuln.sol",
+        "sha256": "aa9f0a4ab3cfcb2812f4134bfd94599bcb61800b9a173bf0884f711fac057d7a",
+        "compiler": "0.8.20+commit.a1b79de6",
+        "license": "MIT",
+        "origin": "SmartShield Phase 1 corpus \u2014 purpose-written for ML research"
+      },
+      "semanticLabel": "present",
+      "primarySpan": null,
+      "review": {
+        "status": "reviewed",
+        "reviewer": "phase1-corpus-author",
+        "adjudication": "single-reviewer-initial"
+      },
+      "rationale": "token.call result is completely discarded.",
+      "family": "F11"
+    },
+    {
+      "sampleId": "corpus-F11-FlashLoanReceiver-safe-TXO-001",
+      "ruleId": "TXO-001",
+      "source": {
+        "file": "F11_FlashLoanReceiver_safe.sol",
+        "path": "ml/corpus/sources/F11_FlashLoanReceiver_safe.sol",
+        "sha256": "7edf8b33f63dd4ff552b83b992a1416a5dab130c30882f0e90f9e97220d29c30",
+        "compiler": "0.8.20+commit.a1b79de6",
+        "license": "MIT",
+        "origin": "SmartShield Phase 1 corpus \u2014 purpose-written for ML research"
+      },
+      "semanticLabel": "absent",
+      "primarySpan": null,
+      "review": {
+        "status": "reviewed",
+        "reviewer": "phase1-corpus-author",
+        "adjudication": "single-reviewer-initial"
+      },
+      "rationale": "No tx.origin usage.",
+      "family": "F11"
+    },
+    {
+      "sampleId": "corpus-F11-FlashLoanReceiver-safe-REN-001",
+      "ruleId": "REN-001",
+      "source": {
+        "file": "F11_FlashLoanReceiver_safe.sol",
+        "path": "ml/corpus/sources/F11_FlashLoanReceiver_safe.sol",
+        "sha256": "7edf8b33f63dd4ff552b83b992a1416a5dab130c30882f0e90f9e97220d29c30",
+        "compiler": "0.8.20+commit.a1b79de6",
+        "license": "MIT",
+        "origin": "SmartShield Phase 1 corpus \u2014 purpose-written for ML research"
+      },
+      "semanticLabel": "absent",
+      "primarySpan": null,
+      "review": {
+        "status": "reviewed",
+        "reviewer": "phase1-corpus-author",
+        "adjudication": "single-reviewer-initial"
+      },
+      "rationale": "No storage check precedes the external call.",
+      "family": "F11"
+    },
+    {
+      "sampleId": "corpus-F11-FlashLoanReceiver-safe-ACC-001",
+      "ruleId": "ACC-001",
+      "source": {
+        "file": "F11_FlashLoanReceiver_safe.sol",
+        "path": "ml/corpus/sources/F11_FlashLoanReceiver_safe.sol",
+        "sha256": "7edf8b33f63dd4ff552b83b992a1416a5dab130c30882f0e90f9e97220d29c30",
+        "compiler": "0.8.20+commit.a1b79de6",
+        "license": "MIT",
+        "origin": "SmartShield Phase 1 corpus \u2014 purpose-written for ML research"
+      },
+      "semanticLabel": "absent",
+      "primarySpan": null,
+      "review": {
+        "status": "reviewed",
+        "reviewer": "phase1-corpus-author",
+        "adjudication": "single-reviewer-initial"
+      },
+      "rationale": "No authority replacement.",
+      "family": "F11"
+    },
+    {
+      "sampleId": "corpus-F11-FlashLoanReceiver-safe-UEC-001",
+      "ruleId": "UEC-001",
+      "source": {
+        "file": "F11_FlashLoanReceiver_safe.sol",
+        "path": "ml/corpus/sources/F11_FlashLoanReceiver_safe.sol",
+        "sha256": "7edf8b33f63dd4ff552b83b992a1416a5dab130c30882f0e90f9e97220d29c30",
+        "compiler": "0.8.20+commit.a1b79de6",
+        "license": "MIT",
+        "origin": "SmartShield Phase 1 corpus \u2014 purpose-written for ML research"
+      },
+      "semanticLabel": "absent",
+      "primarySpan": null,
+      "review": {
+        "status": "reviewed",
+        "reviewer": "phase1-corpus-author",
+        "adjudication": "single-reviewer-initial"
+      },
+      "rationale": "require(success) is checked after the call.",
+      "family": "F11"
+    },
+    {
+      "sampleId": "corpus-F12-PaymentSplitter-txo-vuln-TXO-001",
+      "ruleId": "TXO-001",
+      "source": {
+        "file": "F12_PaymentSplitter_txo_vuln.sol",
+        "path": "ml/corpus/sources/F12_PaymentSplitter_txo_vuln.sol",
+        "sha256": "eba3e6c2ab9db3c9ac4d27c5671a35d9c460f1f4f527cbe79e1c72affd5714b7",
+        "compiler": "0.8.20+commit.a1b79de6",
+        "license": "MIT",
+        "origin": "SmartShield Phase 1 corpus \u2014 purpose-written for ML research"
+      },
+      "semanticLabel": "present",
+      "primarySpan": null,
+      "review": {
+        "status": "reviewed",
+        "reviewer": "phase1-corpus-author",
+        "adjudication": "single-reviewer-initial"
+      },
+      "rationale": "release() requires tx.origin == owner to authorize external payout.",
+      "family": "F12"
+    },
+    {
+      "sampleId": "corpus-F12-PaymentSplitter-txo-vuln-REN-001",
+      "ruleId": "REN-001",
+      "source": {
+        "file": "F12_PaymentSplitter_txo_vuln.sol",
+        "path": "ml/corpus/sources/F12_PaymentSplitter_txo_vuln.sol",
+        "sha256": "eba3e6c2ab9db3c9ac4d27c5671a35d9c460f1f4f527cbe79e1c72affd5714b7",
+        "compiler": "0.8.20+commit.a1b79de6",
+        "license": "MIT",
+        "origin": "SmartShield Phase 1 corpus \u2014 purpose-written for ML research"
+      },
+      "semanticLabel": "absent",
+      "primarySpan": null,
+      "review": {
+        "status": "reviewed",
+        "reviewer": "phase1-corpus-author",
+        "adjudication": "single-reviewer-initial"
+      },
+      "rationale": "No storage update follows the call.",
+      "family": "F12"
+    },
+    {
+      "sampleId": "corpus-F12-PaymentSplitter-txo-vuln-ACC-001",
+      "ruleId": "ACC-001",
+      "source": {
+        "file": "F12_PaymentSplitter_txo_vuln.sol",
+        "path": "ml/corpus/sources/F12_PaymentSplitter_txo_vuln.sol",
+        "sha256": "eba3e6c2ab9db3c9ac4d27c5671a35d9c460f1f4f527cbe79e1c72affd5714b7",
+        "compiler": "0.8.20+commit.a1b79de6",
+        "license": "MIT",
+        "origin": "SmartShield Phase 1 corpus \u2014 purpose-written for ML research"
+      },
+      "semanticLabel": "absent",
+      "primarySpan": null,
+      "review": {
+        "status": "reviewed",
+        "reviewer": "phase1-corpus-author",
+        "adjudication": "single-reviewer-initial"
+      },
+      "rationale": "No authority replacement.",
+      "family": "F12"
+    },
+    {
+      "sampleId": "corpus-F12-PaymentSplitter-txo-vuln-UEC-001",
+      "ruleId": "UEC-001",
+      "source": {
+        "file": "F12_PaymentSplitter_txo_vuln.sol",
+        "path": "ml/corpus/sources/F12_PaymentSplitter_txo_vuln.sol",
+        "sha256": "eba3e6c2ab9db3c9ac4d27c5671a35d9c460f1f4f527cbe79e1c72affd5714b7",
+        "compiler": "0.8.20+commit.a1b79de6",
+        "license": "MIT",
+        "origin": "SmartShield Phase 1 corpus \u2014 purpose-written for ML research"
+      },
+      "semanticLabel": "absent",
+      "primarySpan": null,
+      "review": {
+        "status": "reviewed",
+        "reviewer": "phase1-corpus-author",
+        "adjudication": "single-reviewer-initial"
+      },
+      "rationale": "require(ok) is checked after payee.call.",
+      "family": "F12"
+    },
+    {
+      "sampleId": "corpus-F12-PaymentSplitter-safe-TXO-001",
+      "ruleId": "TXO-001",
+      "source": {
+        "file": "F12_PaymentSplitter_safe.sol",
+        "path": "ml/corpus/sources/F12_PaymentSplitter_safe.sol",
+        "sha256": "44419348fd4ec39dad643e690876258898766331384148f75ec56ea1868798c6",
+        "compiler": "0.8.20+commit.a1b79de6",
+        "license": "MIT",
+        "origin": "SmartShield Phase 1 corpus \u2014 purpose-written for ML research"
+      },
+      "semanticLabel": "absent",
+      "primarySpan": null,
+      "review": {
+        "status": "reviewed",
+        "reviewer": "phase1-corpus-author",
+        "adjudication": "single-reviewer-initial"
+      },
+      "rationale": "release() uses msg.sender == owner.",
+      "family": "F12"
+    },
+    {
+      "sampleId": "corpus-F12-PaymentSplitter-safe-REN-001",
+      "ruleId": "REN-001",
+      "source": {
+        "file": "F12_PaymentSplitter_safe.sol",
+        "path": "ml/corpus/sources/F12_PaymentSplitter_safe.sol",
+        "sha256": "44419348fd4ec39dad643e690876258898766331384148f75ec56ea1868798c6",
+        "compiler": "0.8.20+commit.a1b79de6",
+        "license": "MIT",
+        "origin": "SmartShield Phase 1 corpus \u2014 purpose-written for ML research"
+      },
+      "semanticLabel": "absent",
+      "primarySpan": null,
+      "review": {
+        "status": "reviewed",
+        "reviewer": "phase1-corpus-author",
+        "adjudication": "single-reviewer-initial"
+      },
+      "rationale": "No storage update follows the call.",
+      "family": "F12"
+    },
+    {
+      "sampleId": "corpus-F12-PaymentSplitter-safe-ACC-001",
+      "ruleId": "ACC-001",
+      "source": {
+        "file": "F12_PaymentSplitter_safe.sol",
+        "path": "ml/corpus/sources/F12_PaymentSplitter_safe.sol",
+        "sha256": "44419348fd4ec39dad643e690876258898766331384148f75ec56ea1868798c6",
+        "compiler": "0.8.20+commit.a1b79de6",
+        "license": "MIT",
+        "origin": "SmartShield Phase 1 corpus \u2014 purpose-written for ML research"
+      },
+      "semanticLabel": "absent",
+      "primarySpan": null,
+      "review": {
+        "status": "reviewed",
+        "reviewer": "phase1-corpus-author",
+        "adjudication": "single-reviewer-initial"
+      },
+      "rationale": "No authority replacement.",
+      "family": "F12"
+    },
+    {
+      "sampleId": "corpus-F12-PaymentSplitter-safe-UEC-001",
+      "ruleId": "UEC-001",
+      "source": {
+        "file": "F12_PaymentSplitter_safe.sol",
+        "path": "ml/corpus/sources/F12_PaymentSplitter_safe.sol",
+        "sha256": "44419348fd4ec39dad643e690876258898766331384148f75ec56ea1868798c6",
+        "compiler": "0.8.20+commit.a1b79de6",
+        "license": "MIT",
+        "origin": "SmartShield Phase 1 corpus \u2014 purpose-written for ML research"
+      },
+      "semanticLabel": "absent",
+      "primarySpan": null,
+      "review": {
+        "status": "reviewed",
+        "reviewer": "phase1-corpus-author",
+        "adjudication": "single-reviewer-initial"
+      },
+      "rationale": "require(ok) is checked after payee.call.",
+      "family": "F12"
     }
   ]
 }

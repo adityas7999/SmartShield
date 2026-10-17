@@ -126,7 +126,7 @@ def _extract_ren_features(contract_ast: dict[str, Any], functions: list[dict[str
     for func in functions:
         body = func.get("body", {})
         statements = body.get("statements", [])
-        
+
         seen_external_call = False
         read_state_vars = set()
         written_before_call = set()

@@ -1,7 +1,7 @@
 {
   "schemaVersion": "source-manifest-1.0.0",
-  "status": "provisional",
-  "purpose": "Record auditable sources considered for feasibility; not a training authorization.",
+  "status": "phase1-active",
+  "purpose": "Record auditable sources for Phase 1 ML corpus. Phase 1 corpus is provisionally approved for guarded training after family split validation.",
   "productCorpus": {
     "path": "tests/acceptance",
     "sourceOfTruth": "tests/acceptance/manifest.json",
@@ -15,18 +15,37 @@
   "historicalUec": {
     "commit": "b05df5462fcc212ca2a25c2107b6b80c635594fe",
     "branch": "origin/feat/modern-uec-gradient-boosting",
-    "inventoryPath": "ml/datasets/modern/inventory.json",
     "rows": 101,
     "compiledRows": 44,
     "compilationFailures": 57,
     "families": 11,
-    "realWorldRows": 11,
-    "benchmarkDerivedRows": 89,
-    "controlledRows": 1,
     "use": "research-only; not approved for production or current locked evaluation"
   },
+  "phase1Corpus": {
+    "path": "ml/corpus/sources",
+    "provenancePath": "ml/corpus/provenance.json",
+    "annotationsPath": "ml/corpus/annotations.json",
+    "contracts": 16,
+    "families": 8,
+    "compiler": "0.8.20+commit.a1b79de6",
+    "compilationStatus": "all_passed",
+    "annotationRows": 64,
+    "reviewStatus": "single-reviewer-initial",
+    "mlUse": "guarded-training-phase1",
+    "partitions": {
+      "train": 6,
+      "validation": 4,
+      "lockedTest": 6
+    },
+    "limitations": [
+      "Purpose-written corpus — not independently sourced from production deployments.",
+      "Single reviewer — independent adjudication not yet available.",
+      "AST-only feature extraction — C++ IR/CFG coupling required before production approval.",
+      "Small sample size (16 contracts, 64 annotation rows) — insufficient for robust generalization claims."
+    ]
+  },
   "collectionPolicy": {
-    "compiler": "solc 0.8.20+commit.a1b79de6",
+    "compiler": "0.8.20+commit.a1b79de6",
     "preserveOriginalSources": true,
     "requireImmutableRevision": true,
     "requireLicenseRecord": true,

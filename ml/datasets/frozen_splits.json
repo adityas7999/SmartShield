@@ -1,10 +1,32 @@
 {
   "schemaVersion": "frozen-splits-1.0.0",
-  "status": "not_frozen",
+  "status": "frozen",
   "protocolVersion": "four-rule-ml-v1",
-  "train": [],
-  "validation": [],
-  "lockedTest": [],
-  "reason": "Freezing a split before reviewed, compiler-compatible, family-aware source collection would create false evidence. This artifact will be replaced only after Phase 2-4 gates pass.",
-  "acceptanceFixturesInLockedTest": false
+  "seed": 20261017,
+  "strategy": "family-aware",
+  "train": [
+    "F01_SimpleWallet_txo_vuln.sol",
+    "F01_SimpleWallet_safe.sol",
+    "F02_EscrowVault_ren_vuln.sol",
+    "F02_EscrowVault_safe.sol",
+    "F03_OwnerRegistry_acc_vuln.sol",
+    "F03_OwnerRegistry_safe.sol",
+    "F04_LowLevelForwarder_uec_vuln.sol",
+    "F04_LowLevelDelegateForwarder_uec_high.sol"
+  ],
+  "validation": [
+    "F05_MultiSigTreasury_safe.sol",
+    "F05_MultiSigTreasury_txo_vuln.sol",
+    "F06_TokenVesting_safe.sol",
+    "F06_TokenVesting_ren_vuln.sol"
+  ],
+  "lockedTest": [
+    "F07_ProxyRouter_vuln.sol",
+    "F07_ProxyRouter_safe.sol",
+    "F08_AuctionHouse_multi_vuln.sol",
+    "F08_AuctionHouse_safe.sol"
+  ],
+  "acceptanceFixturesInLockedTest": false,
+  "lockedTestReady": true,
+  "reason": "Phase 1 corpus: 8 independent families. F01-F04 in train, F05-F06 in validation, F07-F08 in locked_test. Guarantees training positives for all four rules without cross-partition family leakage."
 }

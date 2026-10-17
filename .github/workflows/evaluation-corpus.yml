@@ -14,7 +14,7 @@ jobs:
       run:
         shell: bash
     env:
-      PYTHONPATH: backend
+      PYTHONPATH: backend:.
       SMARTSHIELD_ANALYZER_BIN: ${{ github.workspace }}/build/core/smartshield-analyzer
     steps:
       - uses: actions/checkout@v4
@@ -48,7 +48,7 @@ jobs:
           cmake --build build/core --parallel 2
           ctest --test-dir build/core --output-on-failure | tee build/core-tests.log
       - name: Backend regressions
-        run: python -m pytest backend/tests -q | tee build/backend-tests.log
+        run: python -m pytest backend/tests ml/tests -q | tee build/backend-tests.log
       - name: Record current analyzer observations
         run: node scripts/validate-corpus.mjs --analyzer "$SMARTSHIELD_ANALYZER_BIN" --output build/corpus-observations.json | tee build/corpus-observations.log
       - name: Frontend tests and production build

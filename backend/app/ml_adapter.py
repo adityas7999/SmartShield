@@ -9,30 +9,46 @@ from __future__ import annotations
 
 import logging
 import os
+import sys
 from pathlib import Path
 from typing import Any
 
-import joblib
-import numpy as np
+ROOT = Path(__file__).resolve().parents[2]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
 
-from ml.features.extractor import extract
-from ml.features.schema import FEATURES, FEATURE_SCHEMA_VERSION, RULES
+try:
+    import joblib
+    import numpy as np
+    from ml.features.extractor import extract
+    from ml.features.schema import FEATURES, FEATURE_SCHEMA_VERSION, RULES
+    ML_DEPS_AVAILABLE = True
+except ImportError:
+    joblib = None
+    np = None
+    extract = None
+    FEATURES = {}
+    FEATURE_SCHEMA_VERSION = "semantic-cfg-v1"
+    RULES = ("TXO-001", "REN-001", "ACC-001", "UEC-001")
+    ML_DEPS_AVAILABLE = False
 
 logger = logging.getLogger(__name__)
 
-ROOT = Path(__file__).resolve().parents[2]
 MODELS_DIR = ROOT / "ml" / "models"
-
 _CACHE: dict[str, Any] = {}
 
 
 def is_ml_enabled() -> bool:
     """Check if ML serving is enabled via feature flag."""
+    if not ML_DEPS_AVAILABLE:
+        return False
     return os.getenv("SMARTSHIELD_ENABLE_ML", "false").lower() in ("true", "1", "yes")
 
 
 def get_models() -> dict[str, Any]:
     """Load and cache trained ML model bundles."""
+    if not ML_DEPS_AVAILABLE or joblib is None:
+        return {}
     if "models" not in _CACHE:
         models = {}
         for rule in RULES:

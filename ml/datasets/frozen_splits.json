@@ -1,0 +1,10 @@
+{
+  "schemaVersion": "frozen-splits-1.0.0",
+  "status": "not_frozen",
+  "protocolVersion": "four-rule-ml-v1",
+  "train": [],
+  "validation": [],
+  "lockedTest": [],
+  "reason": "Freezing a split before reviewed, compiler-compatible, family-aware source collection would create false evidence. This artifact will be replaced only after Phase 2-4 gates pass.",
+  "acceptanceFixturesInLockedTest": false
+}

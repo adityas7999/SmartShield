@@ -1,0 +1,25 @@
+{
+  "protocolVersion": "four-rule-ml-v1",
+  "compilerVersion": "0.8.20+commit.a1b79de6",
+  "rules": ["TXO-001", "REN-001", "ACC-001", "UEC-001"],
+  "models": [
+    {"name": "dummy", "enabled": true},
+    {"name": "logistic_regression", "enabled": true, "parameters": {"C": [0.1, 1.0, 10.0]}},
+    {"name": "histogram_gradient_boosting", "enabled": true, "parameters": {"max_iter": [50, 100], "learning_rate": [0.05, 0.1], "max_leaf_nodes": [7, 15]}},
+    {"name": "random_forest", "enabled": false, "reason": "Requires a declared rule-specific experimental question and sufficient independent families."}
+  ],
+  "release": {
+    "minIndependentTestFamilies": 20,
+    "targetIndependentFamilies": 40,
+    "acceptanceFixturesAllowed": false,
+    "unknownIsNegative": false,
+    "unsupportedIsNegative": false,
+    "mlMaySuppressDeterministicFinding": false,
+    "productionDefault": "disabled"
+  },
+  "split": {
+    "strategy": "family-aware",
+    "seed": 20261017,
+    "lockedBeforeModelSelection": true
+  }
+}

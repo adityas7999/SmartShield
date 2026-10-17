@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://smartshield.local/ml/annotation-1.0.0.json",
+  "title": "SmartShield ML candidate annotation",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "sampleId",
+    "source",
+    "familyId",
+    "ruleId",
+    "candidate",
+    "semanticLabel",
+    "review",
+    "compiler",
+    "featureSupport",
+    "deterministicResult"
+  ],
+  "properties": {
+    "sampleId": { "type": "string", "minLength": 1 },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "sha256", "category", "revision"],
+      "properties": {
+        "path": { "type": "string" },
+        "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+        "category": { "enum": ["real-world", "benchmark-derived", "synthetic", "controlled"] },
+        "revision": { "type": "string", "minLength": 1 },
+        "license": { "type": ["string", "null"] }
+      }
+    },
+    "familyId": { "type": "string", "minLength": 1 },
+    "ruleId": { "enum": ["TXO-001", "REN-001", "ACC-001", "UEC-001"] },
+    "candidate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["operationId", "span"],
+      "properties": {
+        "operationId": { "type": "string" },
+        "span": { "$ref": "#/$defs/span" },
+        "evidenceSpans": { "type": "array", "items": { "$ref": "#/$defs/span" } }
+      }
+    },
+    "semanticLabel": { "enum": ["present", "absent", "unknown", "not_applicable", "unsupported"] },
+    "review": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "reviewer", "rationale"],
+      "properties": {
+        "status": { "enum": ["unreviewed", "independent_reviewed", "adjudicated"] },
+        "reviewer": { "type": ["string", "null"] },
+        "rationale": { "type": "string", "minLength": 1 },
+        "disagreement": { "type": ["string", "null"] }
+      }
+    },
+    "compiler": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["version", "status"],
+      "properties": {
+        "version": { "type": "string" },
+        "status": { "enum": ["compiled", "compilation_error"] },
+        "diagnostics": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "featureSupport": { "enum": ["supported", "unsupported", "failed", "not_run"] },
+    "deterministicResult": { "enum": ["finding", "no_finding", "unsupported", "failed", "not_run"] },
+    "adjudicationNotes": { "type": "array", "items": { "type": "string" } }
+  },
+  "$defs": {
+    "span": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["file", "offset", "length", "line", "column"],
+      "properties": {
+        "file": { "type": "string" },
+        "offset": { "type": "integer", "minimum": 0 },
+        "length": { "type": "integer", "minimum": 0 },
+        "line": { "type": "integer", "minimum": 1 },
+        "column": { "type": "integer", "minimum": 1 }
+      }
+    }
+  }
+}

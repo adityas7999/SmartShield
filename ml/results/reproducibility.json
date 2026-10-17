@@ -1,0 +1,24 @@
+{
+  "schemaVersion": "reproducibility-1.0.0",
+  "protocolVersion": "four-rule-ml-v1",
+  "baselineCommit": "7507c9d70770102dced003ec23716e42c502be7e",
+  "compiler": "solc 0.8.20+commit.a1b79de6",
+  "acceptanceManifestSha256": "e2d29472c9dfc612c85cc4c99700cd357cb663b40eff725f5c95f802e2f3addb",
+  "acceptanceSolidityAggregateSha256": "76512ad91046b171402964b4cfbb3ef8d55081d666a61d74e82547c78d9a10e7",
+  "featureSchemaVersion": "ast-structural-v1",
+  "split": {
+    "strategy": "family-aware",
+    "seed": 20261017,
+    "status": "not_frozen"
+  },
+  "commands": [
+    "node --test scripts/corpus-manifest.test.mjs",
+    "node scripts/validate-corpus.mjs --analyzer build/core-winlibs/smartshield-analyzer.exe --output build/corpus-observations-final.json",
+    "python -m pytest backend/tests -q",
+    "python -m pytest ml/tests -q",
+    "npm test --prefix frontend",
+    "npm run build --prefix frontend"
+  ],
+  "modelArtifacts": [],
+  "releaseDecision": "deterministic_only"
+}

@@ -1,0 +1,46 @@
+{
+  "limitations": [
+    "No eligible reviewed binary rows are available.",
+    "No locked family-separated test split is frozen.",
+    "No ML prediction may alter deterministic findings."
+  ],
+  "models": [
+    "dummy",
+    "logistic_regression",
+    "histogram_gradient_boosting"
+  ],
+  "protocolVersion": "four-rule-ml-v1",
+  "releaseRecommendation": "research_only",
+  "rules": {
+    "ACC-001": {
+      "deterministicBaseline": null,
+      "hybrid": null,
+      "metrics": null,
+      "reason": "insufficient_data",
+      "status": "not_estimable"
+    },
+    "REN-001": {
+      "deterministicBaseline": null,
+      "hybrid": null,
+      "metrics": null,
+      "reason": "insufficient_data",
+      "status": "not_estimable"
+    },
+    "TXO-001": {
+      "deterministicBaseline": null,
+      "hybrid": null,
+      "metrics": null,
+      "reason": "insufficient_data",
+      "status": "not_estimable"
+    },
+    "UEC-001": {
+      "deterministicBaseline": null,
+      "hybrid": null,
+      "metrics": null,
+      "reason": "research_only",
+      "status": "not_estimable"
+    }
+  },
+  "schemaVersion": "evaluation-report-1.0.0",
+  "status": "not_estimable"
+}

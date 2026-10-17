@@ -1,0 +1,37 @@
+{
+  "schemaVersion": "source-manifest-1.0.0",
+  "status": "provisional",
+  "purpose": "Record auditable sources considered for feasibility; not a training authorization.",
+  "productCorpus": {
+    "path": "tests/acceptance",
+    "sourceOfTruth": "tests/acceptance/manifest.json",
+    "manifestSha256": "e2d29472c9dfc612c85cc4c99700cd357cb663b40eff725f5c95f802e2f3addb",
+    "solidityAggregateSha256": "76512ad91046b171402964b4cfbb3ef8d55081d666a61d74e82547c78d9a10e7",
+    "rows": 71,
+    "classification": "product-verification",
+    "mlUse": "excluded",
+    "reason": "Acceptance fixtures are synthetic or controlled regression data and are used to demonstrate deterministic product behavior."
+  },
+  "historicalUec": {
+    "commit": "b05df5462fcc212ca2a25c2107b6b80c635594fe",
+    "branch": "origin/feat/modern-uec-gradient-boosting",
+    "inventoryPath": "ml/datasets/modern/inventory.json",
+    "rows": 101,
+    "compiledRows": 44,
+    "compilationFailures": 57,
+    "families": 11,
+    "realWorldRows": 11,
+    "benchmarkDerivedRows": 89,
+    "controlledRows": 1,
+    "use": "research-only; not approved for production or current locked evaluation"
+  },
+  "collectionPolicy": {
+    "compiler": "solc 0.8.20+commit.a1b79de6",
+    "preserveOriginalSources": true,
+    "requireImmutableRevision": true,
+    "requireLicenseRecord": true,
+    "unknownIsNotNegative": true,
+    "unsupportedIsNotNegative": true,
+    "acceptanceFixturesExcludedFromMlEvaluation": true
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "schemaVersion": "family-assignments-1.0.0",
+  "status": "provisional",
+  "splitPolicy": "No train/validation/test assignment is frozen in this checkpoint.",
+  "assignments": [
+    {
+      "collection": "tests/acceptance",
+      "family": "product-acceptance-corpus",
+      "partition": "excluded",
+      "reason": "All acceptance fixtures share the product-verification purpose and are excluded from ML."
+    },
+    {
+      "collection": "tests/contracts",
+      "family": "canonical-product-fixtures",
+      "partition": "excluded",
+      "reason": "Canonical regression fixtures are not independent evidence."
+    },
+    {
+      "collection": "historical UEC",
+      "family": "historical-families-recorded-in-source-manifest",
+      "partition": "research-only",
+      "reason": "Historical split is retained for provenance but is not a release split."
+    }
+  ],
+  "crossPartitionLeakageCheck": "not_applicable",
+  "lockedTestReady": false
+}

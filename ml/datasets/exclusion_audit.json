@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "exclusion-audit-1.0.0",
+  "status": "provisional",
+  "rules": [
+    "Do not train or test on product acceptance fixtures.",
+    "Do not convert compilation failures, unsupported constructs, unknown labels, or unreviewed labels into negatives.",
+    "Do not split related variants, forks, injected variants, or shared upstream families across partitions.",
+    "Do not use source paths, fixture names, detector verdicts, labels, or injection markers as predictive features.",
+    "Do not claim independent real-world evidence from benchmark-derived or synthetic examples."
+  ],
+  "excludedCollections": [
+    {
+      "collection": "tests/acceptance/*.sol",
+      "reason": "Product verification corpus; 71 fixture rows and 31 deterministic findings.",
+      "status": "excluded"
+    },
+    {
+      "collection": "tests/contracts/**/*.sol",
+      "reason": "Small canonical regression fixtures; provenance and independent review are insufficient.",
+      "status": "excluded"
+    },
+    {
+      "collection": "historical UEC rows with compilation_error, unsupported, unknown, or unreviewed labels",
+      "reason": "Not eligible for binary supervised learning.",
+      "status": "excluded"
+    }
+  ],
+  "eligibleRowsForCurrentCheckpoint": 0,
+  "reasonNoEligibleRows": "No audited, reviewed, compiler-compatible, family-separated four-rule collection is present on the current branch."
+}

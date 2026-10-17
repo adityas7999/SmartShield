@@ -1,46 +1,477 @@
 {
   "limitations": [
-    "No eligible reviewed binary rows are available.",
-    "No locked family-separated test split is frozen.",
-    "No ML prediction may alter deterministic findings."
+    "Dataset size is 24 contracts across 12 families; larger wild distributions require continuous expanding.",
+    "Deterministic C++ analyzer remains the primary gate for blocking actions in CI/CD.",
+    "ML predictions operate in advisory/shadow mode under SMARTSHIELD_ENABLE_ML flag."
   ],
+  "lockedTestContracts": [
+    "F07_ProxyRouter_vuln.sol",
+    "F07_ProxyRouter_safe.sol",
+    "F08_AuctionHouse_multi_vuln.sol",
+    "F08_AuctionHouse_safe.sol",
+    "F11_FlashLoanReceiver_uec_vuln.sol",
+    "F11_FlashLoanReceiver_safe.sol",
+    "F12_PaymentSplitter_txo_vuln.sol",
+    "F12_PaymentSplitter_safe.sol"
+  ],
+  "lockedTestSize": 8,
   "models": [
     "dummy",
     "logistic_regression",
     "histogram_gradient_boosting"
   ],
   "protocolVersion": "four-rule-ml-v1",
-  "releaseRecommendation": "research_only",
+  "releaseRecommendation": "shadow_mode_advisory",
   "rules": {
     "ACC-001": {
-      "deterministicBaseline": null,
-      "hybrid": null,
-      "metrics": null,
-      "reason": "insufficient_data",
-      "status": "not_estimable"
+      "deterministicBaseline": {
+        "accuracy": 1.0,
+        "brierScore": null,
+        "confusionMatrix": {
+          "falseNegatives": 0,
+          "falsePositives": 0,
+          "trueNegatives": 7,
+          "truePositives": 1
+        },
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "hybrid": {
+        "accuracy": 1.0,
+        "brierScore": null,
+        "confusionMatrix": {
+          "falseNegatives": 0,
+          "falsePositives": 0,
+          "trueNegatives": 7,
+          "truePositives": 1
+        },
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "mlModel": {
+        "accuracy": 1.0,
+        "brierScore": 0.0056,
+        "confusionMatrix": {
+          "falseNegatives": 0,
+          "falsePositives": 0,
+          "trueNegatives": 7,
+          "truePositives": 1
+        },
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "negativeSamples": 7,
+      "positiveSamples": 1,
+      "reason": "evaluated_on_locked_family_separated_split",
+      "sampleBreakdown": [
+        {
+          "deterministic": 1,
+          "file": "F07_ProxyRouter_vuln.sol",
+          "groundTruth": 1,
+          "hybrid": 1,
+          "mlPrediction": 1,
+          "mlProbability": 0.926
+        },
+        {
+          "deterministic": 0,
+          "file": "F07_ProxyRouter_safe.sol",
+          "groundTruth": 0,
+          "hybrid": 0,
+          "mlPrediction": 0,
+          "mlProbability": 0.1347
+        },
+        {
+          "deterministic": 0,
+          "file": "F08_AuctionHouse_multi_vuln.sol",
+          "groundTruth": 0,
+          "hybrid": 0,
+          "mlPrediction": 0,
+          "mlProbability": 0.0722
+        },
+        {
+          "deterministic": 0,
+          "file": "F08_AuctionHouse_safe.sol",
+          "groundTruth": 0,
+          "hybrid": 0,
+          "mlPrediction": 0,
+          "mlProbability": 0.034
+        },
+        {
+          "deterministic": 0,
+          "file": "F11_FlashLoanReceiver_uec_vuln.sol",
+          "groundTruth": 0,
+          "hybrid": 0,
+          "mlPrediction": 0,
+          "mlProbability": 0.045
+        },
+        {
+          "deterministic": 0,
+          "file": "F11_FlashLoanReceiver_safe.sol",
+          "groundTruth": 0,
+          "hybrid": 0,
+          "mlPrediction": 0,
+          "mlProbability": 0.045
+        },
+        {
+          "deterministic": 0,
+          "file": "F12_PaymentSplitter_txo_vuln.sol",
+          "groundTruth": 0,
+          "hybrid": 0,
+          "mlPrediction": 0,
+          "mlProbability": 0.0944
+        },
+        {
+          "deterministic": 0,
+          "file": "F12_PaymentSplitter_safe.sol",
+          "groundTruth": 0,
+          "hybrid": 0,
+          "mlPrediction": 0,
+          "mlProbability": 0.045
+        }
+      ],
+      "sampleCount": 8,
+      "status": "evaluated"
     },
     "REN-001": {
-      "deterministicBaseline": null,
-      "hybrid": null,
-      "metrics": null,
-      "reason": "insufficient_data",
-      "status": "not_estimable"
+      "deterministicBaseline": {
+        "accuracy": 1.0,
+        "brierScore": null,
+        "confusionMatrix": {
+          "falseNegatives": 0,
+          "falsePositives": 0,
+          "trueNegatives": 7,
+          "truePositives": 1
+        },
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "hybrid": {
+        "accuracy": 1.0,
+        "brierScore": null,
+        "confusionMatrix": {
+          "falseNegatives": 0,
+          "falsePositives": 0,
+          "trueNegatives": 7,
+          "truePositives": 1
+        },
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "mlModel": {
+        "accuracy": 1.0,
+        "brierScore": 0.0079,
+        "confusionMatrix": {
+          "falseNegatives": 0,
+          "falsePositives": 0,
+          "trueNegatives": 7,
+          "truePositives": 1
+        },
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "negativeSamples": 7,
+      "positiveSamples": 1,
+      "reason": "evaluated_on_locked_family_separated_split",
+      "sampleBreakdown": [
+        {
+          "deterministic": 0,
+          "file": "F07_ProxyRouter_vuln.sol",
+          "groundTruth": 0,
+          "hybrid": 0,
+          "mlPrediction": 0,
+          "mlProbability": 0.1312
+        },
+        {
+          "deterministic": 0,
+          "file": "F07_ProxyRouter_safe.sol",
+          "groundTruth": 0,
+          "hybrid": 0,
+          "mlPrediction": 0,
+          "mlProbability": 0.1106
+        },
+        {
+          "deterministic": 1,
+          "file": "F08_AuctionHouse_multi_vuln.sol",
+          "groundTruth": 1,
+          "hybrid": 1,
+          "mlPrediction": 1,
+          "mlProbability": 0.9383
+        },
+        {
+          "deterministic": 0,
+          "file": "F08_AuctionHouse_safe.sol",
+          "groundTruth": 0,
+          "hybrid": 0,
+          "mlPrediction": 0,
+          "mlProbability": 0.1156
+        },
+        {
+          "deterministic": 0,
+          "file": "F11_FlashLoanReceiver_uec_vuln.sol",
+          "groundTruth": 0,
+          "hybrid": 0,
+          "mlPrediction": 0,
+          "mlProbability": 0.0583
+        },
+        {
+          "deterministic": 0,
+          "file": "F11_FlashLoanReceiver_safe.sol",
+          "groundTruth": 0,
+          "hybrid": 0,
+          "mlPrediction": 0,
+          "mlProbability": 0.0583
+        },
+        {
+          "deterministic": 0,
+          "file": "F12_PaymentSplitter_txo_vuln.sol",
+          "groundTruth": 0,
+          "hybrid": 0,
+          "mlPrediction": 0,
+          "mlProbability": 0.0703
+        },
+        {
+          "deterministic": 0,
+          "file": "F12_PaymentSplitter_safe.sol",
+          "groundTruth": 0,
+          "hybrid": 0,
+          "mlPrediction": 0,
+          "mlProbability": 0.0703
+        }
+      ],
+      "sampleCount": 8,
+      "status": "evaluated"
     },
     "TXO-001": {
-      "deterministicBaseline": null,
-      "hybrid": null,
-      "metrics": null,
-      "reason": "insufficient_data",
-      "status": "not_estimable"
+      "deterministicBaseline": {
+        "accuracy": 1.0,
+        "brierScore": null,
+        "confusionMatrix": {
+          "falseNegatives": 0,
+          "falsePositives": 0,
+          "trueNegatives": 6,
+          "truePositives": 2
+        },
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "hybrid": {
+        "accuracy": 1.0,
+        "brierScore": null,
+        "confusionMatrix": {
+          "falseNegatives": 0,
+          "falsePositives": 0,
+          "trueNegatives": 6,
+          "truePositives": 2
+        },
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "mlModel": {
+        "accuracy": 1.0,
+        "brierScore": 0.0016,
+        "confusionMatrix": {
+          "falseNegatives": 0,
+          "falsePositives": 0,
+          "trueNegatives": 6,
+          "truePositives": 2
+        },
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "negativeSamples": 6,
+      "positiveSamples": 2,
+      "reason": "evaluated_on_locked_family_separated_split",
+      "sampleBreakdown": [
+        {
+          "deterministic": 0,
+          "file": "F07_ProxyRouter_vuln.sol",
+          "groundTruth": 0,
+          "hybrid": 0,
+          "mlPrediction": 0,
+          "mlProbability": 0.0401
+        },
+        {
+          "deterministic": 0,
+          "file": "F07_ProxyRouter_safe.sol",
+          "groundTruth": 0,
+          "hybrid": 0,
+          "mlPrediction": 0,
+          "mlProbability": 0.0401
+        },
+        {
+          "deterministic": 1,
+          "file": "F08_AuctionHouse_multi_vuln.sol",
+          "groundTruth": 1,
+          "hybrid": 1,
+          "mlPrediction": 1,
+          "mlProbability": 0.9616
+        },
+        {
+          "deterministic": 0,
+          "file": "F08_AuctionHouse_safe.sol",
+          "groundTruth": 0,
+          "hybrid": 0,
+          "mlPrediction": 0,
+          "mlProbability": 0.0401
+        },
+        {
+          "deterministic": 0,
+          "file": "F11_FlashLoanReceiver_uec_vuln.sol",
+          "groundTruth": 0,
+          "hybrid": 0,
+          "mlPrediction": 0,
+          "mlProbability": 0.0401
+        },
+        {
+          "deterministic": 0,
+          "file": "F11_FlashLoanReceiver_safe.sol",
+          "groundTruth": 0,
+          "hybrid": 0,
+          "mlPrediction": 0,
+          "mlProbability": 0.0401
+        },
+        {
+          "deterministic": 1,
+          "file": "F12_PaymentSplitter_txo_vuln.sol",
+          "groundTruth": 1,
+          "hybrid": 1,
+          "mlPrediction": 1,
+          "mlProbability": 0.9616
+        },
+        {
+          "deterministic": 0,
+          "file": "F12_PaymentSplitter_safe.sol",
+          "groundTruth": 0,
+          "hybrid": 0,
+          "mlPrediction": 0,
+          "mlProbability": 0.0401
+        }
+      ],
+      "sampleCount": 8,
+      "status": "evaluated"
     },
     "UEC-001": {
-      "deterministicBaseline": null,
-      "hybrid": null,
-      "metrics": null,
-      "reason": "research_only",
-      "status": "not_estimable"
+      "deterministicBaseline": {
+        "accuracy": 1.0,
+        "brierScore": null,
+        "confusionMatrix": {
+          "falseNegatives": 0,
+          "falsePositives": 0,
+          "trueNegatives": 5,
+          "truePositives": 3
+        },
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "hybrid": {
+        "accuracy": 1.0,
+        "brierScore": null,
+        "confusionMatrix": {
+          "falseNegatives": 0,
+          "falsePositives": 0,
+          "trueNegatives": 5,
+          "truePositives": 3
+        },
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "mlModel": {
+        "accuracy": 1.0,
+        "brierScore": 0.023,
+        "confusionMatrix": {
+          "falseNegatives": 0,
+          "falsePositives": 0,
+          "trueNegatives": 5,
+          "truePositives": 3
+        },
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "negativeSamples": 5,
+      "positiveSamples": 3,
+      "reason": "evaluated_on_locked_family_separated_split",
+      "sampleBreakdown": [
+        {
+          "deterministic": 1,
+          "file": "F07_ProxyRouter_vuln.sol",
+          "groundTruth": 1,
+          "hybrid": 1,
+          "mlPrediction": 1,
+          "mlProbability": 0.9452
+        },
+        {
+          "deterministic": 0,
+          "file": "F07_ProxyRouter_safe.sol",
+          "groundTruth": 0,
+          "hybrid": 0,
+          "mlPrediction": 0,
+          "mlProbability": 0.3111
+        },
+        {
+          "deterministic": 1,
+          "file": "F08_AuctionHouse_multi_vuln.sol",
+          "groundTruth": 1,
+          "hybrid": 1,
+          "mlPrediction": 1,
+          "mlProbability": 0.9205
+        },
+        {
+          "deterministic": 0,
+          "file": "F08_AuctionHouse_safe.sol",
+          "groundTruth": 0,
+          "hybrid": 0,
+          "mlPrediction": 0,
+          "mlProbability": 0.0949
+        },
+        {
+          "deterministic": 1,
+          "file": "F11_FlashLoanReceiver_uec_vuln.sol",
+          "groundTruth": 1,
+          "hybrid": 1,
+          "mlPrediction": 1,
+          "mlProbability": 0.8364
+        },
+        {
+          "deterministic": 0,
+          "file": "F11_FlashLoanReceiver_safe.sol",
+          "groundTruth": 0,
+          "hybrid": 0,
+          "mlPrediction": 0,
+          "mlProbability": 0.118
+        },
+        {
+          "deterministic": 0,
+          "file": "F12_PaymentSplitter_txo_vuln.sol",
+          "groundTruth": 0,
+          "hybrid": 0,
+          "mlPrediction": 0,
+          "mlProbability": 0.118
+        },
+        {
+          "deterministic": 0,
+          "file": "F12_PaymentSplitter_safe.sol",
+          "groundTruth": 0,
+          "hybrid": 0,
+          "mlPrediction": 0,
+          "mlProbability": 0.118
+        }
+      ],
+      "sampleCount": 8,
+      "status": "evaluated"
     }
   },
   "schemaVersion": "evaluation-report-1.0.0",
-  "status": "not_estimable"
+  "status": "evaluated"
 }

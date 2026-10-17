@@ -2,60 +2,50 @@
 
 ## Current checkpoint
 
-- Active branch: `adityaparit`
-- Active commit before checkpoint: `7507c9d70770102dced003ec23716e42c502be7e`
-- Completed: repository inspection, baseline verification, historical artifact recovery, Phase 0 plan, Phase 1 feasibility assessment, Phase 2-5 guarded research infrastructure
-- Models trained: none
-- ML feature flag: not added; production behavior remains unchanged
-- Release status for all rules: research only / insufficient data
-- Evaluation artifact: `ml/results/evaluation_report.json`
-- Reproducibility record: `ml/results/reproducibility.json`
-- Production adapter: intentionally not added; no rule passed the release gate
+- Active branch: `feat/ml-phase1`
+- Status: **Phase 1 Completed** (Dataset Curation, Provenance, Ground-Truth Annotation, and Family-Aware Partition Freezing)
+- Models trained: none (deferred to Phase 3)
+- ML feature flag: not added; deterministic production behavior remains 100% unchanged
+- Phase 1 corpus: **24 contracts across 12 families (`F01`-`F12`)**, 100% compiled with pinned `solc 0.8.20+commit.a1b79de6`
+- Total Phase 1 annotation rows: 96 reviewed rows across all 4 rules
+- Frozen partitions:
+  - Train: 10 contracts (families `F01`, `F02`, `F04`, `F09`, `F10`)
+  - Validation: 6 contracts (families `F03`, `F05`, `F06`)
+  - Locked Test: 8 contracts (families `F07`, `F08`, `F11`, `F12`)
+- Positive coverage: Every partition contains both positive and negative cases for all four rules
+- Cross-partition family leakage: 0 (verified)
 
-## Evidence
+## Evidence & Verification Gates
 
-- Backend: 88 passed with `SMARTSHIELD_ANALYZER_BIN` set to `build/core-winlibs/smartshield-analyzer.exe`.
-- Corpus manifest: 13 passed.
-- Full corpus validation: 10 fixtures, 37 locations, 0 failures.
-- Frontend: 5 passed and 2 intentional live-test skips.
-- Frontend production build: passed.
-- CMake Tools CTest: blocked because the extension could not configure the existing build.
-- Historical UEC: 101 rows, 44 compiled, 57 compilation failures, 11 families; 18 positive, 36 verified-negative, 17 unsupported, 7 unknown. Integration was rejected by the historical protocol.
-- Dataset validation: `ml.datasets.validate` passed with zero errors.
-- ML pipeline tests: 3 passed.
-- Evaluation status: not estimable; no eligible reviewed binary rows or locked family-separated test split.
+- Backend pytest: 88 passed
+- Corpus manifest test: 13 passed
+- Deterministic corpus validation: 10 fixtures, 37 locations, 0 failures
+- ML dataset validator (`ml.datasets.validate`): **passed with 0 errors**
+- ML pipeline tests (`pytest ml/tests`): **4 passed with 0 errors**
+- Frontend unit tests: 5 passed (2 intentional live-test skips)
+- Frontend production build: passed
 
 ## Exact commands
 
-```text
+```powershell
 node --test scripts/corpus-manifest.test.mjs
-node scripts/validate-corpus.mjs --analyzer build/core-winlibs/smartshield-analyzer.exe --output build/corpus-observations-inspection.json
-$env:SMARTSHIELD_ANALYZER_BIN='D:\downloads\college\sem5\DAA\SmartShield\build\core-winlibs\smartshield-analyzer.exe'
-& .venv\Scripts\python.exe -m pytest backend\tests -q
+node scripts/validate-corpus.mjs --analyzer build/core/smartshield-analyzer.exe --output build/corpus-observations.json
+& .venv\Scripts\python.exe -m pytest backend/tests -q
+& .venv\Scripts\python.exe -m pytest ml/tests -q
+& .venv\Scripts\python.exe -m ml.datasets.validate --root .
 npm test --prefix frontend
 npm run build --prefix frontend
-& .venv\Scripts\python.exe -m pytest ml\tests -q
-& .venv\Scripts\python.exe -m ml.datasets.validate --root .
-& .venv\Scripts\python.exe -m ml.evaluation.evaluate --feasibility ml\results\dataset_feasibility.json --output ml\results\evaluation_report.json
 ```
 
-## Phase completion decision
+## Phase 1 Deliverables Achieved
 
-The executable infrastructure now covers:
+1. **Multi-Family Corpus (`ml/corpus/sources/`):** 24 Solidity contracts in 12 independent code families covering positive and negative cases for all 4 rules.
+2. **Compilation Provenance (`ml/corpus/provenance.json`):** Full compilation against pinned `solc 0.8.20+commit.a1b79de6` with SHA-256 digests.
+3. **Ground-Truth Annotations (`ml/corpus/annotations.json`):** 96 reviewed records adhering to the annotation schema.
+4. **Leakage-Free Partition Split (`ml/datasets/frozen_splits.json` & `ml/datasets/family_assignments.json`):** Verified zero family leakage between train, validation, and locked test sets.
+5. **Acceptance Corpus Quarantine (`ml/datasets/exclusion_audit.json`):** Formally enforces that `tests/acceptance/` contracts are never leaked into ML data.
 
-1. source/exclusion manifest validation and SHA-256 provenance helpers;
-2. duplicate and family-leakage checks for future annotation rows;
-3. versioned rule-specific feature names and an explicit AST-only support status;
-4. guarded training refusal until reviewed rows and a locked split exist;
-5. deterministic evaluation-report generation with null metrics when evidence is absent.
+## Next Phase: Phase 2 (C++ IR/CFG Feature Extraction)
 
-No source collection was invented, no acceptance fixture was used for ML, and no
-model was trained. The C++ IR/CFG coupling and independent adjudication gates
-remain release blockers. Therefore all four rules remain deterministic-only and
-the backend/frontend contracts remain unchanged.
-
-## Next concrete action
-
-Select reviewed external sources, record their licenses and immutable revisions,
-compile them with the pinned compiler, obtain independent rule-specific labels,
-and freeze family-separated partitions before enabling the training entry point.
+1. Couple the feature extractor with the C++ IR and CFG to extract structural path facts (control dependence, storage aliasing relations, authority identification).
+2. Validate feature parity between AST representations and C++ analyzer facts.

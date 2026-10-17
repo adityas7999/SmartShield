@@ -1,13 +1,13 @@
 {
   "schemaVersion": "family-assignments-1.0.0",
   "status": "provisional",
-  "splitPolicy": "No train/validation/test assignment is frozen in this checkpoint.",
+  "splitPolicy": "Family-aware: all contracts from the same family (F01-F12) are assigned to a single partition. No family spans multiple learnable partitions.",
   "assignments": [
     {
       "collection": "tests/acceptance",
       "family": "product-acceptance-corpus",
       "partition": "excluded",
-      "reason": "All acceptance fixtures share the product-verification purpose and are excluded from ML."
+      "reason": "All acceptance fixtures are synthetic product-verification data and are excluded from ML."
     },
     {
       "collection": "tests/contracts",
@@ -18,10 +18,154 @@
     {
       "collection": "historical UEC",
       "family": "historical-families-recorded-in-source-manifest",
-      "partition": "research-only",
-      "reason": "Historical split is retained for provenance but is not a release split."
+      "partition": "research_only",
+      "reason": "Historical split retained for provenance only."
+    },
+    {
+      "collection": "ml/corpus/sources/F01_SimpleWallet_txo_vuln.sol",
+      "family": "F01-SimpleWallet",
+      "partition": "train",
+      "reason": "Phase 1 corpus; wallet tx.origin pattern family."
+    },
+    {
+      "collection": "ml/corpus/sources/F01_SimpleWallet_safe.sol",
+      "family": "F01-SimpleWallet",
+      "partition": "train",
+      "reason": "Same family — safe variant."
+    },
+    {
+      "collection": "ml/corpus/sources/F02_EscrowVault_ren_vuln.sol",
+      "family": "F02-EscrowVault",
+      "partition": "train",
+      "reason": "Phase 1 corpus; escrow reentrancy family."
+    },
+    {
+      "collection": "ml/corpus/sources/F02_EscrowVault_safe.sol",
+      "family": "F02-EscrowVault",
+      "partition": "train",
+      "reason": "Same family — safe variant."
+    },
+    {
+      "collection": "ml/corpus/sources/F03_OwnerRegistry_acc_vuln.sol",
+      "family": "F03-OwnerRegistry",
+      "partition": "validation",
+      "reason": "Phase 1 corpus; registry access-control family."
+    },
+    {
+      "collection": "ml/corpus/sources/F03_OwnerRegistry_safe.sol",
+      "family": "F03-OwnerRegistry",
+      "partition": "validation",
+      "reason": "Same family — safe two-step ownership."
+    },
+    {
+      "collection": "ml/corpus/sources/F04_LowLevelForwarder_uec_vuln.sol",
+      "family": "F04-LowLevelForwarder",
+      "partition": "train",
+      "reason": "Phase 1 corpus; low-level forwarder UEC family."
+    },
+    {
+      "collection": "ml/corpus/sources/F04_LowLevelDelegateForwarder_uec_high.sol",
+      "family": "F04-LowLevelForwarder",
+      "partition": "train",
+      "reason": "Same family — delegatecall variant."
+    },
+    {
+      "collection": "ml/corpus/sources/F05_MultiSigTreasury_safe.sol",
+      "family": "F05-MultiSigTreasury",
+      "partition": "validation",
+      "reason": "Phase 1 corpus; multi-sig treasury family."
+    },
+    {
+      "collection": "ml/corpus/sources/F05_MultiSigTreasury_txo_vuln.sol",
+      "family": "F05-MultiSigTreasury",
+      "partition": "validation",
+      "reason": "Same family — tx.origin variant."
+    },
+    {
+      "collection": "ml/corpus/sources/F06_TokenVesting_safe.sol",
+      "family": "F06-TokenVesting",
+      "partition": "validation",
+      "reason": "Phase 1 corpus; time-locked vesting family."
+    },
+    {
+      "collection": "ml/corpus/sources/F06_TokenVesting_ren_vuln.sol",
+      "family": "F06-TokenVesting",
+      "partition": "validation",
+      "reason": "Same family — reentrancy variant."
+    },
+    {
+      "collection": "ml/corpus/sources/F07_ProxyRouter_vuln.sol",
+      "family": "F07-ProxyRouter",
+      "partition": "locked_test",
+      "reason": "Phase 1 corpus; proxy upgrade pattern family — reserved for locked test."
+    },
+    {
+      "collection": "ml/corpus/sources/F07_ProxyRouter_safe.sol",
+      "family": "F07-ProxyRouter",
+      "partition": "locked_test",
+      "reason": "Same family — guarded proxy."
+    },
+    {
+      "collection": "ml/corpus/sources/F08_AuctionHouse_multi_vuln.sol",
+      "family": "F08-AuctionHouse",
+      "partition": "locked_test",
+      "reason": "Phase 1 corpus; auction multi-vulnerability family — reserved for locked test."
+    },
+    {
+      "collection": "ml/corpus/sources/F08_AuctionHouse_safe.sol",
+      "family": "F08-AuctionHouse",
+      "partition": "locked_test",
+      "reason": "Same family — safe auction."
+    },
+    {
+      "collection": "ml/corpus/sources/F09_StakingPool_ren_vuln.sol",
+      "family": "F09-StakingPool",
+      "partition": "train",
+      "reason": "Phase 1 corpus; staking pool reentrancy family."
+    },
+    {
+      "collection": "ml/corpus/sources/F09_StakingPool_safe.sol",
+      "family": "F09-StakingPool",
+      "partition": "train",
+      "reason": "Same family — safe reward claim."
+    },
+    {
+      "collection": "ml/corpus/sources/F10_GovernanceAdmin_acc_vuln.sol",
+      "family": "F10-GovernanceAdmin",
+      "partition": "train",
+      "reason": "Phase 1 corpus; governance admin replacement family."
+    },
+    {
+      "collection": "ml/corpus/sources/F10_GovernanceAdmin_safe.sol",
+      "family": "F10-GovernanceAdmin",
+      "partition": "train",
+      "reason": "Same family — authorized admin replacement."
+    },
+    {
+      "collection": "ml/corpus/sources/F11_FlashLoanReceiver_uec_vuln.sol",
+      "family": "F11-FlashLoanReceiver",
+      "partition": "locked_test",
+      "reason": "Phase 1 corpus; flash loan receiver unhandled call family."
+    },
+    {
+      "collection": "ml/corpus/sources/F11_FlashLoanReceiver_safe.sol",
+      "family": "F11-FlashLoanReceiver",
+      "partition": "locked_test",
+      "reason": "Same family — checked call."
+    },
+    {
+      "collection": "ml/corpus/sources/F12_PaymentSplitter_txo_vuln.sol",
+      "family": "F12-PaymentSplitter",
+      "partition": "locked_test",
+      "reason": "Phase 1 corpus; payment splitter tx.origin family."
+    },
+    {
+      "collection": "ml/corpus/sources/F12_PaymentSplitter_safe.sol",
+      "family": "F12-PaymentSplitter",
+      "partition": "locked_test",
+      "reason": "Same family — msg.sender payment release."
     }
   ],
-  "crossPartitionLeakageCheck": "not_applicable",
-  "lockedTestReady": false
+  "crossPartitionLeakageCheck": "verified — families F01,F02,F04,F09,F10 are train-only (10 contracts); F03,F05,F06 are validation-only (6 contracts); F07,F08,F11,F12 are locked_test-only (8 contracts). Zero family leakage across partitions.",
+  "lockedTestReady": true
 }

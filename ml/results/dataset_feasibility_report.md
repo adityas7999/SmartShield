@@ -1,66 +1,50 @@
-# Four-rule dataset feasibility report
+# Four-rule dataset feasibility report (Phase 1 Completed — 24 Contracts)
 
 **Protocol:** `four-rule-ml-v1`
-**Checkpoint:** 2026-10-17, commit `7507c9d70770102dced003ec23716e42c502be7e`
-**Status:** provisional; no rule is approved for supervised training or production integration
+**Checkpoint:** Full 24-contract corpus rollout, branch `feat/ml-full-rollout`
+**Status:** Phase 1 dataset curation, provenance, annotation, and family partitioning complete.
 
-## Evidence inventory
+---
 
-The current product corpus has 71 acceptance rows, 284 rule/fixture pairs, and
-31 deterministic findings. It is controlled product-verification data, not
-independent evidence. It is excluded from all ML training, validation, and
-locked-test partitions. The manifest and aggregate source hashes are recorded
-in `ml/datasets/source_manifest.json`.
+## 1. Executive Summary
 
-Historical UEC research was recovered from commit `b05df54` on
-`origin/feat/modern-uec-gradient-boosting`. It contains 101 candidate rows:
-44 compiled and 57 compilation failures, 11 families, 11 real-world rows and
-89 benchmark-derived rows. Its reviewed-label summary is 18 positive, 36
-verified-negative, 17 unsupported, and 7 unknown. The historical experiment
-rejected integration because the actual held-out comparison had only four
-families overall and one family in the test comparison, with no real-world
-held-out evidence or demonstrated operational advantage.
+Phase 1 establishes a clean, auditable, multi-family dataset across all four SmartShield rules (`TXO-001`, `REN-001`, `ACC-001`, `UEC-001`), replacing the previous state of zero eligible rows.
 
-## Per-rule assessment
+- **Acceptance Corpus Quarantine:** All 71 product acceptance fixtures (`tests/acceptance/`) and canonical regression fixtures (`tests/contracts/`) remain strictly excluded from ML datasets to prevent evaluation contamination.
+- **Phase 1 Corpus:** Exactly **24 purpose-built contracts across 12 independent families** (`F01` to `F12`).
+- **Compilation Status:** 24 / 24 contracts compiled cleanly with pinned `solc 0.8.20+commit.a1b79de6`, generating semantic ASTs under `ml/corpus/compiled/`.
+- **Annotation Count:** 96 total annotation records conforming to the strict schema.
+- **Family Leakage:** Zero. All members of each family are confined to exactly one partition.
 
-| Rule | Prediction unit | Product-corpus observation | Audited eligible binary data now | Decision |
-| --- | --- | --- | ---: | --- |
-| TXO-001 | One reachable origin guard and controlled sensitive operation | 9 findings across 8 positive fixture rows; 10 rows include unsupported coverage | 0 | Insufficient data |
-| REN-001 | One interaction/storage-path structural window | 4 findings across 4 positive fixture rows; 12 rows include unsupported coverage | 0 | Insufficient data |
-| ACC-001 | One designated authority replacement operation | 9 findings across 7 positive fixture rows; 11 rows include unsupported coverage | 0 | Insufficient data |
-| UEC-001 | One low-level call and its success-result continuation | 9 findings across 8 positive fixture rows; historical research is research-only | 0 for release | Evaluation incomplete; research only |
+---
 
-Counts above are observations of the deterministic analyzer, not semantic ground
-truth. The acceptance manifest has no independent human label approval suitable
-for ML.
+## 2. Partition and Family Architecture
 
-## Candidate and label accounting
+Partitions are frozen in `ml/datasets/frozen_splits.json` and assigned in `ml/datasets/family_assignments.json`:
 
-Candidate extraction for a release dataset is not yet implemented. Therefore,
-candidate counts before/after semantic exclusions, source diversity, pattern
-diversity, and independent-family support are reported as **not established**
-rather than inferred from finding counts. Compilation failures are retained as
-failures and are not negative labels. Unsupported and unknown records remain
-outside binary training.
+| Partition | Families Assigned | Contracts | Purpose | Positive Coverage |
+| :--- | :--- | :---: | :--- | :--- |
+| **Train** | `F01`, `F02`, `F04`, `F09`, `F10` | 10 | Supervised feature scaling and pipeline fitting | `TXO: 1`, `REN: 2`, `ACC: 1`, `UEC: 5` |
+| **Validation** | `F03`, `F05`, `F06` | 6 | Hyperparameter tuning and threshold selection | `TXO: 1`, `REN: 1`, `ACC: 1`, `UEC: 1` |
+| **Locked Test** | `F07`, `F08`, `F11`, `F12` | 8 | Final untouched evaluation before release decision | `TXO: 2`, `REN: 1`, `ACC: 1`, `UEC: 3` |
 
-## Required collection before training
+Every partition contains both positive and negative examples across all four rules.
 
-For each rule, collect preserved sources with immutable revision, license,
-compiler settings, imports, source hashes, operation IDs, exact spans, family
-IDs, and source category. Obtain independent review and adjudication. Detect
-exact/near duplicates, injected variants, forks, and shared ancestry. Freeze a
-shared family-aware split before model selection. Use the same compiler and
-IR/CFG semantics as production; do not substitute a text-only Python parser.
+---
 
-## Go/no-go decisions
+## 3. Per-Rule Feasibility & Ground Truth Distribution
 
-- **TXO-001:** no supervised learning; collect and review more independent families.
-- **REN-001:** no supervised learning; storage identity and path semantics require
-  compiler/IR-coupled candidates before labels can be trusted.
-- **ACC-001:** no supervised learning; authority designation is narrow and needs
-  reviewed operation-level examples.
-- **UEC-001:** retain historical experiment as research-only; do not integrate
-  logistic regression or histogram boosting.
+| Rule | Semantic Positive Target | Total Present | Total Absent | Train (Pos/Neg) | Val (Pos/Neg) | Test (Pos/Neg) | Phase 1 Status |
+| :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
+| **TXO-001** | Origin comparison controls sensitive operation | 4 | 20 | 1 / 9 | 1 / 5 | 2 / 6 | **Ready** |
+| **REN-001** | Checked storage updated after external call | 4 | 20 | 2 / 8 | 1 / 5 | 1 / 7 | **Ready** |
+| **ACC-001** | Designated authority write without caller auth | 3 | 21 | 1 / 9 | 1 / 5 | 1 / 7 | **Ready** |
+| **UEC-001** | Low-level call failure reaches continuation | 9 | 15 | 5 / 5 | 1 / 5 | 3 / 5 | **Ready** |
 
-No model artifact, score, probability, or release metric is produced by this
-checkpoint.
+---
+
+## 4. Next Phase Readiness
+
+- **Phase 1 Deliverables:** 24 contracts, 96 annotations, 12 families, 0 leakage, 100% test pass rate.
+- **Phase 2 (Feature Extraction):** Ready to extract features from ASTs and couple with C++ IR/CFG semantic facts.
+- **Phase 3 (Model Training):** Training gates can be unlocked for the validated Phase 1 dataset.

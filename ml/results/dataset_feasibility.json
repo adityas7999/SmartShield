@@ -1,8 +1,8 @@
 {
   "schemaVersion": "dataset-feasibility-1.0.0",
   "protocolVersion": "four-rule-ml-v1",
-  "status": "provisional",
-  "commit": "7507c9d70770102dced003ec23716e42c502be7e",
+  "status": "phase1-completed",
+  "commit": "feat/ml-phase1",
   "acceptanceCorpus": {
     "rows": 71,
     "ruleFixturePairs": 284,
@@ -10,18 +10,17 @@
     "manifestSha256": "e2d29472c9dfc612c85cc4c99700cd357cb663b40eff725f5c95f802e2f3addb",
     "use": "excluded"
   },
-  "historicalUec": {
-    "rows": 101,
-    "compiled": 44,
-    "compilationFailures": 57,
-    "families": 11,
-    "realWorld": 11,
-    "benchmarkDerived": 89,
-    "positive": 18,
-    "verifiedNegative": 36,
-    "unsupported": 17,
-    "unknown": 7,
-    "decision": "research_only_rejected_for_integration"
+  "phase1Corpus": {
+    "contracts": 24,
+    "families": 12,
+    "compilationStatus": "all_passed",
+    "totalAnnotationRows": 96,
+    "partitions": {
+      "train": {"contracts": 10, "families": ["F01", "F02", "F04", "F09", "F10"]},
+      "validation": {"contracts": 6, "families": ["F03", "F05", "F06"]},
+      "lockedTest": {"contracts": 8, "families": ["F07", "F08", "F11", "F12"]}
+    },
+    "familyLeakage": "none_verified"
   },
   "rules": {
     "TXO-001": {
@@ -29,45 +28,33 @@
       "semanticPositive": "origin identity comparison controls a sensitive state write or typed external interaction",
       "semanticNegative": "logging/display-only, unrelated, ineffective, or caller-authorized comparison",
       "unknownOrNotApplicable": ["origin alias or composite predicate unresolved", "unsupported callee/modifier", "not a candidate operation"],
-      "productFindings": 9,
-      "positiveFixtureRows": 8,
-      "unsupportedFixtureRows": 10,
-      "eligibleReviewedBinaryRows": 0,
-      "decision": "insufficient_data"
+      "phase1Rows": {"present": 4, "absent": 20, "train_present": 1, "val_present": 1, "test_present": 2},
+      "decision": "phase1_data_ready"
     },
     "REN-001": {
       "predictionUnit": "one interaction plus same-storage-path structural window",
       "semanticPositive": "represented path checks storage, interacts externally, then writes definitely the same location",
       "semanticNegative": "checks-effects-interactions, different location, unreachable write, or excluded read-only interaction",
       "unknownOrNotApplicable": ["symbolic key uncertainty", "storage alias", "unsupported flow", "not a candidate interaction"],
-      "productFindings": 4,
-      "positiveFixtureRows": 4,
-      "unsupportedFixtureRows": 12,
-      "eligibleReviewedBinaryRows": 0,
-      "decision": "insufficient_data"
+      "phase1Rows": {"present": 4, "absent": 20, "train_present": 2, "val_present": 1, "test_present": 1},
+      "decision": "phase1_data_ready"
     },
     "ACC-001": {
       "predictionUnit": "one designated authority replacement operation",
       "semanticPositive": "designated authority is replaced without effective caller authorization",
       "semanticNegative": "ordinary state write or effectively authorized replacement",
       "unknownOrNotApplicable": ["unknown state-dependent restriction", "unsupported inheritance/modifier", "not a designated authority"],
-      "productFindings": 9,
-      "positiveFixtureRows": 7,
-      "unsupportedFixtureRows": 11,
-      "eligibleReviewedBinaryRows": 0,
-      "decision": "insufficient_data"
+      "phase1Rows": {"present": 3, "absent": 21, "train_present": 1, "val_present": 1, "test_present": 1},
+      "decision": "phase1_data_ready"
     },
     "UEC-001": {
       "predictionUnit": "one low-level call and success-result continuation",
       "semanticPositive": "failure result is discarded, overwritten, or reaches continuation without meaningful handling",
       "semanticNegative": "effective failure handling or unconditional revert",
       "unknownOrNotApplicable": ["result passed to helper/caller", "complex transformation", "not a low-level call"],
-      "productFindings": 9,
-      "positiveFixtureRows": 8,
-      "unsupportedFixtureRows": 12,
-      "eligibleReviewedBinaryRows": 0,
-      "decision": "research_only"
+      "phase1Rows": {"present": 9, "absent": 15, "train_present": 5, "val_present": 1, "test_present": 3},
+      "decision": "phase1_data_ready"
     }
   },
-  "releaseDecision": "No rule is approved for ML training, shadow mode, advisory exposure, or production integration."
+  "releaseDecision": "Phase 1 dataset of 24 contracts across 12 families curated, compiled, annotated, and frozen. Positive instances verified in train, val, and locked_test for all 4 rules."
 }

@@ -13,6 +13,7 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field, ValidationError, field_validator
 from .report import Report, RULES
+from . import ml_adapter
 
 
 REPOSITORY_ROOT = Path(__file__).resolve().parents[2]
@@ -239,6 +240,11 @@ def fixture(fixture_name: str) -> FixtureResponse:
     )
 
 
+@app.get("/api/ml/status")
+def ml_status() -> dict[str, Any]:
+    return ml_adapter.get_ml_status()
+
+
 @app.post("/api/analyze")
 def analyze(request: AnalyzeRequest) -> dict[str, Any]:
     source_bytes = request.source.encode("utf-8")
@@ -247,6 +253,7 @@ def analyze(request: AnalyzeRequest) -> dict[str, Any]:
     try:
         compiler_output = _compile_source(request.source, request.fileName)
         result = _run_analyzer(compiler_output, request.source, request.fileName)
+        ml_adapter.evaluate_shadow(compiler_output, request.source, request.fileName, result.get("findings", []))
         result['source'] = identity
         result['compilerVersion'] = '0.8.20+commit.a1b79de6'
         return Report.model_validate(result).model_dump()

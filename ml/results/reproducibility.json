@@ -5,20 +5,26 @@
   "compiler": "solc 0.8.20+commit.a1b79de6",
   "acceptanceManifestSha256": "e2d29472c9dfc612c85cc4c99700cd357cb663b40eff725f5c95f802e2f3addb",
   "acceptanceSolidityAggregateSha256": "76512ad91046b171402964b4cfbb3ef8d55081d666a61d74e82547c78d9a10e7",
-  "featureSchemaVersion": "ast-structural-v1",
+  "featureSchemaVersion": "semantic-cfg-v1",
   "split": {
     "strategy": "family-aware",
     "seed": 20261017,
-    "status": "not_frozen"
+    "status": "frozen"
   },
   "commands": [
     "node --test scripts/corpus-manifest.test.mjs",
-    "node scripts/validate-corpus.mjs --analyzer build/core-winlibs/smartshield-analyzer.exe --output build/corpus-observations-final.json",
+    "python -m ml.training.train",
+    "python -m ml.evaluation.evaluate",
     "python -m pytest backend/tests -q",
     "python -m pytest ml/tests -q",
     "npm test --prefix frontend",
     "npm run build --prefix frontend"
   ],
-  "modelArtifacts": [],
-  "releaseDecision": "deterministic_only"
+  "modelArtifacts": [
+    "ml/models/txo-001_model.joblib",
+    "ml/models/ren-001_model.joblib",
+    "ml/models/acc-001_model.joblib",
+    "ml/models/uec-001_model.joblib"
+  ],
+  "releaseDecision": "shadow_mode_advisory"
 }

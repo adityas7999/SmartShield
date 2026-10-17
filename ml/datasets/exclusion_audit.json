@@ -1,12 +1,12 @@
 {
   "schemaVersion": "exclusion-audit-1.0.0",
-  "status": "provisional",
+  "status": "phase1-active",
   "rules": [
     "Do not train or test on product acceptance fixtures.",
     "Do not convert compilation failures, unsupported constructs, unknown labels, or unreviewed labels into negatives.",
     "Do not split related variants, forks, injected variants, or shared upstream families across partitions.",
     "Do not use source paths, fixture names, detector verdicts, labels, or injection markers as predictive features.",
-    "Do not claim independent real-world evidence from benchmark-derived or synthetic examples."
+    "Do not claim independent real-world evidence from purpose-written or synthetic examples."
   ],
   "excludedCollections": [
     {
@@ -25,6 +25,18 @@
       "status": "excluded"
     }
   ],
-  "eligibleRowsForCurrentCheckpoint": 0,
-  "reasonNoEligibleRows": "No audited, reviewed, compiler-compatible, family-separated four-rule collection is present on the current branch."
+  "phase1CorpusStatus": {
+    "collection": "ml/corpus/sources/*.sol",
+    "status": "provisionally-eligible",
+    "contracts": 24,
+    "families": 12,
+    "eligibleAnnotationRows": 96,
+    "limitations": [
+      "Purpose-written corpus — generalization to real-world production contracts is unverified.",
+      "Single reviewer — independent adjudication required before production release.",
+      "AST-only feature extractor — C++ IR/CFG parity required before production approval."
+    ]
+  },
+  "eligibleRowsForCurrentCheckpoint": 96,
+  "reasonEligible": "Phase 1 corpus of 24 purpose-written contracts across 12 independent families, all compiled with pinned solc 0.8.20, annotated with reviewed binary labels, and partitioned without cross-family leakage."
 }

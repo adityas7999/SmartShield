@@ -1,0 +1,173 @@
+{
+  "schemaVersion": "corpus-provenance-1.0.0",
+  "sources": [
+    {
+      "file": "F01_SimpleWallet_safe.sol",
+      "sha256": "4876b99beb33e7bac78d9d0b41bba281abefb01e62dd84a65433d51af56e5aed",
+      "status": "compiled",
+      "compiler": "0.8.20+commit.a1b79de6",
+      "astPath": "ml/corpus/compiled/F01_SimpleWallet_safe.json"
+    },
+    {
+      "file": "F01_SimpleWallet_txo_vuln.sol",
+      "sha256": "3dbc7fcff5036e0e27833310cef16762c0dfc7859850a42d615310bfca8df00f",
+      "status": "compiled",
+      "compiler": "0.8.20+commit.a1b79de6",
+      "astPath": "ml/corpus/compiled/F01_SimpleWallet_txo_vuln.json"
+    },
+    {
+      "file": "F02_EscrowVault_ren_vuln.sol",
+      "sha256": "7775f771fa75a9425505f0b7215cfee64a1193f92ce2888956286e48260bbf2c",
+      "status": "compiled",
+      "compiler": "0.8.20+commit.a1b79de6",
+      "astPath": "ml/corpus/compiled/F02_EscrowVault_ren_vuln.json"
+    },
+    {
+      "file": "F02_EscrowVault_safe.sol",
+      "sha256": "2643e750b4105ac9d03285f190cf3d444767c457ac21888ad5fbd9cad06331b4",
+      "status": "compiled",
+      "compiler": "0.8.20+commit.a1b79de6",
+      "astPath": "ml/corpus/compiled/F02_EscrowVault_safe.json"
+    },
+    {
+      "file": "F03_OwnerRegistry_acc_vuln.sol",
+      "sha256": "e4e88770ec6d3d53d9d9304880b08ca4b88c2e1bd155ee3b02c9dc17fb433046",
+      "status": "compiled",
+      "compiler": "0.8.20+commit.a1b79de6",
+      "astPath": "ml/corpus/compiled/F03_OwnerRegistry_acc_vuln.json"
+    },
+    {
+      "file": "F03_OwnerRegistry_safe.sol",
+      "sha256": "5d0d8e287e75cca4da4cd8b83219c771c7971ee75be23822d470493b33d504f0",
+      "status": "compiled",
+      "compiler": "0.8.20+commit.a1b79de6",
+      "astPath": "ml/corpus/compiled/F03_OwnerRegistry_safe.json"
+    },
+    {
+      "file": "F04_LowLevelDelegateForwarder_uec_high.sol",
+      "sha256": "2ed8f10ddb673a3a176a6452f1d56a1c62a0bd8ee061b4a86f9719ce0fdd0f1a",
+      "status": "compiled",
+      "compiler": "0.8.20+commit.a1b79de6",
+      "astPath": "ml/corpus/compiled/F04_LowLevelDelegateForwarder_uec_high.json"
+    },
+    {
+      "file": "F04_LowLevelForwarder_uec_vuln.sol",
+      "sha256": "3e93f65270e765181ff4eae46f383bcfdfb52fb4779d0fc5586c1c59580276b8",
+      "status": "compiled",
+      "compiler": "0.8.20+commit.a1b79de6",
+      "astPath": "ml/corpus/compiled/F04_LowLevelForwarder_uec_vuln.json"
+    },
+    {
+      "file": "F05_MultiSigTreasury_safe.sol",
+      "sha256": "1e58c2bbcf3981c7d13b6366121947a80408af177e2d42d8230ec96e9cb64648",
+      "status": "compiled",
+      "compiler": "0.8.20+commit.a1b79de6",
+      "astPath": "ml/corpus/compiled/F05_MultiSigTreasury_safe.json"
+    },
+    {
+      "file": "F05_MultiSigTreasury_txo_vuln.sol",
+      "sha256": "2c436e4c45cff156c67e7615cc8770454faf0ce4ec6502ab1548c92c26e2ae67",
+      "status": "compiled",
+      "compiler": "0.8.20+commit.a1b79de6",
+      "astPath": "ml/corpus/compiled/F05_MultiSigTreasury_txo_vuln.json"
+    },
+    {
+      "file": "F06_TokenVesting_ren_vuln.sol",
+      "sha256": "b1f430d9408861ac8c72fe494cf08901368dd7791ba6a970d719057dedab0109",
+      "status": "compiled",
+      "compiler": "0.8.20+commit.a1b79de6",
+      "astPath": "ml/corpus/compiled/F06_TokenVesting_ren_vuln.json"
+    },
+    {
+      "file": "F06_TokenVesting_safe.sol",
+      "sha256": "0b56c480aee210b261cea8e3d5886afdaa9cce7329bbfa7e693ee71a5cd50c35",
+      "status": "compiled",
+      "compiler": "0.8.20+commit.a1b79de6",
+      "astPath": "ml/corpus/compiled/F06_TokenVesting_safe.json"
+    },
+    {
+      "file": "F07_ProxyRouter_safe.sol",
+      "sha256": "d5d9a7dcd557d34a6fa8ca056767ac52f948d794e931ec5324a21880530a43e0",
+      "status": "compiled",
+      "compiler": "0.8.20+commit.a1b79de6",
+      "astPath": "ml/corpus/compiled/F07_ProxyRouter_safe.json"
+    },
+    {
+      "file": "F07_ProxyRouter_vuln.sol",
+      "sha256": "1170228647595edebf08b406c3abd1ad270183ec780a934fd1c7ac291e6915dc",
+      "status": "compiled",
+      "compiler": "0.8.20+commit.a1b79de6",
+      "astPath": "ml/corpus/compiled/F07_ProxyRouter_vuln.json"
+    },
+    {
+      "file": "F08_AuctionHouse_multi_vuln.sol",
+      "sha256": "b62bf77590157366555883878ad7df1ab40031834ec73b26aff6a89951e0c124",
+      "status": "compiled",
+      "compiler": "0.8.20+commit.a1b79de6",
+      "astPath": "ml/corpus/compiled/F08_AuctionHouse_multi_vuln.json"
+    },
+    {
+      "file": "F08_AuctionHouse_safe.sol",
+      "sha256": "86351ca77047f7e6a58d32bb33139ec4b7bbfd266d23b27010e579ab724bca7c",
+      "status": "compiled",
+      "compiler": "0.8.20+commit.a1b79de6",
+      "astPath": "ml/corpus/compiled/F08_AuctionHouse_safe.json"
+    },
+    {
+      "file": "F09_StakingPool_ren_vuln.sol",
+      "sha256": "1a582e6889c4af8742c1842ac9939baf030c09513000c5a0ca782b0d27be9dbd",
+      "status": "compiled",
+      "compiler": "0.8.20+commit.a1b79de6",
+      "astPath": "ml/corpus/compiled/F09_StakingPool_ren_vuln.json"
+    },
+    {
+      "file": "F09_StakingPool_safe.sol",
+      "sha256": "1fb4f63a6f8e715bd79396293f29e6dc78010a441e3d4bfb251a02f7c99e7666",
+      "status": "compiled",
+      "compiler": "0.8.20+commit.a1b79de6",
+      "astPath": "ml/corpus/compiled/F09_StakingPool_safe.json"
+    },
+    {
+      "file": "F10_GovernanceAdmin_acc_vuln.sol",
+      "sha256": "1eee38720d1af6d2d60c6c33ee33d8576280cffa662d273e19dbdd9cd0db99d4",
+      "status": "compiled",
+      "compiler": "0.8.20+commit.a1b79de6",
+      "astPath": "ml/corpus/compiled/F10_GovernanceAdmin_acc_vuln.json"
+    },
+    {
+      "file": "F10_GovernanceAdmin_safe.sol",
+      "sha256": "8d624b0a7c1ce2473612502583a85446dbbdb85000d775ac878019ffc479e254",
+      "status": "compiled",
+      "compiler": "0.8.20+commit.a1b79de6",
+      "astPath": "ml/corpus/compiled/F10_GovernanceAdmin_safe.json"
+    },
+    {
+      "file": "F11_FlashLoanReceiver_safe.sol",
+      "sha256": "7edf8b33f63dd4ff552b83b992a1416a5dab130c30882f0e90f9e97220d29c30",
+      "status": "compiled",
+      "compiler": "0.8.20+commit.a1b79de6",
+      "astPath": "ml/corpus/compiled/F11_FlashLoanReceiver_safe.json"
+    },
+    {
+      "file": "F11_FlashLoanReceiver_uec_vuln.sol",
+      "sha256": "aa9f0a4ab3cfcb2812f4134bfd94599bcb61800b9a173bf0884f711fac057d7a",
+      "status": "compiled",
+      "compiler": "0.8.20+commit.a1b79de6",
+      "astPath": "ml/corpus/compiled/F11_FlashLoanReceiver_uec_vuln.json"
+    },
+    {
+      "file": "F12_PaymentSplitter_safe.sol",
+      "sha256": "44419348fd4ec39dad643e690876258898766331384148f75ec56ea1868798c6",
+      "status": "compiled",
+      "compiler": "0.8.20+commit.a1b79de6",
+      "astPath": "ml/corpus/compiled/F12_PaymentSplitter_safe.json"
+    },
+    {
+      "file": "F12_PaymentSplitter_txo_vuln.sol",
+      "sha256": "eba3e6c2ab9db3c9ac4d27c5671a35d9c460f1f4f527cbe79e1c72affd5714b7",
+      "status": "compiled",
+      "compiler": "0.8.20+commit.a1b79de6",
+      "astPath": "ml/corpus/compiled/F12_PaymentSplitter_txo_vuln.json"
+    }
+  ]
+}

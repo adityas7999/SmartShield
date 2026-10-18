@@ -523,17 +523,15 @@ export default function App() {
                 const ml = report.mlAnalysis?.rules?.[r.ruleId];
                 return (
                   <div key={r.ruleId} className={`coverage-card ${r.status}`}>
-                    <div className="coverage-card-head">
-                      <strong>{r.ruleId}</strong>
-                      {ml && (
-                        <span
-                          className={`coverage-ml-pill ${ml.prediction === 1 ? "suspicious" : "clean"}`}
-                          title={`Probability: ${(ml.probability * 100).toFixed(1)}%`}
-                        >
-                          ML: {(ml.probability * 100).toFixed(0)}% {ml.prediction === 1 ? "Flagged" : "Clean"}
-                        </span>
-                      )}
-                    </div>
+                    <strong>{r.ruleId}</strong>
+                    {ml && (
+                      <span
+                        className={`coverage-ml-pill ${ml.prediction === 1 ? "suspicious" : "clean"}`}
+                        title={`Probability: ${(ml.probability * 100).toFixed(1)}%`}
+                      >
+                        ML: {(ml.probability * 100).toFixed(0)}% {ml.prediction === 1 ? "Flagged" : "Clean"}
+                      </span>
+                    )}
                     <span>
                       {r.status} · {report.summary.byRule[r.ruleId]} findings
                     </span>

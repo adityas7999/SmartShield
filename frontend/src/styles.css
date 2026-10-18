@@ -481,13 +481,12 @@ textarea {
   overflow-wrap: anywhere;
   background: #ffffff;
 }
-.coverage-card-head {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 8px;
+.coverage-card strong {
+  font-weight: 700;
+  color: #173833;
 }
 .coverage-ml-pill {
+  float: right;
   font-size: 0.68rem;
   padding: 2px 7px;
   border-radius: 12px;
@@ -505,6 +504,7 @@ textarea {
 }
 .coverage-card span {
   display: block;
+  clear: both;
   margin-top: 8px;
 }
 .coverage-concordance {

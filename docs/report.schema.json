@@ -354,6 +354,19 @@
       },
       "title": "Analysislimitations",
       "type": "array"
+    },
+    "mlAnalysis": {
+      "anyOf": [
+        {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Mlanalysis"
     }
   },
   "required": [

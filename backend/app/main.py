@@ -245,6 +245,23 @@ def ml_status() -> dict[str, Any]:
     return ml_adapter.get_ml_status()
 
 
+@app.post("/api/ml/analyze")
+def ml_analyze(request: AnalyzeRequest) -> dict[str, Any]:
+    try:
+        compiler_output = _compile_source(request.source, request.fileName)
+        det_findings = []
+        try:
+            det_res = _run_analyzer(compiler_output, request.source, request.fileName)
+            det_findings = det_res.get("findings", [])
+        except Exception:
+            pass
+        return ml_adapter.analyze_contract(compiler_output, request.source, request.fileName, det_findings)
+    except HTTPException:
+        raise
+    except Exception as exc:
+        raise _error(500, "ml_analysis_failed", str(exc))
+
+
 @app.post("/api/analyze")
 def analyze(request: AnalyzeRequest) -> dict[str, Any]:
     source_bytes = request.source.encode("utf-8")
@@ -256,6 +273,7 @@ def analyze(request: AnalyzeRequest) -> dict[str, Any]:
         ml_adapter.evaluate_shadow(compiler_output, request.source, request.fileName, result.get("findings", []))
         result['source'] = identity
         result['compilerVersion'] = '0.8.20+commit.a1b79de6'
+        result['mlAnalysis'] = ml_adapter.analyze_contract(compiler_output, request.source, request.fileName, result.get("findings", []))
         return Report.model_validate(result).model_dump()
     except HTTPException as exc:
         detail = exc.detail
@@ -266,6 +284,7 @@ def analyze(request: AnalyzeRequest) -> dict[str, Any]:
                   "compilerErrors": detail.get('diagnostics', []) if compile_error else [],
                   "findings": [], "ruleResults": [{"ruleId": r, "status": "failed", "reasons": [detail['message']]} for r in RULES],
                   "summary": {"total": 0, "byRule": {r: 0 for r in RULES}, "bySeverity": {s: 0 for s in ('high', 'medium', 'low')}},
-                  "analysisLimitations": ["Analysis did not complete; no security conclusion is available."]}
+                  "analysisLimitations": ["Analysis did not complete; no security conclusion is available."],
+                  "mlAnalysis": None}
         detail['report'] = Report.model_validate(report).model_dump()
         raise

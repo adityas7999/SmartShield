@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { analyzeContract, loadFixture } from "./api.js";
+import { analyzeContract, loadFixture, remediateFinding } from "./api.js";
 
 const DEFAULT_SOURCE = `// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
@@ -89,8 +89,31 @@ function PipelineVisualizer({ currentStage, failed }) {
   );
 }
 
-function Details({ finding, locate, mlData }) {
+function Details({ finding, locate, mlData, source, fileName, onApplyFix }) {
   const ruleMl = mlData?.rules?.[finding.ruleId];
+  const [remediation, setRemediation] = useState(null);
+  const [loadingRemediation, setLoadingRemediation] = useState(false);
+  const [remediationError, setRemediationError] = useState(null);
+
+  const prevFindingId = useRef(finding.id);
+  if (prevFindingId.current !== finding.id) {
+    prevFindingId.current = finding.id;
+    setRemediation(null);
+    setRemediationError(null);
+  }
+
+  async function handleGenerateFix() {
+    setLoadingRemediation(true);
+    setRemediationError(null);
+    try {
+      const res = await remediateFinding(source, fileName, finding.id, finding.ruleId);
+      setRemediation(res);
+    } catch (err) {
+      setRemediationError(err.message || "Failed to generate fix");
+    } finally {
+      setLoadingRemediation(false);
+    }
+  }
 
   return (
     <article className="finding-detail" aria-label={`Details ${finding.id}`}>
@@ -167,6 +190,77 @@ function Details({ finding, locate, mlData }) {
       </ol>
       <h4>Remediation</h4>
       <p>{finding.remediation}</p>
+
+      {source && onApplyFix && (
+        <section className="auto-remediation-card" aria-label="Automated Remediation">
+          <div className="auto-remediation-header">
+            <div>
+              <span className="auto-remediation-tag">SYNTHESIZED & VERIFIED FIX</span>
+              <h5>Automated Remediation Engine</h5>
+            </div>
+            <button
+              type="button"
+              className="generate-fix-btn"
+              disabled={loadingRemediation}
+              onClick={handleGenerateFix}
+            >
+              {loadingRemediation ? "Compiling & Verifying…" : "⚡ Generate Verified Fix"}
+            </button>
+          </div>
+
+          {remediationError && (
+            <div className="remediation-error-msg" role="alert">
+              ✕ {remediationError}
+            </div>
+          )}
+
+          {remediation && (
+            <div className="remediation-content">
+              <div className="remediation-status-bar">
+                <span className={`remediation-status-pill ${remediation.status === "verified" ? "verified" : "unverified"}`}>
+                  {remediation.status === "verified"
+                    ? "✓ solc 0.8.20 Re-compiled & Verified (Target Eliminated)"
+                    : "⚠ " + (remediation.error || "Unverified Candidate Fix")}
+                </span>
+                {remediation.status === "verified" && (
+                  <button
+                    type="button"
+                    className="apply-fix-btn"
+                    onClick={() => onApplyFix(remediation.patchedSource)}
+                  >
+                    Apply Fix to Editor →
+                  </button>
+                )}
+              </div>
+
+              <p className="remediation-explanation">{remediation.explanation}</p>
+
+              {remediation.diff && (
+                <div className="remediation-diff-container">
+                  <div className="diff-title-bar">
+                    <span>Unified Git Diff</span>
+                    <span>Remaining findings: {remediation.remainingFindingsCount}</span>
+                  </div>
+                  <pre className="diff-pre">
+                    {remediation.diff.split("\n").map((line, idx) => {
+                      let lineClass = "diff-line";
+                      if (line.startsWith("+") && !line.startsWith("+++")) lineClass += " diff-add";
+                      else if (line.startsWith("-") && !line.startsWith("---")) lineClass += " diff-del";
+                      else if (line.startsWith("@@")) lineClass += " diff-meta";
+                      return (
+                        <div key={idx} className={lineClass}>
+                          {line || " "}
+                        </div>
+                      );
+                    })}
+                  </pre>
+                </div>
+              )}
+            </div>
+          )}
+        </section>
+      )}
+
       <h4>Limits of this finding</h4>
       <ul>
         {finding.limitations.map((x, i) => (
@@ -290,19 +384,41 @@ export default function App() {
     e.target.value = "";
   }
 
-  async function analyze() {
+  const [loadingAllFixes, setLoadingAllFixes] = useState(false);
+
+  function handleApplyFix(patchedSource) {
+    setSource(patchedSource);
+    analyze(patchedSource);
+  }
+
+  async function handleAutoFixAll() {
+    setLoadingAllFixes(true);
+    try {
+      const res = await remediateFinding(snapshot, fileName);
+      if (res.patchedSource && res.patchedSource !== snapshot) {
+        handleApplyFix(res.patchedSource);
+      }
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setLoadingAllFixes(false);
+    }
+  }
+
+  async function analyze(sourceOverride) {
+    const codeToAnalyze = typeof sourceOverride === "string" ? sourceOverride : source;
     reset();
     const token = generation.current;
     setMode("loading");
     setPipelineStage(0);
-    setSnapshot(source);
+    setSnapshot(codeToAnalyze);
 
     const interval = setInterval(() => {
       setPipelineStage((prev) => (prev < PIPELINE_STAGES.length - 1 ? prev + 1 : prev));
     }, 90);
 
     try {
-      const result = await analyzeContract(source, fileName);
+      const result = await analyzeContract(codeToAnalyze, fileName);
       clearInterval(interval);
       if (token !== generation.current) return;
 
@@ -489,6 +605,16 @@ export default function App() {
                 </h2>
               </div>
               <div className="report-actions">
+                {findings.length > 0 && (
+                  <button
+                    type="button"
+                    className="auto-fix-all-btn"
+                    disabled={busy || loadingAllFixes}
+                    onClick={handleAutoFixAll}
+                  >
+                    {loadingAllFixes ? "Fixing & Re-verifying…" : "⚡ Auto-Remediate All"}
+                  </button>
+                )}
                 <button type="button" onClick={() => downloadReport(report)}>Download JSON</button>
                 <button type="button" onClick={() => window.print()}>Print report</button>
               </div>
@@ -637,6 +763,9 @@ export default function App() {
                         finding={selected}
                         locate={locate}
                         mlData={report.mlAnalysis}
+                        source={snapshot}
+                        fileName={fileName}
+                        onApplyFix={handleApplyFix}
                       />
                     )}
                   </div>

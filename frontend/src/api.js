@@ -36,3 +36,12 @@ export async function analyzeContract(source, fileName) {
   })
   return parseResponse(response)
 }
+
+export async function remediateFinding(source, fileName, findingId = null, ruleId = null) {
+  const response = await fetch(`${API_BASE}/api/remediate`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ source, fileName, findingId, ruleId }),
+  })
+  return parseResponse(response)
+}

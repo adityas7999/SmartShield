@@ -174,3 +174,72 @@ it("invalidates the report when source identity changes", async () => {
     screen.queryByRole("region", { name: "Analysis report" }),
   ).not.toBeInTheDocument();
 });
+
+it("generates verified candidate remediation and displays unified diff", async () => {
+  const span = {
+    available: true,
+    file: "Contract.sol",
+    line: 4,
+    endLine: 4,
+    column: 1,
+    endColumn: 2,
+    offset: 1,
+    length: 1,
+  };
+  const finding = {
+    id: "TXO-1",
+    ruleId: "TXO-001",
+    title: "Transaction origin used for authorization",
+    severity: "high",
+    confidence: "high",
+    contract: "Vault",
+    function: "withdraw",
+    primarySpan: span,
+    evidence: [{ description: "Origin identity used", span }],
+    explanation: "tx.origin used in require",
+    remediation: "Use msg.sender instead",
+    limitations: ["Bounded"],
+  };
+
+  const reportWithFinding = {
+    ...report,
+    findings: [finding],
+    summary: { ...report.summary, total: 1, byRule: { ...report.summary.byRule, "TXO-001": 1 } },
+  };
+
+  const remediationResponse = {
+    status: "verified",
+    findingId: "TXO-1",
+    ruleId: "TXO-001",
+    explanation: "Replaced tx.origin with msg.sender.",
+    originalSource: "require(tx.origin == owner);",
+    patchedSource: "require(msg.sender == owner);",
+    diff: "--- a/Contract.sol\n+++ b/Contract.sol\n- require(tx.origin == owner);\n+ require(msg.sender == owner);",
+    compilationPassed: true,
+    targetEliminated: true,
+    remainingFindingsCount: 0,
+    reverified: true,
+  };
+
+  vi.stubGlobal(
+    "fetch",
+    vi.fn().mockImplementation(async (url) => {
+      if (String(url).endsWith("/api/remediate")) {
+        return new Response(JSON.stringify(remediationResponse));
+      }
+      return new Response(JSON.stringify(reportWithFinding));
+    }),
+  );
+
+  render(<App />);
+  fireEvent.click(screen.getByRole("button", { name: "Analyze contract" }));
+  await screen.findByText("1 finding");
+
+  const generateBtn = await screen.findByRole("button", { name: "⚡ Generate Verified Fix" });
+  expect(generateBtn).toBeInTheDocument();
+
+  fireEvent.click(generateBtn);
+  expect(await screen.findByText(/Re-compiled & Verified/)).toBeInTheDocument();
+  expect(screen.getByText("Unified Git Diff")).toBeInTheDocument();
+  expect(screen.getByRole("button", { name: /Apply Fix to Editor/ })).toBeInTheDocument();
+});

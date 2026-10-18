@@ -130,3 +130,83 @@ def evaluate_shadow(
 
     logger.info(f"ML shadow evaluation for {file_name}: {shadow_results}")
     return shadow_results
+
+
+def analyze_contract(
+    compiler_output: dict[str, Any],
+    source: str,
+    file_name: str,
+    deterministic_findings: list[dict[str, Any]] | None = None,
+) -> dict[str, Any]:
+    """Run full ML semantic feature extraction and model inference."""
+    models = get_models()
+    if not models:
+        return {
+            "status": "unavailable",
+            "message": "ML models are not loaded",
+            "rules": {},
+        }
+
+    ast_data = compiler_output
+    if "sources" in ast_data and file_name in ast_data["sources"]:
+        ast = ast_data["sources"][file_name].get("ast", ast_data)
+    else:
+        ast = ast_data.get("ast", ast_data)
+
+    results = {}
+    det_rules_present = {f.get("ruleId") for f in (deterministic_findings or [])}
+
+    for rule in RULES:
+        bundle = models.get(rule)
+        if not bundle:
+            continue
+        try:
+            model = bundle["model"]
+            feat_names = bundle.get("featureNames", list(FEATURES[rule]))
+            threshold = bundle.get("decisionThreshold", 0.5)
+
+            ext_res = extract(ast, rule)
+            ext = ext_res["features"]
+            feat_vec = np.array([[float(ext.get(k, 0)) for k in feat_names]])
+
+            if hasattr(model, "predict_proba"):
+                prob = float(model.predict_proba(feat_vec)[0, 1])
+            else:
+                prob = float(model.predict(feat_vec)[0])
+
+            pred = 1 if prob >= threshold else 0
+            det_flagged = 1 if rule in det_rules_present else 0
+
+            confidence = (
+                "high"
+                if (prob >= 0.85 or prob <= 0.15)
+                else ("medium" if (prob >= 0.65 or prob <= 0.35) else "low")
+            )
+
+            active_feats = {
+                k: int(ext[k]) if isinstance(ext[k], (int, float)) and ext[k] == int(ext[k]) else ext[k]
+                for k in feat_names
+                if ext.get(k, 0) != 0
+            }
+
+            results[rule] = {
+                "probability": round(prob, 4),
+                "prediction": pred,
+                "confidence": confidence,
+                "threshold": threshold,
+                "deterministicFlagged": det_flagged,
+                "concordant": (pred == det_flagged),
+                "advisory": (pred == 1 and det_flagged == 0),
+                "activeFeatures": active_feats,
+            }
+        except Exception as exc:
+            results[rule] = {"error": str(exc)}
+
+    concordant_count = sum(1 for r in results.values() if r.get("concordant"))
+    return {
+        "status": "completed",
+        "featureSchemaVersion": FEATURE_SCHEMA_VERSION,
+        "modelType": "Logistic Regression (semantic-cfg-v1)",
+        "concordanceRate": round(concordant_count / max(len(results), 1), 4),
+        "rules": results,
+    }

@@ -1,5 +1,5 @@
 """One validated report contract shared by the API, schema file, and frontend."""
-from typing import Literal
+from typing import Any, Literal
 from pydantic import BaseModel, ConfigDict, Field, model_validator
 
 RULES = ('TXO-001', 'REN-001', 'ACC-001', 'UEC-001')
@@ -62,6 +62,7 @@ class Report(Strict):
     findings: list[Finding]
     summary: Summary
     analysisLimitations: list[str]
+    mlAnalysis: dict[str, Any] | None = None
 
     @model_validator(mode='after')
     def consistency(self):

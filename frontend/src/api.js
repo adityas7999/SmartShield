@@ -18,6 +18,16 @@ export async function loadFixture(name) {
   return parseResponse(response)
 }
 
+export async function getMlStatus() {
+  try {
+    const response = await fetch(`${API_BASE}/api/ml/status`)
+    if (!response.ok) return null
+    return await response.json()
+  } catch {
+    return null
+  }
+}
+
 export async function analyzeContract(source, fileName) {
   const response = await fetch(`${API_BASE}/api/analyze`, {
     method: 'POST',

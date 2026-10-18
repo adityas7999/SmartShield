@@ -57,3 +57,18 @@ def test_analyze_with_ml_shadow_disabled(monkeypatch):
     report = Report.model_validate(data)
     assert report.schemaVersion == "1.0.0"
     assert len(report.findings) == 0
+
+
+def test_ml_analyze_endpoint():
+    path = ROOT / "tests" / "contracts" / "vulnerable" / "TxOriginWallet.sol"
+    response = client.post(
+        "/api/ml/analyze",
+        json={"fileName": path.name, "source": path.read_text(encoding="utf-8")},
+    )
+    assert response.status_code == 200
+    data = response.json()
+    assert data["status"] == "completed"
+    assert data["featureSchemaVersion"] == "semantic-cfg-v1"
+    assert "TXO-001" in data["rules"]
+    assert data["rules"]["TXO-001"]["prediction"] == 1
+    assert data["rules"]["TXO-001"]["probability"] > 0.8

@@ -1,7 +1,7 @@
 """Test suite for SmartShield Automated Remediation & Re-verification Engine."""
 from pathlib import Path
 from fastapi.testclient import TestClient
-from backend.app.main import app
+from app.main import app
 
 client = TestClient(app)
 ROOT = Path(__file__).resolve().parents[2]
@@ -100,3 +100,19 @@ def test_clean_contract_remediation():
     data = response.json()
     assert data["status"] == "clean"
     assert data["reverified"] is True
+
+
+def test_timestamp_dependency_remediation():
+    path = ROOT / "tests" / "contracts" / "vulnerable" / "TimestampLottery.sol"
+    source = path.read_text(encoding="utf-8")
+    response = client.post(
+        "/api/remediate",
+        json={"source": source, "fileName": "TimestampLottery.sol", "ruleId": "TMP-001"},
+    )
+    assert response.status_code == 200
+    data = response.json()
+    assert data["status"] == "verified"
+    assert data["compilationPassed"] is True
+    assert data["targetEliminated"] is True
+    assert ">=" in data["patchedSource"]
+    assert "diff" in data and len(data["diff"]) > 0

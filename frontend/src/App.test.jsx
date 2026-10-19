@@ -7,7 +7,7 @@ import {
 } from "@testing-library/react";
 import { afterEach, expect, it, vi } from "vitest";
 import App from "./App.jsx";
-const rules = ["TXO-001", "REN-001", "ACC-001", "UEC-001"];
+const rules = ["TXO-001", "REN-001", "ACC-001", "UEC-001", "TMP-001"];
 const report = {
   schemaVersion: "1.0.0",
   reportVersion: "1.0.0",
@@ -40,7 +40,7 @@ it("reports exact completed coverage for empty results", async () => {
   fireEvent.click(screen.getByRole("button", { name: "Analyze contract" }));
   expect(
     await screen.findByText(
-      /No findings reported. Completed checks: TXO-001, REN-001, ACC-001, UEC-001/,
+      /No findings reported. Completed checks: TXO-001, REN-001, ACC-001, UEC-001, TMP-001/,
     ),
   ).toBeInTheDocument();
 });

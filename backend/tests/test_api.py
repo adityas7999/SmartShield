@@ -35,6 +35,16 @@ def test_original_txo_regressions(path, count):
         assert findings[0]['primarySpan']['line'] == 16
         assert findings[0]['confidence'] == 'high'
 
+@pytest.mark.parametrize('path,count', [('vulnerable/TimestampLottery.sol', 1), ('benign/TimeLockVault.sol', 0)])
+def test_tmp001_regressions(path, count):
+    response = request_file('tests/contracts/' + path)
+    assert response.status_code == 200, response.text
+    findings = [f for f in response.json()['findings'] if f['ruleId'] == 'TMP-001']
+    assert len(findings) == count
+    if count:
+        assert findings[0]['primarySpan']['line'] == 17
+        assert findings[0]['severity'] == 'medium'
+
 @pytest.mark.parametrize('source', ['contract Broken { function nope( }', 'pragma solidity ^0.8.20; contract T { function f() external { nonexistent = 1; } }'])
 def test_compiler_errors_not_empty_success(source):
     response = client.post('/api/analyze', json={'fileName': 'Broken.sol', 'source': source})

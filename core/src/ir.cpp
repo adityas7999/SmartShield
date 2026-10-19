@@ -150,6 +150,10 @@ class Builder {
         e.resolution = Resolution::resolved;
       } else {
         e.resolution = Resolution::unresolved;
+        if (e.name == "now") {
+          e.kind = ExpressionKind::builtin;
+          e.name = "block.timestamp";
+        }
       }
     } else if (type == "Literal") {
       e.kind = ExpressionKind::literal;
@@ -161,7 +165,8 @@ class Builder {
       const auto& base = e.children.front();
       if (base.kind == ExpressionKind::identifier && base.variable == no_id &&
           ((base.name == "tx" && e.name == "origin") ||
-           (base.name == "msg" && (e.name == "sender" || e.name == "value")))) {
+           (base.name == "msg" && (e.name == "sender" || e.name == "value")) ||
+           (base.name == "block" && (e.name == "timestamp" || e.name == "number")))) {
         e.kind = ExpressionKind::builtin;
         e.name = base.name + "." + e.name;
       }

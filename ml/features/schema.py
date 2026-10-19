@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 FEATURE_SCHEMA_VERSION = "semantic-cfg-v1"
-RULES = ("TXO-001", "REN-001", "ACC-001", "UEC-001")
+RULES = ("TXO-001", "REN-001", "ACC-001", "UEC-001", "TMP-001")
 
 # Rule-specific features capturing structural, path, and semantic facts
 FEATURES = {
@@ -46,5 +46,15 @@ FEATURES = {
         "unhandled_call_reaches_exit",    # Call reaches normal return without failure handling
         "revert_on_failure_present",      # Explicit revert on failure branch
         "unsupported_feature",            # Success boolean passed to helper or transformed
+    ),
+    "TMP-001": (
+        "has_timestamp_reference",        # block.timestamp or now referenced in function
+        "timestamp_equality_guard",       # block.timestamp used in == or != comparison guard
+        "timestamp_modulo_arithmetic",    # block.timestamp used with % operator (pseudo-randomness)
+        "timestamp_guards_state_change",  # timestamp equality governs state write or external call
+        "interval_comparison_present",    # Safe interval comparison (>=, <=, >, <) present
+        "external_call_present",          # Whether external calls/transfers exist in function
+        "state_write_present",            # Whether state writes exist in function
+        "unsupported_feature",            # Complex timestamp expressions or unsupported loops
     ),
 }

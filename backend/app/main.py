@@ -13,7 +13,7 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field, ValidationError, field_validator
 from .report import Report, RULES
-from . import ml_adapter
+from . import ml_adapter, remediation
 
 
 REPOSITORY_ROOT = Path(__file__).resolve().parents[2]
@@ -31,6 +31,27 @@ ALLOWED_FIXTURES = {
 class AnalyzeRequest(BaseModel):
     source: str = Field(min_length=1, max_length=1_000_000)
     fileName: str = Field(min_length=1, max_length=160)
+
+    @field_validator("source")
+    @classmethod
+    def source_must_not_be_blank(cls, value: str) -> str:
+        if not value.strip():
+            raise ValueError("source must contain Solidity code")
+        return value
+
+    @field_validator("fileName")
+    @classmethod
+    def valid_solidity_file_name(cls, value: str) -> str:
+        if Path(value).name != value or not re.fullmatch(r"[A-Za-z0-9_.-]+\.sol", value):
+            raise ValueError("fileName must be a simple .sol file name")
+        return value
+
+
+class RemediateRequest(BaseModel):
+    source: str = Field(min_length=1, max_length=1_000_000)
+    fileName: str = Field(min_length=1, max_length=160)
+    findingId: str | None = None
+    ruleId: str | None = None
 
     @field_validator("source")
     @classmethod
@@ -260,6 +281,51 @@ def ml_analyze(request: AnalyzeRequest) -> dict[str, Any]:
         raise
     except Exception as exc:
         raise _error(500, "ml_analysis_failed", str(exc))
+
+
+@app.post("/api/remediate")
+def remediate(request: RemediateRequest) -> dict[str, Any]:
+    try:
+        compiler_output = _compile_source(request.source, request.fileName)
+        initial_report = _run_analyzer(compiler_output, request.source, request.fileName)
+        findings = initial_report.get("findings", [])
+
+        if not findings:
+            return {
+                "status": "clean",
+                "message": "No findings detected; contract is already verified safe.",
+                "originalSource": request.source,
+                "patchedSource": request.source,
+                "diff": "",
+                "targetEliminated": False,
+                "reverified": True,
+            }
+
+        target_finding = None
+        if request.findingId:
+            target_finding = next((f for f in findings if f.get("id") == request.findingId), None)
+        elif request.ruleId:
+            target_finding = next((f for f in findings if f.get("ruleId") == request.ruleId), None)
+
+        if target_finding:
+            return remediation.remediate_finding(
+                request.source,
+                request.fileName,
+                target_finding,
+                _compile_source,
+                _run_analyzer,
+            )
+        else:
+            return remediation.remediate_contract(
+                request.source,
+                request.fileName,
+                _compile_source,
+                _run_analyzer,
+            )
+    except HTTPException:
+        raise
+    except Exception as exc:
+        raise _error(500, "remediation_failed", str(exc))
 
 
 @app.post("/api/analyze")

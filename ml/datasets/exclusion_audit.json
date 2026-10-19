@@ -28,15 +28,15 @@
   "phase1CorpusStatus": {
     "collection": "ml/corpus/sources/*.sol",
     "status": "provisionally-eligible",
-    "contracts": 24,
-    "families": 12,
-    "eligibleAnnotationRows": 96,
+    "contracts": 28,
+    "families": 14,
+    "eligibleAnnotationRows": 140,
     "limitations": [
-      "Purpose-written corpus — generalization to real-world production contracts is unverified.",
-      "Single reviewer — independent adjudication required before production release.",
-      "AST-only feature extractor — C++ IR/CFG parity required before production approval."
+      "Purpose-written corpus \u2014 generalization to real-world production contracts is unverified.",
+      "Single reviewer \u2014 independent adjudication required before production release.",
+      "AST-only feature extractor \u2014 C++ IR/CFG parity required before production approval."
     ]
   },
-  "eligibleRowsForCurrentCheckpoint": 96,
-  "reasonEligible": "Phase 1 corpus of 24 purpose-written contracts across 12 independent families, all compiled with pinned solc 0.8.20, annotated with reviewed binary labels, and partitioned without cross-family leakage."
+  "eligibleRowsForCurrentCheckpoint": 140,
+  "reasonEligible": "Phase 2 corpus of 28 purpose-written contracts across 14 independent families, all compiled with pinned solc 0.8.20, annotated with reviewed binary labels, and partitioned without cross-family leakage."
 }

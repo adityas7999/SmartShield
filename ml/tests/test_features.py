@@ -15,9 +15,9 @@ def test_feature_schema_matches_rules():
         assert len(FEATURES[rule]) == 8
 
 
-def test_extraction_on_all_24_compiled_contracts():
+def test_extraction_on_all_28_compiled_contracts():
     compiled_files = list(COMPILED_DIR.glob("*.json"))
-    assert len(compiled_files) == 24
+    assert len(compiled_files) == 28
 
     for path in compiled_files:
         ast_data = json.loads(path.read_text(encoding="utf-8"))

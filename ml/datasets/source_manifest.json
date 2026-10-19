@@ -25,22 +25,22 @@
     "path": "ml/corpus/sources",
     "provenancePath": "ml/corpus/provenance.json",
     "annotationsPath": "ml/corpus/annotations.json",
-    "contracts": 24,
-    "families": 12,
+    "contracts": 28,
+    "families": 14,
     "compiler": "0.8.20+commit.a1b79de6",
     "compilationStatus": "all_passed",
-    "annotationRows": 96,
+    "annotationRows": 140,
     "reviewStatus": "single-reviewer-initial",
     "mlUse": "guarded-training-phase1",
     "partitions": {
-      "train": 10,
-      "validation": 6,
+      "train": 12,
+      "validation": 8,
       "lockedTest": 8
     },
     "limitations": [
-      "Purpose-written corpus — not independently sourced from production deployments.",
-      "Single reviewer — independent adjudication not yet available.",
-      "AST-only feature extraction — C++ IR/CFG coupling required before production approval."
+      "Purpose-written corpus \u2014 not independently sourced from production deployments.",
+      "Single reviewer \u2014 independent adjudication not yet available.",
+      "AST-only feature extraction \u2014 C++ IR/CFG coupling required before production approval."
     ]
   },
   "collectionPolicy": {

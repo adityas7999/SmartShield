@@ -8,7 +8,7 @@ import json
 from pathlib import Path
 from typing import Any
 
-RULES = {"TXO-001", "REN-001", "ACC-001", "UEC-001"}
+RULES = {"TXO-001", "REN-001", "ACC-001", "UEC-001", "TMP-001"}
 LABELS = {"present", "absent", "unknown", "not_applicable", "unsupported"}
 PARTITIONS = {"train", "validation", "locked_test", "excluded", "research_only"}
 VALID_STATUSES = {"provisional", "phase1-active"}

@@ -29,7 +29,7 @@ except ImportError:
     extract = None
     FEATURES = {}
     FEATURE_SCHEMA_VERSION = "semantic-cfg-v1"
-    RULES = ("TXO-001", "REN-001", "ACC-001", "UEC-001")
+    RULES = ("TXO-001", "REN-001", "ACC-001", "UEC-001", "TMP-001")
     ML_DEPS_AVAILABLE = False
 
 logger = logging.getLogger(__name__)

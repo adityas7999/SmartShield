@@ -2,8 +2,8 @@
 from typing import Any, Literal
 from pydantic import BaseModel, ConfigDict, Field, model_validator
 
-RULES = ('TXO-001', 'REN-001', 'ACC-001', 'UEC-001')
-Rule = Literal['TXO-001', 'REN-001', 'ACC-001', 'UEC-001']
+RULES = ('TXO-001', 'REN-001', 'ACC-001', 'UEC-001', 'TMP-001')
+Rule = Literal['TXO-001', 'REN-001', 'ACC-001', 'UEC-001', 'TMP-001']
 
 class Strict(BaseModel):
     model_config = ConfigDict(extra='forbid')
@@ -66,7 +66,7 @@ class Report(Strict):
 
     @model_validator(mode='after')
     def consistency(self):
-        assert sorted(r.ruleId for r in self.ruleResults) == sorted(RULES), 'exactly four rule statuses required'
+        assert sorted(r.ruleId for r in self.ruleResults) == sorted(RULES), 'exactly five rule statuses required'
         assert len({f.id for f in self.findings}) == len(self.findings), 'duplicate finding IDs'
         assert self.summary.total == len(self.findings), 'total mismatch'
         assert self.summary.byRule == {r: sum(f.ruleId == r for f in self.findings) for r in RULES}, 'rule count mismatch'

@@ -9,15 +9,15 @@ COMPILED_DIR = ROOT / "ml" / "corpus" / "compiled"
 
 
 def test_feature_schema_matches_rules():
-    assert len(RULES) == 4
+    assert len(RULES) == 5
     for rule in RULES:
         assert rule in FEATURES
         assert len(FEATURES[rule]) == 8
 
 
-def test_extraction_on_all_24_compiled_contracts():
+def test_extraction_on_all_28_compiled_contracts():
     compiled_files = list(COMPILED_DIR.glob("*.json"))
-    assert len(compiled_files) == 24
+    assert len(compiled_files) == 28
 
     for path in compiled_files:
         ast_data = json.loads(path.read_text(encoding="utf-8"))
@@ -64,3 +64,16 @@ def test_semantic_discriminative_power():
     uec_vuln_ast = json.loads((COMPILED_DIR / "F04_LowLevelForwarder_uec_vuln.json").read_text(encoding="utf-8"))
     f_uec_vuln = extract(uec_vuln_ast.get("ast", uec_vuln_ast), "UEC-001")["features"]
     assert f_uec_vuln["unhandled_call_reaches_exit"] == 1
+
+    # TMP: test semantic feature extraction on timestamp contracts
+    from backend.app.main import _compile_source
+    tmp_vuln_src = (ROOT / "tests" / "contracts" / "vulnerable" / "TimestampLottery.sol").read_text(encoding="utf-8")
+    tmp_safe_src = (ROOT / "tests" / "contracts" / "benign" / "TimeLockVault.sol").read_text(encoding="utf-8")
+    tmp_vuln_ast = _compile_source(tmp_vuln_src, "TimestampLottery.sol")["sources"]["TimestampLottery.sol"]["ast"]
+    tmp_safe_ast = _compile_source(tmp_safe_src, "TimeLockVault.sol")["sources"]["TimeLockVault.sol"]["ast"]
+    f_tmp_vuln = extract(tmp_vuln_ast, "TMP-001")["features"]
+    f_tmp_safe = extract(tmp_safe_ast, "TMP-001")["features"]
+    assert f_tmp_vuln["timestamp_equality_guard"] == 1
+    assert f_tmp_vuln["timestamp_guards_state_change"] == 1
+    assert f_tmp_safe["timestamp_equality_guard"] == 0
+    assert f_tmp_safe["interval_comparison_present"] == 1

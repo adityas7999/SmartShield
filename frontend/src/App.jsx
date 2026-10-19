@@ -465,7 +465,7 @@ export default function App() {
           <h1>Inspect the contract. Follow the evidence.</h1>
           <p>
             Deterministic C++ control-flow graph verification coupled with supervised semantic machine learning.
-            Four bounded vulnerability rules with explicit coverage and zero false-assurance guarantees.
+            Five bounded vulnerability rules with explicit coverage and zero false-assurance guarantees.
           </p>
         </div>
 
@@ -556,7 +556,7 @@ export default function App() {
               {mode === "loading" ? "Running pipeline…" : "Analyze contract"}
             </button>
             <span className="pipeline-hint">
-              Pinned solc 0.8.20 → SmartShield IR & CFG → Four Rules + ML Classifier
+              Pinned solc 0.8.20 → SmartShield IR & CFG → Five Rules + ML Classifier
             </span>
           </div>
         </section>

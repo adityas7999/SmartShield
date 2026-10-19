@@ -182,6 +182,51 @@
           "brierScore": 0.0
         }
       }
+    },
+    "TMP-001": {
+      "ruleId": "TMP-001",
+      "selectedModel": "logistic_regression",
+      "featureSchemaVersion": "semantic-cfg-v1",
+      "featureNames": [
+        "has_timestamp_reference",
+        "timestamp_equality_guard",
+        "timestamp_modulo_arithmetic",
+        "timestamp_guards_state_change",
+        "interval_comparison_present",
+        "external_call_present",
+        "state_write_present",
+        "unsupported_feature"
+      ],
+      "validationMetrics": {
+        "accuracy": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "brierScore": 0.005
+      },
+      "allCandidateMetrics": {
+        "dummy": {
+          "accuracy": 0.8,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "brierScore": 0.2
+        },
+        "logistic_regression": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "brierScore": 0.005
+        },
+        "histogram_gradient_boosting": {
+          "accuracy": 0.9,
+          "precision": 1.0,
+          "recall": 0.8,
+          "f1": 0.88,
+          "brierScore": 0.08
+        }
+      }
     }
   }
 }

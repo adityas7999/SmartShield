@@ -352,6 +352,73 @@ def _extract_uec_features(contract_ast: dict[str, Any], functions: list[dict[str
     }
 
 
+def _extract_tmp_features(contract_ast: dict[str, Any], functions: list[dict[str, Any]]) -> dict[str, Any]:
+    has_timestamp_reference = 0
+    timestamp_equality_guard = 0
+    timestamp_modulo_arithmetic = 0
+    timestamp_guards_state_change = 0
+    interval_comparison_present = 0
+    external_call_present = 0
+    state_write_present = 0
+    unsupported_feature = 0
+
+    for func in functions:
+        nodes = list(_walk(func))
+        f_has_equality = False
+        f_has_state_write = False
+        f_has_external_call = False
+
+        for node in nodes:
+            t = node.get("nodeType", "")
+            if t in ("ForStatement", "WhileStatement", "DoWhileStatement", "InlineAssembly"):
+                unsupported_feature = 1
+
+            if t == "MemberAccess" and node.get("memberName") == "timestamp":
+                expr = node.get("expression", {})
+                if expr.get("name") == "block":
+                    has_timestamp_reference = 1
+            elif t == "Identifier" and node.get("name") == "now":
+                has_timestamp_reference = 1
+
+            if t == "BinaryOperation":
+                op = node.get("operator", "")
+                text = json.dumps(node)
+                has_ts = ("timestamp" in text) or ('"name": "now"' in text)
+
+                if op in ("==", "!=") and has_ts:
+                    timestamp_equality_guard = 1
+                    f_has_equality = True
+                elif op in (">=", "<=", ">", "<") and has_ts:
+                    interval_comparison_present = 1
+                elif op == "%" and has_ts:
+                    timestamp_modulo_arithmetic = 1
+
+            if t == "Assignment":
+                f_has_state_write = True
+                state_write_present = 1
+            elif t == "UnaryOperation" and node.get("operator") in ("++", "--"):
+                f_has_state_write = True
+                state_write_present = 1
+
+            if t == "MemberAccess" and node.get("memberName") in ("call", "transfer", "send"):
+                f_has_external_call = True
+                external_call_present = 1
+
+        if f_has_equality and (f_has_state_write or f_has_external_call):
+            timestamp_guards_state_change = 1
+
+    return {
+        "has_timestamp_reference": has_timestamp_reference,
+        "timestamp_equality_guard": timestamp_equality_guard,
+        "timestamp_modulo_arithmetic": timestamp_modulo_arithmetic,
+        "timestamp_guards_state_change": timestamp_guards_state_change,
+        "interval_comparison_present": interval_comparison_present,
+        "external_call_present": external_call_present,
+        "state_write_present": state_write_present,
+        "unsupported_feature": unsupported_feature,
+    }
+
+
 def extract(ast: dict[str, Any], rule_id: str) -> dict[str, Any]:
     """Extract rule-specific semantic features from a solc AST."""
     if rule_id not in FEATURES:
@@ -371,6 +438,8 @@ def extract(ast: dict[str, Any], rule_id: str) -> dict[str, Any]:
         feature_vals = _extract_acc_features(contract_ast, functions)
     elif rule_id == "UEC-001":
         feature_vals = _extract_uec_features(contract_ast, functions)
+    elif rule_id == "TMP-001":
+        feature_vals = _extract_tmp_features(contract_ast, functions)
     else:
         feature_vals = {name: 0 for name in FEATURES[rule_id]}
 

@@ -37,7 +37,8 @@
             "TXO-001",
             "REN-001",
             "ACC-001",
-            "UEC-001"
+            "UEC-001",
+            "TMP-001"
           ],
           "title": "Ruleid",
           "type": "string"
@@ -124,7 +125,8 @@
             "TXO-001",
             "REN-001",
             "ACC-001",
-            "UEC-001"
+            "UEC-001",
+            "TMP-001"
           ],
           "title": "Ruleid",
           "type": "string"
@@ -257,7 +259,8 @@
               "TXO-001",
               "REN-001",
               "ACC-001",
-              "UEC-001"
+              "UEC-001",
+              "TMP-001"
             ]
           },
           "title": "Byrule",

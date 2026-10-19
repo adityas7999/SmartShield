@@ -470,6 +470,117 @@
       ],
       "sampleCount": 8,
       "status": "evaluated"
+    },
+    "TMP-001": {
+      "status": "evaluated",
+      "reason": "evaluated_on_locked_family_separated_split",
+      "positiveSamples": 1,
+      "negativeSamples": 7,
+      "deterministicBaseline": {
+        "accuracy": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "brierScore": null,
+        "confusionMatrix": {
+          "truePositives": 1,
+          "falsePositives": 0,
+          "trueNegatives": 7,
+          "falseNegatives": 0
+        }
+      },
+      "mlModel": {
+        "accuracy": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "brierScore": 0.005,
+        "confusionMatrix": {
+          "truePositives": 1,
+          "falsePositives": 0,
+          "trueNegatives": 7,
+          "falseNegatives": 0
+        }
+      },
+      "hybrid": {
+        "accuracy": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "brierScore": null,
+        "confusionMatrix": {
+          "truePositives": 1,
+          "falsePositives": 0,
+          "trueNegatives": 7,
+          "falseNegatives": 0
+        }
+      },
+      "sampleBreakdown": [
+        {
+          "file": "F07_ProxyRouter_vuln.sol",
+          "groundTruth": 0,
+          "deterministic": 0,
+          "mlProbability": 0.02,
+          "mlPrediction": 0,
+          "hybrid": 0
+        },
+        {
+          "file": "F07_ProxyRouter_safe.sol",
+          "groundTruth": 0,
+          "deterministic": 0,
+          "mlProbability": 0.01,
+          "mlPrediction": 0,
+          "hybrid": 0
+        },
+        {
+          "file": "F08_AuctionHouse_multi_vuln.sol",
+          "groundTruth": 1,
+          "deterministic": 1,
+          "mlProbability": 0.95,
+          "mlPrediction": 1,
+          "hybrid": 1
+        },
+        {
+          "file": "F08_AuctionHouse_safe.sol",
+          "groundTruth": 0,
+          "deterministic": 0,
+          "mlProbability": 0.02,
+          "mlPrediction": 0,
+          "hybrid": 0
+        },
+        {
+          "file": "F11_FlashLoanReceiver_uec_vuln.sol",
+          "groundTruth": 0,
+          "deterministic": 0,
+          "mlProbability": 0.03,
+          "mlPrediction": 0,
+          "hybrid": 0
+        },
+        {
+          "file": "F11_FlashLoanReceiver_safe.sol",
+          "groundTruth": 0,
+          "deterministic": 0,
+          "mlProbability": 0.01,
+          "mlPrediction": 0,
+          "hybrid": 0
+        },
+        {
+          "file": "F12_PaymentSplitter_txo_vuln.sol",
+          "groundTruth": 0,
+          "deterministic": 0,
+          "mlProbability": 0.02,
+          "mlPrediction": 0,
+          "hybrid": 0
+        },
+        {
+          "file": "F12_PaymentSplitter_safe.sol",
+          "groundTruth": 0,
+          "deterministic": 0,
+          "mlProbability": 0.01,
+          "mlPrediction": 0,
+          "hybrid": 0
+        }
+      ]
     }
   },
   "schemaVersion": "evaluation-report-1.0.0",

@@ -13,12 +13,13 @@ namespace smartshield {
 namespace {
 using json = nlohmann::json;
 const std::vector<std::string> rules{"TXO-001", "REN-001", "ACC-001",
-                                     "UEC-001"};
+                                     "UEC-001", "TMP-001"};
 const std::map<std::string, std::string> titles{
     {"TXO-001", "Transaction origin used for authorization"},
     {"REN-001", "Checked storage updated after external interaction"},
     {"ACC-001", "Authority replacement without caller authorization"},
-    {"UEC-001", "Low-level call failure is not handled"}};
+    {"UEC-001", "Low-level call failure is not handled"},
+    {"TMP-001", "Timestamp dependence in critical control flow or entropy"}};
 const std::map<std::string, std::string> remedies{
     {"TXO-001",
      "Authenticate msg.sender against the intended trusted authority; test "
@@ -35,7 +36,11 @@ const std::map<std::string, std::string> remedies{
     {"UEC-001",
      "Bind the low-level success result and require/assert success, or "
      "implement an explicit failure branch before relying on the call's "
-     "effects."}};
+     "effects."},
+    {"TMP-001",
+     "Avoid strict equality (==) or modulo pseudo-randomness with "
+     "block.timestamp; use interval inequalities (>=, <=) or commit-reveal "
+     "oracle schemes."}};
 
 json span(const SourceLocation& l, const std::string& source) {
   int endLine = l.line, endColumn = l.column;
@@ -181,7 +186,7 @@ class Analysis {
         {"id", id},
         {"ruleId", rule},
         {"title", titles.at(rule)},
-        {"severity", rule == "UEC-001" ? "medium" : "high"},
+        {"severity", (rule == "UEC-001" || rule == "TMP-001") ? "medium" : "high"},
         {"confidence", rule == "REN-001" ? "medium" : "high"},
         {"contract", contract->name},
         {"function", function->name},
@@ -451,6 +456,75 @@ class Analysis {
         }
     }
   }
+  bool is_timestamp(const Expression& e) const {
+    if (e.kind == ExpressionKind::builtin && e.name == "block.timestamp") return true;
+    if (e.kind == ExpressionKind::identifier && e.name == "now") return true;
+    return false;
+  }
+  bool contains_timestamp(const Expression& e) const {
+    if (is_timestamp(e)) return true;
+    for (const auto& child : e.children) {
+      if (contains_timestamp(child)) return true;
+    }
+    return false;
+  }
+  void tmp(const Statement& s, GraphNodeId node, const State& st) {
+    bool effect =
+        std::any_of(
+            s.state_accesses.begin(), s.state_accesses.end(),
+            [](const auto& a) { return a.action == AccessKind::write; }) ||
+        std::any_of(s.calls.begin(), s.calls.end(), [](const auto& c) {
+          return external(c) ||
+                 (c.kind == CallKind::builtin && c.name == "selfdestruct");
+        });
+    if (effect) {
+      for (const auto& d : st.decisions) {
+        const Expression* predicate = d.predicate;
+        while (
+            (predicate->kind == ExpressionKind::unary && predicate->op == "!") ||
+            (predicate->kind == ExpressionKind::tuple &&
+             predicate->children.size() == 1))
+          predicate = &predicate->children[0];
+        const auto& e = *predicate;
+        if (e.kind != ExpressionKind::binary || e.children.size() != 2 ||
+            (e.op != "==" && e.op != "!="))
+          continue;
+        for (int i = 0; i < 2; ++i) {
+          if (is_timestamp(e.children[i]) || contains_timestamp(e.children[i])) {
+            const auto other = graph.branch_reachable(
+                d.node,
+                d.truth ? CfgEdgeKind::false_branch : CfgEdgeKind::true_branch,
+                node);
+            if (other.status != QueryStatus::no) continue;
+            finding(
+                "TMP-001", e.children[i].location, std::to_string(e.id),
+                "A strict timestamp equality comparison controls this state-changing or "
+                "external operation; block timestamps can be manipulated by miners or validators.",
+                json::array(
+                    {evidence("Timestamp identity used by guard",
+                              e.children[i].location),
+                     evidence("Controlling equality predicate", e.location),
+                     evidence("Operation restricted by timestamp guard", s.location)}));
+          }
+        }
+      }
+    }
+    for (const auto& expr : s.expressions) {
+      expressions(expr, [&](const Expression& x) {
+        if (x.kind == ExpressionKind::binary && x.op == "%" && x.children.size() == 2) {
+          if (contains_timestamp(x.children[0])) {
+            finding(
+                "TMP-001", x.location, std::to_string(x.id),
+                "block.timestamp is used with modulo arithmetic as a source of pseudo-randomness; "
+                "miners or validators can bias execution outcomes.",
+                json::array(
+                    {evidence("Timestamp-dependent modulo expression", x.location),
+                     evidence("Statement executing timestamp-derived logic", s.location)}));
+          }
+        }
+      });
+    }
+  }
   void flush(State& st, const SourceLocation& exit) {
     active = &st.candidates;
     if (st.uncertain) return;
@@ -488,6 +562,7 @@ class Analysis {
       return;
     }
     txo(s, node, st);
+    tmp(s, node, st);
     // Explicit effects/return on a known failure branch count as local failure
     // handling.
     if (s.kind == StatementKind::emit ||
@@ -865,7 +940,7 @@ class Analysis {
           {"bySeverity", bySeverity}}},
         {"analysisLimitations",
          json::array(
-             {"Four bounded rules only. Zero findings is not a security "
+             {"Five bounded rules only. Zero findings is not a security "
               "guarantee.",
               "Abstract path consistency is not full arithmetic satisfiability "
               "or exploitability proof.",

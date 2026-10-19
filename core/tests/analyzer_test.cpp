@@ -95,7 +95,7 @@ int main() {
     expect(parsed["status"] == "partial", "untyped input must be partial");
     expect(parsed["findings"].empty(),
            "untyped input must not establish findings");
-    expect(parsed["ruleResults"].size() == 4, "all four rules need coverage");
+    expect(parsed["ruleResults"].size() == 5, "all five rules need coverage");
     for (const auto& rule : parsed["ruleResults"]) {
       expect(rule["status"] == "unsupported",
              "untyped input must be unsupported");

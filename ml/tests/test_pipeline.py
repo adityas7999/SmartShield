@@ -31,8 +31,8 @@ def test_split_has_no_family_leakage():
     assert len(train_set & test_set) == 0
     assert len(val_set & test_set) == 0
 
-    # Verify all 24 corpus contracts are covered
-    assert len(train_set | val_set | test_set) == 24
+    # Verify all 28 corpus contracts are covered
+    assert len(train_set | val_set | test_set) == 28
 
 
 def test_phase1_annotations_are_valid():
@@ -40,6 +40,6 @@ def test_phase1_annotations_are_valid():
     assert annotations_path.exists()
     ann_data = json.loads(annotations_path.read_text(encoding="utf-8"))
     rows = ann_data.get("rows", [])
-    assert len(rows) == 96
+    assert len(rows) == 140
     errors = validate_annotations(rows)
     assert errors == []

@@ -170,6 +170,50 @@ def patch_access_control(source: str, finding: dict[str, Any]) -> tuple[str, str
     return source, "No patch generated: target administrative function could not be located."
 
 
+def patch_timestamp_dependency(source: str, finding: dict[str, Any]) -> tuple[str, str]:
+    """Rule TMP-001: Replace strict equality (==) with interval inequality (>=),
+    or replace insecure timestamp modulo pseudo-randomness.
+    """
+    lines = source.splitlines(keepends=True)
+    primary_span = finding.get("primarySpan", {})
+    target_line = primary_span.get("line")
+
+    if target_line and 1 <= target_line <= len(lines):
+        idx = target_line - 1
+        line = lines[idx]
+
+        # Case 1: Strict equality guard (block.timestamp == deadline or now == deadline)
+        if ("block.timestamp" in line or "now" in line) and "==" in line:
+            lines[idx] = re.sub(r"==\s*", ">= ", line, count=1)
+            explanation = "Replaced strict timestamp equality (==) with interval inequality (>=) to prevent miner timestamp manipulation."
+            return "".join(lines), explanation
+
+        # Case 2: Strict inequality (!=)
+        if ("block.timestamp" in line or "now" in line) and "!=" in line:
+            lines[idx] = re.sub(r"!=\s*", "< ", line, count=1)
+            explanation = "Replaced strict timestamp inequality (!=) with interval comparison (<) to prevent miner timestamp manipulation."
+            return "".join(lines), explanation
+
+        # Case 3: Modulo pseudo-randomness with block.timestamp
+        if ("block.timestamp" in line or "now" in line) and "%" in line:
+            lines[idx] = re.sub(
+                r"\b(block\.timestamp|now)\s*%",
+                r"uint256(keccak256(abi.encodePacked(blockhash(block.number - 1), msg.sender))) %",
+                line,
+                count=1,
+            )
+            explanation = "Replaced predictable block.timestamp modulo pseudo-randomness with a blockhash commit entropy scheme."
+            return "".join(lines), explanation
+
+    # Fallback: scan for any strict timestamp equality in file
+    m = re.search(r"((?:block\.timestamp|now)\s*)==(\s*\w+)", source)
+    if m:
+        patched = source[:m.start()] + m.group(1) + ">=" + m.group(2) + source[m.end():]
+        return patched, "Replaced strict timestamp equality (==) with interval inequality (>=)."
+
+    return source, "No patch generated: timestamp pattern not recognized."
+
+
 def generate_patch(source: str, finding: dict[str, Any]) -> tuple[str, str]:
     """Route to rule-specific patch generator."""
     rule_id = finding.get("ruleId")
@@ -181,6 +225,8 @@ def generate_patch(source: str, finding: dict[str, Any]) -> tuple[str, str]:
         return patch_reentrancy(source, finding)
     elif rule_id == "ACC-001":
         return patch_access_control(source, finding)
+    elif rule_id == "TMP-001":
+        return patch_timestamp_dependency(source, finding)
     return source, f"No patch generator implemented for rule {rule_id}."
 
 

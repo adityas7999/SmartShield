@@ -168,6 +168,34 @@
       "status": "compiled",
       "compiler": "0.8.20+commit.a1b79de6",
       "astPath": "ml/corpus/compiled/F12_PaymentSplitter_txo_vuln.json"
+    },
+    {
+      "file": "F13_TimeLockLottery_safe.sol",
+      "sha256": "0098f9bcb81f39971c667c81fe76231e26ebc88ac3d313e2f8277a06ec32b53d",
+      "status": "compiled",
+      "compiler": "0.8.20+commit.a1b79de6",
+      "astPath": "ml/corpus/compiled/F13_TimeLockLottery_safe.json"
+    },
+    {
+      "file": "F13_TimeLockLottery_tmp_vuln.sol",
+      "sha256": "fefc99bc92d6888e7abff2c2bd6954f732d9fc858f88bd9d94bdaf4edf62e424",
+      "status": "compiled",
+      "compiler": "0.8.20+commit.a1b79de6",
+      "astPath": "ml/corpus/compiled/F13_TimeLockLottery_tmp_vuln.json"
+    },
+    {
+      "file": "F14_RouletteEntropy_safe.sol",
+      "sha256": "57dd4f7323b44a571866392fbf3684698cde91e44114c981ddec7279c63c6ecf",
+      "status": "compiled",
+      "compiler": "0.8.20+commit.a1b79de6",
+      "astPath": "ml/corpus/compiled/F14_RouletteEntropy_safe.json"
+    },
+    {
+      "file": "F14_RouletteEntropy_tmp_vuln.sol",
+      "sha256": "39d38a353b53bf8fa8f3fa3995211cb4bf021d8761dd58a612f3603f851143c4",
+      "status": "compiled",
+      "compiler": "0.8.20+commit.a1b79de6",
+      "astPath": "ml/corpus/compiled/F14_RouletteEntropy_tmp_vuln.json"
     }
   ]
 }

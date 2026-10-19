@@ -5,24 +5,28 @@
   "seed": 20261017,
   "strategy": "family-aware",
   "train": [
-    "F01_SimpleWallet_txo_vuln.sol",
     "F01_SimpleWallet_safe.sol",
+    "F01_SimpleWallet_txo_vuln.sol",
     "F02_EscrowVault_ren_vuln.sol",
     "F02_EscrowVault_safe.sol",
-    "F04_LowLevelForwarder_uec_vuln.sol",
     "F04_LowLevelDelegateForwarder_uec_high.sol",
+    "F04_LowLevelForwarder_uec_vuln.sol",
     "F09_StakingPool_ren_vuln.sol",
     "F09_StakingPool_safe.sol",
     "F10_GovernanceAdmin_acc_vuln.sol",
-    "F10_GovernanceAdmin_safe.sol"
+    "F10_GovernanceAdmin_safe.sol",
+    "F13_TimeLockLottery_safe.sol",
+    "F13_TimeLockLottery_tmp_vuln.sol"
   ],
   "validation": [
     "F03_OwnerRegistry_acc_vuln.sol",
     "F03_OwnerRegistry_safe.sol",
     "F05_MultiSigTreasury_safe.sol",
     "F05_MultiSigTreasury_txo_vuln.sol",
+    "F06_TokenVesting_ren_vuln.sol",
     "F06_TokenVesting_safe.sol",
-    "F06_TokenVesting_ren_vuln.sol"
+    "F14_RouletteEntropy_safe.sol",
+    "F14_RouletteEntropy_tmp_vuln.sol"
   ],
   "lockedTest": [
     "F07_ProxyRouter_vuln.sol",
@@ -36,5 +40,5 @@
   ],
   "acceptanceFixturesInLockedTest": false,
   "lockedTestReady": true,
-  "reason": "Phase 1 corpus: 24 contracts across 12 independent families. F01,F02,F04,F09,F10 in train (10 contracts); F03,F05,F06 in validation (6 contracts); F07,F08,F11,F12 in locked_test (8 contracts). Every partition contains positive and negative examples for every rule. Zero family leakage."
+  "reason": "Phase 2 corpus: 28 contracts across 14 independent families (F01-F14). F01,F02,F04,F09,F10,F13 in train (12 contracts); F03,F05,F06,F14 in validation (8 contracts); F07,F08,F11,F12 in locked_test (8 contracts). Zero family leakage."
 }

@@ -103,7 +103,7 @@ def test_clean_contract_remediation():
 
 
 def test_timestamp_dependency_remediation():
-    path = ROOT / "tests" / "contracts" / "vulnerable" / "TimestampLottery.sol"
+    path = ROOT / "tests" / "fixtures" / "vulnerable" / "TimestampLottery.sol"
     source = path.read_text(encoding="utf-8")
     response = client.post(
         "/api/remediate",

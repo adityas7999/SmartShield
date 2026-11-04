@@ -37,7 +37,7 @@ def test_original_txo_regressions(path, count):
 
 @pytest.mark.parametrize('path,count', [('vulnerable/TimestampLottery.sol', 1), ('benign/TimeLockVault.sol', 0)])
 def test_tmp001_regressions(path, count):
-    response = request_file('tests/contracts/' + path)
+    response = request_file('tests/fixtures/' + path)
     assert response.status_code == 200, response.text
     findings = [f for f in response.json()['findings'] if f['ruleId'] == 'TMP-001']
     assert len(findings) == count

@@ -67,8 +67,8 @@ def test_semantic_discriminative_power():
 
     # TMP: test semantic feature extraction on timestamp contracts
     from backend.app.main import _compile_source
-    tmp_vuln_src = (ROOT / "tests" / "contracts" / "vulnerable" / "TimestampLottery.sol").read_text(encoding="utf-8")
-    tmp_safe_src = (ROOT / "tests" / "contracts" / "benign" / "TimeLockVault.sol").read_text(encoding="utf-8")
+    tmp_vuln_src = (ROOT / "tests" / "fixtures" / "vulnerable" / "TimestampLottery.sol").read_text(encoding="utf-8")
+    tmp_safe_src = (ROOT / "tests" / "fixtures" / "benign" / "TimeLockVault.sol").read_text(encoding="utf-8")
     tmp_vuln_ast = _compile_source(tmp_vuln_src, "TimestampLottery.sol")["sources"]["TimestampLottery.sol"]["ast"]
     tmp_safe_ast = _compile_source(tmp_safe_src, "TimeLockVault.sol")["sources"]["TimeLockVault.sol"]["ast"]
     f_tmp_vuln = extract(tmp_vuln_ast, "TMP-001")["features"]
